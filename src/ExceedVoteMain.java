@@ -1,4 +1,3 @@
-
 /**
  * eXceed Vote Main Class
  * 
@@ -11,7 +10,7 @@ public class ExceedVoteMain {
 	 */
 	public static void main(String[] args) {
 		System.out.println("Welcome to eXceed Vote Program");
-		System.out.println("-----------------");
+		System.out.println("==============================");
 		System.out.println("Test 1");
 		System.out.println("Test 2");
 		System.out.println("Test 3");
@@ -22,4 +21,3 @@ public class ExceedVoteMain {
 	}
 
 }
-
