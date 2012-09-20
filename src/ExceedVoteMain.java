@@ -22,5 +22,6 @@ public class ExceedVoteMain {
 		System.out.println("Test 9");
 		System.out.println("Test 999");
 		System.out.println("Test 10");
+		System.out.println("TESTTTT 1000");
 	}
 }
