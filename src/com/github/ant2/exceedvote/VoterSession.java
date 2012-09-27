@@ -31,6 +31,7 @@ public class VoterSession {
 	}
 
 	public List<Project> getProjects() {
+		// XXX : this is just a test data
 		List<Project> list = new ArrayList<Project>();
 		list.add(new Project("Physics Works", "I am the best project!"));
 		list.add(new Project("Nyan Cat Extreme", "Nyanyanyanyanyanayanyaynany!!"));
@@ -41,6 +42,7 @@ public class VoterSession {
 	}
 
 	public List<Criterion> getCriteria() {
+		// XXX : this is just a test data
 		List<Criterion> list = new ArrayList<Criterion>();
 		list.add(new Criterion("Maximum Bug"));
 		list.add(new Criterion("Best OOP"));
