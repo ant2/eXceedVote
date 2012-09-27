@@ -32,7 +32,9 @@ public class BallotBox {
 
 	/**
 	 * Gets the list of ballots.
-	 * @param v 
+	 * 
+	 * @param v
+	 *            the voter
 	 * 
 	 * @return list of ballots
 	 */
