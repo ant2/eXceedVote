@@ -3,7 +3,7 @@ package com.github.ant2.exceedvote;
 /**
  * The Voter that represents a person that can vote.
  * 
- * @author Thiwat Rongsirigul
+ * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class Voter {
 	/** Profile for identity who is this voter */
