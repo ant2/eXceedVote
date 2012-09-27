@@ -34,7 +34,8 @@ public class Voter {
 	 *         this Voter
 	 */
 	public int getAllowedBallots() {
-		return 5;
+		// XXX hard code
+		return 3;
 	}
 
 	/**

@@ -39,7 +39,11 @@ public class BallotBox {
 	 * @return list of ballots
 	 */
 	public List<Ballot> getVoterBallots(Voter v) {
-		return list;
+		List<Ballot> resultList = new ArrayList<Ballot>();
+		for (Ballot ballot : list) {
+			if (ballot.getVoter() == v) resultList.add(ballot);
+		}
+		return resultList;
 	}
 
 	/**
