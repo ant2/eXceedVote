@@ -53,6 +53,12 @@ public class ExceedVoteMain {
 		// use that information to create a ballot
 		Ballot b = new Ballot(v, selectedProject, selectedCriteria);
 		session.submit(b);
+		
+		// display the ballots
+		System.out.println("Used Ballots:");
+		for (Ballot ballot : session.getBallotBox().getVoterBallots(v)) {
+			System.out.println("- " + ballot);
+		}
 
 	}
 
