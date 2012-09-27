@@ -4,10 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * Unit test for Ballot class.
+ * 
+ * @author dtinth
+ */
 public class BallotTest {
 
 	private Voter voter = new Voter();
-	private Project project = new Project("Test Project", "This is a test project.");
+	private Project project = new Project("Test Project",
+			"This is a test project.");
 	private Criterion criterion = new Criterion("Exceed");
 	private Ballot ballot = new Ballot(voter, project, criterion);
 
@@ -15,7 +21,7 @@ public class BallotTest {
 	public void testGetVoter() {
 		assertSame(ballot.getVoter(), voter);
 	}
-	
+
 	@Test
 	public void testGetProject() {
 		assertSame(ballot.getProject(), project);
@@ -25,7 +31,7 @@ public class BallotTest {
 	public void testGetCriterion() {
 		assertSame(ballot.getCriterion(), criterion);
 	}
-	
+
 	// TODO test set methods
-	
+
 }
