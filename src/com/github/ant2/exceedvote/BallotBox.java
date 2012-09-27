@@ -14,16 +14,17 @@ public class BallotBox {
 	private List<Ballot> list;
 
 	/**
-	 * Constructs a list of ballots.
+	 * Constructs the BallotBox. Initializes the list of ballots.
 	 */
 	public BallotBox() {
 		list = new ArrayList<Ballot>();
 	}
 
 	/**
-	 * Adds ballot into the list.
+	 * Adds a ballot into this list.
 	 * 
-	 * @param ballot that added
+	 * @param ballot
+	 *            the ballot to be added
 	 */
 	public void add(Ballot ballot) {
 		list.add(ballot);
@@ -31,10 +32,11 @@ public class BallotBox {
 
 	/**
 	 * Gets the list of ballots.
+	 * @param v 
 	 * 
 	 * @return list of ballots
 	 */
-	public List<Ballot> getVoterBallots() {
+	public List<Ballot> getVoterBallots(Voter v) {
 		return list;
 	}
 

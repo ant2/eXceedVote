@@ -36,13 +36,23 @@ public class ExceedVoteMain {
 		List<Project> projects = session.getProjects();
 		List<Criterion> criteria = session.getCriteria();
 		
+		System.out.println("Projects:");
 		for (Project project : projects) {
-			System.out.println(project);
+			System.out.println("- " + project);
 		}
 		
+		System.out.println("Criteria:");
 		for (Criterion criterion : criteria) {
-			System.out.println(criterion);
+			System.out.println("- " + criterion);
 		}
+		
+		// user selects a project
+		Project selectedProject = projects.get(0);
+		Criterion selectedCriteria = criteria.get(0);
+		
+		// use that information to create a ballot
+		Ballot b = session.createBallot(v, selectedProject, selectedCriteria);
+		session.submit(b);
 		
 	}
 	
