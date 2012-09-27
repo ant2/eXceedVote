@@ -1,4 +1,8 @@
 package com.github.ant2.exceedvote;
+
+import java.util.List;
+
+
 /**
  * eXceed Vote Main Class
  * 
@@ -14,7 +18,32 @@ public class ExceedVoteMain {
 	}
 
 	private static void test() {
+		
+		Voter v = new Voter();
+		VoterSession session = new VoterSession();
+		
+		int allowedBallots = v.getAllowedBallots();
+		System.out.println("Allowed ballots " + allowedBallots);
+		
+		VoterProfile profile = v.getProfile();
+		BallotBox box = session.getBallotBox();
+		
+		System.out.println("Hello, " + profile);
+		
+		int remainingTime = session.getRemainingTime();
+		System.out.printf("We have %d : %d left\n", remainingTime / 60, remainingTime % 60);
+		
+		List<Project> projects = session.getProjects();
+		List<Criterion> criteria = session.getCriteria();
+		
+		for (Project project : projects) {
+			System.out.println(project);
+		}
+		
+		for (Criterion criterion : criteria) {
+			System.out.println(criterion);
+		}
+		
 	}
-	
 	
 }
