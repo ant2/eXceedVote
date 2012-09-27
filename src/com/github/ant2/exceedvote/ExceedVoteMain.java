@@ -1,3 +1,4 @@
+package com.github.ant2.exceedvote;
 /**
  * eXceed Vote Main Class
  * 
