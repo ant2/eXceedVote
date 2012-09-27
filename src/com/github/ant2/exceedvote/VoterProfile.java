@@ -2,7 +2,7 @@ package com.github.ant2.exceedvote;
 
 /**
  * The VoterProfile describes the Voter.
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class VoterProfile {

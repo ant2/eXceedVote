@@ -46,17 +46,17 @@ public class ExceedVoteMain {
 			System.out.println("- " + criterion);
 		}
 
-		for (int i = 0; i < 5; i ++) {
+		for (int i = 0; i < 5; i++) {
 			// user selects a project
 			Project selectedProject = projects.get(i);
 			Criterion selectedCriteria = criteria.get(i / 2);
-	
+
 			// use that information to create a ballot
 			Ballot b = new Ballot(v, selectedProject, selectedCriteria);
 			session.submit(b);
-			
+
 		}
-		
+
 		// display the ballots
 		System.out.println("Used Ballots:");
 		for (Ballot ballot : session.getBallotBox().getVoterBallots(v)) {

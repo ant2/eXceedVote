@@ -41,7 +41,9 @@ public class BallotBox {
 	public List<Ballot> getVoterBallots(Voter v) {
 		List<Ballot> resultList = new ArrayList<Ballot>();
 		for (Ballot ballot : list) {
-			if (ballot.getVoter() == v) resultList.add(ballot);
+			if (ballot.getVoter() == v) {
+				resultList.add(ballot);
+			}
 		}
 		return resultList;
 	}

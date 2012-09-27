@@ -8,16 +8,16 @@ package com.github.ant2.exceedvote;
 public class Criterion {
 	/** criterion name */
 	private String name;
-	
+
 	/**
 	 * Constructs a criterion with name.
 	 * 
 	 * @param name
 	 */
-	public Criterion(String name) { 
-		this.name = name; 
+	public Criterion(String name) {
+		this.name = name;
 	}
-	
+
 	/**
 	 * Returns criterion name.
 	 * 
@@ -26,7 +26,7 @@ public class Criterion {
 	public String getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Sets criterion name.
 	 * 
@@ -35,7 +35,7 @@ public class Criterion {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
 	public String toString() {
 		return name;

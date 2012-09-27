@@ -23,10 +23,10 @@ public class Ballot {
 	 * @param criteria
 	 *            the criteria that this Ballot voted for
 	 */
-	public Ballot(Voter voter, Project project, Criterion criteria) {
+	public Ballot(Voter voter, Project project, Criterion criterion) {
 		votedAt = Calendar.getInstance();
 		this.voter = voter;
-		this.criterion = criteria;
+		this.criterion = criterion;
 		this.project = project;
 	}
 
