@@ -39,6 +39,22 @@ public class Ballot {
 		return voter;
 	}
 
+	public Criterion getCriterion() {
+		return criterion;
+	}
+
+	public void setCriterion(Criterion criterion) {
+		this.criterion = criterion;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
 	@Override
 	public String toString() {
 		return "Ballot [voter=" + voter + ", project=" + project
