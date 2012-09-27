@@ -51,7 +51,7 @@ public class ExceedVoteMain {
 		Criterion selectedCriteria = criteria.get(0);
 		
 		// use that information to create a ballot
-		Ballot b = session.createBallot(v, selectedProject, selectedCriteria);
+		Ballot b = new Ballot(v, selectedProject, selectedCriteria);
 		session.submit(b);
 		
 	}

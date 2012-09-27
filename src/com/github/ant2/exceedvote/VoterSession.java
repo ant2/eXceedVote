@@ -78,12 +78,12 @@ public class VoterSession {
 		return list;
 	}
 
-	public Ballot createBallot(Voter v, Project selectedProject,
-			Criterion selectedCriteria) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	/**
+	 * Submits the vote.
+	 * 
+	 * @param b
+	 *            the ballot to submit
+	 */
 	public void submit(Ballot b) {
 		Rules rules = new Rules();
 		if (rules.isAcceptable(b, this)) {
