@@ -26,4 +26,6 @@ public class BallotTest {
 		assertSame(ballot.getCriterion(), criterion);
 	}
 	
+	// TODO test set methods
+	
 }
