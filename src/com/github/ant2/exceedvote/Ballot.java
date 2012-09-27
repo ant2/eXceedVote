@@ -4,28 +4,30 @@ import java.util.Calendar;
 
 /**
  * The Ballot vote for the specific project on a specific criterion.
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class Ballot {
 	private Calendar votedAt;
 	private Voter voter;
 	private Criterion criterion;
+	private Project project;
 
 	/**
 	 * Constructs the Ballot with the specific criteria and for the Voter.
 	 * 
-	 * @param v
+	 * @param voter
 	 *            the owner of this Ballot
-	 * @param selectedProject
+	 * @param project
 	 *            the project that this Ballot voted for
-	 * @param selectedCriteria
+	 * @param criteria
 	 *            the criteria that this Ballot voted for
 	 */
-	public Ballot(Voter v, Project selectedProject, Criterion selectedCriteria) {
+	public Ballot(Voter voter, Project project, Criterion criteria) {
 		votedAt = Calendar.getInstance();
-		this.voter = v;
-		this.criterion = selectedCriteria;
+		this.voter = voter;
+		this.criterion = criteria;
+		this.project = project;
 	}
 
 	/**
@@ -35,5 +37,11 @@ public class Ballot {
 	 */
 	public Voter getVoter() {
 		return voter;
+	}
+
+	@Override
+	public String toString() {
+		return "Ballot [voter=" + voter + ", project=" + project
+				+ ", criterion=" + criterion + "]";
 	}
 }

@@ -46,4 +46,8 @@ public class Voter {
 		return profile;
 	}
 
+	@Override
+	public String toString() {
+		return "Voter [profile=" + profile + "]";
+	}
 }
