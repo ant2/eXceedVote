@@ -9,6 +9,8 @@ public class VotingSession {
 	private Calendar startTime;
 	private Calendar finishTime;
 	private Calendar announcementTime;
+	
+	private Rules rules = new Rules(); // XXX
 
 	private BallotBox ballotBox;
 
@@ -85,10 +87,19 @@ public class VotingSession {
 	 *            the ballot to submit
 	 */
 	public void submit(Ballot b) {
-		Rules rules = new Rules();
 		if (rules.isAcceptable(b, this)) {
 			ballotBox.add(b);
 		}
+	}
+	
+	/**
+	 * Sets the voting rules for this VotingSession.
+	 * 
+	 * @param rules
+	 *            the rules object to set
+	 */
+	public void setRules(Rules rules) {
+		this.rules = rules;
 	}
 
 }
