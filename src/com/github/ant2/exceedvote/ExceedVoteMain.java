@@ -19,7 +19,7 @@ public class ExceedVoteMain {
 	private static void test() {
 
 		Voter v = new Voter();
-		VoterSession session = new VoterSession();
+		VotingSession session = new VotingSession();
 
 		int allowedBallots = v.getAllowedBallots();
 		System.out.println("Allowed ballots " + allowedBallots);

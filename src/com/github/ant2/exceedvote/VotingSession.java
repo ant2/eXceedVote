@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class VoterSession {
+public class VotingSession {
 
 	private Calendar startTime;
 	private Calendar finishTime;
@@ -13,9 +13,9 @@ public class VoterSession {
 	private BallotBox ballotBox;
 
 	/**
-	 * Constructs a default VoterSession.
+	 * Constructs a default VotingSession.
 	 */
-	public VoterSession() {
+	public VotingSession() {
 		// XXX STUB
 		ballotBox = new BallotBox();
 
@@ -26,7 +26,7 @@ public class VoterSession {
 	}
 
 	/**
-	 * Returns the BallotBox associated with this VoterSession.
+	 * Returns the BallotBox associated with this VotingSession.
 	 * 
 	 * @return the BallotBox
 	 */
@@ -45,7 +45,7 @@ public class VoterSession {
 	}
 
 	/**
-	 * Returns the list of all projects inside this VoterSession.
+	 * Returns the list of all projects inside this VotingSession.
 	 * 
 	 * @return a list of projects available for voting
 	 */
@@ -63,7 +63,7 @@ public class VoterSession {
 	}
 
 	/**
-	 * Returns the list of all criteria inside this VoterSession.
+	 * Returns the list of all criteria inside this VotingSession.
 	 * 
 	 * @return a list of criteria for selecting
 	 */
