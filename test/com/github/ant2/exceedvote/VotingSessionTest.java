@@ -38,4 +38,6 @@ public class VotingSessionTest {
 		assertEquals(oldCount, session.getBallotBox().countBallot());
 	}
 	
+	// XXX ADD MORE TESTS
+	
 }
