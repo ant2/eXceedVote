@@ -27,7 +27,7 @@ public class VoterSession {
 
 	public int getRemainingTime() {
 		return (int)((finishTime.getTimeInMillis() -
-				Calendar.getInstance().getTimeInMillis()) / 1000)
+				Calendar.getInstance().getTimeInMillis()) / 1000);
 	}
 
 	public List<Project> getProjects() {
