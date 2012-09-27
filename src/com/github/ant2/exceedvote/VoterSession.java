@@ -32,11 +32,21 @@ public class VoterSession {
 
 	public List<Project> getProjects() {
 		List<Project> list = new ArrayList<Project>();
+		list.add(new Project("Physics Works", "I am the best project!"));
+		list.add(new Project("Nyan Cat Extreme", "Nyanyanyanyanyanayanyaynany!!"));
+		list.add(new Project("TROLOL", "Our project sings the trolol song forever"));
+		list.add(new Project("DERP", "DERPYDERPY"));
+		list.add(new Project("Love Status", "Coding at maximum bug power"));
 		return list;
 	}
 
 	public List<Criterion> getCriteria() {
 		List<Criterion> list = new ArrayList<Criterion>();
+		list.add(new Criterion("Maximum Bug"));
+		list.add(new Criterion("Best OOP"));
+		list.add(new Criterion("Creative"));
+		list.add(new Criterion("Best Graphic"));
+		list.add(new Criterion("User Friendly"));
 		return list;
 	}
 
