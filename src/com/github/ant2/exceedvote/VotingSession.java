@@ -10,7 +10,7 @@ public class VotingSession {
 	private Calendar finishTime;
 	private Calendar announcementTime;
 	
-	private Rules rules = new Rules(); // XXX
+	private Rules rules = new Rules(); // XXX INJECT DEPENDENCY HERE
 
 	private BallotBox ballotBox;
 
