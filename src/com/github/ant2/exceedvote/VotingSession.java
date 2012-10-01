@@ -40,7 +40,17 @@ public class VotingSession {
 	 * @return the time remaining, in seconds
 	 */
 	public int getRemainingTime() {
-		return (int) ((finishTime.getTimeInMillis() - Calendar.getInstance()
+		return getRemainingTime(Calendar.getInstance());
+	}
+	
+	/**
+	 * Returns the remaining time left until the voting session ends.
+	 * 
+	 * @param calendar the calendar to check
+	 * @return the time remaining, in seconds
+	 */
+	public int getRemainingTime(Calendar calendar) {
+		return (int) ((finishTime.getTimeInMillis() - calendar
 				.getTimeInMillis()) / 1000);
 	}
 
