@@ -42,11 +42,12 @@ public class VotingSession {
 	public int getRemainingTime() {
 		return getRemainingTime(Calendar.getInstance());
 	}
-	
+
 	/**
 	 * Returns the remaining time left until the voting session ends.
 	 * 
-	 * @param calendar the calendar to check
+	 * @param calendar
+	 *            the calendar to check
 	 * @return the time remaining, in seconds
 	 */
 	public int getRemainingTime(Calendar calendar) {
@@ -93,11 +94,14 @@ public class VotingSession {
 	 * 
 	 * @param b
 	 *            the ballot to submit
+	 * @return true if the ballot was submitted, false otherwise
 	 */
-	public void submit(Ballot b) {
+	public boolean submit(Ballot b) {
 		if (rules.isAcceptable(b, this)) {
 			ballotBox.add(b);
+			return true;
 		}
+		return false;
 	}
 
 	/**
