@@ -4,27 +4,25 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * This class represents a voting session.
+ * 
+ * @author dtinth
+ */
 public class VotingSession {
 
 	private Calendar startTime;
 	private Calendar finishTime;
 	private Calendar announcementTime;
-	
-	private Rules rules = new Rules(); // XXX INJECT DEPENDENCY HERE
 
-	private BallotBox ballotBox;
+	private Rules rules = new Rules();
+	private BallotBox ballotBox = new BallotBox();
 
 	/**
 	 * Constructs a default VotingSession.
 	 */
 	public VotingSession() {
-		// XXX STUB
 		ballotBox = new BallotBox();
-
-		// TODO put actual data here!
-		startTime = Calendar.getInstance();
-		finishTime = Calendar.getInstance();
-		finishTime.add(Calendar.HOUR_OF_DAY, 1);
 	}
 
 	/**
@@ -91,7 +89,7 @@ public class VotingSession {
 			ballotBox.add(b);
 		}
 	}
-	
+
 	/**
 	 * Sets the voting rules for this VotingSession.
 	 * 
@@ -100,6 +98,85 @@ public class VotingSession {
 	 */
 	public void setRules(Rules rules) {
 		this.rules = rules;
+	}
+
+	/**
+	 * Returns the starting time that the user can vote.
+	 * 
+	 * @return the starting time for voting
+	 */
+	public Calendar getStartTime() {
+		return startTime;
+	}
+
+	/**
+	 * Sets the starting time that the user will be allowed to vote. Before this
+	 * time, voters are not allowed to vote.
+	 * 
+	 * @param startTime
+	 *            the starting time for voting
+	 */
+	public void setStartTime(Calendar startTime) {
+		this.startTime = startTime;
+	}
+
+	/**
+	 * Returns the finishing time that the user can vote.
+	 * 
+	 * @return the finishing time for voting
+	 */
+	public Calendar getFinishTime() {
+		return finishTime;
+	}
+
+	/**
+	 * Sets the finishing time that the user can vote. After this time, voters
+	 * will no longer be allowed to vote on any project.
+	 * 
+	 * @param finishTime
+	 *            the finishing time for voting
+	 */
+	public void setFinishTime(Calendar finishTime) {
+		this.finishTime = finishTime;
+	}
+
+	/**
+	 * Returns the time for announcement.
+	 * 
+	 * @return the announcement time
+	 */
+	public Calendar getAnnouncementTime() {
+		return announcementTime;
+	}
+
+	/**
+	 * Sets the announcement time. After this time, the results will be
+	 * announced.
+	 * 
+	 * @param announcementTime
+	 */
+	public void setAnnouncementTime(Calendar announcementTime) {
+		this.announcementTime = announcementTime;
+	}
+
+	/**
+	 * Returns whether the current local time is in the voting period.
+	 * 
+	 * @return true if in the voting period, false otherwise
+	 */
+	public boolean isVotingPeriod() {
+		return isVotingPeriod(Calendar.getInstance());
+	}
+
+	/**
+	 * Returns whether the given calendar time is in the voting period.
+	 * 
+	 * @param calendar
+	 *            the calendar to check
+	 * @return true if in the voting period, false otherwise
+	 */
+	private boolean isVotingPeriod(Calendar calendar) {
+		return startTime.before(calendar) && calendar.before(finishTime);
 	}
 
 }

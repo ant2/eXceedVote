@@ -1,5 +1,6 @@
 package com.github.ant2.exceedvote;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -15,11 +16,21 @@ public class ExceedVoteMain {
 	public static void main(String[] args) {
 		test();
 	}
+	
+	private static Calendar minutesFromNow(int minutes) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.MINUTE, minutes);
+		return calendar;
+	}
 
 	private static void test() {
 
 		Voter v = new Voter();
+		
 		VotingSession session = new VotingSession();
+		session.setStartTime(minutesFromNow(0));
+		session.setFinishTime(minutesFromNow(3));
+		session.setAnnouncementTime(minutesFromNow(10));
 
 		int allowedBallots = v.getAllowedBallots();
 		System.out.println("Allowed ballots " + allowedBallots);
