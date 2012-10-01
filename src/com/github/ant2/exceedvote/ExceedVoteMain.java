@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  * eXceed Vote Main Class
@@ -13,11 +14,13 @@ import org.apache.log4j.Logger;
 public class ExceedVoteMain {
 
 	private static Logger logger = Logger.getLogger(ExceedVoteMain.class);
-	
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		PropertyConfigurator.configure(ExceedVoteMain.class
+				.getResourceAsStream("log4j.properties"));
 		test();
 	}
 
@@ -30,7 +33,7 @@ public class ExceedVoteMain {
 	private static void test() {
 
 		Voter voter = new Voter();
-		
+
 		VotingSession session = new VotingSession();
 		session.setStartTime(minutesFromNow(0));
 		session.setFinishTime(minutesFromNow(3));
@@ -61,7 +64,7 @@ public class ExceedVoteMain {
 		}
 
 		for (int i = 0; i < 5; i++) {
-			
+
 			// user selects a project
 			Project selectedProject = projects.get(i);
 			Criterion selectedCriteria = criteria.get(i / 2);
