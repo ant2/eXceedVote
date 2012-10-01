@@ -55,6 +55,10 @@ public class Ballot {
 		this.project = project;
 	}
 
+	public Calendar getVotedAt() {
+		return votedAt;
+	}
+
 	@Override
 	public String toString() {
 		return "Ballot [voter=" + voter + ", project=" + project
