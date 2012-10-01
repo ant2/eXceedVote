@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 /**
  * eXceed Vote Main Class
@@ -30,18 +29,17 @@ public class ExceedVoteMain {
 
 	private static void test() {
 
-		Voter v = new Voter();
+		Voter voter = new Voter();
 		
 		VotingSession session = new VotingSession();
 		session.setStartTime(minutesFromNow(0));
 		session.setFinishTime(minutesFromNow(3));
 		session.setAnnouncementTime(minutesFromNow(10));
 
-		int allowedBallots = v.getAllowedBallots();
+		int allowedBallots = voter.getAllowedBallots();
 		logger.info("Allowed ballots " + allowedBallots);
 
-		VoterProfile profile = v.getProfile();
-		BallotBox box = session.getBallotBox();
+		VoterProfile profile = voter.getProfile();
 
 		System.out.println("Hello, " + profile);
 
@@ -63,19 +61,20 @@ public class ExceedVoteMain {
 		}
 
 		for (int i = 0; i < 5; i++) {
+			
 			// user selects a project
 			Project selectedProject = projects.get(i);
 			Criterion selectedCriteria = criteria.get(i / 2);
 
 			// use that information to create a ballot
-			Ballot b = new Ballot(v, selectedProject, selectedCriteria);
+			Ballot b = new Ballot(voter, selectedProject, selectedCriteria);
 			session.submit(b);
 
 		}
 
 		// display the ballots
 		System.out.println("Used Ballots:");
-		for (Ballot ballot : session.getBallotBox().getVoterBallots(v)) {
+		for (Ballot ballot : session.getBallotBox().getVoterBallots(voter)) {
 			System.out.println("- " + ballot);
 		}
 
