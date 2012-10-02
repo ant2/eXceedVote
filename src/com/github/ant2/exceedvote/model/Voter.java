@@ -9,13 +9,6 @@ public class Voter {
 	/** Profile for identity who is this voter */
 	private VoterProfile profile;
 
-	/*
-	 * Test constructor. XXX remove
-	 */
-	public Voter() {
-		this(new VoterProfile("Test User", "5410000000"));
-	}
-
 	/**
 	 * Constructs the Voter from the specific VoterProfile.
 	 * 
