@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -36,10 +37,10 @@ public class BallotBox {
 	 * @param v
 	 *            the voter
 	 * 
-	 * @return list of ballots
+	 * @return a collection of ballots by that user
 	 */
-	public List<Ballot> getVoterBallots(Voter v) {
-		List<Ballot> resultList = new ArrayList<Ballot>();
+	public Collection<Ballot> getVoterBallots(Voter v) {
+		Collection<Ballot> resultList = new ArrayList<Ballot>();
 		for (Ballot ballot : list) {
 			if (ballot.getVoter() == v) {
 				resultList.add(ballot);
