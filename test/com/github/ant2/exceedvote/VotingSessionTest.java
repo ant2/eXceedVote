@@ -5,11 +5,11 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * TODO WRITE INFO
- *
+ * 
  * @author dtinth
  */
 public class VotingSessionTest {
@@ -29,7 +29,7 @@ public class VotingSessionTest {
 		session.submit(ballot);
 		assertEquals(oldCount + 1, session.getBallotBox().countBallot());
 	}
-	
+
 	@Test
 	public void testSubmitShouldIgnoreBallotIfNotAccepted() {
 		int oldCount = session.getBallotBox().countBallot();
@@ -37,7 +37,7 @@ public class VotingSessionTest {
 		session.submit(ballot);
 		assertEquals(oldCount, session.getBallotBox().countBallot());
 	}
-	
+
 	// XXX ADD MORE TESTS
-	
+
 }

@@ -1,11 +1,10 @@
 package com.github.ant2.exceedvote;
 
-import static org.junit.Assert.*;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
+
+import static org.junit.Assert.assertSame;
 
 /**
  * Unit test for Ballot class.
@@ -17,9 +16,9 @@ public class BallotTest {
 	private Voter voter = mock(Voter.class);
 	private Project project = mock(Project.class);
 	private Criterion criterion = mock(Criterion.class);
-	
+
 	private Ballot ballot = new Ballot(voter, project, criterion);
-	
+
 	@Test
 	public void testGetVoter() {
 		assertSame(ballot.getVoter(), voter);
