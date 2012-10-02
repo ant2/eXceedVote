@@ -5,9 +5,11 @@ import java.util.Calendar;
 public class VotingProcess {
 
 	private VotingSession session;
+	private Voter voter;
 
 	public VotingProcess() {
 
+		voter = new Voter(new VoterProfile("I am a voter", "5410000000"));
 		session = new VotingSession();
 
 		// XXX HARD CODE
@@ -25,6 +27,10 @@ public class VotingProcess {
 
 	public VotingSession getSession() {
 		return session;
+	}
+
+	public Ballot createBallot() {
+		return new Ballot(voter, null, null);
 	}
 
 }

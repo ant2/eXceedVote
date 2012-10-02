@@ -4,13 +4,15 @@ import javax.swing.AbstractListModel;
 
 import org.apache.log4j.Logger;
 
+import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.VotingProcess;
+import com.github.ant2.exceedvote.view.BallotView;
 import com.github.ant2.exceedvote.view.VotingProcessView;
 
 public class VotingProcessController implements VotingProcessView.Delegate {
-	
+
 	private Logger logger = Logger.getLogger(VotingProcessController.class);
-	
+
 	private VotingProcess model;
 	private VotingProcessView view;
 
@@ -22,7 +24,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		view.setDelegate(this);
 	}
 
-	public void run() {
+	public void show() {
 		view.pack();
 		view.setVisible(true);
 	}
@@ -46,7 +48,14 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 	@Override
 	public void voteButtonClicked() {
-		logger.info("The vote button has been clicked.");
+
+		Ballot ballot = model.createBallot();
+		BallotView ballotView = view.createBallotView();
+		BallotController ballotController = new BallotController(model, ballot,
+				ballotView);
+
+		ballotController.show();
+
 	}
 
 }

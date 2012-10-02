@@ -37,7 +37,7 @@ public class VotingProcessView extends JFrame {
 		setLayout(new BorderLayout());
 
 		JPanel mainPanel = new JPanel(new BorderLayout());
-		
+
 		countdownLabel = new JLabel();
 		countdownLabel.setHorizontalAlignment(CENTER);
 		countdownLabel.setFont(new Font("Arial", Font.BOLD, 18));
@@ -69,7 +69,7 @@ public class VotingProcessView extends JFrame {
 				delegate.voteButtonClicked();
 			}
 		});
-		
+
 		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
 		voteButton.setDefaultCapable(true);
 
@@ -98,6 +98,10 @@ public class VotingProcessView extends JFrame {
 
 	public void setTeamListModel(ListModel model) {
 		teamList.setModel(model);
+	}
+
+	public BallotView createBallotView() {
+		return new BallotView(this);
 	}
 
 }
