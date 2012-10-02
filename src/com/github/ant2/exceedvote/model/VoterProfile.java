@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.domain;
+package com.github.ant2.exceedvote.model;
 
 /**
  * The VoterProfile describes the Voter.

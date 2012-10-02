@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.domain;
+package com.github.ant2.exceedvote.model;
 
 import java.util.ArrayList;
 import java.util.Calendar;

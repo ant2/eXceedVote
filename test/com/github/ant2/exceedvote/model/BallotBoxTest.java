@@ -1,10 +1,10 @@
-package com.github.ant2.exceedvote.domain;
+package com.github.ant2.exceedvote.model;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.domain.Ballot;
-import com.github.ant2.exceedvote.domain.BallotBox;
-import com.github.ant2.exceedvote.domain.Voter;
+import com.github.ant2.exceedvote.model.Ballot;
+import com.github.ant2.exceedvote.model.BallotBox;
+import com.github.ant2.exceedvote.model.Voter;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
