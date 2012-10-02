@@ -6,12 +6,15 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.github.ant2.exceedvote.controller.VotingProcessController;
 import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.Criterion;
 import com.github.ant2.exceedvote.model.Project;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.model.VoterProfile;
+import com.github.ant2.exceedvote.model.VotingProcess;
 import com.github.ant2.exceedvote.model.VotingSession;
+import com.github.ant2.exceedvote.view.VotingProcessView;
 
 /**
  * eXceed Vote Main Class
@@ -31,6 +34,15 @@ public class ExceedVoteMain {
 		test();
 	}
 
+	public static void test() {
+		VotingProcess model = new VotingProcess();
+		VotingProcessView view = new VotingProcessView();
+		VotingProcessController controller = new VotingProcessController(model, view);
+		
+		view.show();
+	}
+	
+	/*
 	private static Calendar minutesFromNow(int minutes) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.MINUTE, minutes);
@@ -89,5 +101,6 @@ public class ExceedVoteMain {
 		}
 
 	}
+	*/
 
 }
