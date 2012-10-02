@@ -11,16 +11,13 @@ import static org.junit.Assert.*;
  */
 
 public class VoterTest {
+	
 	private VoterProfile profile = new VoterProfile("TestVoter", "541000000");
 	private Voter voter = new Voter(profile);
-	
-	@Test
-	public void testGetAllowedBallot() {
-		assertEquals(3, voter.getAllowedBallots());
-	}
 	
 	@Test
 	public void testGetProfile() {
 		assertSame(profile, voter.getProfile());
 	}
+	
 }
