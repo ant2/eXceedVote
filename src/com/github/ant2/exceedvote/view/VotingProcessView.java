@@ -2,19 +2,14 @@ package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListModel;
-import javax.swing.Timer;
+import javax.swing.*;
+
+import static javax.swing.SwingConstants.CENTER;
 
 public class VotingProcessView extends JFrame {
 
@@ -22,6 +17,8 @@ public class VotingProcessView extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public interface Delegate {
+
+		void voteButtonClicked();
 	}
 
 	private Delegate delegate;
@@ -40,7 +37,11 @@ public class VotingProcessView extends JFrame {
 		setLayout(new BorderLayout());
 
 		JPanel mainPanel = new JPanel(new BorderLayout());
+		
 		countdownLabel = new JLabel();
+		countdownLabel.setHorizontalAlignment(CENTER);
+		countdownLabel.setFont(new Font("Arial", Font.BOLD, 18));
+		countdownLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
 		mainPanel.add(countdownLabel, BorderLayout.NORTH);
 
@@ -65,9 +66,12 @@ public class VotingProcessView extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("vote button clicked");
+				delegate.voteButtonClicked();
 			}
 		});
+		
+		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
+		voteButton.setDefaultCapable(true);
 
 		mainPanel.add(voteButton, BorderLayout.SOUTH);
 
