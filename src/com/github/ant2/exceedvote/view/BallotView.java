@@ -107,4 +107,11 @@ public class BallotView extends JDialog {
 				JOptionPane.ERROR_MESSAGE);
 	}
 
+	public void displaySuccess(int ballots) {
+		JOptionPane.showMessageDialog(this,
+				"Thank you for your vote! You have " + ballots
+						+ " ballots left.", "Success!",
+				JOptionPane.INFORMATION_MESSAGE);
+	}
+
 }

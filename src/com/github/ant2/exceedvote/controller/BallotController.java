@@ -53,6 +53,7 @@ public class BallotController implements Delegate {
 			if (view.confirmVoting()) {
 				result = process.getSession().submit(model);
 				if (result == ValidationResult.OK) {
+					view.displaySuccess(999); // TODO
 					view.setVisible(false);
 					view.dispose();
 				} else {
