@@ -1,6 +1,9 @@
-package com.github.ant2.exceedvote;
+package com.github.ant2.exceedvote.domain;
 
 import org.junit.Test;
+
+import com.github.ant2.exceedvote.domain.Voter;
+import com.github.ant2.exceedvote.domain.VoterProfile;
 
 import static org.junit.Assert.assertSame;
 

@@ -6,6 +6,13 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import com.github.ant2.exceedvote.domain.Ballot;
+import com.github.ant2.exceedvote.domain.Criterion;
+import com.github.ant2.exceedvote.domain.Project;
+import com.github.ant2.exceedvote.domain.Voter;
+import com.github.ant2.exceedvote.domain.VoterProfile;
+import com.github.ant2.exceedvote.domain.VotingSession;
+
 /**
  * eXceed Vote Main Class
  * 

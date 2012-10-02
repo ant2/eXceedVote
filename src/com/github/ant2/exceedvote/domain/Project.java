@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote;
+package com.github.ant2.exceedvote.domain;
 
 /**
  * A project which voter can vote for.

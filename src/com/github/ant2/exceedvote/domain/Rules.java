@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote;
+package com.github.ant2.exceedvote.domain;
 
 /**
  * This rules class checks if a ballot will be accepted or not.

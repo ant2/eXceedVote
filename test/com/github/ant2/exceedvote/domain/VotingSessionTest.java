@@ -1,8 +1,12 @@
-package com.github.ant2.exceedvote;
+package com.github.ant2.exceedvote.domain;
 
 import java.util.Calendar;
 
 import org.junit.Test;
+
+import com.github.ant2.exceedvote.domain.Ballot;
+import com.github.ant2.exceedvote.domain.Rules;
+import com.github.ant2.exceedvote.domain.VotingSession;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
