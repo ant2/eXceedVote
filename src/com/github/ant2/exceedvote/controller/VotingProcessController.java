@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.controller;
 
 import javax.swing.AbstractListModel;
-import javax.swing.table.AbstractTableModel;
 
 import com.github.ant2.exceedvote.model.VotingProcess;
 import com.github.ant2.exceedvote.view.VotingProcessView;
@@ -10,7 +9,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 	private VotingProcess model;
 	private VotingProcessView view;
-	
+
 	public VotingProcessController(VotingProcess model, VotingProcessView view) {
 		this.model = model;
 		this.view = view;
@@ -22,8 +21,11 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		view.pack();
 		view.setVisible(true);
 	}
-	
+
 	class TeamListModel extends AbstractListModel {
+
+		/** */
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public int getSize() {
@@ -34,7 +36,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		public Object getElementAt(int index) {
 			return model.getSession().getProjects().get(index);
 		}
-		
+
 	}
 
 }

@@ -2,8 +2,6 @@ package com.github.ant2.exceedvote.model;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.model.Project;
-
 import static org.junit.Assert.assertEquals;
 
 /**

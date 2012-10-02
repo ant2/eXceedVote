@@ -4,10 +4,6 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.model.Ballot;
-import com.github.ant2.exceedvote.model.Rules;
-import com.github.ant2.exceedvote.model.VotingSession;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -57,11 +53,11 @@ public class VotingSessionTest {
 		assertFalse(session.isVotingPeriod(calendar(10000)));
 		assertFalse(session.isVotingPeriod(calendar(10000)));
 	}
-	
+
 	private Calendar calendar(long time) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTimeInMillis(time);
 		return calendar;
 	}
-	
+
 }

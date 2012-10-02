@@ -6,10 +6,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
-import javax.swing.*;
-import javax.swing.table.TableModel;
+import javax.swing.AbstractAction;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.Timer;
 
 public class VotingProcessView extends JFrame {
+
+	/** */
+	private static final long serialVersionUID = 1L;
 
 	public interface Delegate {
 	}
@@ -18,7 +28,7 @@ public class VotingProcessView extends JFrame {
 	private Calendar finishTime;
 	private JLabel countdownLabel;
 	private JList teamList;
-	
+
 	public VotingProcessView() {
 		super("eXceed Vote");
 		initComponents();
@@ -40,22 +50,25 @@ public class VotingProcessView extends JFrame {
 				updateRemainingTime();
 			}
 		}).start();
-		
+
 		teamList = new JList();
 		teamList.setCellRenderer(new ProjectCellItemRenderer());
-		
+
 		JScrollPane scrollPane = new JScrollPane(teamList);
 		scrollPane.setPreferredSize(new Dimension(300, 400));
-		
+
 		mainPanel.add(scrollPane, BorderLayout.CENTER);
-		
+
 		JButton voteButton = new JButton(new AbstractAction("Vote!") {
+			/** */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("vote button clicked");
 			}
 		});
-		
+
 		mainPanel.add(voteButton, BorderLayout.SOUTH);
 
 		add(mainPanel, BorderLayout.CENTER);
@@ -72,7 +85,7 @@ public class VotingProcessView extends JFrame {
 	}
 
 	private void updateRemainingTime() {
-		long timeLeft = this.finishTime.getTimeInMillis()
+		long timeLeft = finishTime.getTimeInMillis()
 				- Calendar.getInstance().getTimeInMillis();
 		countdownLabel.setText(String.format("Remaining time: %d:%02d:%02d",
 				timeLeft / (3600 * 1000), (timeLeft % (3600 * 1000))
@@ -82,5 +95,5 @@ public class VotingProcessView extends JFrame {
 	public void setTeamListModel(ListModel model) {
 		teamList.setModel(model);
 	}
-	
+
 }
