@@ -1,20 +1,24 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.*;
+import javax.swing.table.TableModel;
 
 public class VotingProcessView extends JFrame {
 
 	public interface Delegate {
 	}
 
+	private Delegate delegate;
+	private Calendar finishTime;
+	private JLabel countdownLabel;
+	private JList teamList;
+	
 	public VotingProcessView() {
 		super("eXceed Vote");
 		initComponents();
@@ -36,14 +40,27 @@ public class VotingProcessView extends JFrame {
 				updateRemainingTime();
 			}
 		}).start();
+		
+		teamList = new JList();
+		teamList.setCellRenderer(new ProjectCellItemRenderer());
+		
+		JScrollPane scrollPane = new JScrollPane(teamList);
+		scrollPane.setPreferredSize(new Dimension(300, 400));
+		
+		mainPanel.add(scrollPane, BorderLayout.CENTER);
+		
+		JButton voteButton = new JButton(new AbstractAction("Vote!") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("vote button clicked");
+			}
+		});
+		
+		mainPanel.add(voteButton, BorderLayout.SOUTH);
 
 		add(mainPanel, BorderLayout.CENTER);
 
 	}
-
-	private Delegate delegate;
-	private Calendar finishTime;
-	private JLabel countdownLabel;
 
 	public void setDelegate(Delegate delegate) {
 		this.delegate = delegate;
@@ -62,4 +79,8 @@ public class VotingProcessView extends JFrame {
 						/ (60 * 1000), (timeLeft % (60 * 1000)) / 1000));
 	}
 
+	public void setTeamListModel(ListModel model) {
+		teamList.setModel(model);
+	}
+	
 }
