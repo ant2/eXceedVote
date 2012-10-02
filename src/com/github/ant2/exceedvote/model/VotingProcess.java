@@ -9,7 +9,7 @@ public class VotingProcess {
 
 	public VotingProcess() {
 
-		voter = new Voter(new VoterProfile("I am a voter", "5410000000"));
+		voter = new Voter(new VoterProfile("マリさん", "5410000000"));
 		session = new VotingSession();
 
 		// XXX HARD CODE
@@ -27,6 +27,10 @@ public class VotingProcess {
 
 	public VotingSession getSession() {
 		return session;
+	}
+	
+	public Voter getVoter() {
+		return voter;
 	}
 
 	public Ballot createBallot() {

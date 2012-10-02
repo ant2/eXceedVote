@@ -9,6 +9,8 @@ import java.util.Calendar;
 
 import javax.swing.*;
 
+import com.github.ant2.exceedvote.model.VoterProfile;
+
 import static javax.swing.SwingConstants.CENTER;
 
 public class VotingProcessView extends JFrame {
@@ -17,7 +19,6 @@ public class VotingProcessView extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public interface Delegate {
-
 		void voteButtonClicked();
 	}
 
@@ -25,6 +26,7 @@ public class VotingProcessView extends JFrame {
 	private Calendar finishTime;
 	private JLabel countdownLabel;
 	private JList teamList;
+	private JLabel userLabel;
 
 	public VotingProcessView() {
 		super("eXceed Vote");
@@ -36,6 +38,10 @@ public class VotingProcessView extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 
+		userLabel = new JLabel();
+		userLabel.setHorizontalAlignment(CENTER);
+		add(userLabel, BorderLayout.NORTH);
+		
 		JPanel mainPanel = new JPanel(new BorderLayout());
 
 		countdownLabel = new JLabel();
@@ -102,6 +108,10 @@ public class VotingProcessView extends JFrame {
 
 	public BallotView createBallotView() {
 		return new BallotView(this);
+	}
+
+	public void setVoterProfile(VoterProfile profile) {
+		userLabel.setText("Hello, " + profile.getName());
 	}
 
 }

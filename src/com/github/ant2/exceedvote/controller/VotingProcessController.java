@@ -20,6 +20,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		this.model = model;
 		this.view = view;
 		view.setFinishTime(model.getSession().getFinishTime());
+		view.setVoterProfile(model.getVoter().getProfile());
 		view.setTeamListModel(new TeamListModel());
 		view.setDelegate(this);
 	}
