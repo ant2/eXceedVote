@@ -21,6 +21,8 @@ public class BallotView extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private Delegate delegate;
+	private RadioSelectView projectSelectView;
+	private RadioSelectView criterionSelectView;
 
 	public BallotView(Frame parent) {
 		super(parent, true);
@@ -44,6 +46,11 @@ public class BallotView extends JDialog {
 		criteriaPanel.setBorder(BorderFactory
 				.createTitledBorder(" Pick a Criterion "));
 
+		projectSelectView = new RadioSelectView();
+		criterionSelectView = new RadioSelectView();
+		projectsPanel.add(projectSelectView);
+		criteriaPanel.add(criterionSelectView);
+		
 		JButton submitButton = new JButton(new AbstractAction("Submit") {
 			/** */
 			private static final long serialVersionUID = 1L;
@@ -65,4 +72,14 @@ public class BallotView extends JDialog {
 
 	}
 
+	@SuppressWarnings("rawtypes")
+	public void addProjectOptions(Iterable projectOptions) {
+		projectSelectView.addOptions(projectOptions);
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public void addCriterionOptions(Iterable criterionOptions) {
+		criterionSelectView.addOptions(criterionOptions);
+	}
+	
 }
