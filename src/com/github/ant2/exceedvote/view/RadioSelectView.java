@@ -13,22 +13,35 @@ import javax.swing.JRadioButton;
 
 public class RadioSelectView extends JPanel {
 
+	public interface Delegate {
+		void optionSelected(Object option);
+	}
+
 	public class RadioSelectAction extends AbstractAction {
+
+		private Object item;
 
 		public RadioSelectAction(Object item) {
 			super(item + "");
+			this.item = item;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			delegate.optionSelected(item);
 		}
 
 	}
 
 	private ButtonGroup group = new ButtonGroup();
+	private Delegate delegate;
 
 	public RadioSelectView() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+	}
+
+	public void setDelegate(Delegate delegate) {
+		this.delegate = delegate;
 	}
 
 	@SuppressWarnings("rawtypes")

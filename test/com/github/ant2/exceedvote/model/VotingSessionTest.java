@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import com.github.ant2.exceedvote.model.Rules.ValidationResult;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -12,7 +14,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * TODO WRITE INFO
+ * Unit test for VotingSession class.
  * 
  * @author dtinth
  */
@@ -29,7 +31,7 @@ public class VotingSessionTest {
 	@Test
 	public void testSubmit() {
 		int oldCount = session.getBallotBox().countBallot();
-		when(rules.isAcceptable(ballot, session)).thenReturn(true);
+		when(rules.validate(ballot, session)).thenReturn(ValidationResult.OK);
 		session.submit(ballot);
 		assertEquals(oldCount + 1, session.getBallotBox().countBallot());
 	}
@@ -37,7 +39,7 @@ public class VotingSessionTest {
 	@Test
 	public void testSubmitShouldIgnoreBallotIfNotAccepted() {
 		int oldCount = session.getBallotBox().countBallot();
-		when(rules.isAcceptable(ballot, session)).thenReturn(false);
+		when(rules.validate(ballot, session)).thenReturn(ValidationResult.NO_PROJECT_SELECTED);
 		session.submit(ballot);
 		assertEquals(oldCount, session.getBallotBox().countBallot());
 	}

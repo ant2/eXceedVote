@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.github.ant2.exceedvote.model.Rules.ValidationResult;
+
 /**
  * This class represents a voting session.
  * 
@@ -11,6 +15,8 @@ import java.util.List;
  */
 public class VotingSession {
 
+	private static Logger logger = Logger.getLogger(VotingSession.class);
+	
 	private Calendar startTime;
 	private Calendar finishTime;
 	private Calendar announcementTime;
@@ -94,14 +100,15 @@ public class VotingSession {
 	 * 
 	 * @param b
 	 *            the ballot to submit
-	 * @return true if the ballot was submitted, false otherwise
+	 * @return the validation result for the ballot
 	 */
-	public boolean submit(Ballot b) {
-		if (rules.isAcceptable(b, this)) {
+	public ValidationResult submit(Ballot b) {
+		ValidationResult result = rules.validate(b, this);
+		if (result == ValidationResult.OK) {
+			logger.info("A ballot was submitted: " + b);
 			ballotBox.add(b);
-			return true;
 		}
-		return false;
+		return result;
 	}
 
 	/**
@@ -112,6 +119,15 @@ public class VotingSession {
 	 */
 	public void setRules(Rules rules) {
 		this.rules = rules;
+	}
+
+	/**
+	 * Returns the validation rules for this VotingSession.
+	 * 
+	 * @return the rules object
+	 */
+	public Rules getRules() {
+		return rules;
 	}
 
 	/**

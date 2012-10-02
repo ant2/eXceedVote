@@ -7,20 +7,25 @@ package com.github.ant2.exceedvote.model;
  */
 public class Rules {
 
+	public enum ValidationResult {
+		OK, NO_PROJECT_SELECTED, NO_CRITERION_SELECTED, QUOTA_EXCEEDED;
+	}
+
 	/**
-	 * Checks if a ballot is going to be accepted or not.
+	 * Validates a ballot.
 	 * 
 	 * @param ballot
-	 *            the ballot to check
+	 *            the ballot to validate
 	 * @param session
 	 *            the voting session
-	 * @return true if the ballot should be accepted, false otherwise
+	 * @return the validation result
 	 */
-	public boolean isAcceptable(Ballot ballot, VotingSession session) {
-		Voter v = ballot.getVoter();
-		if (session.getBallotBox().getVoterBallots(v).size() >= v
-				.getAllowedBallots() && session.isVotingPeriod()) return false;
-		return true;
+	public ValidationResult validate(Ballot ballot, VotingSession session) {
+		if (ballot.getProject() == null) return ValidationResult.NO_PROJECT_SELECTED;
+		if (ballot.getCriterion() == null) return ValidationResult.NO_CRITERION_SELECTED;
+		if (session.getBallotBox().getVoterBallots(ballot.getVoter()).size() >= ballot
+				.getVoter().getAllowedBallots() && session.isVotingPeriod()) return ValidationResult.QUOTA_EXCEEDED;
+		return ValidationResult.OK;
 	}
 
 }

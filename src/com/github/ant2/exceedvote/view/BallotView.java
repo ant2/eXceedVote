@@ -15,6 +15,10 @@ public class BallotView extends JDialog {
 
 	public interface Delegate {
 		void submitted();
+
+		void projectSelected(Object option);
+
+		void criterionSelected(Object option);
 	}
 
 	/** */
@@ -48,21 +52,31 @@ public class BallotView extends JDialog {
 
 		projectSelectView = new RadioSelectView();
 		criterionSelectView = new RadioSelectView();
+
+		projectSelectView.setDelegate(new RadioSelectView.Delegate() {
+			@Override
+			public void optionSelected(Object option) {
+				delegate.projectSelected(option);
+			}
+		});
+
+		criterionSelectView.setDelegate(new RadioSelectView.Delegate() {
+			@Override
+			public void optionSelected(Object option) {
+				delegate.criterionSelected(option);
+			}
+		});
+
 		projectsPanel.add(projectSelectView);
 		criteriaPanel.add(criterionSelectView);
-		
+
 		JButton submitButton = new JButton(new AbstractAction("Submit") {
 			/** */
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int result = JOptionPane.showConfirmDialog(BallotView.this,
-						"Are you sure?", "eXceed Vote Confirmation",
-						JOptionPane.YES_NO_OPTION);
-				if (result == JOptionPane.YES_OPTION) {
-					delegate.submitted();
-				}
+				delegate.submitted();
 			}
 		});
 
@@ -76,10 +90,21 @@ public class BallotView extends JDialog {
 	public void addProjectOptions(Iterable projectOptions) {
 		projectSelectView.addOptions(projectOptions);
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public void addCriterionOptions(Iterable criterionOptions) {
 		criterionSelectView.addOptions(criterionOptions);
 	}
-	
+
+	public boolean confirmVoting() {
+		int result = JOptionPane.showConfirmDialog(this, "Are you sure?",
+				"eXceed Vote Confirmation", JOptionPane.YES_NO_OPTION);
+		return result == JOptionPane.YES_OPTION;
+	}
+
+	public void displayError(String errorMessage) {
+		JOptionPane.showMessageDialog(this, errorMessage, "Error!",
+				JOptionPane.ERROR_MESSAGE);
+	}
+
 }

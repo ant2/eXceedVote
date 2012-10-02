@@ -11,7 +11,7 @@ import com.github.ant2.exceedvote.view.VotingProcessView;
 
 public class VotingProcessController implements VotingProcessView.Delegate {
 
-	private Logger logger = Logger.getLogger(VotingProcessController.class);
+	private static Logger logger = Logger.getLogger(VotingProcessController.class);
 
 	private VotingProcess model;
 	private VotingProcessView view;
