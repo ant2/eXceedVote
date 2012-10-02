@@ -34,6 +34,18 @@ public class BallotTest {
 		assertSame(ballot.getCriterion(), criterion);
 	}
 
-	// TODO test set methods
+	@Test
+	public void testSetProject() {
+		Project testProject = mock(Project.class);
+		ballot.setProject(testProject);
+		assertSame(ballot.getProject(), testProject);
+	}
+
+	@Test
+	public void testSetCriterion() {
+		Criterion testCriterion = mock(Criterion.class);
+		ballot.setCriterion(testCriterion);
+		assertSame(ballot.getCriterion(), testCriterion);
+	}
 
 }
