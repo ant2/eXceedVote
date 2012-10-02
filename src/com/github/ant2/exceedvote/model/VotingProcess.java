@@ -23,4 +23,8 @@ public class VotingProcess {
 		
 	}
 	
+	public VotingSession getSession() {
+		return session;
+	}
+	
 }

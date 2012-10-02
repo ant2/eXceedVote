@@ -38,8 +38,7 @@ public class ExceedVoteMain {
 		VotingProcess model = new VotingProcess();
 		VotingProcessView view = new VotingProcessView();
 		VotingProcessController controller = new VotingProcessController(model, view);
-		
-		view.show();
+		controller.run();
 	}
 	
 	/*
