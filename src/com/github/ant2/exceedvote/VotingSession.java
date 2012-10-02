@@ -190,7 +190,7 @@ public class VotingSession {
 	 * @return true if in the voting period, false otherwise
 	 */
 	public boolean isVotingPeriod(Calendar calendar) {
-		return startTime.before(calendar) && calendar.before(finishTime);
+		return !startTime.after(calendar) && calendar.before(finishTime);
 	}
 
 }
