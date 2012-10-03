@@ -114,4 +114,8 @@ public class VotingProcessView extends JFrame {
 		userLabel.setText("Hello, " + profile.getName());
 	}
 
+	public int getSelectedProjectIndex() {
+		return teamList.getSelectedIndex();
+	}
+
 }

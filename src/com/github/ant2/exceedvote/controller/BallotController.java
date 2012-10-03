@@ -25,6 +25,8 @@ public class BallotController implements Delegate {
 		view.setDelegate(this);
 		view.addProjectOptions(process.getSession().getProjects());
 		view.addCriterionOptions(process.getSession().getCriteria());
+		view.setSelectedProject(model.getProject());
+		view.setSelectedCriterion(model.getCriterion());
 	}
 
 	public void show() {

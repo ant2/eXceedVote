@@ -51,6 +51,11 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	public void voteButtonClicked() {
 
 		Ballot ballot = model.createBallot();
+		int index = view.getSelectedProjectIndex();
+		if (index >= 0) {
+			ballot.setProject(model.getSession().getProjects().get(index));
+		}
+		
 		BallotView ballotView = view.createBallotView();
 		BallotController ballotController = new BallotController(model, ballot,
 				ballotView);

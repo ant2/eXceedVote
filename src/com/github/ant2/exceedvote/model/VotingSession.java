@@ -23,6 +23,9 @@ public class VotingSession {
 
 	private Rules rules = new Rules();
 	private BallotBox ballotBox = new BallotBox();
+	
+	private List<Project> projects = new ArrayList<Project>();
+	private List<Criterion> criteria = new ArrayList<Criterion>();
 
 	/**
 	 * Constructs a default VotingSession.
@@ -61,22 +64,29 @@ public class VotingSession {
 				.getTimeInMillis()) / 1000);
 	}
 
+	// XXX TEST DATA
+	{
+		projects.add(new Project("Physics Works", "I am the best project!"));
+		projects.add(new Project("Nyan Cat Extreme",
+				"Nyanyanyanyanyanayanyaynany!!"));
+		projects.add(new Project("TROLOL",
+				"Our project sings the trolol song forever"));
+		projects.add(new Project("DERP", "DERPYDERPY"));
+		projects.add(new Project("Love Status", "Coding at maximum bug power"));
+		criteria.add(new Criterion("Maximum Bug"));
+		criteria.add(new Criterion("Best OOP"));
+		criteria.add(new Criterion("Creative"));
+		criteria.add(new Criterion("Best Graphic"));
+		criteria.add(new Criterion("User Friendly"));
+	}
+	
 	/**
 	 * Returns the list of all projects inside this VotingSession.
 	 * 
 	 * @return a list of projects available for voting
 	 */
 	public List<Project> getProjects() {
-		// XXX : this is just a test data
-		List<Project> list = new ArrayList<Project>();
-		list.add(new Project("Physics Works", "I am the best project!"));
-		list.add(new Project("Nyan Cat Extreme",
-				"Nyanyanyanyanyanayanyaynany!!"));
-		list.add(new Project("TROLOL",
-				"Our project sings the trolol song forever"));
-		list.add(new Project("DERP", "DERPYDERPY"));
-		list.add(new Project("Love Status", "Coding at maximum bug power"));
-		return list;
+		return projects;
 	}
 
 	/**
@@ -85,14 +95,7 @@ public class VotingSession {
 	 * @return a list of criteria for selecting
 	 */
 	public List<Criterion> getCriteria() {
-		// XXX : this is just a test data
-		List<Criterion> list = new ArrayList<Criterion>();
-		list.add(new Criterion("Maximum Bug"));
-		list.add(new Criterion("Best OOP"));
-		list.add(new Criterion("Creative"));
-		list.add(new Criterion("Best Graphic"));
-		list.add(new Criterion("User Friendly"));
-		return list;
+		return criteria;
 	}
 
 	/**

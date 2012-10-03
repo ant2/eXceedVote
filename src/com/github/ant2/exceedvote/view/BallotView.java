@@ -96,6 +96,14 @@ public class BallotView extends JDialog {
 		criterionSelectView.addOptions(criterionOptions);
 	}
 
+	public void setSelectedProject(Object item) {
+		projectSelectView.selectOption(item);
+	}
+	
+	public void setSelectedCriterion(Object item) {
+		criterionSelectView.selectOption(item);
+	}
+
 	public boolean confirmVoting() {
 		int result = JOptionPane.showConfirmDialog(this, "Are you sure?",
 				"eXceed Vote Confirmation", JOptionPane.YES_NO_OPTION);
