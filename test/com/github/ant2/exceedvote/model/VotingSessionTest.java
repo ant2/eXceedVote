@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import com.github.ant2.exceedvote.model.Rules.ValidationResult;
 
+import static org.mockito.Matchers.any;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -31,7 +33,8 @@ public class VotingSessionTest {
 	@Test
 	public void testSubmit() {
 		int oldCount = session.getBallotBox().countBallot();
-		when(rules.validate(ballot, session)).thenReturn(ValidationResult.OK);
+		when(rules.validate(any(Ballot.class), any(VotingSession.class)))
+				.thenReturn(ValidationResult.OK);
 		session.submit(ballot);
 		assertEquals(oldCount + 1, session.getBallotBox().countBallot());
 	}
@@ -39,7 +42,8 @@ public class VotingSessionTest {
 	@Test
 	public void testSubmitShouldIgnoreBallotIfNotAccepted() {
 		int oldCount = session.getBallotBox().countBallot();
-		when(rules.validate(ballot, session)).thenReturn(ValidationResult.NO_PROJECT_SELECTED);
+		when(rules.validate(any(Ballot.class), any(VotingSession.class)))
+				.thenReturn(ValidationResult.NO_PROJECT_SELECTED);
 		session.submit(ballot);
 		assertEquals(oldCount, session.getBallotBox().countBallot());
 	}
