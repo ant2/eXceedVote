@@ -46,9 +46,8 @@ public class BallotController implements Delegate {
 	}
 
 	@Override
-	public void submitted() {
-		ValidationResult result = process.getSession().getRules()
-				.validate(model, process.getSession());
+	public void submitButtonClicked() {
+		ValidationResult result = process.getSession().validate(model);
 		if (result == ValidationResult.OK) {
 			if (view.confirmVoting()) {
 				result = process.getSession().submit(model);

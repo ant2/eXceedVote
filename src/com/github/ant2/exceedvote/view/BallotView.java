@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 public class BallotView extends JDialog {
 
 	public interface Delegate {
-		void submitted();
+		void submitButtonClicked();
 
 		void projectSelected(Object option);
 
@@ -76,7 +76,7 @@ public class BallotView extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				delegate.submitted();
+				delegate.submitButtonClicked();
 			}
 		});
 

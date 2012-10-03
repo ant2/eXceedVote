@@ -16,7 +16,7 @@ import com.github.ant2.exceedvote.model.Rules.ValidationResult;
 public class VotingSession {
 
 	private static Logger logger = Logger.getLogger(VotingSession.class);
-	
+
 	private Calendar startTime;
 	private Calendar finishTime;
 	private Calendar announcementTime;
@@ -96,6 +96,17 @@ public class VotingSession {
 	}
 
 	/**
+	 * Verifies a ballot.
+	 * 
+	 * @param b
+	 *            the ballot to validate
+	 * @return the validation result for the ballot
+	 */
+	public ValidationResult validate(Ballot b) {
+		return rules.validate(b, this);
+	}
+
+	/**
 	 * Submits the vote.
 	 * 
 	 * @param b
@@ -103,7 +114,7 @@ public class VotingSession {
 	 * @return the validation result for the ballot
 	 */
 	public ValidationResult submit(Ballot b) {
-		ValidationResult result = rules.validate(b, this);
+		ValidationResult result = validate(b);
 		if (result == ValidationResult.OK) {
 			logger.info("A ballot was submitted: " + b);
 			ballotBox.add(b);
