@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
  * 
  * @author dtinth
  */
-public class VotingSessionTest {
+public class VoteEventTest {
 
 	private VoteEvent event = new VoteEvent();
 	private Ballot ballot = mock(Ballot.class);
