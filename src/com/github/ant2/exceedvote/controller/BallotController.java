@@ -23,8 +23,8 @@ public class BallotController implements Delegate {
 		this.model = model;
 		this.view = view;
 		view.setDelegate(this);
-		view.addProjectOptions(process.getSession().getProjects());
-		view.addCriterionOptions(process.getSession().getCriteria());
+		view.addProjectOptions(process.getEvent().getProjects());
+		view.addCriterionOptions(process.getEvent().getCriteria());
 		view.setSelectedProject(model.getProject());
 		view.setSelectedCriterion(model.getCriterion());
 	}
@@ -49,10 +49,10 @@ public class BallotController implements Delegate {
 
 	@Override
 	public void submitButtonClicked() {
-		ValidationResult result = process.getSession().validate(model);
+		ValidationResult result = process.getEvent().validate(model);
 		if (result == ValidationResult.OK) {
 			if (view.confirmVoting()) {
-				result = process.getSession().submit(model);
+				result = process.getEvent().submit(model);
 				if (result == ValidationResult.OK) {
 					view.displaySuccess(999); // TODO
 					view.setVisible(false);

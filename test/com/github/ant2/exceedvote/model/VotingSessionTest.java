@@ -17,48 +17,48 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Unit test for VotingSession class.
+ * Unit test for VoteEvent class.
  * 
  * @author dtinth
  */
 public class VotingSessionTest {
 
-	private VotingSession session = new VotingSession();
+	private VoteEvent event = new VoteEvent();
 	private Ballot ballot = mock(Ballot.class);
 	private Rules rules = mock(Rules.class);
 
 	{
-		session.setRules(rules);
+		event.setRules(rules);
 	}
 
 	@Test
 	public void testSubmit() {
-		int oldCount = session.getBallotBox().countBallot();
-		when(rules.validate(any(Ballot.class), any(VotingSession.class)))
+		int oldCount = event.getBallotBox().countBallot();
+		when(rules.validate(any(Ballot.class), any(VoteEvent.class)))
 				.thenReturn(ValidationResult.OK);
-		session.submit(ballot);
-		assertEquals(oldCount + 1, session.getBallotBox().countBallot());
+		event.submit(ballot);
+		assertEquals(oldCount + 1, event.getBallotBox().countBallot());
 	}
 
 	@Test
 	public void testSubmitShouldIgnoreBallotIfNotAccepted() {
-		int oldCount = session.getBallotBox().countBallot();
-		when(rules.validate(any(Ballot.class), any(VotingSession.class)))
+		int oldCount = event.getBallotBox().countBallot();
+		when(rules.validate(any(Ballot.class), any(VoteEvent.class)))
 				.thenReturn(ValidationResult.NO_PROJECT_SELECTED);
-		session.submit(ballot);
-		assertEquals(oldCount, session.getBallotBox().countBallot());
+		event.submit(ballot);
+		assertEquals(oldCount, event.getBallotBox().countBallot());
 	}
 
 	@Test
 	public void testVotingPeriod() {
-		session.setStartTime(calendar(1000));
-		session.setFinishTime(calendar(10000));
-		assertFalse(session.isVotingPeriod(calendar(500)));
-		assertTrue(session.isVotingPeriod(calendar(1000)));
-		assertTrue(session.isVotingPeriod(calendar(2000)));
-		assertTrue(session.isVotingPeriod(calendar(5000)));
-		assertFalse(session.isVotingPeriod(calendar(10000)));
-		assertFalse(session.isVotingPeriod(calendar(10000)));
+		event.setStartTime(calendar(1000));
+		event.setFinishTime(calendar(10000));
+		assertFalse(event.isVotingPeriod(calendar(500)));
+		assertTrue(event.isVotingPeriod(calendar(1000)));
+		assertTrue(event.isVotingPeriod(calendar(2000)));
+		assertTrue(event.isVotingPeriod(calendar(5000)));
+		assertFalse(event.isVotingPeriod(calendar(10000)));
+		assertFalse(event.isVotingPeriod(calendar(10000)));
 	}
 
 	private Calendar calendar(long time) {
@@ -69,12 +69,12 @@ public class VotingSessionTest {
 
 	@Test
 	public void testGetProjectsShouldReturnSameList() {
-		assertSame(session.getProjects(), session.getProjects());
+		assertSame(event.getProjects(), event.getProjects());
 	}
 	
 	@Test
 	public void testGetCriteriaShouldReturnSameList() {
-		assertSame(session.getCriteria(), session.getCriteria());
+		assertSame(event.getCriteria(), event.getCriteria());
 	}
 
 }

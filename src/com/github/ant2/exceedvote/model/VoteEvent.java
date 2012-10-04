@@ -13,9 +13,9 @@ import com.github.ant2.exceedvote.model.Rules.ValidationResult;
  * 
  * @author dtinth
  */
-public class VotingSession {
+public class VoteEvent {
 
-	private static Logger logger = Logger.getLogger(VotingSession.class);
+	private static Logger logger = Logger.getLogger(VoteEvent.class);
 
 	private Calendar startTime;
 	private Calendar finishTime;
@@ -28,14 +28,14 @@ public class VotingSession {
 	private List<Criterion> criteria = new ArrayList<Criterion>();
 
 	/**
-	 * Constructs a default VotingSession.
+	 * Constructs a default VoteEvent.
 	 */
-	public VotingSession() {
+	public VoteEvent() {
 		ballotBox = new BallotBox();
 	}
 
 	/**
-	 * Returns the BallotBox associated with this VotingSession.
+	 * Returns the BallotBox associated with this VoteEvent.
 	 * 
 	 * @return the BallotBox
 	 */
@@ -81,7 +81,7 @@ public class VotingSession {
 	}
 	
 	/**
-	 * Returns the list of all projects inside this VotingSession.
+	 * Returns the list of all projects inside this VoteEvent.
 	 * 
 	 * @return a list of projects available for voting
 	 */
@@ -90,7 +90,7 @@ public class VotingSession {
 	}
 
 	/**
-	 * Returns the list of all criteria inside this VotingSession.
+	 * Returns the list of all criteria inside this VoteEvent.
 	 * 
 	 * @return a list of criteria for selecting
 	 */
@@ -126,7 +126,7 @@ public class VotingSession {
 	}
 
 	/**
-	 * Sets the voting rules for this VotingSession.
+	 * Sets the voting rules for this VoteEvent.
 	 * 
 	 * @param rules
 	 *            the rules object to set
@@ -136,7 +136,7 @@ public class VotingSession {
 	}
 
 	/**
-	 * Returns the validation rules for this VotingSession.
+	 * Returns the validation rules for this VoteEvent.
 	 * 
 	 * @return the rules object
 	 */

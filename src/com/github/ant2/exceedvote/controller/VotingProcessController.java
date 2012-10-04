@@ -19,7 +19,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	public VotingProcessController(VotingProcess model, VotingProcessView view) {
 		this.model = model;
 		this.view = view;
-		view.setFinishTime(model.getSession().getFinishTime());
+		view.setFinishTime(model.getEvent().getFinishTime());
 		view.setVoterProfile(model.getVoter().getProfile());
 		view.setTeamListModel(new TeamListModel());
 		view.setDelegate(this);
@@ -37,12 +37,12 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 		@Override
 		public int getSize() {
-			return model.getSession().getProjects().size();
+			return model.getEvent().getProjects().size();
 		}
 
 		@Override
 		public Object getElementAt(int index) {
-			return model.getSession().getProjects().get(index);
+			return model.getEvent().getProjects().get(index);
 		}
 
 	}
@@ -53,7 +53,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		Ballot ballot = model.createBallot();
 		int index = view.getSelectedProjectIndex();
 		if (index >= 0) {
-			ballot.setProject(model.getSession().getProjects().get(index));
+			ballot.setProject(model.getEvent().getProjects().get(index));
 		}
 		
 		BallotView ballotView = view.createBallotView();

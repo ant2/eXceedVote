@@ -16,15 +16,15 @@ public class Rules {
 	 * 
 	 * @param ballot
 	 *            the ballot to validate
-	 * @param session
+	 * @param event
 	 *            the voting session
 	 * @return the validation result
 	 */
-	public ValidationResult validate(Ballot ballot, VotingSession session) {
+	public ValidationResult validate(Ballot ballot, VoteEvent event) {
 		if (ballot.getProject() == null) return ValidationResult.NO_PROJECT_SELECTED;
 		if (ballot.getCriterion() == null) return ValidationResult.NO_CRITERION_SELECTED;
-		if (session.getBallotBox().getVoterBallots(ballot.getVoter()).size() >= ballot
-				.getVoter().getAllowedBallots() && session.isVotingPeriod()) return ValidationResult.QUOTA_EXCEEDED;
+		if (event.getBallotBox().getVoterBallots(ballot.getVoter()).size() >= ballot
+				.getVoter().getAllowedBallots() && event.isVotingPeriod()) return ValidationResult.QUOTA_EXCEEDED;
 		return ValidationResult.OK;
 	}
 

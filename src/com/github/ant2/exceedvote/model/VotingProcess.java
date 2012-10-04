@@ -4,11 +4,11 @@ import java.util.Calendar;
 
 public class VotingProcess {
 
-	private VotingSession session;
+	private VoteEvent event;
 	private Voter voter;
 
-	public VotingProcess(VotingSession session, Voter voter) {
-		this.session = session;
+	public VotingProcess(VoteEvent event, Voter voter) {
+		this.event = event;
 		this.voter = voter;
 
 		// XXX HARD CODE
@@ -18,14 +18,14 @@ public class VotingProcess {
 		Calendar announcementTime = Calendar.getInstance();
 		announcementTime.add(Calendar.MINUTE, 4);
 
-		session.setStartTime(Calendar.getInstance());
-		session.setFinishTime(finishTime);
-		session.setAnnouncementTime(announcementTime);
+		event.setStartTime(Calendar.getInstance());
+		event.setFinishTime(finishTime);
+		event.setAnnouncementTime(announcementTime);
 
 	}
 
-	public VotingSession getSession() {
-		return session;
+	public VoteEvent getEvent() {
+		return event;
 	}
 	
 	public Voter getVoter() {

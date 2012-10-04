@@ -7,7 +7,7 @@ import com.github.ant2.exceedvote.controller.VotingProcessController;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.model.VoterProfile;
 import com.github.ant2.exceedvote.model.VotingProcess;
-import com.github.ant2.exceedvote.model.VotingSession;
+import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.view.VotingProcessView;
 
 /**
@@ -27,9 +27,9 @@ public class ExceedVoteMain {
 				.getResourceAsStream("log4j.properties"));
 		
 		Voter voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
-		VotingSession session = new VotingSession();
+		VoteEvent event = new VoteEvent();
 		
-		VotingProcess model = new VotingProcess(session, voter);
+		VotingProcess model = new VotingProcess(event, voter);
 		VotingProcessView view = new VotingProcessView();
 		VotingProcessController controller = new VotingProcessController(model,
 				view);
