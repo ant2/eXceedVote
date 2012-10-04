@@ -52,9 +52,9 @@ public class BallotBoxTest {
 		for (int i = 0; i < 20; i++) {
 			ballotBox.add(createMockBallot(v2));
 		}
-		assertEquals(10, ballotBox.getVoterBallots(v1).size());
-		assertEquals(20, ballotBox.getVoterBallots(v2).size());
-		assertEquals(15, ballotBox.getVoterBallots(v3).size());
+		assertEquals(10, ballotBox.findVoterBallots(v1).size());
+		assertEquals(20, ballotBox.findVoterBallots(v2).size());
+		assertEquals(15, ballotBox.findVoterBallots(v3).size());
 	}
 
 }

@@ -23,7 +23,7 @@ public class Rules {
 	public ValidationResult validate(Ballot ballot, VoteEvent event) {
 		if (ballot.getProject() == null) return ValidationResult.NO_PROJECT_SELECTED;
 		if (ballot.getCriterion() == null) return ValidationResult.NO_CRITERION_SELECTED;
-		if (event.getBallotBox().getVoterBallots(ballot.getVoter()).size() >= ballot
+		if (event.getBallotBox().findVoterBallots(ballot.getVoter()).size() >= ballot
 				.getVoter().getAllowedBallots() && event.isVotingPeriod()) return ValidationResult.QUOTA_EXCEEDED;
 		return ValidationResult.OK;
 	}

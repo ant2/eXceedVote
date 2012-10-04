@@ -2,6 +2,7 @@ package com.github.ant2.exceedvote.model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -22,10 +23,11 @@ public class VoteEvent {
 	private Calendar announcementTime;
 
 	private Rules rules = new Rules();
-	private BallotBox ballotBox = new BallotBox();
-	
+
 	private List<Project> projects = new ArrayList<Project>();
 	private List<Criterion> criteria = new ArrayList<Criterion>();
+
+	private BallotBox ballotBox;
 
 	/**
 	 * Constructs a default VoteEvent.
@@ -79,7 +81,7 @@ public class VoteEvent {
 		criteria.add(new Criterion("Best Graphic"));
 		criteria.add(new Criterion("User Friendly"));
 	}
-	
+
 	/**
 	 * Returns the list of all projects inside this VoteEvent.
 	 * 
@@ -221,6 +223,28 @@ public class VoteEvent {
 	 */
 	public boolean isVotingPeriod(Calendar calendar) {
 		return !startTime.after(calendar) && calendar.before(finishTime);
+	}
+
+	/**
+	 * Finds and returns a list of ballots put into the ballot box by voter v.
+	 * 
+	 * @param voter
+	 *            the voter to find
+	 * @return a collection of ballots
+	 */
+	public Collection<Ballot> findVoterBallots(Voter voter) {
+		return ballotBox.findVoterBallots(voter);
+	}
+
+	/**
+	 * Counts the number of ballots put into the ballot box by voter v.
+	 * 
+	 * @param voter
+	 *            the voter to count
+	 * @return number of ballots by that voter.
+	 */
+	public int countVoterBallots(Voter voter) {
+		return findVoterBallots(voter).size();
 	}
 
 }
