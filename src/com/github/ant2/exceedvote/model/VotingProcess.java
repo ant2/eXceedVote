@@ -7,10 +7,9 @@ public class VotingProcess {
 	private VotingSession session;
 	private Voter voter;
 
-	public VotingProcess() {
-
-		voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
-		session = new VotingSession();
+	public VotingProcess(VotingSession session, Voter voter) {
+		this.session = session;
+		this.voter = voter;
 
 		// XXX HARD CODE
 		Calendar finishTime = Calendar.getInstance();
