@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="lib/mockito-all-1.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/guava-13.0.1.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/eclipselink.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
