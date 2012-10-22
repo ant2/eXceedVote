@@ -38,6 +38,9 @@ public class BallotController implements Delegate {
 		criterionSelectionController = new RadioSelectionController<Criterion>(
 				view.getCriterionSelectView(), availableCriteria);
 
+		projectSelectionController.setSelection(model.getProject());
+		criterionSelectionController.setSelection(model.getCriterion());
+		
 		view.setDelegate(this);
 
 	}
@@ -65,13 +68,14 @@ public class BallotController implements Delegate {
 
 		model.setProject(projectSelectionController.getSelected());
 		model.setCriterion(criterionSelectionController.getSelected());
+		
+		ValidationResult result = process.checkBallot(model);
 
-		ValidationResult result = process.getEvent().validate(model);
 		if (result == ValidationResult.OK) {
 			if (view.confirmVoting()) {
-				result = process.getEvent().submit(model);
+				result = process.submitBallot(model);
 				if (result == ValidationResult.OK) {
-					view.displaySuccess(999); // TODO
+					view.displaySuccess(process.getRemainingBallots());
 					view.setVisible(false);
 					view.dispose();
 				} else {
