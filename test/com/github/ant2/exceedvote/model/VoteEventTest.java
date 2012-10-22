@@ -71,7 +71,7 @@ public class VoteEventTest {
 	public void testGetProjectsShouldReturnSameList() {
 		assertSame(event.getProjects(), event.getProjects());
 	}
-	
+
 	@Test
 	public void testGetCriteriaShouldReturnSameList() {
 		assertSame(event.getCriteria(), event.getCriteria());

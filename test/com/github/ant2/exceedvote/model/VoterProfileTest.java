@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class VoterProfileTest {

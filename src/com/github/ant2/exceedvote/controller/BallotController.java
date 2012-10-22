@@ -7,9 +7,8 @@ import org.apache.log4j.Logger;
 import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.Criterion;
 import com.github.ant2.exceedvote.model.Project;
-import com.github.ant2.exceedvote.model.Rules;
-import com.github.ant2.exceedvote.model.VotingProcess;
 import com.github.ant2.exceedvote.model.Rules.ValidationResult;
+import com.github.ant2.exceedvote.model.VotingProcess;
 import com.github.ant2.exceedvote.view.BallotView;
 import com.github.ant2.exceedvote.view.BallotView.Delegate;
 
@@ -33,11 +32,11 @@ public class BallotController implements Delegate {
 
 		availableProjects = process.getAvailableProjects();
 		availableCriteria = process.getAvailableCriteria();
-		
-		projectSelectionController = new RadioSelectionController<Project>(view.getProjectSelectView(),
-				availableProjects);
-		criterionSelectionController = new RadioSelectionController<Criterion>(view.getCriterionSelectView(),
-				availableCriteria);
+
+		projectSelectionController = new RadioSelectionController<Project>(
+				view.getProjectSelectView(), availableProjects);
+		criterionSelectionController = new RadioSelectionController<Criterion>(
+				view.getCriterionSelectView(), availableCriteria);
 
 		projectSelectionController.setSelection(model.getProject());
 		criterionSelectionController.setSelection(model.getCriterion());
@@ -71,7 +70,7 @@ public class BallotController implements Delegate {
 		model.setCriterion(criterionSelectionController.getSelected());
 		
 		ValidationResult result = process.checkBallot(model);
-		
+
 		if (result == ValidationResult.OK) {
 			if (view.confirmVoting()) {
 				result = process.submitBallot(model);

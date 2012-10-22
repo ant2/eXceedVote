@@ -26,12 +26,12 @@ public class BallotView extends JDialog {
 	 * @author dtinth
 	 */
 	public interface Delegate {
-		
+
 		/**
 		 * Invoked when the submit button is clicked.
 		 */
 		void submitButtonClicked();
-		
+
 	}
 
 	/** */
@@ -99,11 +99,11 @@ public class BallotView extends JDialog {
 	public RadioSelectionPanel getProjectSelectView() {
 		return projectSelectView;
 	}
-	
+
 	public RadioSelectionPanel getCriterionSelectView() {
 		return criterionSelectView;
 	}
-	
+
 	/**
 	 * Display dialog to ask the voter to confirm their decision.
 	 * 
