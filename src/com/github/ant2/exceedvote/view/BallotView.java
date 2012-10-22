@@ -26,34 +26,20 @@ public class BallotView extends JDialog {
 	 * @author dtinth
 	 */
 	public interface Delegate {
+		
 		/**
 		 * Invoked when the submit button is clicked.
 		 */
 		void submitButtonClicked();
-
-		/**
-		 * Invoked when voter selected the project from one of the project list.
-		 * 
-		 * @param option
-		 *            current selected project
-		 */
-		void projectSelected(Object option);
-
-		/**
-		 * Invoked when voter selected one of the available criteria.
-		 * 
-		 * @param option
-		 *            current selected criterion
-		 */
-		void criterionSelected(Object option);
+		
 	}
 
 	/** */
 	private static final long serialVersionUID = 1L;
 
 	private Delegate delegate;
-	private RadioSelectView projectSelectView;
-	private RadioSelectView criterionSelectView;
+	private RadioSelectionPanel projectSelectView;
+	private RadioSelectionPanel criterionSelectView;
 
 	/**
 	 * Construct a window that ask the voter to select project and criterion to
@@ -88,22 +74,8 @@ public class BallotView extends JDialog {
 		criteriaPanel.setBorder(BorderFactory
 				.createTitledBorder(" Pick a Criterion "));
 
-		projectSelectView = new RadioSelectView();
-		criterionSelectView = new RadioSelectView();
-
-		projectSelectView.setDelegate(new RadioSelectView.Delegate() {
-			@Override
-			public void optionSelected(Object option) {
-				delegate.projectSelected(option);
-			}
-		});
-
-		criterionSelectView.setDelegate(new RadioSelectView.Delegate() {
-			@Override
-			public void optionSelected(Object option) {
-				delegate.criterionSelected(option);
-			}
-		});
+		projectSelectView = new RadioSelectionPanel();
+		criterionSelectView = new RadioSelectionPanel();
 
 		projectsPanel.add(projectSelectView);
 		criteriaPanel.add(criterionSelectView);
@@ -124,24 +96,14 @@ public class BallotView extends JDialog {
 
 	}
 
-	@SuppressWarnings("rawtypes")
-	public void addProjectOptions(Iterable projectOptions) {
-		projectSelectView.addOptions(projectOptions);
+	public RadioSelectionPanel getProjectSelectView() {
+		return projectSelectView;
 	}
-
-	@SuppressWarnings("rawtypes")
-	public void addCriterionOptions(Iterable criterionOptions) {
-		criterionSelectView.addOptions(criterionOptions);
+	
+	public RadioSelectionPanel getCriterionSelectView() {
+		return criterionSelectView;
 	}
-
-	public void setSelectedProject(Object item) {
-		projectSelectView.selectOption(item);
-	}
-
-	public void setSelectedCriterion(Object item) {
-		criterionSelectView.selectOption(item);
-	}
-
+	
 	/**
 	 * Display dialog to ask the voter to confirm their decision.
 	 * 

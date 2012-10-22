@@ -1,5 +1,7 @@
 package com.github.ant2.exceedvote.controller;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.github.ant2.exceedvote.model.Ballot;
@@ -18,15 +20,27 @@ public class BallotController implements Delegate {
 	private Ballot model;
 	private BallotView view;
 
+	private RadioSelectionController<Project> projectSelectionController;
+	private RadioSelectionController<Criterion> criterionSelectionController;
+	private List<Project> availableProjects;
+	private List<Criterion> availableCriteria;
+
 	public BallotController(VotingProcess process, Ballot model, BallotView view) {
+
 		this.process = process;
 		this.model = model;
 		this.view = view;
+
+		availableProjects = process.getAvailableProjects();
+		availableCriteria = process.getAvailableCriteria();
+		
+		projectSelectionController = new RadioSelectionController<Project>(view.getProjectSelectView(),
+				availableProjects);
+		criterionSelectionController = new RadioSelectionController<Criterion>(view.getCriterionSelectView(),
+				availableCriteria);
+
 		view.setDelegate(this);
-		view.addProjectOptions(process.getEvent().getProjects());
-		view.addCriterionOptions(process.getEvent().getCriteria());
-		view.setSelectedProject(model.getProject());
-		view.setSelectedCriterion(model.getCriterion());
+
 	}
 
 	public void show() {
@@ -49,6 +63,10 @@ public class BallotController implements Delegate {
 
 	@Override
 	public void submitButtonClicked() {
+
+		model.setProject(projectSelectionController.getSelected());
+		model.setCriterion(criterionSelectionController.getSelected());
+		
 		ValidationResult result = process.getEvent().validate(model);
 		if (result == ValidationResult.OK) {
 			if (view.confirmVoting()) {
@@ -64,16 +82,6 @@ public class BallotController implements Delegate {
 		} else {
 			view.displayError(errorMessage(result));
 		}
-	}
-
-	@Override
-	public void projectSelected(Object option) {
-		model.setProject((Project) option);
-	}
-
-	@Override
-	public void criterionSelected(Object option) {
-		model.setCriterion((Criterion) option);
 	}
 
 }

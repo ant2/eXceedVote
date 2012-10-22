@@ -97,4 +97,13 @@ public class VotingProcess {
 		return event.getRemainingTime();
 	}
 
+	/**
+	 * Returns all the available criteria.
+	 * 
+	 * @return the list of available criteria
+	 */
+	public List<Criterion> getAvailableCriteria() {
+		return event.getCriteria();
+	}
+
 }
