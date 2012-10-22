@@ -2,7 +2,6 @@ package com.github.ant2.exceedvote.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.AbstractListModel;
@@ -19,48 +18,49 @@ import com.github.ant2.exceedvote.view.VotingProcessView;
 
 public class VotingProcessController implements VotingProcessView.Delegate {
 
-	private static Logger logger = Logger.getLogger(VotingProcessController.class);
+	private static Logger logger = Logger
+			.getLogger(VotingProcessController.class);
 
 	private VotingProcess model;
 	private VotingProcessView view;
-	
+
 	private ProjectListModel projectListModel;
 	private JList projectListView;
 	private List<Project> availableProjects;
 
 	private Timer timer;
-	
+
 	public VotingProcessController(VotingProcess model, VotingProcessView view) {
-		
+
 		this.model = model;
 		this.view = view;
-		//view.setFinishTime(model.getEvent().getFinishTime());
-		
+		// view.setFinishTime(model.getEvent().getFinishTime());
+
 		timer = new Timer(1000, new RemainingTimeUpdater());
 		timer.start();
-		
+
 		updateRemainingTime();
-		
+
 		view.setVoterProfile(model.getVoter().getProfile());
-		
+
 		availableProjects = model.getAvailableProjects();
 		projectListModel = new ProjectListModel();
 		projectListView = view.getProjectList();
 		projectListView.setModel(new ProjectListModel());
-		
+
 		view.setDelegate(this);
-		
+
 	}
-	
+
 	class RemainingTimeUpdater implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			updateRemainingTime();
 		}
-		
+
 	}
-	
+
 	private void updateRemainingTime() {
 		view.setRemainingTime(model.getRemainingTime());
 	}
@@ -92,11 +92,11 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 		Ballot ballot = model.createBallot();
 		int index = projectListView.getSelectedIndex();
-		
+
 		if (index >= 0) {
 			ballot.setProject(availableProjects.get(index));
 		}
-		
+
 		BallotView ballotView = view.createBallotView();
 		BallotController ballotController = new BallotController(model, ballot,
 				ballotView);
