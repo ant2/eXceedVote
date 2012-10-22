@@ -29,14 +29,19 @@ public class VotingProcessView extends JFrame {
 		 * Invoked when the vote button is clicked.
 		 */
 		void voteButtonClicked();
+		
+		/**
+		 * Invoked when the change ballot link is clicked.
+		 */
+		void changeBallotLinkClicked();
 
 	}
 
 	private Delegate delegate;
 	private Calendar finishTime;
 	private JLabel countdownLabel;
-	private JList projectList;
 	private JLabel userLabel;
+	private JList projectList;
 
 	public VotingProcessView() {
 		super("eXceed Vote");
