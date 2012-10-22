@@ -3,10 +3,19 @@ package com.github.ant2.exceedvote.model;
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * Represents the process of the voter voting a project inside a certain voting
+ * event.
+ * 
+ * @author dtinth
+ */
 public class VotingProcess {
 
-	private VoteEvent event;
+	/** the voter who is going to vote */
 	private Voter voter;
+
+	/** the event the the voter will vote in */
+	private VoteEvent event;
 
 	/**
 	 * Constructs a VotingProcess which represents the process of voting.
@@ -60,9 +69,10 @@ public class VotingProcess {
 	public List<Project> getAvailableProjects() {
 		return event.getProjects();
 	}
-	
+
 	/**
 	 * Returns the information for that project.
+	 * 
 	 * @return the project information
 	 */
 	public ProjectInformation getProjectInfo(Project project) {
@@ -76,6 +86,15 @@ public class VotingProcess {
 	 */
 	public Ballot createBallot() {
 		return new Ballot(voter, null, null);
+	}
+
+	/**
+	 * Returns the remaining time.
+	 * 
+	 * @return the remaining time, in seconds
+	 */
+	public int getRemainingTime() {
+		return event.getRemainingTime();
 	}
 
 }

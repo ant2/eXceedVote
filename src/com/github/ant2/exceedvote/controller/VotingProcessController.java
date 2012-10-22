@@ -3,6 +3,7 @@ package com.github.ant2.exceedvote.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.swing.AbstractListModel;
 import javax.swing.JList;
@@ -11,6 +12,7 @@ import javax.swing.Timer;
 import org.apache.log4j.Logger;
 
 import com.github.ant2.exceedvote.model.Ballot;
+import com.github.ant2.exceedvote.model.Project;
 import com.github.ant2.exceedvote.model.VotingProcess;
 import com.github.ant2.exceedvote.view.BallotView;
 import com.github.ant2.exceedvote.view.VotingProcessView;
@@ -24,6 +26,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	
 	private ProjectListModel projectListModel;
 	private JList projectListView;
+	private List<Project> availableProjects;
 
 	private Timer timer;
 	
@@ -40,6 +43,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		
 		view.setVoterProfile(model.getVoter().getProfile());
 		
+		availableProjects = model.getAvailableProjects();
 		projectListModel = new ProjectListModel();
 		projectListView = view.getProjectList();
 		projectListView.setModel(new ProjectListModel());
@@ -58,7 +62,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	}
 	
 	private void updateRemainingTime() {
-		view.setRemainingTime(model.getEvent().getRemainingTime());
+		view.setRemainingTime(model.getRemainingTime());
 	}
 
 	public void show() {
@@ -73,12 +77,12 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 		@Override
 		public int getSize() {
-			return model.getEvent().getProjects().size();
+			return availableProjects.size();
 		}
 
 		@Override
 		public Object getElementAt(int index) {
-			return model.getEvent().getProjects().get(index);
+			return availableProjects.get(index);
 		}
 
 	}
@@ -90,7 +94,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		int index = projectListView.getSelectedIndex();
 		
 		if (index >= 0) {
-			ballot.setProject(model.getEvent().getProjects().get(index));
+			ballot.setProject(availableProjects.get(index));
 		}
 		
 		BallotView ballotView = view.createBallotView();
