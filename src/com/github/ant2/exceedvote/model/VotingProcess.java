@@ -51,7 +51,24 @@ public class VotingProcess {
 	public Voter getVoter() {
 		return voter;
 	}
+
+	/**
+	 * Returns the projects that are available for voting.
+	 * 
+	 * @return the list of projects
+	 */
+	public List<Project> getAvailableProjects() {
+		return event.getProjects();
+	}
 	
+	/**
+	 * Returns the information for that project.
+	 * @return the project information
+	 */
+	public ProjectInformation getProjectInfo(Project project) {
+		return null;
+	}
+
 	/**
 	 * Creates a new Ballot for the voter.
 	 * 
