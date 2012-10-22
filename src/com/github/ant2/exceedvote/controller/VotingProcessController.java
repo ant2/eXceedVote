@@ -1,7 +1,12 @@
 package com.github.ant2.exceedvote.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+
 import javax.swing.AbstractListModel;
 import javax.swing.JList;
+import javax.swing.Timer;
 
 import org.apache.log4j.Logger;
 
@@ -20,11 +25,19 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	private ProjectListModel projectListModel;
 	private JList projectListView;
 
+	private Timer timer;
+	
 	public VotingProcessController(VotingProcess model, VotingProcessView view) {
 		
 		this.model = model;
 		this.view = view;
-		view.setFinishTime(model.getEvent().getFinishTime());
+		//view.setFinishTime(model.getEvent().getFinishTime());
+		
+		timer = new Timer(1000, new RemainingTimeUpdater());
+		timer.start();
+		
+		updateRemainingTime();
+		
 		view.setVoterProfile(model.getVoter().getProfile());
 		
 		projectListModel = new ProjectListModel();
@@ -33,6 +46,19 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		
 		view.setDelegate(this);
 		
+	}
+	
+	class RemainingTimeUpdater implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			updateRemainingTime();
+		}
+		
+	}
+	
+	private void updateRemainingTime() {
+		view.setRemainingTime(model.getEvent().getRemainingTime());
 	}
 
 	public void show() {

@@ -61,13 +61,6 @@ public class VotingProcessView extends JFrame {
 
 		mainPanel.add(countdownLabel, BorderLayout.NORTH);
 
-		new Timer(1000, new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				updateRemainingTime();
-			}
-		}).start();
-
 		projectList = new JList();
 		projectList.setCellRenderer(new ProjectCellItemRenderer());
 
@@ -98,33 +91,23 @@ public class VotingProcessView extends JFrame {
 	/**
 	 * Sets the view delegate for this VotingProcessView.
 	 * 
-	 * @param delegate the view delegate to set
+	 * @param delegate
+	 *            the view delegate to set
 	 */
 	public void setDelegate(Delegate delegate) {
 		this.delegate = delegate;
 	}
 
 	/**
-	 * Sets the finish time of this view.
-	 * 
-	 * @param finishTime the finishing time
-	 */
-	public void setFinishTime(Calendar finishTime) {
-		this.finishTime = finishTime;
-		updateRemainingTime();
-	}
-
-	/**
 	 * Updates the remaining time on the user interface.
+	 * 
+	 * @param timeLeft
+	 *            the time remaining, in seconds
 	 */
-	private void updateRemainingTime() {
-		long timeLeft = finishTime.getTimeInMillis()
-				- Calendar.getInstance().getTimeInMillis();
+	public void setRemainingTime(int timeLeft) {
 		countdownLabel.setText(String.format("Remaining time: %d:%02d:%02d",
-				timeLeft / (3600 * 1000), (timeLeft % (3600 * 1000))
-						/ (60 * 1000), (timeLeft % (60 * 1000)) / 1000));
+				timeLeft / 3600, timeLeft % 3600 / 60, timeLeft % 60));
 	}
-
 
 	/**
 	 * Creates a BallotView for letting users fill data into the ballot.
@@ -138,7 +121,8 @@ public class VotingProcessView extends JFrame {
 	/**
 	 * Sets the voter profile.
 	 * 
-	 * @param profile the VoterProfile to set
+	 * @param profile
+	 *            the VoterProfile to set
 	 */
 	public void setVoterProfile(VoterProfile profile) {
 		userLabel.setText("Hello, " + profile.getName());
