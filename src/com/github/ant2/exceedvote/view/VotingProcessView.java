@@ -18,14 +18,24 @@ public class VotingProcessView extends JFrame {
 	/** */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * View delegate for VotingProcessView
+	 * 
+	 * @author dtinth
+	 */
 	public interface Delegate {
+
+		/**
+		 * Invoked when the vote button is clicked.
+		 */
 		void voteButtonClicked();
+
 	}
 
 	private Delegate delegate;
 	private Calendar finishTime;
 	private JLabel countdownLabel;
-	private JList teamList;
+	private JList projectList;
 	private JLabel userLabel;
 
 	public VotingProcessView() {
@@ -41,7 +51,7 @@ public class VotingProcessView extends JFrame {
 		userLabel = new JLabel();
 		userLabel.setHorizontalAlignment(CENTER);
 		add(userLabel, BorderLayout.NORTH);
-		
+
 		JPanel mainPanel = new JPanel(new BorderLayout());
 
 		countdownLabel = new JLabel();
@@ -58,10 +68,10 @@ public class VotingProcessView extends JFrame {
 			}
 		}).start();
 
-		teamList = new JList();
-		teamList.setCellRenderer(new ProjectCellItemRenderer());
+		projectList = new JList();
+		projectList.setCellRenderer(new ProjectCellItemRenderer());
 
-		JScrollPane scrollPane = new JScrollPane(teamList);
+		JScrollPane scrollPane = new JScrollPane(projectList);
 		scrollPane.setPreferredSize(new Dimension(300, 400));
 
 		mainPanel.add(scrollPane, BorderLayout.CENTER);
@@ -85,15 +95,28 @@ public class VotingProcessView extends JFrame {
 
 	}
 
+	/**
+	 * Sets the view delegate for this VotingProcessView.
+	 * 
+	 * @param delegate the view delegate to set
+	 */
 	public void setDelegate(Delegate delegate) {
 		this.delegate = delegate;
 	}
 
+	/**
+	 * Sets the finish time of this view.
+	 * 
+	 * @param finishTime the finishing time
+	 */
 	public void setFinishTime(Calendar finishTime) {
 		this.finishTime = finishTime;
 		updateRemainingTime();
 	}
 
+	/**
+	 * Updates the remaining time on the user interface.
+	 */
 	private void updateRemainingTime() {
 		long timeLeft = finishTime.getTimeInMillis()
 				- Calendar.getInstance().getTimeInMillis();
@@ -102,20 +125,32 @@ public class VotingProcessView extends JFrame {
 						/ (60 * 1000), (timeLeft % (60 * 1000)) / 1000));
 	}
 
-	public void setTeamListModel(ListModel model) {
-		teamList.setModel(model);
-	}
 
+	/**
+	 * Creates a BallotView for letting users fill data into the ballot.
+	 * 
+	 * @return a new BallotView
+	 */
 	public BallotView createBallotView() {
 		return new BallotView(this);
 	}
 
+	/**
+	 * Sets the voter profile.
+	 * 
+	 * @param profile the VoterProfile to set
+	 */
 	public void setVoterProfile(VoterProfile profile) {
 		userLabel.setText("Hello, " + profile.getName());
 	}
 
-	public int getSelectedProjectIndex() {
-		return teamList.getSelectedIndex();
+	/**
+	 * Returns the project list view.
+	 * 
+	 * @return the project list view
+	 */
+	public JList getProjectList() {
+		return projectList;
 	}
 
 }

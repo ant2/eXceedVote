@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote.controller;
 
 import javax.swing.AbstractListModel;
+import javax.swing.JList;
 
 import org.apache.log4j.Logger;
 
@@ -15,14 +16,23 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 	private VotingProcess model;
 	private VotingProcessView view;
+	
+	private ProjectListModel projectListModel;
+	private JList projectListView;
 
 	public VotingProcessController(VotingProcess model, VotingProcessView view) {
+		
 		this.model = model;
 		this.view = view;
 		view.setFinishTime(model.getEvent().getFinishTime());
 		view.setVoterProfile(model.getVoter().getProfile());
-		view.setTeamListModel(new TeamListModel());
+		
+		projectListModel = new ProjectListModel();
+		projectListView = view.getProjectList();
+		projectListView.setModel(new ProjectListModel());
+		
 		view.setDelegate(this);
+		
 	}
 
 	public void show() {
@@ -30,7 +40,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		view.setVisible(true);
 	}
 
-	class TeamListModel extends AbstractListModel {
+	class ProjectListModel extends AbstractListModel {
 
 		/** */
 		private static final long serialVersionUID = 1L;
@@ -51,7 +61,8 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	public void voteButtonClicked() {
 
 		Ballot ballot = model.createBallot();
-		int index = view.getSelectedProjectIndex();
+		int index = projectListView.getSelectedIndex();
+		
 		if (index >= 0) {
 			ballot.setProject(model.getEvent().getProjects().get(index));
 		}
