@@ -35,4 +35,12 @@ public class RadioSelectionPanel extends JPanel {
 		return buttonModels.indexOf(group.getSelection());
 	}
 
+	public void setSelectedIndex(int index) {
+		if (index >= 0) {
+			group.setSelected(buttonModels.get(index), true);
+		} else {
+			group.clearSelection();
+		}
+	}
+
 }

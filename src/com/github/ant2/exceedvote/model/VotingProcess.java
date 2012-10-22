@@ -3,6 +3,8 @@ package com.github.ant2.exceedvote.model;
 import java.util.Calendar;
 import java.util.List;
 
+import com.github.ant2.exceedvote.model.Rules.ValidationResult;
+
 /**
  * Represents the process of the voter voting a project inside a certain voting
  * event.
@@ -104,6 +106,37 @@ public class VotingProcess {
 	 */
 	public List<Criterion> getAvailableCriteria() {
 		return event.getCriteria();
+	}
+
+	/**
+	 * Checks the ballot before it is going to be submitted.
+	 * 
+	 * @param ballot
+	 *            the ballot to check
+	 * @return the validation result
+	 */
+	public ValidationResult checkBallot(Ballot ballot) {
+		return event.validate(ballot);
+	}
+
+	/**
+	 * Submits a ballot.
+	 * 
+	 * @param ballot
+	 *            the ballot to submit
+	 * @return the validation result
+	 */
+	public ValidationResult submitBallot(Ballot ballot) {
+		return event.submit(ballot);
+	}
+
+	/**
+	 * Returns the remaining ballots for that voter.
+	 * 
+	 * @return the number of remaining ballots that can be submitted
+	 */
+	public int getRemainingBallots() {
+		return voter.getAllowedBallots() - event.countVoterBallots(voter);
 	}
 
 }

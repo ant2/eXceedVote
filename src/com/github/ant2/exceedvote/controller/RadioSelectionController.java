@@ -24,4 +24,8 @@ public class RadioSelectionController<T> {
 		return list.get(selectedIndex);
 	}
 
+	public void setSelection(T item) {
+		view.setSelectedIndex(list.indexOf(item));
+	}
+
 }
