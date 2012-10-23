@@ -25,13 +25,6 @@ public class ExceedVoteEvent extends AbstractVoteEvent implements VoteEvent {
 
 	}
 
-	/**
-	 * Returns the remaining time left until the voting session ends.
-	 * 
-	 * @param calendar
-	 *            the calendar to check
-	 * @return the time remaining, in seconds
-	 */
 	@Override
 	public int getRemainingTime(Calendar calendar) {
 		return (int) ((finishTime.getTimeInMillis() - calendar
@@ -54,21 +47,11 @@ public class ExceedVoteEvent extends AbstractVoteEvent implements VoteEvent {
 		criteria.add(new Criterion("User Friendly"));
 	}
 
-	/**
-	 * Returns the list of all projects inside this VoteEvent.
-	 * 
-	 * @return a list of projects available for voting
-	 */
 	@Override
 	public List<Project> getProjects() {
 		return projects;
 	}
 
-	/**
-	 * Returns the list of all criteria inside this VoteEvent.
-	 * 
-	 * @return a list of criteria for selecting
-	 */
 	@Override
 	public List<Criterion> getCriteria() {
 		return criteria;
