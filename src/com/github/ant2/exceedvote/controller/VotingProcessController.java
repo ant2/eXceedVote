@@ -104,7 +104,8 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 	@Override
 	public void changeBallotLinkClicked() {
 		ChangeBallotView changeBallotView = view.createChangeBallotView();
-		ChangeBallotController changeBallotController = new ChangeBallotController(model, changeBallotView);
+		ChangeBallotController changeBallotController = new ChangeBallotController(
+				model, changeBallotView);
 		changeBallotController.show();
 	}
 

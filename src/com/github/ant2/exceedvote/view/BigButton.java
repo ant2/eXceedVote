@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.Font;
+
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 
