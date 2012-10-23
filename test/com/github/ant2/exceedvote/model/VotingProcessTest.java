@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 public class VotingProcessTest {
 
-	private VoteEvent event = mock(VoteEvent.class);
+	private VoteEvent event = mock(ExceedVoteEvent.class);
 	private Voter voter = mock(Voter.class);
 
 	private VotingProcess process = new VotingProcess(event, voter);

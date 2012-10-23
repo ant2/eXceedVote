@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.github.ant2.exceedvote.controller.VotingProcessController;
+import com.github.ant2.exceedvote.model.ExceedVoteEvent;
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.model.VoterProfile;
@@ -27,7 +28,7 @@ public class ExceedVoteMain {
 				.getResourceAsStream("log4j.properties"));
 
 		Voter voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
-		VoteEvent event = new VoteEvent();
+		VoteEvent event = new ExceedVoteEvent();
 
 		VotingProcess model = new VotingProcess(event, voter);
 		VotingProcessView view = new VotingProcessView();
