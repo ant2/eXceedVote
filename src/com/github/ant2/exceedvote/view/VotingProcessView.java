@@ -31,7 +31,7 @@ public class VotingProcessView extends JFrame {
 		 * Invoked when the vote button is clicked.
 		 */
 		void voteButtonClicked();
-		
+
 		/**
 		 * Invoked when the change ballot link is clicked.
 		 */
@@ -54,7 +54,7 @@ public class VotingProcessView extends JFrame {
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
-		
+
 		// status bar components
 		userLabel = new JLabel();
 		userLabel.setHorizontalAlignment(CENTER);
@@ -67,7 +67,7 @@ public class VotingProcessView extends JFrame {
 		// project list component
 		projectList = new JList();
 		projectList.setCellRenderer(new ProjectCellItemRenderer());
-		
+
 		JScrollPane scrollPane = new JScrollPane(projectList);
 		scrollPane.setPreferredSize(new Dimension(300, 400));
 
@@ -81,10 +81,11 @@ public class VotingProcessView extends JFrame {
 				delegate.voteButtonClicked();
 			}
 		});
-		
+
 		// change ballot link
-		JButton changeBallot = new JButton(new AbstractAction("<html><u>>> I want to change my ballot</u></html>") {
-			
+		JButton changeBallot = new JButton(new AbstractAction(
+				"<html><u>>> I want to change my ballot</u></html>") {
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				delegate.changeBallotLinkClicked();
@@ -100,9 +101,10 @@ public class VotingProcessView extends JFrame {
 		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
 		voteButton.setDefaultCapable(true);
 
-		JLabel clickVote = new JLabel("When you want to vote, click on the VOTE button.");
-		
-		//mainPanel.add(voteButton, BorderLayout.SOUTH);
+		JLabel clickVote = new JLabel(
+				"When you want to vote, click on the VOTE button.");
+
+		// mainPanel.add(voteButton, BorderLayout.SOUTH);
 		/** */
 		JPanel centerPanel = new JPanel();
 		JPanel southPanel = new JPanel();
@@ -111,36 +113,37 @@ public class VotingProcessView extends JFrame {
 		JPanel teamInfo = new JPanel();
 		JPanel statusBar = new JPanel();
 
-		JLabel welcome = new JLabel("<html>Welcome to eXceed vote<br><br>Please pick a project to view its information at the left.</html>");
+		JLabel welcome = new JLabel(
+				"<html>Welcome to eXceed vote<br><br>Please pick a project to view its information at the left.</html>");
 		JTabbedPane projectInfoTab = new JTabbedPane();
-		
+
 		projectInfoTab.setPreferredSize(new Dimension(300, 400));
 		welcome.setPreferredSize(new Dimension(280, 400));
 		projectInfo.add(welcome);
 		teamInfo.add(new JLabel("~~~"));
 		projectInfoTab.addTab("Project Information", projectInfo);
 		projectInfoTab.addTab("Team Information", teamInfo);
-		
+
 		projectDisplayArea.add(scrollPane, BorderLayout.WEST);
 		projectDisplayArea.add(projectInfoTab, BorderLayout.CENTER);
-		
+
 		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		statusBar.setLayout(new BorderLayout());
 		statusBar.add(userLabel, BorderLayout.WEST);
 		statusBar.add(countdownLabel, BorderLayout.EAST);
-		
+
 		centerPanel.setLayout(new BorderLayout());
-		centerPanel.add(new JLabel("Select a project to view its information"), BorderLayout.NORTH);
+		centerPanel.add(new JLabel("Select a project to view its information"),
+				BorderLayout.NORTH);
 		centerPanel.add(projectDisplayArea, BorderLayout.CENTER);
-		
 
 		southPanel.add(clickVote);
 		southPanel.add(voteButton);
 		southPanel.add(changeBallot);
 		southPanel.add(statusBar);
 		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
-		
-		//add(mainPanel, BorderLayout.CENTER);
+
+		// add(mainPanel, BorderLayout.CENTER);
 		add(centerPanel, BorderLayout.CENTER);
 		add(southPanel, BorderLayout.SOUTH);
 
