@@ -34,7 +34,7 @@ public class VotingProcess {
 
 		// XXX HARD CODE
 		Calendar finishTime = Calendar.getInstance();
-		finishTime.add(Calendar.MINUTE, 0);
+		finishTime.add(Calendar.MINUTE, 3);
 
 		Calendar announcementTime = Calendar.getInstance();
 		announcementTime.add(Calendar.MINUTE, 4);

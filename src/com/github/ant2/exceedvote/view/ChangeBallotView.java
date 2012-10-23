@@ -17,6 +17,7 @@ public class ChangeBallotView extends JDialog {
 	/** */
 	private static final long serialVersionUID = 1L;
 	private Delegate delegate;
+	private JTable table;
 
 	public interface Delegate {
 		void changeButtonClicked();
@@ -47,8 +48,7 @@ public class ChangeBallotView extends JDialog {
 				"Select a ballot that you wish to change");
 		ballotDisplay.add(selectBallot, BorderLayout.NORTH);
 
-		// Table to show the used ballots
-		JTable table = new JTable(2, 3);
+		table = new JTable(2, 3);
 		JScrollPane tablePane = new JScrollPane(table);
 		tablePane
 				.setPreferredSize(new Dimension(ballotDisplay.getWidth(), 200));
@@ -86,5 +86,9 @@ public class ChangeBallotView extends JDialog {
 
 	public void setDelegate(Delegate delegate) {
 		this.delegate = delegate;
+	}
+	
+	public JTable getTable() {
+		return table;
 	}
 }
