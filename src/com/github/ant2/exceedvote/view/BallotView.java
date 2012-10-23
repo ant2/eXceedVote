@@ -1,15 +1,16 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
+import com.github.ant2.exceedvote.util.UIUtility;
 
 /**
  * The user-interface that ask the voter to select the projects to vote on by
@@ -64,23 +65,12 @@ public class BallotView extends JDialog {
 	}
 
 	private void initComponents() {
-		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-
-		JPanel projectsPanel = new JPanel();
-		JPanel criteriaPanel = new JPanel();
-
-		projectsPanel.setBorder(BorderFactory
-				.createTitledBorder(" Select Project "));
-		criteriaPanel.setBorder(BorderFactory
-				.createTitledBorder(" Pick a Criterion "));
+		setLayout(new GridBagLayout());
 
 		projectSelectView = new RadioSelectionPanel();
 		criterionSelectView = new RadioSelectionPanel();
 
-		projectsPanel.add(projectSelectView);
-		criteriaPanel.add(criterionSelectView);
-
-		JButton submitButton = new JButton(new AbstractAction("Submit") {
+		JButton submitButton = new BigButton(new AbstractAction("Submit") {
 			/** */
 			private static final long serialVersionUID = 1L;
 
@@ -90,9 +80,11 @@ public class BallotView extends JDialog {
 			}
 		});
 
-		add(projectsPanel);
-		add(criteriaPanel);
-		add(submitButton);
+		GridBagConstraints c = UIUtility.createVerticalGridBagConstrints();
+		
+		add(UIUtility.createPaddedStepPanel("1", "Select a project", projectSelectView), c);
+		add(UIUtility.createPaddedStepPanel("2", "Select a criterion", criterionSelectView), c);
+		add(UIUtility.createPaddedStepPanel("3", "Click submit", submitButton), c);
 
 	}
 

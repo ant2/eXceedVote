@@ -106,7 +106,7 @@ public class VotingProcessView extends JFrame {
 		// Hint label
 		southPanel.add(new HintView("2",
 				"When you want to vote, click on the VOTE button."),
-				gridBagPos(0));
+				UIUtility.createVerticalGridBagConstrints());
 
 		// Vote button
 		BigButton voteButton = new BigButton(new AbstractAction("Vote!") {
@@ -119,7 +119,7 @@ public class VotingProcessView extends JFrame {
 				delegate.voteButtonClicked();
 			}
 		});
-		southPanel.add(voteButton, gridBagPos(1));
+		southPanel.add(voteButton, UIUtility.createVerticalGridBagConstrints());
 
 		// I want to change my ballot
 		LinkButton changeBallot = new LinkButton(new AbstractAction(
@@ -134,29 +134,20 @@ public class VotingProcessView extends JFrame {
 			}
 		});
 
-		southPanel.add(changeBallot, gridBagLinkPos(2));
+		southPanel.add(changeBallot, createLinkGridBagConstraints(2));
 
 		// Status bar
-		southPanel.add(initStatusBar(southPanel), gridBagPos(3));
+		southPanel.add(initStatusBar(southPanel), UIUtility.createVerticalGridBagConstrints());
 
 		// ADD
 		add(southPanel, BorderLayout.SOUTH);
 
 	}
 
-	private GridBagConstraints gridBagLinkPos(int i) {
-		GridBagConstraints gridBagConstraints = gridBagPos(i);
+	private GridBagConstraints createLinkGridBagConstraints(int i) {
+		GridBagConstraints gridBagConstraints = UIUtility.createVerticalGridBagConstrints();
 		gridBagConstraints.fill = GridBagConstraints.NONE;
 		gridBagConstraints.anchor = GridBagConstraints.LINE_END;
-		return gridBagConstraints;
-	}
-
-	private GridBagConstraints gridBagPos(int i) {
-		GridBagConstraints gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridx = 0;
-		gridBagConstraints.gridy = i;
-		gridBagConstraints.weightx = 1;
-		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		return gridBagConstraints;
 	}
 

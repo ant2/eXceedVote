@@ -48,6 +48,13 @@ public class BallotController implements Delegate {
 		view.setVisible(true);
 	}
 
+	/**
+	 * Returns the human-readable error message for the validation result.
+	 * 
+	 * @param result
+	 *            the validation result
+	 * @return the human readable message
+	 */
 	public String errorMessage(ValidationResult result) {
 		switch (result) {
 		case NO_CRITERION_SELECTED:
@@ -87,14 +94,34 @@ public class BallotController implements Delegate {
 		}
 	}
 
+	/**
+	 * Submits the ballot that this controller is handling.
+	 * 
+	 * @return the result
+	 */
 	private ValidationResult submitBallot() {
-		return oldBallot == null ? process.submitBallot(model) : process.replaceBallot(oldBallot, model);
+		return oldBallot == null ? process.submitBallot(model) : process
+				.replaceBallot(oldBallot, model);
 	}
 
+	/**
+	 * Determines if the ballot that is this controller is going to submit is
+	 * valid.
+	 * 
+	 * @return the result
+	 */
 	private ValidationResult checkBallot() {
-		return oldBallot == null ? process.checkBallot(model) : process.checkBallotReplace(oldBallot, model);
+		return oldBallot == null ? process.checkBallot(model) : process
+				.checkBallotReplace(oldBallot, model);
 	}
 
+	/**
+	 * Sets the old ballot that will be taken out when the new ballot is going
+	 * to be submitted.
+	 * 
+	 * @param ballot
+	 *            the ballot to set
+	 */
 	public void setOldBallot(Ballot ballot) {
 		this.oldBallot = ballot;
 	}

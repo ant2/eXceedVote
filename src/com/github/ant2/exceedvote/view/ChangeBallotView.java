@@ -2,6 +2,7 @@ package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 
@@ -40,6 +41,7 @@ public class ChangeBallotView extends JDialog {
 	}
 
 	private void initShowBallotTable() {
+		
 		// Ballot display panel
 		JPanel ballotDisplay = new JPanel(new BorderLayout());
 		UIUtility.addPadding(ballotDisplay, UIUtility.SMALL_PADDING);
@@ -49,14 +51,18 @@ public class ChangeBallotView extends JDialog {
 				"Select a ballot that you wish to change");
 		ballotDisplay.add(selectBallot, BorderLayout.NORTH);
 
-		table = new JTable(2, 3);
+		table = new JTable();
+		table.setFont(new Font("Verdana", Font.BOLD, 20));
+		table.setRowHeight(30);
+		
 		JScrollPane tablePane = new JScrollPane(table);
 		tablePane
-				.setPreferredSize(new Dimension(ballotDisplay.getWidth(), 200));
+				.setPreferredSize(new Dimension(640, 200));
 		ballotDisplay.add(tablePane);
 
 		// ADD
 		add(ballotDisplay, BorderLayout.CENTER);
+		
 	}
 
 	private void initButtonArea() {
