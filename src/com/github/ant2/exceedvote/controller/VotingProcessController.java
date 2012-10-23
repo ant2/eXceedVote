@@ -12,6 +12,7 @@ import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.Project;
 import com.github.ant2.exceedvote.model.VotingProcess;
 import com.github.ant2.exceedvote.view.BallotView;
+import com.github.ant2.exceedvote.view.ChangeBallotView;
 import com.github.ant2.exceedvote.view.VotingProcessView;
 
 public class VotingProcessController implements VotingProcessView.Delegate {
@@ -102,7 +103,9 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 	@Override
 	public void changeBallotLinkClicked() {
-		System.out.println("Change ballot link is clicked");
+		ChangeBallotView changeBallotView = view.createChangeBallotView();
+		ChangeBallotController changeBallotController = new ChangeBallotController(model, changeBallotView);
+		changeBallotController.show();
 	}
 
 }
