@@ -55,27 +55,23 @@ public class VotingProcessView extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
+		// status bar components
 		userLabel = new JLabel();
 		userLabel.setHorizontalAlignment(CENTER);
-		add(userLabel, BorderLayout.NORTH);
-
-		JPanel mainPanel = new JPanel(new BorderLayout());
 
 		countdownLabel = new JLabel();
 		countdownLabel.setHorizontalAlignment(CENTER);
 		countdownLabel.setFont(new Font("Arial", Font.BOLD, 12));
 		countdownLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
-		mainPanel.add(countdownLabel, BorderLayout.NORTH);
-
+		// project list component
 		projectList = new JList();
 		projectList.setCellRenderer(new ProjectCellItemRenderer());
-
+		
 		JScrollPane scrollPane = new JScrollPane(projectList);
 		scrollPane.setPreferredSize(new Dimension(300, 400));
 
-		//mainPanel.add(scrollPane, BorderLayout.CENTER);
-
+		// vote button
 		JButton voteButton = new JButton(new AbstractAction("Vote!") {
 			/** */
 			private static final long serialVersionUID = 1L;
@@ -85,10 +81,27 @@ public class VotingProcessView extends JFrame {
 				delegate.voteButtonClicked();
 			}
 		});
+		
+		// change ballot link
+		JButton changeBallot = new JButton(new AbstractAction("<html><u>>> I want to change my ballot</u></html>") {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				delegate.changeBallotLinkClicked();
+			}
+		});
+		changeBallot.setForeground(Color.BLUE);
+		changeBallot.setFocusPainted(false);
+		changeBallot.setMargin(new Insets(0, 0, 0, 0));
+		changeBallot.setContentAreaFilled(false);
+		changeBallot.setBorderPainted(false);
+		changeBallot.setOpaque(false);
 
 		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
 		voteButton.setDefaultCapable(true);
 
+		JLabel clickVote = new JLabel("When you want to vote, click on the VOTE button.");
+		
 		//mainPanel.add(voteButton, BorderLayout.SOUTH);
 		/** */
 		JPanel centerPanel = new JPanel();
@@ -120,20 +133,6 @@ public class VotingProcessView extends JFrame {
 		centerPanel.add(new JLabel("Select a project to view its information"), BorderLayout.NORTH);
 		centerPanel.add(projectDisplayArea, BorderLayout.CENTER);
 		
-		JLabel clickVote = new JLabel("When you want to vote, click on the VOTE button.");
-		JButton changeBallot = new JButton(new AbstractAction("<html><u>>> I want to change my ballot</u></html>") {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				delegate.changeBallotLinkClicked();
-			}
-		});
-		changeBallot.setForeground(Color.BLUE);
-		changeBallot.setFocusPainted(false);
-		changeBallot.setMargin(new Insets(0, 0, 0, 0));
-		changeBallot.setContentAreaFilled(false);
-		changeBallot.setBorderPainted(false);
-		changeBallot.setOpaque(false);
 
 		southPanel.add(clickVote);
 		southPanel.add(voteButton);
