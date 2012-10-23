@@ -58,8 +58,10 @@ public class BallotController implements Delegate {
 			return "Please select a project.";
 		case QUOTA_EXCEEDED:
 			return "You already used all ballots.";
+		case NOT_IN_VOTING_PERIOD:
+			return "The voting period has ended.";
 		default:
-			throw new RuntimeException("This code shouldn't be reached!");
+			return result.toString();
 		}
 	}
 

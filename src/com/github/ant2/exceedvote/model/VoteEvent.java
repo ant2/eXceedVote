@@ -159,4 +159,6 @@ public interface VoteEvent {
 	 */
 	public abstract int countVoterBallots(Voter voter);
 
+	public abstract boolean isQuotaReachedForVoter(Voter voter);
+
 }
