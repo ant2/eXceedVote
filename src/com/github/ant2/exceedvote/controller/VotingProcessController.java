@@ -8,8 +8,6 @@ import javax.swing.AbstractListModel;
 import javax.swing.JList;
 import javax.swing.Timer;
 
-import org.apache.log4j.Logger;
-
 import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.Project;
 import com.github.ant2.exceedvote.model.VotingProcess;
@@ -17,9 +15,6 @@ import com.github.ant2.exceedvote.view.BallotView;
 import com.github.ant2.exceedvote.view.VotingProcessView;
 
 public class VotingProcessController implements VotingProcessView.Delegate {
-
-	private static Logger logger = Logger
-			.getLogger(VotingProcessController.class);
 
 	private VotingProcess model;
 	private VotingProcessView view;
@@ -46,7 +41,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 		availableProjects = model.getAvailableProjects();
 		projectListModel = new ProjectListModel();
 		projectListView = view.getProjectList();
-		projectListView.setModel(new ProjectListModel());
+		projectListView.setModel(projectListModel);
 
 		view.setDelegate(this);
 

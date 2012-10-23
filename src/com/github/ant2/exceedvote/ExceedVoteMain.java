@@ -1,6 +1,5 @@
 package com.github.ant2.exceedvote;
 
-import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.github.ant2.exceedvote.controller.VotingProcessController;
@@ -17,8 +16,6 @@ import com.github.ant2.exceedvote.view.VotingProcessView;
  * @author dtinth
  */
 public class ExceedVoteMain {
-
-	private static Logger logger = Logger.getLogger(ExceedVoteMain.class);
 
 	/**
 	 * @param args

@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.util.Calendar;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -39,7 +38,6 @@ public class VotingProcessView extends JFrame {
 	}
 
 	private Delegate delegate;
-	private Calendar finishTime;
 	private JLabel countdownLabel;
 	private JLabel userLabel;
 	private JList projectList;
@@ -165,7 +163,7 @@ public class VotingProcessView extends JFrame {
 		userLabel = new JLabel();
 		statusBar.add(userLabel, BorderLayout.CENTER);
 
-		// Countdown
+		// Count down
 		countdownLabel = new JLabel();
 		countdownLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		countdownLabel.setFont(new Font("Arial", Font.BOLD, 12));

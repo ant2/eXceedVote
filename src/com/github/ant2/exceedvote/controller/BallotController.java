@@ -2,8 +2,6 @@ package com.github.ant2.exceedvote.controller;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.Criterion;
 import com.github.ant2.exceedvote.model.Project;
@@ -14,7 +12,6 @@ import com.github.ant2.exceedvote.view.BallotView.Delegate;
 
 public class BallotController implements Delegate {
 
-	private static Logger logger = Logger.getLogger(BallotController.class);
 	private VotingProcess process;
 	private Ballot model;
 	private BallotView view;
