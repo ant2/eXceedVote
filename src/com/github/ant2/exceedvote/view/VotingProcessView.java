@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -100,18 +101,16 @@ public class VotingProcessView extends JFrame {
 				"When you want to vote, click on the VOTE button."),
 				gridBagPos(0));
 
+		
+		
 		// Vote button
-		JButton voteButton = new JButton(new AbstractAction("Vote!") {
-			/** */
-			private static final long serialVersionUID = 1L;
-
+		BigButton voteButton = new BigButton(new AbstractAction("Vote!"){
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				delegate.voteButtonClicked();
 			}
 		});
-		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
-		voteButton.setDefaultCapable(true);
 		southPanel.add(voteButton, gridBagPos(1));
 
 		// I want to change my ballot
