@@ -69,7 +69,7 @@ public class VotingProcessView extends JFrame {
 		UIUtility.addPadding(centerPanel, UIUtility.SMALL_PADDING);
 
 		// NORTH: hint label
-		centerPanel.add(new HintView("Select a project to view its information"),
+		centerPanel.add(new HintView("1", "Select a project to view its information"),
 				BorderLayout.NORTH);
 
 		// WEST: list component
@@ -101,7 +101,7 @@ public class VotingProcessView extends JFrame {
 		UIUtility.addPadding(southPanel, UIUtility.SMALL_PADDING);
 
 		// Hint label
-		southPanel.add(new HintView(
+		southPanel.add(new HintView("2",
 				"When you want to vote, click on the VOTE button."), gridBagPos(0));
 
 		// Vote button
