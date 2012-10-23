@@ -1,12 +1,10 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.util.Calendar;
 
@@ -15,8 +13,6 @@ import javax.swing.border.BevelBorder;
 
 import com.github.ant2.exceedvote.model.VoterProfile;
 import com.github.ant2.exceedvote.util.UIUtility;
-
-import static javax.swing.SwingConstants.CENTER;
 
 public class VotingProcessView extends JFrame {
 
@@ -69,8 +65,10 @@ public class VotingProcessView extends JFrame {
 		UIUtility.addPadding(centerPanel, UIUtility.SMALL_PADDING);
 
 		// NORTH: hint label
-		centerPanel.add(new HintView("1", "Select a project to view its information"),
-				BorderLayout.NORTH);
+		centerPanel
+				.add(new HintView("1",
+						"Select a project to view its information"),
+						BorderLayout.NORTH);
 
 		// WEST: list component
 		projectList = new JList();
@@ -94,7 +92,6 @@ public class VotingProcessView extends JFrame {
 
 	}
 
-
 	private void initBottomArea() {
 
 		JPanel southPanel = new JPanel(new GridBagLayout());
@@ -102,7 +99,8 @@ public class VotingProcessView extends JFrame {
 
 		// Hint label
 		southPanel.add(new HintView("2",
-				"When you want to vote, click on the VOTE button."), gridBagPos(0));
+				"When you want to vote, click on the VOTE button."),
+				gridBagPos(0));
 
 		// Vote button
 		JButton voteButton = new JButton(new AbstractAction("Vote!") {
@@ -119,20 +117,18 @@ public class VotingProcessView extends JFrame {
 		southPanel.add(voteButton, gridBagPos(1));
 
 		// I want to change my ballot
-		JButton changeBallot = new JButton(new AbstractAction(
-				"<html><u>>> I want to change my ballot</u></html>") {
+		LinkButton changeBallot = new LinkButton(new AbstractAction(
+				">> I want to change my ballot") {
+
+			/** */
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				delegate.changeBallotLinkClicked();
 			}
 		});
-		changeBallot.setForeground(Color.BLUE);
-		changeBallot.setFocusPainted(false);
-		changeBallot.setMargin(new Insets(0, 0, 0, 0));
-		changeBallot.setContentAreaFilled(false);
-		changeBallot.setBorderPainted(false);
-		changeBallot.setOpaque(false);
+
 		southPanel.add(changeBallot, gridBagLinkPos(2));
 
 		// Status bar
@@ -163,6 +159,7 @@ public class VotingProcessView extends JFrame {
 
 		JPanel statusBar = new JPanel(new BorderLayout());
 		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		UIUtility.addPadding(statusBar, 30, 0, 0, 0);
 
 		// User
 		userLabel = new JLabel();
@@ -178,7 +175,7 @@ public class VotingProcessView extends JFrame {
 		return statusBar;
 
 	}
-	
+
 	/**
 	 * Sets the view delegate for this VotingProcessView.
 	 * 

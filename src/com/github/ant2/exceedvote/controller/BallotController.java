@@ -40,7 +40,7 @@ public class BallotController implements Delegate {
 
 		projectSelectionController.setSelection(model.getProject());
 		criterionSelectionController.setSelection(model.getCriterion());
-		
+
 		view.setDelegate(this);
 
 	}
@@ -68,7 +68,7 @@ public class BallotController implements Delegate {
 
 		model.setProject(projectSelectionController.getSelected());
 		model.setCriterion(criterionSelectionController.getSelected());
-		
+
 		ValidationResult result = process.checkBallot(model);
 
 		if (result == ValidationResult.OK) {

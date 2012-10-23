@@ -11,9 +11,11 @@ public class UIUtility {
 	public static void addPadding(JComponent component, int size) {
 		addPadding(component, size, size, size, size);
 	}
-	
-	public static void addPadding(JComponent component, int top, int left, int bottom, int right) {
-		Border border = BorderFactory.createEmptyBorder(top, left, bottom, right);
+
+	public static void addPadding(JComponent component, int top, int left,
+			int bottom, int right) {
+		Border border = BorderFactory.createEmptyBorder(top, left, bottom,
+				right);
 		if (component.getBorder() == null) {
 			component.setBorder(border);
 		} else {
