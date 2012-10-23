@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -104,7 +103,7 @@ public class VotingProcessView extends JFrame {
 		
 		
 		// Vote button
-		BigButton voteButton = new BigButton(new AbstractAction("Vote!"){
+		BigButton voteButton = new BigButton(new AbstractAction("Vote!") {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
