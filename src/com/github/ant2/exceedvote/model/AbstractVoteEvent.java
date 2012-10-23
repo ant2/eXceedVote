@@ -1,7 +1,7 @@
 package com.github.ant2.exceedvote.model;
 
 import java.util.Calendar;
-import java.util.Collection;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -78,7 +78,7 @@ public abstract class AbstractVoteEvent implements VoteEvent {
 	}
 
 	@Override
-	public Collection<Ballot> findVoterBallots(Voter voter) {
+	public List<Ballot> findVoterBallots(Voter voter) {
 		return ballotBox.findVoterBallots(voter);
 	}
 
@@ -89,7 +89,12 @@ public abstract class AbstractVoteEvent implements VoteEvent {
 
 	@Override
 	public ValidationResult validate(Ballot b) {
-		return rules.validate(b, this);
+		return rules.validate(b, null, this);
+	}
+
+	@Override
+	public ValidationResult validateReplace(Ballot from, Ballot to) {
+		return rules.validate(to, from, this);
 	}
 
 	@Override
@@ -103,13 +108,28 @@ public abstract class AbstractVoteEvent implements VoteEvent {
 	}
 
 	@Override
+	public ValidationResult replace(Ballot from, Ballot to) {
+		ValidationResult result = validateReplace(from, to);
+		if (result == ValidationResult.OK) {
+			logger.info("A ballot " + from + " was replaced with: " + to);
+			ballotBox.replace(from, to);
+		}
+		return result;
+	}
+
+	@Override
 	public boolean isVotingPeriod(Calendar calendar) {
 		return !startTime.after(calendar) && calendar.before(finishTime);
 	}
 
 	@Override
-	public boolean isQuotaReachedForVoter(Voter voter) {
-		return countVoterBallots(voter) >= voter.getAllowedBallots();
+	public boolean isQuotaReachedForVoter(Voter voter, Ballot oldBallot) {
+		List<Ballot> ballots = findVoterBallots(voter);
+		int count = ballots.size();
+		if (ballots.contains(oldBallot)) {
+			count -= 1;
+		}
+		return count >= voter.getAllowedBallots();
 	}
 
 }

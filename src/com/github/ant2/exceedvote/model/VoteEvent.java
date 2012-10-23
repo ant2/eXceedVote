@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.model;
 
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.List;
 
 import com.github.ant2.exceedvote.model.Rules.ValidationResult;
@@ -148,7 +147,7 @@ public interface VoteEvent {
 	 *            the voter to find
 	 * @return a collection of ballots
 	 */
-	public abstract Collection<Ballot> findVoterBallots(Voter voter);
+	public abstract List<Ballot> findVoterBallots(Voter voter);
 
 	/**
 	 * Counts the number of ballots put into the ballot box by voter v.
@@ -159,6 +158,10 @@ public interface VoteEvent {
 	 */
 	public abstract int countVoterBallots(Voter voter);
 
-	public abstract boolean isQuotaReachedForVoter(Voter voter);
+	public abstract boolean isQuotaReachedForVoter(Voter voter, Ballot oldBallot);
+
+	public abstract ValidationResult validateReplace(Ballot from, Ballot to);
+
+	public abstract ValidationResult replace(Ballot from, Ballot to);
 
 }

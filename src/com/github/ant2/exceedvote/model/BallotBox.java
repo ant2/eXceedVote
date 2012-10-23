@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -39,8 +38,8 @@ public class BallotBox {
 	 * 
 	 * @return a collection of ballots by that user
 	 */
-	public Collection<Ballot> findVoterBallots(Voter v) {
-		Collection<Ballot> resultList = new ArrayList<Ballot>();
+	public List<Ballot> findVoterBallots(Voter v) {
+		List<Ballot> resultList = new ArrayList<Ballot>();
 		for (Ballot ballot : list) {
 			if (ballot.getVoter() == v) {
 				resultList.add(ballot);
@@ -56,5 +55,10 @@ public class BallotBox {
 	 */
 	public int countBallot() {
 		return list.size();
+	}
+
+	public void replace(Ballot from, Ballot to) {
+		list.remove(from);
+		list.add(to);
 	}
 }

@@ -14,17 +14,20 @@ public class Rules {
 	/**
 	 * Validates a ballot.
 	 * 
-	 * @param ballot
+	 * @param newBallot
 	 *            the ballot to validate
+	 * @param oldBallot
+	 *            the ballot to be replaced
 	 * @param event
 	 *            the voting session
 	 * @return the validation result
 	 */
-	public ValidationResult validate(Ballot ballot, VoteEvent event) {
-		if (ballot.getProject() == null) return ValidationResult.NO_PROJECT_SELECTED;
-		if (ballot.getCriterion() == null) return ValidationResult.NO_CRITERION_SELECTED;
+	public ValidationResult validate(Ballot newBallot, Ballot oldBallot,
+			VoteEvent event) {
+		if (newBallot.getProject() == null) return ValidationResult.NO_PROJECT_SELECTED;
+		if (newBallot.getCriterion() == null) return ValidationResult.NO_CRITERION_SELECTED;
 		if (!event.isVotingPeriod()) return ValidationResult.NOT_IN_VOTING_PERIOD;
-		if (event.isQuotaReachedForVoter(ballot.getVoter())) return ValidationResult.QUOTA_EXCEEDED;
+		if (event.isQuotaReachedForVoter(newBallot.getVoter(), oldBallot)) return ValidationResult.QUOTA_EXCEEDED;
 		return ValidationResult.OK;
 	}
 

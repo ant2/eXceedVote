@@ -34,7 +34,7 @@ public class VoteEventTest {
 	@Test
 	public void testSubmit() {
 		int oldCount = event.getBallotBox().countBallot();
-		when(rules.validate(any(Ballot.class), any(ExceedVoteEvent.class)))
+		when(rules.validate(any(Ballot.class), any(Ballot.class), any(ExceedVoteEvent.class)))
 				.thenReturn(ValidationResult.OK);
 		event.submit(ballot);
 		assertEquals(oldCount + 1, event.getBallotBox().countBallot());
@@ -43,7 +43,7 @@ public class VoteEventTest {
 	@Test
 	public void testSubmitShouldIgnoreBallotIfNotAccepted() {
 		int oldCount = event.getBallotBox().countBallot();
-		when(rules.validate(any(Ballot.class), any(ExceedVoteEvent.class)))
+		when(rules.validate(any(Ballot.class), any(Ballot.class), any(ExceedVoteEvent.class)))
 				.thenReturn(ValidationResult.NO_PROJECT_SELECTED);
 		event.submit(ballot);
 		assertEquals(oldCount, event.getBallotBox().countBallot());

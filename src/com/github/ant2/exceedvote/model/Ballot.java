@@ -64,4 +64,8 @@ public class Ballot {
 		return "Ballot [voter=" + voter + ", project=" + project
 				+ ", criterion=" + criterion + "]";
 	}
+
+	public Ballot makeCopy() {
+		return new Ballot(voter, project, criterion);
+	}
 }

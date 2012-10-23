@@ -139,4 +139,25 @@ public class VotingProcess {
 		return voter.getAllowedBallots() - event.countVoterBallots(voter);
 	}
 
+	/**
+	 * Returns the list of ballots that the voter has used.
+	 * 
+	 * @return list of ballots
+	 */
+	public List<Ballot> getBallots() {
+		return event.findVoterBallots(voter);
+	}
+
+	public Ballot copyBallot(Ballot b1) {
+		return b1.makeCopy();
+	}
+
+	public ValidationResult checkBallotReplace(Ballot from, Ballot to) {
+		return event.validateReplace(from, to);
+	}
+
+	public ValidationResult replaceBallot(Ballot from, Ballot to) {
+		return event.replace(from, to);
+	}
+
 }
