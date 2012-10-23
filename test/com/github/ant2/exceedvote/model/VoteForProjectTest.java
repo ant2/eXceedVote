@@ -8,7 +8,9 @@ import com.github.ant2.exceedvote.model.mock.MockVoteEvent;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertSame;
 
 public class VoteForProjectTest {
 
@@ -17,11 +19,11 @@ public class VoteForProjectTest {
 
 		MockVoteEvent event = new MockVoteEvent();
 		Voter voter = mock(Voter.class);
-		
+
 		when(voter.getAllowedBallots()).thenReturn(2);
-		
+
 		VotingProcess process = new VotingProcess(event, voter);
-		
+
 		Ballot ballot = process.createBallot();
 		assertNotNull(ballot);
 
@@ -56,7 +58,7 @@ public class VoteForProjectTest {
 		ballot.setCriterion(event.c1);
 		assertNotSame(ValidationResult.OK, process.checkBallot(ballot));
 		assertNotSame(ValidationResult.OK, process.submitBallot(ballot));
-		
+
 	}
 
 }

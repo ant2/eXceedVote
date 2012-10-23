@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
-import com.github.ant2.exceedvote.model.Rules.ValidationResult;
-
 /**
  * This class represents a voting session.
  * 

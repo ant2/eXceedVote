@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.github.ant2.exceedvote.model.AbstractVoteEvent;
 import com.github.ant2.exceedvote.model.Criterion;
-import com.github.ant2.exceedvote.model.ExceedVoteEvent;
 import com.github.ant2.exceedvote.model.Project;
 
 public class MockVoteEvent extends AbstractVoteEvent {
@@ -22,7 +21,7 @@ public class MockVoteEvent extends AbstractVoteEvent {
 	public final Criterion c1 = new Criterion("Criterion 1");
 	public final Criterion c2 = new Criterion("Criterion 2");
 	public final Criterion c3 = new Criterion("Criterion 3");
-	
+
 	@Override
 	public int getRemainingTime(Calendar calendar) {
 		return 10000;
@@ -42,10 +41,10 @@ public class MockVoteEvent extends AbstractVoteEvent {
 	public boolean isVotingPeriod() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isVotingPeriod(Calendar calendar) {
 		return true;
 	}
-	
+
 }
