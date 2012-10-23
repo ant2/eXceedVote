@@ -221,4 +221,8 @@ public class VotingProcessView extends JFrame {
 		return projectList;
 	}
 
+	public ChangeBallotView createChangeBallotView() {
+		return new ChangeBallotView(this);
+	}
+
 }
