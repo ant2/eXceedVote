@@ -7,6 +7,11 @@ import org.apache.log4j.Logger;
 
 import com.github.ant2.exceedvote.model.Rules.ValidationResult;
 
+/**
+ * Abstract class for VoteEvent (which is now an interface)
+ *
+ * @author dtinth
+ */
 public abstract class AbstractVoteEvent implements VoteEvent {
 
 	private static Logger logger = Logger.getLogger(ExceedVoteEvent.class);
