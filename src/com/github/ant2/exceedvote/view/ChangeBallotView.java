@@ -18,6 +18,7 @@ public class ChangeBallotView extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private Delegate delegate;
 	private JTable table;
+	private BigButton submitButton;
 
 	public interface Delegate {
 		void changeButtonClicked();
@@ -67,9 +68,7 @@ public class ChangeBallotView extends JDialog {
 		HintView clickToChange = new HintView("2", "Click change ballot");
 		bottomPanel.add(clickToChange, BorderLayout.NORTH);
 
-		// Change ballot button
-		BigButton changeBallot = new BigButton(new AbstractAction(
-				"Change Ballot") {
+		submitButton = new BigButton(new AbstractAction("Change Ballot") {
 			/** */
 			private static final long serialVersionUID = 1L;
 
@@ -78,16 +77,20 @@ public class ChangeBallotView extends JDialog {
 				delegate.changeButtonClicked();
 			}
 		});
-		bottomPanel.add(changeBallot, BorderLayout.SOUTH);
+		bottomPanel.add(submitButton, BorderLayout.SOUTH);
 
 		// ADD
 		add(bottomPanel, BorderLayout.SOUTH);
 	}
 
+	public BigButton getSubmitButton() {
+		return submitButton;
+	}
+
 	public void setDelegate(Delegate delegate) {
 		this.delegate = delegate;
 	}
-	
+
 	public JTable getTable() {
 		return table;
 	}

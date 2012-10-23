@@ -14,6 +14,7 @@ public class BallotController implements Delegate {
 
 	private VotingProcess process;
 	private Ballot model;
+	private Ballot oldBallot;
 	private BallotView view;
 
 	private RadioSelectionController<Project> projectSelectionController;
@@ -68,11 +69,11 @@ public class BallotController implements Delegate {
 		model.setProject(projectSelectionController.getSelected());
 		model.setCriterion(criterionSelectionController.getSelected());
 
-		ValidationResult result = process.checkBallot(model);
+		ValidationResult result = checkBallot();
 
 		if (result == ValidationResult.OK) {
 			if (view.confirmVoting()) {
-				result = process.submitBallot(model);
+				result = submitBallot();
 				if (result == ValidationResult.OK) {
 					view.displaySuccess(process.getRemainingBallots());
 					view.setVisible(false);
@@ -84,6 +85,18 @@ public class BallotController implements Delegate {
 		} else {
 			view.displayError(errorMessage(result));
 		}
+	}
+
+	private ValidationResult submitBallot() {
+		return oldBallot == null ? process.submitBallot(model) : process.replaceBallot(oldBallot, model);
+	}
+
+	private ValidationResult checkBallot() {
+		return oldBallot == null ? process.checkBallot(model) : process.checkBallotReplace(oldBallot, model);
+	}
+
+	public void setOldBallot(Ballot ballot) {
+		this.oldBallot = ballot;
 	}
 
 }
