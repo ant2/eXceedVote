@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.util.Calendar;
@@ -55,23 +57,51 @@ public class VotingProcessView extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 
-		// status bar components
-		userLabel = new JLabel();
-		userLabel.setHorizontalAlignment(CENTER);
+		initProjectListAndInformationArea();
+		initBottomArea();
 
-		countdownLabel = new JLabel();
-		countdownLabel.setHorizontalAlignment(CENTER);
-		countdownLabel.setFont(new Font("Arial", Font.BOLD, 12));
-		countdownLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+	}
 
-		// project list component
+	private void initProjectListAndInformationArea() {
+
+		JPanel centerPanel = new JPanel(new BorderLayout());
+
+		// NORTH: hint label
+		centerPanel.add(new HintView("Select a project to view its information"),
+				BorderLayout.NORTH);
+
+		// WEST: list component
 		projectList = new JList();
 		projectList.setCellRenderer(new ProjectCellItemRenderer());
-
 		JScrollPane scrollPane = new JScrollPane(projectList);
-		scrollPane.setPreferredSize(new Dimension(300, 400));
 
-		// vote button
+		scrollPane.setPreferredSize(new Dimension(300, 400));
+		centerPanel.add(scrollPane, BorderLayout.WEST);
+
+		// CENTER: project information
+		JTabbedPane projectInfoTab = new JTabbedPane();
+		JLabel welcome = new JLabel(
+				"<html><h1>Welcome to eXceed vote</h1><br><br>Please pick a project to view its information at the left.</html>");
+		projectInfoTab.addTab("Project Information", welcome);
+		projectInfoTab.addTab("Team Information",
+				new JLabel("team information"));
+		centerPanel.add(projectInfoTab, BorderLayout.CENTER);
+
+		// FINALLY: add
+		add(centerPanel, BorderLayout.CENTER);
+
+	}
+
+
+	private void initBottomArea() {
+
+		JPanel southPanel = new JPanel(new GridBagLayout());
+
+		// Hint label
+		southPanel.add(new HintView(
+				"When you want to vote, click on the VOTE button."), gridBagPos(0));
+
+		// Vote button
 		JButton voteButton = new JButton(new AbstractAction("Vote!") {
 			/** */
 			private static final long serialVersionUID = 1L;
@@ -81,8 +111,11 @@ public class VotingProcessView extends JFrame {
 				delegate.voteButtonClicked();
 			}
 		});
+		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
+		voteButton.setDefaultCapable(true);
+		southPanel.add(voteButton, gridBagPos(1));
 
-		// change ballot link
+		// I want to change my ballot
 		JButton changeBallot = new JButton(new AbstractAction(
 				"<html><u>>> I want to change my ballot</u></html>") {
 
@@ -97,58 +130,52 @@ public class VotingProcessView extends JFrame {
 		changeBallot.setContentAreaFilled(false);
 		changeBallot.setBorderPainted(false);
 		changeBallot.setOpaque(false);
+		southPanel.add(changeBallot, gridBagLinkPos(2));
 
-		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
-		voteButton.setDefaultCapable(true);
+		// Status bar
+		southPanel.add(initStatusBar(southPanel), gridBagPos(3));
 
-		JLabel clickVote = new JLabel(
-				"When you want to vote, click on the VOTE button.");
-
-		// mainPanel.add(voteButton, BorderLayout.SOUTH);
-		/** */
-		JPanel centerPanel = new JPanel();
-		JPanel southPanel = new JPanel();
-		JPanel projectDisplayArea = new JPanel();
-		JPanel projectInfo = new JPanel();
-		JPanel teamInfo = new JPanel();
-		JPanel statusBar = new JPanel();
-
-		JLabel welcome = new JLabel(
-				"<html>Welcome to eXceed vote<br><br>Please pick a project to view its information at the left.</html>");
-		JTabbedPane projectInfoTab = new JTabbedPane();
-
-		projectInfoTab.setPreferredSize(new Dimension(300, 400));
-		welcome.setPreferredSize(new Dimension(280, 400));
-		projectInfo.add(welcome);
-		teamInfo.add(new JLabel("~~~"));
-		projectInfoTab.addTab("Project Information", projectInfo);
-		projectInfoTab.addTab("Team Information", teamInfo);
-
-		projectDisplayArea.add(scrollPane, BorderLayout.WEST);
-		projectDisplayArea.add(projectInfoTab, BorderLayout.CENTER);
-
-		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
-		statusBar.setLayout(new BorderLayout());
-		statusBar.add(userLabel, BorderLayout.WEST);
-		statusBar.add(countdownLabel, BorderLayout.EAST);
-
-		centerPanel.setLayout(new BorderLayout());
-		centerPanel.add(new JLabel("Select a project to view its information"),
-				BorderLayout.NORTH);
-		centerPanel.add(projectDisplayArea, BorderLayout.CENTER);
-
-		southPanel.add(clickVote);
-		southPanel.add(voteButton);
-		southPanel.add(changeBallot);
-		southPanel.add(statusBar);
-		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
-
-		// add(mainPanel, BorderLayout.CENTER);
-		add(centerPanel, BorderLayout.CENTER);
+		// ADD
 		add(southPanel, BorderLayout.SOUTH);
 
 	}
 
+	private GridBagConstraints gridBagLinkPos(int i) {
+		GridBagConstraints gridBagConstraints = gridBagPos(i);
+		gridBagConstraints.fill = GridBagConstraints.NONE;
+		gridBagConstraints.anchor = GridBagConstraints.LINE_END;
+		return gridBagConstraints;
+	}
+
+	private GridBagConstraints gridBagPos(int i) {
+		GridBagConstraints gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.gridx = 0;
+		gridBagConstraints.gridy = i;
+		gridBagConstraints.weightx = 1;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		return gridBagConstraints;
+	}
+
+	private JPanel initStatusBar(JPanel southPanel) {
+
+		JPanel statusBar = new JPanel(new BorderLayout());
+		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
+
+		// User
+		userLabel = new JLabel();
+		statusBar.add(userLabel, BorderLayout.CENTER);
+
+		// Countdown
+		countdownLabel = new JLabel();
+		countdownLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		countdownLabel.setFont(new Font("Arial", Font.BOLD, 12));
+		countdownLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		statusBar.add(countdownLabel, BorderLayout.EAST);
+
+		return statusBar;
+
+	}
+	
 	/**
 	 * Sets the view delegate for this VotingProcessView.
 	 * 
