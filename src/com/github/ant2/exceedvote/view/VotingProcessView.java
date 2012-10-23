@@ -14,6 +14,7 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 import com.github.ant2.exceedvote.model.VoterProfile;
+import com.github.ant2.exceedvote.util.UIUtility;
 
 import static javax.swing.SwingConstants.CENTER;
 
@@ -65,6 +66,7 @@ public class VotingProcessView extends JFrame {
 	private void initProjectListAndInformationArea() {
 
 		JPanel centerPanel = new JPanel(new BorderLayout());
+		UIUtility.addPadding(centerPanel, UIUtility.SMALL_PADDING);
 
 		// NORTH: hint label
 		centerPanel.add(new HintView("Select a project to view its information"),
@@ -96,6 +98,7 @@ public class VotingProcessView extends JFrame {
 	private void initBottomArea() {
 
 		JPanel southPanel = new JPanel(new GridBagLayout());
+		UIUtility.addPadding(southPanel, UIUtility.SMALL_PADDING);
 
 		// Hint label
 		southPanel.add(new HintView(
