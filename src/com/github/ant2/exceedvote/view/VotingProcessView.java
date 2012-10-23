@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.util.Calendar;
 
@@ -62,7 +63,7 @@ public class VotingProcessView extends JFrame {
 
 		countdownLabel = new JLabel();
 		countdownLabel.setHorizontalAlignment(CENTER);
-		countdownLabel.setFont(new Font("Arial", Font.BOLD, 18));
+		countdownLabel.setFont(new Font("Arial", Font.BOLD, 12));
 		countdownLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
 		mainPanel.add(countdownLabel, BorderLayout.NORTH);
@@ -111,14 +112,29 @@ public class VotingProcessView extends JFrame {
 		projectDisplayArea.add(projectInfoTab, BorderLayout.CENTER);
 		
 		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
-		statusBar.setPreferredSize(new Dimension(this.getWidth(), 20));
+		statusBar.setLayout(new BorderLayout());
+		statusBar.add(userLabel, BorderLayout.WEST);
+		statusBar.add(countdownLabel, BorderLayout.EAST);
 		
 		centerPanel.setLayout(new BorderLayout());
 		centerPanel.add(new JLabel("Select a project to view its information"), BorderLayout.NORTH);
 		centerPanel.add(projectDisplayArea, BorderLayout.CENTER);
 		
 		JLabel clickVote = new JLabel("When you want to vote, click on the VOTE button.");
-		JLabel changeBallot = new JLabel("asdsadsadsa");
+		JButton changeBallot = new JButton(new AbstractAction("<html><u>>> I want to change my ballot</u></html>") {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				delegate.changeBallotLinkClicked();
+			}
+		});
+		changeBallot.setForeground(Color.BLUE);
+		changeBallot.setFocusPainted(false);
+		changeBallot.setMargin(new Insets(0, 0, 0, 0));
+		changeBallot.setContentAreaFilled(false);
+		changeBallot.setBorderPainted(false);
+		changeBallot.setOpaque(false);
+
 		southPanel.add(clickVote);
 		southPanel.add(voteButton);
 		southPanel.add(changeBallot);

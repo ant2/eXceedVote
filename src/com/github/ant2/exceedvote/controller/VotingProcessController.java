@@ -107,8 +107,7 @@ public class VotingProcessController implements VotingProcessView.Delegate {
 
 	@Override
 	public void changeBallotLinkClicked() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Change ballot link is clicked");
 	}
 
 }
