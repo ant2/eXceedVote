@@ -10,6 +10,10 @@ public class BigButton extends JButton {
 
 	public BigButton(AbstractAction action) {
 		super(action);
+		initDesign();
+	}
+	
+	private void initDesign() {
 		setFont(new Font("Arial", Font.BOLD, 50));
 		setDefaultCapable(true);
 	}
