@@ -1,19 +1,14 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.Calendar;
 
-import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
+import javax.swing.border.BevelBorder;
 
 import com.github.ant2.exceedvote.model.VoterProfile;
 
@@ -58,7 +53,7 @@ public class VotingProcessView extends JFrame {
 
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
-
+		
 		userLabel = new JLabel();
 		userLabel.setHorizontalAlignment(CENTER);
 		add(userLabel, BorderLayout.NORTH);
@@ -78,7 +73,7 @@ public class VotingProcessView extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(projectList);
 		scrollPane.setPreferredSize(new Dimension(300, 400));
 
-		mainPanel.add(scrollPane, BorderLayout.CENTER);
+		//mainPanel.add(scrollPane, BorderLayout.CENTER);
 
 		JButton voteButton = new JButton(new AbstractAction("Vote!") {
 			/** */
@@ -93,9 +88,46 @@ public class VotingProcessView extends JFrame {
 		voteButton.setFont(new Font("Arial", Font.BOLD, 50));
 		voteButton.setDefaultCapable(true);
 
-		mainPanel.add(voteButton, BorderLayout.SOUTH);
+		//mainPanel.add(voteButton, BorderLayout.SOUTH);
+		/** */
+		JPanel centerPanel = new JPanel();
+		JPanel southPanel = new JPanel();
+		JPanel projectDisplayArea = new JPanel();
+		JPanel projectInfo = new JPanel();
+		JPanel teamInfo = new JPanel();
+		JPanel statusBar = new JPanel();
 
-		add(mainPanel, BorderLayout.CENTER);
+		JLabel welcome = new JLabel("<html>Welcome to eXceed vote<br><br>Please pick a project to view its information at the left.</html>");
+		JTabbedPane projectInfoTab = new JTabbedPane();
+		
+		projectInfoTab.setPreferredSize(new Dimension(300, 400));
+		welcome.setPreferredSize(new Dimension(280, 400));
+		projectInfo.add(welcome);
+		teamInfo.add(new JLabel("~~~"));
+		projectInfoTab.addTab("Project Information", projectInfo);
+		projectInfoTab.addTab("Team Information", teamInfo);
+		
+		projectDisplayArea.add(scrollPane, BorderLayout.WEST);
+		projectDisplayArea.add(projectInfoTab, BorderLayout.CENTER);
+		
+		statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		statusBar.setPreferredSize(new Dimension(this.getWidth(), 20));
+		
+		centerPanel.setLayout(new BorderLayout());
+		centerPanel.add(new JLabel("Select a project to view its information"), BorderLayout.NORTH);
+		centerPanel.add(projectDisplayArea, BorderLayout.CENTER);
+		
+		JLabel clickVote = new JLabel("When you want to vote, click on the VOTE button.");
+		JLabel changeBallot = new JLabel("asdsadsadsa");
+		southPanel.add(clickVote);
+		southPanel.add(voteButton);
+		southPanel.add(changeBallot);
+		southPanel.add(statusBar);
+		southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.Y_AXIS));
+		
+		//add(mainPanel, BorderLayout.CENTER);
+		add(centerPanel, BorderLayout.CENTER);
+		add(southPanel, BorderLayout.SOUTH);
 
 	}
 
