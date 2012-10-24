@@ -31,7 +31,7 @@ public class ExceedVoteMain {
 		VotingProcess model = new VotingProcess(event, voter);
 		
 		// XXX test function
-		Ballot ballot = model.createBallot();
+		/* Ballot ballot = model.createBallot();
 		ballot.setProject(model.getAvailableProjects().get(0));
 		ballot.setCriterion(model.getAvailableCriteria().get(0));
 		model.submitBallot(ballot);
@@ -39,7 +39,7 @@ public class ExceedVoteMain {
 		ballot = model.createBallot();
 		ballot.setProject(model.getAvailableProjects().get(1));
 		ballot.setCriterion(model.getAvailableCriteria().get(1));
-		model.submitBallot(ballot);
+		model.submitBallot(ballot); */
 		
 		VotingProcessView view = new VotingProcessView();
 		VotingProcessController controller = new VotingProcessController(model,
