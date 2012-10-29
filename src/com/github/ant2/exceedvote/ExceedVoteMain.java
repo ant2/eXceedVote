@@ -1,12 +1,15 @@
 package com.github.ant2.exceedvote;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.Timer;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.plaf.metal.DefaultMetalTheme;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import org.apache.log4j.PropertyConfigurator;
 
@@ -32,27 +35,45 @@ public class ExceedVoteMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+			MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
+		} catch (Exception e) {
+			// can't set look and feel
+		}
 		PropertyConfigurator.configure(ExceedVoteMain.class
 				.getResourceAsStream("log4j.properties"));
 
 		Voter voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
 		VoteEvent event = new ExceedVoteEvent();
-		
+
 		MainView mainView = new MainView();
 		mainView.setVisible(true);
-		
+
 		mainPanel = mainView.getMainPanel();
 		showA();
 	}
 
 	public static void showA() {
-		mainPanel.display(new BigButton(new AbstractAction("GO TO PAGE B") {
+		Object[][] data = new Object[][] { { 1, 2, 3 }, { 4, 5, 6 },
+				{ 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 },
+				{ 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 },
+				{ 4, 5, 6 }, { 1, 2, 3 }, { 4, 5, 6 }, { 4, 5, 6 },
+				{ 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 },
+				{ 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 }, { 4, 5, 6 } };
+		JPanel panel = new JPanel(new BorderLayout());
+		JTable table = new JTable(data, new Object[] { "A", "B", "C" });
+		panel.add(new JScrollPane(table), BorderLayout.CENTER);
+		panel.add(new BigButton(new AbstractAction("GO TO PAGE B") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showB();
 			}
-		}), new SlideAnimation( SlideAnimation.Direction.LEFT ));
+		}), BorderLayout.NORTH);
+		mainPanel.display(panel, new SlideAnimation(
+				SlideAnimation.Direction.LEFT));
 	}
+
 	public static void showB() {
 		mainPanel.display(new BigButton(new AbstractAction("GO TO PAGE A") {
 			@Override

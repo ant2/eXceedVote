@@ -16,7 +16,7 @@ import com.github.ant2.exceedvote.view.animation.Animation;
 import com.github.ant2.exceedvote.view.animation.Drawable;
 import com.github.ant2.exceedvote.view.animation.SlideAnimation;
 
-public class MainPanel extends JPanel {
+public class MainPanel extends JComponent {
 
 	/** */
 	private static final long serialVersionUID = 1L;
@@ -70,8 +70,9 @@ public class MainPanel extends JPanel {
 	private Animator animation = null;
 	
 	public MainPanel() {
-		super(new BorderLayout());
+		setLayout(new BorderLayout());
 		add(new JLabel("Main Panel"), BorderLayout.CENTER);
+		setDoubleBuffered(true);
 	}
 	
 	private void setAnimation(Animator animation) {
@@ -102,6 +103,7 @@ public class MainPanel extends JPanel {
 		removeAll();
 		add(component, BorderLayout.CENTER);
 		validate();
+		repaint();
 	}
 	
 }
