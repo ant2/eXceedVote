@@ -81,10 +81,13 @@ public class BallotView extends JDialog {
 		});
 
 		GridBagConstraints c = UIUtility.createVerticalGridBagConstrints();
-		
-		add(UIUtility.createPaddedStepPanel("1", "Select a project", projectSelectView), c);
-		add(UIUtility.createPaddedStepPanel("2", "Select a criterion", criterionSelectView), c);
-		add(UIUtility.createPaddedStepPanel("3", "Click submit", submitButton), c);
+
+		add(UIUtility.createPaddedStepPanel("1", "Select a project",
+				projectSelectView), c);
+		add(UIUtility.createPaddedStepPanel("2", "Select a criterion",
+				criterionSelectView), c);
+		add(UIUtility.createPaddedStepPanel("3", "Click submit", submitButton),
+				c);
 
 	}
 

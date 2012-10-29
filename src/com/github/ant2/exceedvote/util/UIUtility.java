@@ -45,25 +45,26 @@ public class UIUtility {
 		UIUtility.addPadding(panel, UIUtility.SMALL_PADDING);
 		return panel;
 	}
-	
+
 	public static JPanel createStepPanel(String num, String hint) {
 		JPanel panel = createStepPanel();
 		panel.add(new HintView(num, hint), BorderLayout.NORTH);
 		return panel;
 	}
 
-	public static JPanel createStepPanel(String num, String hint, Component component) {
+	public static JPanel createStepPanel(String num, String hint,
+			Component component) {
 		JPanel panel = createStepPanel(num, hint);
 		panel.add(component, BorderLayout.CENTER);
 		return panel;
 	}
 
-	public static JPanel createPaddedStepPanel(String num,
-			String hint, JComponent component) {
+	public static JPanel createPaddedStepPanel(String num, String hint,
+			JComponent component) {
 		JPanel pad = new JPanel(new BorderLayout());
 		UIUtility.addPadding(pad, 0, 24, 0, 0);
 		pad.add(component, BorderLayout.CENTER);
 		return createStepPanel(num, hint, pad);
 	}
-	
+
 }

@@ -105,8 +105,8 @@ public class VotingProcessView extends JFrame {
 
 		// Hint label
 		southPanel.add(new HintView("2",
-				"When you want to vote, click on the VOTE button."),
-				UIUtility.createVerticalGridBagConstrints());
+				"When you want to vote, click on the VOTE button."), UIUtility
+				.createVerticalGridBagConstrints());
 
 		// Vote button
 		BigButton voteButton = new BigButton(new AbstractAction("Vote!") {
@@ -137,7 +137,8 @@ public class VotingProcessView extends JFrame {
 		southPanel.add(changeBallot, createLinkGridBagConstraints(2));
 
 		// Status bar
-		southPanel.add(initStatusBar(southPanel), UIUtility.createVerticalGridBagConstrints());
+		southPanel.add(initStatusBar(southPanel),
+				UIUtility.createVerticalGridBagConstrints());
 
 		// ADD
 		add(southPanel, BorderLayout.SOUTH);
@@ -145,7 +146,8 @@ public class VotingProcessView extends JFrame {
 	}
 
 	private GridBagConstraints createLinkGridBagConstraints(int i) {
-		GridBagConstraints gridBagConstraints = UIUtility.createVerticalGridBagConstrints();
+		GridBagConstraints gridBagConstraints = UIUtility
+				.createVerticalGridBagConstrints();
 		gridBagConstraints.fill = GridBagConstraints.NONE;
 		gridBagConstraints.anchor = GridBagConstraints.LINE_END;
 		return gridBagConstraints;

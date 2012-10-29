@@ -41,7 +41,7 @@ public class ChangeBallotView extends JDialog {
 	}
 
 	private void initShowBallotTable() {
-		
+
 		// Ballot display panel
 		JPanel ballotDisplay = new JPanel(new BorderLayout());
 		UIUtility.addPadding(ballotDisplay, UIUtility.SMALL_PADDING);
@@ -54,15 +54,14 @@ public class ChangeBallotView extends JDialog {
 		table = new JTable();
 		table.setFont(new Font("Verdana", Font.BOLD, 20));
 		table.setRowHeight(30);
-		
+
 		JScrollPane tablePane = new JScrollPane(table);
-		tablePane
-				.setPreferredSize(new Dimension(640, 200));
+		tablePane.setPreferredSize(new Dimension(640, 200));
 		ballotDisplay.add(tablePane);
 
 		// ADD
 		add(ballotDisplay, BorderLayout.CENTER);
-		
+
 	}
 
 	private void initButtonArea() {

@@ -12,7 +12,7 @@ public class BigButton extends JButton {
 		super(action);
 		initDesign();
 	}
-	
+
 	private void initDesign() {
 		setFont(new Font("Arial", Font.BOLD, 50));
 		setDefaultCapable(true);
