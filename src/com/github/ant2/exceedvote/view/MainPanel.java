@@ -12,48 +12,69 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.github.ant2.exceedvote.view.animation.Animation;
+import com.github.ant2.exceedvote.view.animation.Drawable;
+import com.github.ant2.exceedvote.view.animation.SlideAnimation;
+
 public class MainPanel extends JPanel {
 
 	/** */
 	private static final long serialVersionUID = 1L;
 	
-	private class Animation {
+	private class Animator {
+		
 		private BufferedImage image;
 		private long start = System.currentTimeMillis();
-		private long duration = 1000;
+		private long duration = 600;
+		
+		private Animation animation;
 
-		public Animation(BufferedImage image) {
+		private Drawable drawBefore = new Drawable() {
+			@Override
+			public void draw(Graphics2D g) {
+				g.drawImage(image, 0, 0, null);
+			}
+		};
+		
+		private Drawable drawAfter = new Drawable() {
+			@Override
+			public void draw(Graphics2D g) {
+				paintChildrenReal(g);
+			}
+		};
+
+		public Animator(BufferedImage image, Animation animation) {
 			this.image = image;
+			this.animation = animation;
+			this.animation.setComponent(MainPanel.this);
 		}
 
 		public void draw(Graphics2D graphics) {
+			
 			long elapsed = System.currentTimeMillis() - start;
+			
 			if (elapsed > duration) {
 				paintChildrenReal(graphics);
 				setAnimation(null);
 				return;
 			}
+			
 			double value = elapsed / (double)duration;
-			value = 1 - Math.pow(1 - value, 2);
-			double x = (1 - value) * getWidth();
-			AffineTransform transform = graphics.getTransform();
-			graphics.translate(x - getWidth(), 0);
-			graphics.drawImage(image, 0, 0, null);
-			graphics.translate(getWidth(), 0);
-			paintChildrenReal(graphics);
-			graphics.setTransform(transform);
+			animation.draw(value, drawBefore, drawAfter, graphics);
 			repaint();
+			
 		}
+		
 	}
 	
-	private Animation animation = null;
+	private Animator animation = null;
 	
 	public MainPanel() {
 		super(new BorderLayout());
 		add(new JLabel("Main Panel"), BorderLayout.CENTER);
 	}
 	
-	private void setAnimation(Animation animation) {
+	private void setAnimation(Animator animation) {
 		this.animation = animation;
 	}
 	
@@ -69,11 +90,15 @@ public class MainPanel extends JPanel {
 			super.paintChildren(graphics);
 		}
 	}
-
+	
 	public void display(Component component) {
+		display(component, new SlideAnimation());
+	}
+
+	public void display(Component component, Animation animation) {
 		BufferedImage image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 		paintChildren(image.getGraphics());
-		setAnimation(new Animation(image));
+		setAnimation(new Animator(image, animation));
 		removeAll();
 		add(component, BorderLayout.CENTER);
 		validate();

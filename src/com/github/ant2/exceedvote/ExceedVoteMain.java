@@ -17,6 +17,7 @@ import com.github.ant2.exceedvote.model.VoterProfile;
 import com.github.ant2.exceedvote.view.BigButton;
 import com.github.ant2.exceedvote.view.MainPanel;
 import com.github.ant2.exceedvote.view.MainView;
+import com.github.ant2.exceedvote.view.animation.SlideAnimation;
 
 /**
  * eXceed Vote Main Class
@@ -50,7 +51,7 @@ public class ExceedVoteMain {
 			public void actionPerformed(ActionEvent e) {
 				showB();
 			}
-		}));
+		}), new SlideAnimation( SlideAnimation.Direction.LEFT ));
 	}
 	public static void showB() {
 		mainPanel.display(new BigButton(new AbstractAction("GO TO PAGE A") {
