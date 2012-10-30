@@ -2,7 +2,7 @@ package com.github.ant2.exceedvote.controller;
 
 import java.util.List;
 
-import com.github.ant2.exceedvote.view.RadioSelectionPanel;
+import com.github.ant2.ui.view.RadioSelectionPanel;
 
 /**
  * Controller for the RadioSelectionPanel.

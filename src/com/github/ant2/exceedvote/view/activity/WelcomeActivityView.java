@@ -4,8 +4,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 
-import com.github.ant2.exceedvote.view.BigButton;
-import com.github.ant2.exceedvote.view.HintView;
+import com.github.ant2.ui.view.BigButton;
+import com.github.ant2.ui.view.HintView;
 
 public class WelcomeActivityView extends ActivityView {
 

@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.view;
+package com.github.ant2.ui.view;
 
 import java.awt.Font;
 

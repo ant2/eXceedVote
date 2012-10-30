@@ -11,6 +11,8 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import com.github.ant2.exceedvote.util.UIUtility;
+import com.github.ant2.ui.view.BigButton;
+import com.github.ant2.ui.view.RadioSelectionPanel;
 
 /**
  * The user-interface that ask the voter to select the projects to vote on by
