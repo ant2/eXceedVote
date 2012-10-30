@@ -68,7 +68,10 @@ public class MainPanel extends JComponent {
 
 	public MainPanel() {
 		setLayout(new BorderLayout());
-		add(new JLabel("Main Panel"), BorderLayout.CENTER);
+		add(new JComponent() {
+			/** */
+			private static final long serialVersionUID = 1L;
+		}, BorderLayout.CENTER);
 		setDoubleBuffered(true);
 	}
 
