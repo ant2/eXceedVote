@@ -20,6 +20,9 @@ import javax.swing.border.BevelBorder;
 
 import com.github.ant2.exceedvote.model.VoterProfile;
 import com.github.ant2.exceedvote.util.UIUtility;
+import com.github.ant2.ui.view.BigButton;
+import com.github.ant2.ui.view.HintView;
+import com.github.ant2.ui.view.LinkButton;
 
 public class VotingProcessView extends JFrame {
 

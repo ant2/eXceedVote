@@ -9,7 +9,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import com.github.ant2.exceedvote.view.HintView;
+import com.github.ant2.ui.view.HintView;
 
 public class UIUtility {
 

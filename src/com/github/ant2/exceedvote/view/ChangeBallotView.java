@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import com.github.ant2.exceedvote.util.UIUtility;
+import com.github.ant2.ui.view.BigButton;
+import com.github.ant2.ui.view.HintView;
 
 public class ChangeBallotView extends JDialog {
 	/** */
