@@ -6,7 +6,7 @@ import javax.swing.AbstractAction;
 
 import com.github.ant2.exceedvote.view.activity.WelcomeActivityView;
 import com.github.ant2.ui.activity.AbstractActivity;
-import com.github.ant2.ui.animation.SlideAnimation;
+import com.github.ant2.ui.transition.SlideTransition;
 
 public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
 
@@ -20,7 +20,7 @@ public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				runActivity(new WelcomeActivity(new WelcomeActivityView()),
-						SlideAnimation.LEFT);
+						SlideTransition.LEFT);
 			}
 		});
 	}

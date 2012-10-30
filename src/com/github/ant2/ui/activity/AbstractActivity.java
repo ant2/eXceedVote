@@ -1,8 +1,14 @@
 package com.github.ant2.ui.activity;
 
-import com.github.ant2.exceedvote.view.activity.ActivityView;
-import com.github.ant2.ui.animation.Animation;
+import com.github.ant2.ui.transition.Transition;
 
+/**
+ * A base, abstract implementation of Activity.
+ * 
+ * @param <View>
+ *            type of ActivityView that this Activity controls.
+ * @author dtinth
+ */
 public abstract class AbstractActivity<View extends ActivityView> implements
 		Activity {
 
@@ -14,6 +20,12 @@ public abstract class AbstractActivity<View extends ActivityView> implements
 		return view;
 	}
 
+	/**
+	 * Constructs an AbstractActivity with the specified activity view.
+	 * 
+	 * @param view
+	 *            the view to associate with this activity
+	 */
 	public AbstractActivity(View view) {
 		this.view = view;
 	}
@@ -23,12 +35,28 @@ public abstract class AbstractActivity<View extends ActivityView> implements
 		this.delegate = delegate;
 	}
 
+	/**
+	 * Transitions to another activity. This is a convenient method that
+	 * subclasses can use to take user to another activity.
+	 * 
+	 * @param activity
+	 *            the activity to transition to
+	 */
 	protected void runActivity(Activity activity) {
 		delegate.runActivity(activity);
 	}
 
-	protected void runActivity(Activity activity, Animation animation) {
-		delegate.runActivity(activity, animation);
+	/**
+	 * Transitions to another activity. This is a convenient method that
+	 * subclasses can use to take user to another activity.
+	 * 
+	 * @param activity
+	 *            the activity to transition to
+	 * @param transition
+	 *            the transition effect
+	 */
+	protected void runActivity(Activity activity, Transition transition) {
+		delegate.runActivity(activity, transition);
 	}
 
 }

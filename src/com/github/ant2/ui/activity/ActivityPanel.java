@@ -8,41 +8,52 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
 
-import com.github.ant2.ui.animation.Animation;
-import com.github.ant2.ui.animation.Drawable;
-import com.github.ant2.ui.animation.SlideAnimation;
+import com.github.ant2.ui.transition.Painter;
+import com.github.ant2.ui.transition.Transition;
 
+/**
+ * An ActivityPanel handles displaying ActivityViews (or any other component),
+ * as well as facilitating transition effects (animations) between activity
+ * views. One component may be displayed at a time (but that component may be a
+ * container).
+ * 
+ * @author dtinth
+ */
 public class ActivityPanel extends JComponent {
 
 	/** */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The animator class.
+	 * 
+	 * @author dtinth
+	 */
 	private class Animator {
 
 		private BufferedImage image;
 		private long start = System.currentTimeMillis();
 		private long duration = 600;
 
-		private Animation animation;
+		private Transition transition;
 
-		private Drawable drawBefore = new Drawable() {
+		private Painter drawBefore = new Painter() {
 			@Override
-			public void draw(Graphics2D g) {
+			public void paint(Graphics2D g) {
 				g.drawImage(image, 0, 0, null);
 			}
 		};
 
-		private Drawable drawAfter = new Drawable() {
+		private Painter drawAfter = new Painter() {
 			@Override
-			public void draw(Graphics2D g) {
+			public void paint(Graphics2D g) {
 				paintChildrenReal(g);
 			}
 		};
 
-		public Animator(BufferedImage image, Animation animation) {
+		public Animator(BufferedImage image, Transition transition) {
 			this.image = image;
-			this.animation = animation;
-			this.animation.setComponent(ActivityPanel.this);
+			this.transition = transition;
 		}
 
 		public void draw(Graphics2D graphics) {
@@ -56,7 +67,7 @@ public class ActivityPanel extends JComponent {
 			}
 
 			double value = elapsed / (double) duration;
-			animation.draw(value, drawBefore, drawAfter, graphics);
+			transition.paint(ActivityPanel.this, value, drawBefore, drawAfter, graphics);
 			repaint();
 
 		}
@@ -65,6 +76,9 @@ public class ActivityPanel extends JComponent {
 
 	private Animator animation = null;
 
+	/**
+	 * Constructs an ActivityPanel.
+	 */
 	public ActivityPanel() {
 		setLayout(new BorderLayout());
 		add(new JComponent() {
@@ -91,16 +105,30 @@ public class ActivityPanel extends JComponent {
 		}
 	}
 
+	/**
+	 * Display a component without a transition.
+	 * 
+	 * @param component
+	 *            the component to display
+	 */
 	public void display(Component component) {
-		display(component, new SlideAnimation());
+		display(component, null);
 	}
 
-	public void display(Component component, Animation animation) {
+	/**
+	 * Display a component with a transition effect.
+	 * 
+	 * @param component
+	 *            the component to display
+	 * @param transition
+	 *            the transition effect to use
+	 */
+	public void display(Component component, Transition transition) {
 		if (getWidth() > 0 && getHeight() > 0) {
 			BufferedImage image = new BufferedImage(getWidth(), getHeight(),
 					BufferedImage.TYPE_INT_ARGB);
 			paintChildren(image.getGraphics());
-			setAnimation(new Animator(image, animation));
+			setAnimation(new Animator(image, transition));
 		}
 		removeAll();
 		add(component, BorderLayout.CENTER);

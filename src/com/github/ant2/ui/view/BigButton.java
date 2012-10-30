@@ -5,9 +5,20 @@ import java.awt.Font;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 
+/**
+ * A button with big text.
+ * 
+ * @author Artima Mahahemarat
+ */
 public class BigButton extends JButton {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Constructs a BigButton with a specified action.
+	 * 
+	 * @param action
+	 *            action to be with the button.
+	 */
 	public BigButton(AbstractAction action) {
 		super(action);
 		initDesign();

@@ -14,11 +14,21 @@ import javax.swing.SwingConstants;
 
 import com.github.ant2.exceedvote.util.UIUtility;
 
+/**
+ * A hint view, like a label, but with number in a circle in front of the text.
+ * 
+ * @author dtinth
+ */
 public class HintView extends JPanel {
 
 	/** */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The label with a circle and number inside it.
+	 * 
+	 * @author dtinth
+	 */
 	private final class NumberLabel extends JLabel {
 
 		/** */
@@ -44,11 +54,20 @@ public class HintView extends JPanel {
 
 	}
 
-	public HintView(String num, String text) {
+	/**
+	 * Constructs a HintView with the specified number and text.
+	 * 
+	 * @param number
+	 *            the number to display inside the circle to the left of the
+	 *            text
+	 * @param text
+	 *            the text to display
+	 */
+	public HintView(String number, String text) {
 
 		setLayout(new BorderLayout());
 
-		add(new NumberLabel(num), BorderLayout.WEST);
+		add(new NumberLabel(number), BorderLayout.WEST);
 
 		JLabel label = new JLabel(text);
 		label.setFont(new Font("Arial", Font.BOLD, 16));
