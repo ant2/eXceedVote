@@ -11,7 +11,7 @@ public class MainView extends JFrame {
 	/** */
 	private static final long serialVersionUID = 1L;
 	private JPanel topPanel;
-	private MainPanel mainPanel;
+	private ActivityPanel mainPanel;
 
 	public MainView() {
 		super("eXceed Vote");
@@ -23,12 +23,12 @@ public class MainView extends JFrame {
 	private void initComponents() {
 		topPanel = new JPanel();
 		topPanel.add(new JLabel("KI"));
-		mainPanel = new MainPanel();
+		mainPanel = new ActivityPanel();
 		add(topPanel, BorderLayout.NORTH);
 		add(mainPanel, BorderLayout.CENTER);
 	}
 
-	public MainPanel getMainPanel() {
+	public ActivityPanel getMainPanel() {
 		return mainPanel;
 	}
 

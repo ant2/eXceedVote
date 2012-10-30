@@ -7,13 +7,12 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 
 import com.github.ant2.exceedvote.view.animation.Animation;
 import com.github.ant2.exceedvote.view.animation.Drawable;
 import com.github.ant2.exceedvote.view.animation.SlideAnimation;
 
-public class MainPanel extends JComponent {
+public class ActivityPanel extends JComponent {
 
 	/** */
 	private static final long serialVersionUID = 1L;
@@ -43,7 +42,7 @@ public class MainPanel extends JComponent {
 		public Animator(BufferedImage image, Animation animation) {
 			this.image = image;
 			this.animation = animation;
-			this.animation.setComponent(MainPanel.this);
+			this.animation.setComponent(ActivityPanel.this);
 		}
 
 		public void draw(Graphics2D graphics) {
@@ -66,7 +65,7 @@ public class MainPanel extends JComponent {
 
 	private Animator animation = null;
 
-	public MainPanel() {
+	public ActivityPanel() {
 		setLayout(new BorderLayout());
 		add(new JComponent() {
 			/** */
@@ -97,10 +96,12 @@ public class MainPanel extends JComponent {
 	}
 
 	public void display(Component component, Animation animation) {
-		BufferedImage image = new BufferedImage(getWidth(), getHeight(),
-				BufferedImage.TYPE_INT_ARGB);
-		paintChildren(image.getGraphics());
-		setAnimation(new Animator(image, animation));
+		if (getWidth() > 0 && getHeight() > 0) {
+			BufferedImage image = new BufferedImage(getWidth(), getHeight(),
+					BufferedImage.TYPE_INT_ARGB);
+			paintChildren(image.getGraphics());
+			setAnimation(new Animator(image, animation));
+		}
 		removeAll();
 		add(component, BorderLayout.CENTER);
 		validate();

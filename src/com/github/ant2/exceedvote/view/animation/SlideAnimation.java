@@ -20,6 +20,10 @@ public class SlideAnimation extends AbstractAnimation {
 		}
 	}
 
+	public static final SlideAnimation LEFT = new SlideAnimation(Direction.LEFT);
+	public static final SlideAnimation RIGHT = new SlideAnimation(
+			Direction.RIGHT);
+
 	private Direction direction;
 
 	public SlideAnimation(Direction direction) {
