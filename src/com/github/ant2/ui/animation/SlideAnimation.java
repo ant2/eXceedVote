@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.view.animation;
+package com.github.ant2.ui.animation;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;

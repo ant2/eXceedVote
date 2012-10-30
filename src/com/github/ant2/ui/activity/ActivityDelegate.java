@@ -1,6 +1,6 @@
-package com.github.ant2.exceedvote.controller.activity;
+package com.github.ant2.ui.activity;
 
-import com.github.ant2.exceedvote.view.animation.Animation;
+import com.github.ant2.ui.animation.Animation;
 
 public interface ActivityDelegate {
 

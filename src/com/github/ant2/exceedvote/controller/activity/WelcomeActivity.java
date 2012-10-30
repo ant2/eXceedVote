@@ -5,7 +5,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
 import com.github.ant2.exceedvote.view.activity.WelcomeActivityView;
-import com.github.ant2.exceedvote.view.animation.SlideAnimation;
+import com.github.ant2.ui.activity.AbstractActivity;
+import com.github.ant2.ui.animation.SlideAnimation;
 
 public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
 

@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.controller.activity;
+package com.github.ant2.ui.activity;
 
 import com.github.ant2.exceedvote.view.activity.ActivityView;
 

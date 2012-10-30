@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import com.github.ant2.ui.activity.ActivityPanel;
+
 public class MainView extends JFrame {
 
 	/** */

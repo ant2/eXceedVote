@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.view;
+package com.github.ant2.ui.activity;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -8,9 +8,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
 
-import com.github.ant2.exceedvote.view.animation.Animation;
-import com.github.ant2.exceedvote.view.animation.Drawable;
-import com.github.ant2.exceedvote.view.animation.SlideAnimation;
+import com.github.ant2.ui.animation.Animation;
+import com.github.ant2.ui.animation.Drawable;
+import com.github.ant2.ui.animation.SlideAnimation;
 
 public class ActivityPanel extends JComponent {
 

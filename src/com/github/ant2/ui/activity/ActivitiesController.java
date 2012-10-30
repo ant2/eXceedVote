@@ -1,10 +1,7 @@
-package com.github.ant2.exceedvote.controller;
+package com.github.ant2.ui.activity;
 
-import com.github.ant2.exceedvote.controller.activity.Activity;
-import com.github.ant2.exceedvote.controller.activity.ActivityDelegate;
-import com.github.ant2.exceedvote.view.ActivityPanel;
-import com.github.ant2.exceedvote.view.animation.Animation;
-import com.github.ant2.exceedvote.view.animation.SlideAnimation;
+import com.github.ant2.ui.animation.Animation;
+import com.github.ant2.ui.animation.SlideAnimation;
 
 public class ActivitiesController implements ActivityDelegate {
 

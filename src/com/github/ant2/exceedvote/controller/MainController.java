@@ -5,6 +5,7 @@ import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.exceedvote.view.activity.WelcomeActivityView;
+import com.github.ant2.ui.activity.ActivitiesController;
 
 public class MainController implements Runnable {
 
