@@ -1,8 +1,12 @@
 package com.github.ant2.exceedvote.view.animation;
 
+import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+
+import com.sun.org.apache.bcel.internal.generic.FADD;
 
 public class SlideAnimation extends AbstractAnimation {
 	
@@ -32,8 +36,10 @@ public class SlideAnimation extends AbstractAnimation {
 	
 	@Override
 	public void draw(double value, Drawable before, Drawable after, Graphics2D g) {
+		
 		double width = component.getWidth();
 		double height = component.getHeight();
+		
 		value = 1 - Math.pow(1 - value, 2);
 		AffineTransform transform = g.getTransform();
 		g.translate(width * value * direction.x1, height * value * direction.y1);
@@ -42,7 +48,9 @@ public class SlideAnimation extends AbstractAnimation {
 		value = 1 - value;
 		g.translate(width * value * direction.x2, height * value * direction.y2);
 		after.draw(g);
+
 		g.setTransform(transform);
+		
 	}
 
 }
