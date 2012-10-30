@@ -42,14 +42,15 @@ public class ExceedVoteMain {
 			UIManager.put("nimbusBlueGrey", new Color(0xb5b3b1));
 			UIManager.put("control", new Color(0xe5e4e3));
 			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-		        if ("Nimbus".equals(info.getName())) {
-		            UIManager.setLookAndFeel(info.getClassName());
-		            break;
-		        }
-		    }
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
 		} catch (Exception e) {
 			try {
-				UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+				UIManager
+						.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 				MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
 			} catch (Exception ee) {
 				// can't set look and feel
@@ -79,6 +80,9 @@ public class ExceedVoteMain {
 		JTable table = new JTable(data, new Object[] { "A", "B", "C" });
 		panel.add(new JScrollPane(table), BorderLayout.CENTER);
 		panel.add(new BigButton(new AbstractAction("GO TO PAGE B") {
+			/** */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showB();
@@ -90,6 +94,9 @@ public class ExceedVoteMain {
 
 	public static void showB() {
 		mainPanel.display(new BigButton(new AbstractAction("GO TO PAGE A") {
+			/** */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				showA();

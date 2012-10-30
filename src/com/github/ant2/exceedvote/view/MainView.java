@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,9 +27,9 @@ public class MainView extends JFrame {
 		add(topPanel, BorderLayout.NORTH);
 		add(mainPanel, BorderLayout.CENTER);
 	}
-	
+
 	public MainPanel getMainPanel() {
 		return mainPanel;
 	}
-	
+
 }

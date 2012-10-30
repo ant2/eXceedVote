@@ -4,13 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.ActionListener;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import com.github.ant2.exceedvote.view.animation.Animation;
 import com.github.ant2.exceedvote.view.animation.Drawable;
@@ -20,13 +17,13 @@ public class MainPanel extends JComponent {
 
 	/** */
 	private static final long serialVersionUID = 1L;
-	
+
 	private class Animator {
-		
+
 		private BufferedImage image;
 		private long start = System.currentTimeMillis();
 		private long duration = 600;
-		
+
 		private Animation animation;
 
 		private Drawable drawBefore = new Drawable() {
@@ -35,7 +32,7 @@ public class MainPanel extends JComponent {
 				g.drawImage(image, 0, 0, null);
 			}
 		};
-		
+
 		private Drawable drawAfter = new Drawable() {
 			@Override
 			public void draw(Graphics2D g) {
@@ -50,54 +47,55 @@ public class MainPanel extends JComponent {
 		}
 
 		public void draw(Graphics2D graphics) {
-			
+
 			long elapsed = System.currentTimeMillis() - start;
-			
+
 			if (elapsed > duration) {
 				paintChildrenReal(graphics);
 				setAnimation(null);
 				return;
 			}
-			
-			double value = elapsed / (double)duration;
+
+			double value = elapsed / (double) duration;
 			animation.draw(value, drawBefore, drawAfter, graphics);
 			repaint();
-			
+
 		}
-		
+
 	}
-	
+
 	private Animator animation = null;
-	
+
 	public MainPanel() {
 		setLayout(new BorderLayout());
 		add(new JLabel("Main Panel"), BorderLayout.CENTER);
 		setDoubleBuffered(true);
 	}
-	
+
 	private void setAnimation(Animator animation) {
 		this.animation = animation;
 	}
-	
+
 	private void paintChildrenReal(Graphics graphics) {
 		super.paintChildren(graphics);
 	}
-	
+
 	@Override
 	protected void paintChildren(Graphics graphics) {
 		if (animation != null) {
-			animation.draw((Graphics2D)graphics);
+			animation.draw((Graphics2D) graphics);
 		} else {
 			super.paintChildren(graphics);
 		}
 	}
-	
+
 	public void display(Component component) {
 		display(component, new SlideAnimation());
 	}
 
 	public void display(Component component, Animation animation) {
-		BufferedImage image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+		BufferedImage image = new BufferedImage(getWidth(), getHeight(),
+				BufferedImage.TYPE_INT_ARGB);
 		paintChildren(image.getGraphics());
 		setAnimation(new Animator(image, animation));
 		removeAll();
@@ -105,5 +103,5 @@ public class MainPanel extends JComponent {
 		validate();
 		repaint();
 	}
-	
+
 }
