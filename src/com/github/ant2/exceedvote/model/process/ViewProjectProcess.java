@@ -31,11 +31,9 @@ public class ViewProjectProcess {
 	 * @return a list of available projects.
 	 */
 	public List<Project> getAllAvailableProjects() {
-		
 		if(projects == null){
 			projects = event.getProjects();
 		}
-		
 		return projects;
 	}
 
