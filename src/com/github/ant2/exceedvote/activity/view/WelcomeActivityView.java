@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.view.activity;
+package com.github.ant2.exceedvote.activity.view;
 
 import java.awt.BorderLayout;
 

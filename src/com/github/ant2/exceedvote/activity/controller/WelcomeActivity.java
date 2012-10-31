@@ -1,10 +1,10 @@
-package com.github.ant2.exceedvote.controller.activity;
+package com.github.ant2.exceedvote.activity.controller;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import com.github.ant2.exceedvote.view.activity.WelcomeActivityView;
+import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.ui.activity.AbstractActivity;
 import com.github.ant2.ui.transition.SlideTransition;
 
