@@ -14,12 +14,15 @@ public class ViewProjectProcess {
 
 	/** A list of projects */
 	private List<Project> projects;
+	
+	/** A vote event*/
+	private VoteEvent event;
 
 	/**
 	 * Constructs the ViewProjectProcess. Initializes the projects.
 	 */
 	public ViewProjectProcess(VoteEvent event) {
-		projects = event.getProjects();
+		this.event = event;
 	}
 	
 	/**
@@ -28,17 +31,22 @@ public class ViewProjectProcess {
 	 * @return a list of available projects.
 	 */
 	public List<Project> getAllAvailableProjects() {
+		
+		if(projects == null){
+			projects = event.getProjects();
+		}
+		
 		return projects;
 	}
 
 	/**
 	 * Gets the project description
 	 * 
-	 * @param p1 the project
+	 * @param project the project
 	 * @return the project description
 	 */
-	public Object getProjectInfo(Project p1) {
-		return p1.getDescription();
+	public Object getProjectInfo(Project project) {
+		return project.getDescription();
 	}
 
 }
