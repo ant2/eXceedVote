@@ -1,6 +1,5 @@
 package com.github.ant2.exceedvote.model.process;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.github.ant2.exceedvote.model.Project;
@@ -14,33 +13,21 @@ import com.github.ant2.exceedvote.model.VoteEvent;
 public class ViewProjectProcess {
 
 	/** A list of projects */
-	private List<Project> list;
-	
-	/** A vote event */
-	private VoteEvent event;
+	private List<Project> projects;
 
 	/**
-	 * Constructs the ViewProjectProcess. Initializes the event.
+	 * Constructs the ViewProjectProcess. Initializes the projects.
 	 */
 	public ViewProjectProcess(VoteEvent event) {
-		this.event = event;
-		list = event.getProjects();
+		projects = event.getProjects();
 	}
-
+	
 	/**
 	 * Gets the list of available projects.
 	 * 
 	 * @return a list of available projects.
 	 */
 	public List<Project> getAllAvailableProjects() {
-		List<Project> projects = new ArrayList<Project>();
-		
-		for(Project project : list){
-			if(event.getProjects().contains(project)){
-				projects.add(project);
-			}
-		}
-		
 		return projects;
 	}
 
