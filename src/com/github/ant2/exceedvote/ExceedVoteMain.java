@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote;
 
 import java.awt.Color;
+import java.util.Calendar;
 
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -54,6 +55,9 @@ public class ExceedVoteMain {
 
 		Voter voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
 		VoteEvent event = new ExceedVoteEvent();
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.MINUTE, 3);
+		event.setFinishTime(calendar);
 		MainView mainView = new MainView();
 		MainController mainController = new MainController(voter, event,
 				mainView);

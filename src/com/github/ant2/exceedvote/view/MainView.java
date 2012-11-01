@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.ui.activity.ActivityPanel;
+import com.github.ant2.ui.view.InfoBox;
 
 public class MainView extends JFrame {
 
@@ -18,6 +19,8 @@ public class MainView extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel topPanel;
 	private ActivityPanel mainPanel;
+	private InfoBox nameInfoBox;
+	private InfoBox remainingTimeInfoBox;
 
 	public MainView() {
 		super("eXceed Vote");
@@ -33,23 +36,13 @@ public class MainView extends JFrame {
 		UIUtility.addPadding(topPanel, 10, 10, 5, 10);
 		
 		//name label
-		JPanel namePanel = new JPanel(new BorderLayout());
-		JLabel panelName = new JLabel("Name");
-		JLabel name = new JLabel("KIKI");
-		namePanel.add(panelName, BorderLayout.NORTH);
-		namePanel.add(name, BorderLayout.CENTER);
-		namePanel.setMaximumSize(new Dimension(192, 50));
-		topPanel.add(namePanel);
+
+		nameInfoBox = new InfoBox("Name", "Aiolia");
+		topPanel.add(nameInfoBox);
 		
-		//countdown label
-		JPanel countdownPanel = new JPanel(new BorderLayout());
-		JLabel panelName2 = new JLabel("Remaining Time");
-		JLabel time = new JLabel("88:88:88");
-		countdownPanel.add(panelName2, BorderLayout.NORTH);
-		countdownPanel.add(time, BorderLayout.SOUTH);
-		countdownPanel.setMaximumSize(new Dimension(192, 50));
-		UIUtility.addPadding(countdownPanel, 0, 50, 0, 0);
-		topPanel.add(countdownPanel);
+		remainingTimeInfoBox = new InfoBox("Remaining Time", "88:88:88");
+		topPanel.add(remainingTimeInfoBox);
+		UIUtility.addPadding(remainingTimeInfoBox, 0, 50, 0, 0);
 		topPanel.add(Box.createHorizontalGlue());
 		topPanel.add(new JLabel("FuCK"));
 		
@@ -60,6 +53,14 @@ public class MainView extends JFrame {
 		add(mainPanel, BorderLayout.CENTER);
 	}
 
+	public InfoBox getRemainingTimeInfoBox() {
+		return remainingTimeInfoBox;
+	}
+	
+	public InfoBox getNameInfoBox() {
+		return nameInfoBox;
+	}
+	
 	public ActivityPanel getMainPanel() {
 		return mainPanel;
 	}
