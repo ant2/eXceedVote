@@ -6,7 +6,6 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.github.ant2.exceedvote.util.UIUtility;
@@ -35,15 +34,15 @@ public class MainView extends JFrame {
 		topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
 		UIUtility.addPadding(topPanel, 10, 10, 5, 10);
-		
+
 		nameInfoBox = new InfoBox("Name", "Aiolia");
 		topPanel.add(nameInfoBox);
-		
+
 		remainingTimeInfoBox = new InfoBox("Remaining Time", "88:88:88");
 		topPanel.add(remainingTimeInfoBox);
 		UIUtility.addPadding(remainingTimeInfoBox, 0, 50, 0, 0);
 		topPanel.add(Box.createHorizontalGlue());
-		
+
 		logout = new JButton("Logout");
 		topPanel.add(logout);
 
@@ -55,11 +54,11 @@ public class MainView extends JFrame {
 	public InfoBox getRemainingTimeInfoBox() {
 		return remainingTimeInfoBox;
 	}
-	
+
 	public InfoBox getNameInfoBox() {
 		return nameInfoBox;
 	}
-	
+
 	public ActivityPanel getMainPanel() {
 		return mainPanel;
 	}

@@ -29,12 +29,12 @@ public class MainController {
 	public void run(Activity activity) {
 		view.setVisible(true);
 		view.getNameInfoBox().setText(voter.getProfile().getName());
-		
+
 		Timer timer = new Timer(1000, new RemainingTimeUpdater());
 		timer.start();
 
 		updateRemainingTime();
-		
+
 		panelController.runActivity(activity, Fx.STARFIELD);
 	}
 
@@ -48,12 +48,13 @@ public class MainController {
 	}
 
 	private void updateRemainingTime() {
-		view.getRemainingTimeInfoBox().setText(formatTime(event.getRemainingTime()));
+		view.getRemainingTimeInfoBox().setText(
+				formatTime(event.getRemainingTime()));
 	}
 
 	private String formatTime(int timeLeft) {
-		return String.format("%d:%02d:%02d",
-				timeLeft / 3600, timeLeft % 3600 / 60, timeLeft % 60);
+		return String.format("%d:%02d:%02d", timeLeft / 3600,
+				timeLeft % 3600 / 60, timeLeft % 60);
 	}
 
 }
