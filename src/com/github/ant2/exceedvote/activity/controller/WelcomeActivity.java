@@ -12,18 +12,6 @@ public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
 
 	public WelcomeActivity(WelcomeActivityView view) {
 		super(view);
-		view.getButton().setAction(
-				new AbstractAction("Welcome to eXceedVote!") {
-
-					/** */
-					private static final long serialVersionUID = 1L;
-
-					@Override
-					public void actionPerformed(ActionEvent arg0) {
-						runActivity(new WelcomeActivity(
-								new WelcomeActivityView()), Fx.SLIDE_LEFT);
-					}
-				});
 	}
 
 }

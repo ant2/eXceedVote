@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 
+import com.github.ant2.exceedvote.view.Menu;
+import com.github.ant2.exceedvote.view.Scene;
 import com.github.ant2.ui.activity.ActivityView;
 import com.github.ant2.ui.view.BigButton;
 import com.github.ant2.ui.view.HintView;
@@ -16,9 +18,10 @@ public class WelcomeActivityView extends ActivityView {
 
 	public WelcomeActivityView() {
 		super(new BorderLayout());
-		add(new HintView("!", "Welcome to eXceed Vote!!"), BorderLayout.NORTH);
-		button = new BigButton(null);
-		add(button);
+		Menu menu = new Menu();
+		menu.addItem("View Project Information");
+		menu.addItem("Vote / Change Vote");
+		add(new Scene("Welcome to eXceedVote", menu));
 	}
 
 	public JButton getButton() {
