@@ -9,12 +9,15 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import org.apache.log4j.PropertyConfigurator;
 
+import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
+import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.controller.MainController;
 import com.github.ant2.exceedvote.model.ExceedVoteEvent;
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.model.VoterProfile;
 import com.github.ant2.exceedvote.view.MainView;
+import com.github.ant2.ui.activity.Activity;
 
 /**
  * eXceed Vote Main Class
@@ -54,7 +57,8 @@ public class ExceedVoteMain {
 		MainView mainView = new MainView();
 		MainController mainController = new MainController(voter, event,
 				mainView);
-		mainController.run();
+		Activity activity = new WelcomeActivity(new WelcomeActivityView());
+		mainController.run(activity);
 
 	}
 
