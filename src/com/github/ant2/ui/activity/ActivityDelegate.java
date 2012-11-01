@@ -1,6 +1,5 @@
 package com.github.ant2.ui.activity;
 
-import com.github.ant2.ui.transition.Transition;
 
 /**
  * An ActivityDelegate interface is an interface that Activities use to tell or
@@ -13,7 +12,7 @@ import com.github.ant2.ui.transition.Transition;
 public interface ActivityDelegate {
 
 	/**
-	 * Transitions to another activity.
+	 * Transitions to another activity using default transition.
 	 * 
 	 * @param activity
 	 *            the activity to transition to
@@ -25,9 +24,9 @@ public interface ActivityDelegate {
 	 * 
 	 * @param activity
 	 *            the activity to transition to
-	 * @param transition
-	 *            the transition effect to use
+	 * @param fx
+	 *            the effect to use
 	 */
-	void runActivity(Activity activity, Transition transition);
+	void runActivity(Activity activity, Fx fx);
 
 }

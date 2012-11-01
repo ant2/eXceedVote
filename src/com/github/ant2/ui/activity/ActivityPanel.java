@@ -1,6 +1,7 @@
 package com.github.ant2.ui.activity;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -33,7 +34,7 @@ public class ActivityPanel extends JComponent {
 
 		private BufferedImage image;
 		private long start = System.currentTimeMillis();
-		private long duration = 600;
+		private long duration;
 
 		private Transition transition;
 
@@ -51,9 +52,11 @@ public class ActivityPanel extends JComponent {
 			}
 		};
 
-		public Animator(BufferedImage image, Transition transition) {
+		public Animator(BufferedImage image, Transition transition,
+				long duration) {
 			this.image = image;
 			this.transition = transition;
+			this.duration = duration;
 		}
 
 		public void draw(Graphics2D graphics) {
@@ -67,7 +70,8 @@ public class ActivityPanel extends JComponent {
 			}
 
 			double value = elapsed / (double) duration;
-			transition.paint(ActivityPanel.this, value, drawBefore, drawAfter, graphics);
+			transition.paint(ActivityPanel.this, value, drawBefore, drawAfter,
+					graphics);
 			repaint();
 
 		}
@@ -75,6 +79,7 @@ public class ActivityPanel extends JComponent {
 	}
 
 	private Animator animation = null;
+	private boolean started = false;
 
 	/**
 	 * Constructs an ActivityPanel.
@@ -100,8 +105,11 @@ public class ActivityPanel extends JComponent {
 	protected void paintChildren(Graphics graphics) {
 		if (animation != null) {
 			animation.draw((Graphics2D) graphics);
-		} else {
+		} else if (started) {
 			super.paintChildren(graphics);
+		} else {
+			graphics.setColor(Color.BLACK);
+			graphics.fillRect(0, 0, getWidth(), getHeight());
 		}
 	}
 
@@ -112,7 +120,7 @@ public class ActivityPanel extends JComponent {
 	 *            the component to display
 	 */
 	public void display(Component component) {
-		display(component, null);
+		display(component, null, 0);
 	}
 
 	/**
@@ -123,12 +131,15 @@ public class ActivityPanel extends JComponent {
 	 * @param transition
 	 *            the transition effect to use
 	 */
-	public void display(Component component, Transition transition) {
+	public void display(Component component, Transition transition,
+			long duration) {
 		if (getWidth() > 0 && getHeight() > 0) {
 			BufferedImage image = new BufferedImage(getWidth(), getHeight(),
 					BufferedImage.TYPE_INT_ARGB);
 			paintChildren(image.getGraphics());
-			setAnimation(new Animator(image, transition));
+			setAnimation(transition != null ? new Animator(image, transition,
+					duration) : null);
+			started = true;
 		}
 		removeAll();
 		add(component, BorderLayout.CENTER);

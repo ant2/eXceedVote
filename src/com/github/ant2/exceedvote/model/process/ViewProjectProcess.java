@@ -14,8 +14,8 @@ public class ViewProjectProcess {
 
 	/** A list of projects */
 	private List<Project> projects;
-	
-	/** A vote event*/
+
+	/** A vote event */
 	private VoteEvent event;
 
 	/**
@@ -24,14 +24,14 @@ public class ViewProjectProcess {
 	public ViewProjectProcess(VoteEvent event) {
 		this.event = event;
 	}
-	
+
 	/**
 	 * Gets the list of available projects.
 	 * 
 	 * @return a list of available projects.
 	 */
 	public List<Project> getAllAvailableProjects() {
-		if(projects == null){
+		if (projects == null) {
 			projects = event.getProjects();
 		}
 		return projects;
@@ -40,7 +40,8 @@ public class ViewProjectProcess {
 	/**
 	 * Gets the project description
 	 * 
-	 * @param project the project
+	 * @param project
+	 *            the project
 	 * @return the project description
 	 */
 	public Object getProjectInfo(Project project) {

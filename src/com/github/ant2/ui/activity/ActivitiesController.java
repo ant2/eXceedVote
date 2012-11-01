@@ -1,7 +1,6 @@
 package com.github.ant2.ui.activity;
 
 import com.github.ant2.ui.transition.SlideTransition;
-import com.github.ant2.ui.transition.Transition;
 
 /**
  * An ActivitiesController controls the ActivityPanel and keeps it in sync with
@@ -27,15 +26,15 @@ public class ActivitiesController implements ActivityDelegate {
 
 	@Override
 	public void runActivity(Activity activity) {
-		runActivity(activity, SlideTransition.RIGHT);
+		runActivity(activity, Fx.fx(SlideTransition.RIGHT));
 	}
 
 	@Override
-	public void runActivity(Activity activity, Transition transition) {
+	public void runActivity(Activity activity, Fx fx) {
 		if (currentActivity != null) {
 			currentActivity.setDelegate(null);
 		}
-		view.display(activity.getView(), transition);
+		view.display(activity.getView(), fx.getTransition(), fx.getDuration());
 		currentActivity = activity;
 		activity.setDelegate(this);
 	}

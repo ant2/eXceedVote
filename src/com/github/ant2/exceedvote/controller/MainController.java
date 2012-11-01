@@ -6,6 +6,7 @@ import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.ui.activity.ActivitiesController;
+import com.github.ant2.ui.activity.Fx;
 
 public class MainController implements Runnable {
 
@@ -25,7 +26,7 @@ public class MainController implements Runnable {
 	public void run() {
 		view.setVisible(true);
 		panelController.runActivity(new WelcomeActivity(
-				new WelcomeActivityView()));
+				new WelcomeActivityView()), Fx.STARFIELD);
 	}
 
 }

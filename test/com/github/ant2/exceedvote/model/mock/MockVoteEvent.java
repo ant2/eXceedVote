@@ -12,7 +12,7 @@ public class MockVoteEvent extends AbstractVoteEvent {
 
 	private List<Project> projects = new ArrayList<Project>();
 	private List<Criterion> criteria = new ArrayList<Criterion>();
-	
+
 	public final Project p1 = new Project("Project 1", "P1");
 	public final Project p2 = new Project("Project 2", "P2");
 	public final Project p3 = new Project("Project 3", "P3");
@@ -21,7 +21,7 @@ public class MockVoteEvent extends AbstractVoteEvent {
 	public final Criterion c1 = new Criterion("Criterion 1");
 	public final Criterion c2 = new Criterion("Criterion 2");
 	public final Criterion c3 = new Criterion("Criterion 3");
-	
+
 	{
 		projects.add(p1);
 		projects.add(p2);

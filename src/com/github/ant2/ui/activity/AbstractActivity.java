@@ -1,6 +1,5 @@
 package com.github.ant2.ui.activity;
 
-import com.github.ant2.ui.transition.Transition;
 
 /**
  * A base, abstract implementation of Activity.
@@ -52,11 +51,11 @@ public abstract class AbstractActivity<View extends ActivityView> implements
 	 * 
 	 * @param activity
 	 *            the activity to transition to
-	 * @param transition
+	 * @param fx
 	 *            the transition effect
 	 */
-	protected void runActivity(Activity activity, Transition transition) {
-		delegate.runActivity(activity, transition);
+	protected void runActivity(Activity activity, Fx fx) {
+		delegate.runActivity(activity, fx);
 	}
 
 }

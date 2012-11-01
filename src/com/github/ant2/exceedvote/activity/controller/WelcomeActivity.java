@@ -6,23 +6,24 @@ import javax.swing.AbstractAction;
 
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.ui.activity.AbstractActivity;
-import com.github.ant2.ui.transition.SlideTransition;
+import com.github.ant2.ui.activity.Fx;
 
 public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
 
 	public WelcomeActivity(WelcomeActivityView view) {
 		super(view);
-		view.getButton().setAction(new AbstractAction("Welcome me again!") {
+		view.getButton().setAction(
+				new AbstractAction("Welcome to eXceedVote!") {
 
-			/** */
-			private static final long serialVersionUID = 1L;
+					/** */
+					private static final long serialVersionUID = 1L;
 
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				runActivity(new WelcomeActivity(new WelcomeActivityView()),
-						SlideTransition.LEFT);
-			}
-		});
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						runActivity(new WelcomeActivity(
+								new WelcomeActivityView()), Fx.SLIDE_LEFT);
+					}
+				});
 	}
 
 }
