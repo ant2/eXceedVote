@@ -12,18 +12,23 @@ public class WelcomeActivityView extends ActivityView {
 
 	/** */
 	private static final long serialVersionUID = 1L;
-	private JButton button;
+	private JButton viewProjectInformationButton;
+	private JButton voteButton;
 
 	public WelcomeActivityView() {
 		super(new BorderLayout());
 		Menu menu = new Menu();
-		menu.addItem("View Project Information");
-		menu.addItem("Vote / Change Vote");
+		viewProjectInformationButton = menu.addItem("View Project Information");
+		voteButton = menu.addItem("Vote / Change Vote");
 		add(new Scene("Welcome to eXceedVote", menu));
 	}
-
-	public JButton getButton() {
-		return button;
+	
+	public JButton getViewProjectInformationButton() {
+		return viewProjectInformationButton;
+	}
+	
+	public JButton getVoteButton() {
+		return voteButton;
 	}
 
 }

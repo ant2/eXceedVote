@@ -17,13 +17,14 @@ public class Menu extends JPanel {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	}
 
-	public void addItem(String text) {
+	public JButton addItem(String text) {
 		JButton button = new JButton(text);
 		button.setAlignmentX(CENTER_ALIGNMENT);
 		button.setFont(new Font("Arial", Font.PLAIN, 30));
 		add(Box.createRigidArea(new Dimension(0, 10)));
 		add(button);
 		add(Box.createRigidArea(new Dimension(0, 10)));
+		return button;
 	}
 
 }
