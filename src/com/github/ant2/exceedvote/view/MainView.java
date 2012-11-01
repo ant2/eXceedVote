@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ public class MainView extends JFrame {
 	private ActivityPanel mainPanel;
 	private InfoBox nameInfoBox;
 	private InfoBox remainingTimeInfoBox;
+	private JButton logout;
 
 	public MainView() {
 		super("eXceed Vote");
@@ -34,8 +36,6 @@ public class MainView extends JFrame {
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
 		UIUtility.addPadding(topPanel, 10, 10, 5, 10);
 		
-		//name label
-
 		nameInfoBox = new InfoBox("Name", "Aiolia");
 		topPanel.add(nameInfoBox);
 		
@@ -43,7 +43,9 @@ public class MainView extends JFrame {
 		topPanel.add(remainingTimeInfoBox);
 		UIUtility.addPadding(remainingTimeInfoBox, 0, 50, 0, 0);
 		topPanel.add(Box.createHorizontalGlue());
-		topPanel.add(new JLabel("FuCK"));
+		
+		logout = new JButton("Logout");
+		topPanel.add(logout);
 
 		mainPanel = new ActivityPanel();
 		add(topPanel, BorderLayout.NORTH);
