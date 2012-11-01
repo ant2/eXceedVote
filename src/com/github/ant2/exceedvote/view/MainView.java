@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -24,7 +23,7 @@ public class MainView extends JFrame {
 
 	public MainView() {
 		super("eXceed Vote");
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 		setSize(720, 512);
 		initComponents();
@@ -45,9 +44,7 @@ public class MainView extends JFrame {
 		UIUtility.addPadding(remainingTimeInfoBox, 0, 50, 0, 0);
 		topPanel.add(Box.createHorizontalGlue());
 		topPanel.add(new JLabel("FuCK"));
-		
-		
-		
+
 		mainPanel = new ActivityPanel();
 		add(topPanel, BorderLayout.NORTH);
 		add(mainPanel, BorderLayout.CENTER);

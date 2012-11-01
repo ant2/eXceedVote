@@ -18,14 +18,14 @@ public class StarfieldTransition implements Transition {
 			z = Math.random() * 10;
 			r = Math.random();
 			sTheta = Math.random() * Math.PI * 2;
-			vTheta = (Math.random() - 0.5) * Math.PI * 1/3;
+			vTheta = (Math.random() - 0.5) * Math.PI * 1 / 3;
 		}
 
 		public void update(double time) {
 			theta = sTheta + time * vTheta;
 			x = 0.5 + Math.cos(theta) * r;
 			y = 0.5 + Math.sin(theta) * r;
-			
+
 		}
 	}
 
@@ -64,11 +64,13 @@ public class StarfieldTransition implements Transition {
 			for (Star star : stars) {
 				star.update(value);
 				double distanceZ = star.z - cameraZ;
-				if (distanceZ <= 0) continue;
+				if (distanceZ <= 0) {
+					continue;
+				}
 				double viewSize = distanceZ;
 				double x = 0.5 + (star.x - 0.5) / viewSize;
 				double y = 0.5 + (star.y - 0.5) / viewSize;
-				g.fillOval((int)(x * width) - 2, (int)(y * height) - 2, 4, 4);
+				g.fillOval((int) (x * width) - 2, (int) (y * height) - 2, 4, 4);
 			}
 		}
 

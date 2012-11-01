@@ -1,13 +1,16 @@
 package com.github.ant2.exceedvote.model.process;
+
 import java.util.List;
+
 import com.github.ant2.exceedvote.model.Ballot;
 import com.github.ant2.exceedvote.model.Criterion;
 import com.github.ant2.exceedvote.model.Project;
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
+
 /**
  * 
- *
+ * 
  * @author Artima Mahahemarat
  */
 public class VotingProcess {
@@ -59,7 +62,9 @@ public class VotingProcess {
 
 	public void submit() {
 		for (int i = 0; i < a.length; i++) {
-			if (a[i] == 0) continue;
+			if (a[i] == 0) {
+				continue;
+			}
 			for (int j = 0; j < a[i]; j++) {
 				Project project = getProjects().get(i);
 				Ballot b = new Ballot(voter, project, criterion);

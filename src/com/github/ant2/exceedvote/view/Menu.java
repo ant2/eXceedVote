@@ -25,5 +25,5 @@ public class Menu extends JPanel {
 		add(button);
 		add(Box.createRigidArea(new Dimension(0, 10)));
 	}
-	
+
 }
