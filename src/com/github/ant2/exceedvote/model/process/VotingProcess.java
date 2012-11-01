@@ -10,14 +10,14 @@ import com.github.ant2.exceedvote.model.Voter;
  *
  * @author Artima Mahahemarat
  */
-
 public class VotingProcess {
+
 	private VoteEvent event;
 	private Voter voter;
 	private Criterion criterion;
 	private int count;
 	private int[] a;
-	
+
 	public VotingProcess(VoteEvent event, Voter voter, Criterion criterion) {
 		this.event = event;
 		this.voter = voter;
@@ -67,5 +67,4 @@ public class VotingProcess {
 			}
 		}
 	}
-
 }
