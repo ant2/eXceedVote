@@ -1,6 +1,5 @@
 package com.github.ant2.ui.activity;
 
-
 /**
  * A base, abstract implementation of Activity.
  * 

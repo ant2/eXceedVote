@@ -1,7 +1,5 @@
 package com.github.ant2.exceedvote.controller;
 
-import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
-import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.view.MainView;

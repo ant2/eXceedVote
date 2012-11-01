@@ -7,8 +7,6 @@ import javax.swing.JButton;
 import com.github.ant2.exceedvote.view.Menu;
 import com.github.ant2.exceedvote.view.Scene;
 import com.github.ant2.ui.activity.ActivityView;
-import com.github.ant2.ui.view.BigButton;
-import com.github.ant2.ui.view.HintView;
 
 public class WelcomeActivityView extends ActivityView {
 

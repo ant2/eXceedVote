@@ -52,5 +52,5 @@ public class ExceedVoteEvent extends AbstractVoteEvent implements VoteEvent {
 	public List<Criterion> getCriteria() {
 		return criteria;
 	}
-	
+
 }

@@ -21,7 +21,7 @@ public class MainView extends JFrame {
 
 	public MainView() {
 		super("eXceed Vote");
-		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
 		setSize(720, 512);
 		initComponents();
@@ -31,8 +31,8 @@ public class MainView extends JFrame {
 		topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
 		UIUtility.addPadding(topPanel, 10, 10, 5, 10);
-		
-		//name label
+
+		// name label
 		JPanel namePanel = new JPanel(new BorderLayout());
 		JLabel panelName = new JLabel("Name");
 		JLabel name = new JLabel("KIKI");
@@ -40,8 +40,8 @@ public class MainView extends JFrame {
 		namePanel.add(name, BorderLayout.CENTER);
 		namePanel.setMaximumSize(new Dimension(192, 50));
 		topPanel.add(namePanel);
-		
-		//countdown label
+
+		// countdown label
 		JPanel countdownPanel = new JPanel(new BorderLayout());
 		JLabel panelName2 = new JLabel("Remaining Time");
 		JLabel time = new JLabel("88:88:88");
@@ -52,9 +52,7 @@ public class MainView extends JFrame {
 		topPanel.add(countdownPanel);
 		topPanel.add(Box.createHorizontalGlue());
 		topPanel.add(new JLabel("FuCK"));
-		
-		
-		
+
 		mainPanel = new ActivityPanel();
 		add(topPanel, BorderLayout.NORTH);
 		add(mainPanel, BorderLayout.CENTER);

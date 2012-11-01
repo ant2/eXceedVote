@@ -1,6 +1,5 @@
 package com.github.ant2.ui.activity;
 
-
 /**
  * An ActivityDelegate interface is an interface that Activities use to tell or
  * notify some other objects (the delegate) about its intent. For example, the
