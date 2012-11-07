@@ -1,5 +1,6 @@
 package com.github.ant2.exceedvote.model.process;
 
+import com.github.ant2.exceedvote.model.Criterion;
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 
@@ -38,6 +39,10 @@ public class Context {
 
 	public CriterionSelectionProcess createCriterionSelectionProcess() {
 		return new CriterionSelectionProcess(event);
+	}
+	
+	public VotingProcess createVotingProcess(Criterion criterion) {
+		return new VotingProcess(event, voter, criterion);
 	}
 
 }

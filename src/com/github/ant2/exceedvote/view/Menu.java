@@ -20,7 +20,7 @@ public class Menu extends JPanel {
 	public JButton addItem(String text) {
 		JButton button = new JButton(text);
 		button.setAlignmentX(CENTER_ALIGNMENT);
-		button.setFont(new Font("Arial", Font.PLAIN, 30));
+		button.setFont(new Font("sans-serif", Font.PLAIN, 36));
 		add(Box.createRigidArea(new Dimension(0, 10)));
 		add(button);
 		add(Box.createRigidArea(new Dimension(0, 10)));

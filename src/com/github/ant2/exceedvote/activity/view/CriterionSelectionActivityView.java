@@ -16,9 +16,10 @@ public class CriterionSelectionActivityView extends ActivityView {
 	private static final long serialVersionUID = 1L;
 	private JButton backButton;
 	private JButton continueButton;
+	private JList list;
 
 	public CriterionSelectionActivityView() {
-		JList list = new JList(new String[] { "a", "b", "c", "d",
+		list = new JList(new String[] { "a", "b", "c", "d",
 				"helllo world" });
 		list.setCellRenderer(new CriterionListCellRenderer());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -36,6 +37,10 @@ public class CriterionSelectionActivityView extends ActivityView {
 
 	public JButton getContinueButton() {
 		return continueButton;
+	}
+	
+	public JList getList() {
+		return list;
 	}
 
 }
