@@ -1,10 +1,10 @@
 package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.Font;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,25 +15,37 @@ public class Scene extends JPanel {
 
 	/** */
 	private static final long serialVersionUID = 1L;
+	private JPanel footer;
 
 	public Scene(String title, JComponent component) {
-		setLayout(new BorderLayout());
+		
+		this(title);
+		add(component, BorderLayout.CENTER);
+		
+	}
 
-		JPanel center = new JPanel();
-		center.setLayout(new BoxLayout(center, BoxLayout.Y_AXIS));
+	public Scene(String title) {
+		
+		setLayout(new BorderLayout());
 
 		JLabel titleLabel = new JLabel(title);
 		titleLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		UIUtility.addPadding(titleLabel, 20, 20, 10, 20);
 		titleLabel.setAlignmentX(0.5f);
-		component.setAlignmentX(0.5f);
-
-		center.add(Box.createVerticalGlue());
-		center.add(component);
-		center.add(Box.createVerticalGlue());
 
 		add(titleLabel, BorderLayout.NORTH);
-		add(center, BorderLayout.CENTER);
+		
+	}
+	
+	public JButton addFooterButton(String text) {
+		if (footer == null) {
+			footer = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+			add(footer, BorderLayout.SOUTH);
+		}
+		JButton button = new JButton(text);
+		button.setFont(new Font("sans-serif", Font.PLAIN, 28));
+		footer.add(button);
+		return button;
 	}
 
 }

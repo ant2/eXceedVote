@@ -1,5 +1,6 @@
 package com.github.ant2.ui.activity;
 
+import java.awt.BorderLayout;
 import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
@@ -18,7 +19,7 @@ public class ActivityView extends JPanel {
 	 * Constructs an ActivityView.
 	 */
 	public ActivityView() {
-		super();
+		super(new BorderLayout());
 	}
 
 	/**

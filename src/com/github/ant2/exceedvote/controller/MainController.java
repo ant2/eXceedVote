@@ -7,6 +7,7 @@ import javax.swing.Timer;
 
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
+import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.ui.activity.ActivitiesController;
 import com.github.ant2.ui.activity.Activity;
@@ -14,14 +15,16 @@ import com.github.ant2.ui.activity.Fx;
 
 public class MainController {
 
-	private Voter voter;
-	private VoteEvent event;
+	private Context context;
 	private MainView view;
 	private ActivitiesController panelController;
+	private Voter voter;
+	private VoteEvent event;
 
-	public MainController(Voter voter, VoteEvent event, MainView mainView) {
-		this.voter = voter;
-		this.event = event;
+	public MainController(Context context, MainView mainView) {
+		this.context = context;
+		voter = context.getVoter();
+		event = context.getEvent();
 		view = mainView;
 		panelController = new ActivitiesController(mainView.getMainPanel());
 	}

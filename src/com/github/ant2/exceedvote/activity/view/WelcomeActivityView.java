@@ -1,11 +1,10 @@
 package com.github.ant2.exceedvote.activity.view;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JButton;
 
 import com.github.ant2.exceedvote.view.Menu;
 import com.github.ant2.exceedvote.view.Scene;
+import com.github.ant2.exceedvote.view.VerticallyCenteredPanel;
 import com.github.ant2.ui.activity.ActivityView;
 
 public class WelcomeActivityView extends ActivityView {
@@ -16,11 +15,10 @@ public class WelcomeActivityView extends ActivityView {
 	private JButton voteButton;
 
 	public WelcomeActivityView() {
-		super(new BorderLayout());
 		Menu menu = new Menu();
 		viewProjectInformationButton = menu.addItem("View Project Information");
 		voteButton = menu.addItem("Vote / Change Vote");
-		add(new Scene("Welcome to eXceedVote", menu));
+		add(new Scene("Welcome to eXceedVote", new VerticallyCenteredPanel(menu)));
 	}
 	
 	public JButton getViewProjectInformationButton() {

@@ -3,20 +3,26 @@ package com.github.ant2.exceedvote.activity.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.github.ant2.exceedvote.activity.view.ProjectSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
-import com.github.ant2.ui.activity.AbstractActivity;
+import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.ui.activity.Fx;
 
-public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
+public class WelcomeActivity extends
+		AbstractExceedVoteActivity<WelcomeActivityView> {
 
-	public WelcomeActivity(WelcomeActivityView view) {
-		super(view);
-		view.getViewProjectInformationButton().addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				goViewProjectInformation();
-			}
-		});
+	private Context context;
+
+	public WelcomeActivity(Context context, WelcomeActivityView view) {
+		super(null, view);
+		this.context = context;
+		view.getViewProjectInformationButton().addActionListener(
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						goViewProjectInformation();
+					}
+				});
 		view.getVoteButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -24,11 +30,15 @@ public class WelcomeActivity extends AbstractActivity<WelcomeActivityView> {
 			}
 		});
 	}
-	
+
 	private void goViewProjectInformation() {
-		runActivity(this, Fx.SLIDE_LEFT);
+		ProjectSelectionActivityView view = new ProjectSelectionActivityView(
+				"View Project Information");
+		ProjectSelectionActivity activity = new ProjectSelectionActivity(this,
+				context.createViewProjectProcess(), view);
+		runActivity(activity, Fx.SLIDE_RIGHT);
 	}
-	
+
 	private void goVote() {
 		runActivity(this, Fx.SLIDE_RIGHT);
 	}

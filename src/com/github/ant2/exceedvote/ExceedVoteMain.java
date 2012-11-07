@@ -17,6 +17,8 @@ import com.github.ant2.exceedvote.model.ExceedVoteEvent;
 import com.github.ant2.exceedvote.model.VoteEvent;
 import com.github.ant2.exceedvote.model.Voter;
 import com.github.ant2.exceedvote.model.VoterProfile;
+import com.github.ant2.exceedvote.model.process.Context;
+import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.ui.activity.Activity;
 
@@ -31,37 +33,22 @@ public class ExceedVoteMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {
-			UIManager.put("nimbusBase", new Color(0xdddddd));
-			UIManager.put("nimbusBlueGrey", new Color(0xb5b3b1));
-			UIManager.put("control", new Color(0xe5e4e3));
-			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (Exception e) {
-			try {
-				UIManager
-						.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-				MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
-			} catch (Exception ee) {
-				// can't set look and feel
-			}
-		}
+		UIUtility.setTheme();
 		PropertyConfigurator.configure(ExceedVoteMain.class
 				.getResourceAsStream("log4j.properties"));
 
 		Voter voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
 		VoteEvent event = new ExceedVoteEvent();
+		Context context = new Context(event, voter);
+		
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.MINUTE, 3);
 		event.setFinishTime(calendar);
+		
 		MainView mainView = new MainView();
-		MainController mainController = new MainController(voter, event,
+		MainController mainController = new MainController(context,
 				mainView);
-		Activity activity = new WelcomeActivity(new WelcomeActivityView());
+		Activity activity = new WelcomeActivity(context, new WelcomeActivityView());
 		mainController.run(activity);
 
 	}

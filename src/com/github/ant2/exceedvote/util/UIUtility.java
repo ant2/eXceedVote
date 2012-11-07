@@ -1,13 +1,19 @@
 package com.github.ant2.exceedvote.util;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridBagConstraints;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.Border;
+import javax.swing.plaf.metal.DefaultMetalTheme;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import com.github.ant2.ui.view.HintView;
 
@@ -65,6 +71,42 @@ public class UIUtility {
 		UIUtility.addPadding(pad, 0, 24, 0, 0);
 		pad.add(component, BorderLayout.CENTER);
 		return createStepPanel(num, hint, pad);
+	}
+	
+	public static void testWidget(Component component) {
+		setTheme();
+		JFrame frame = new JFrame(component.getClass().getName() + ": " + component.toString());
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(component, BorderLayout.CENTER);
+		frame.add(panel);
+		frame.pack();
+		frame.setVisible(true);
+	}
+
+	private static boolean themeSet = false;
+	
+	public static void setTheme() {
+		if (themeSet) return;
+		themeSet = true;
+		try {
+			UIManager.put("nimbusBase", new Color(0xdddddd));
+			UIManager.put("nimbusBlueGrey", new Color(0xb5b3b1));
+			UIManager.put("control", new Color(0xe5e4e3));
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (Exception e) {
+			try {
+				UIManager
+						.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+				MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
+			} catch (Exception ee) {
+				// can't set look and feel
+			}
+		}
 	}
 
 }

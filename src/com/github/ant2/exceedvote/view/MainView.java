@@ -8,9 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.github.ant2.exceedvote.ui.theme.ThemeColor;
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.ui.activity.ActivityPanel;
-import com.github.ant2.ui.view.InfoBox;
 
 public class MainView extends JFrame {
 
@@ -26,21 +26,22 @@ public class MainView extends JFrame {
 		super("eXceed Vote");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout());
-		setSize(720, 512);
+		setSize(720, 680);
 		initComponents();
 	}
 
 	private void initComponents() {
 		topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.X_AXIS));
-		UIUtility.addPadding(topPanel, 10, 10, 5, 10);
+		topPanel.setBackground(ThemeColor.TOP_BACKGROUND);
+		UIUtility.addPadding(topPanel, 10, 10, 10, 10);
 
 		nameInfoBox = new InfoBox("Name", "Aiolia");
 		topPanel.add(nameInfoBox);
 
 		remainingTimeInfoBox = new InfoBox("Remaining Time", "88:88:88");
 		topPanel.add(remainingTimeInfoBox);
-		UIUtility.addPadding(remainingTimeInfoBox, 0, 50, 0, 0);
+		UIUtility.addPadding(remainingTimeInfoBox, 0, 12, 0, 0);
 		topPanel.add(Box.createHorizontalGlue());
 
 		logout = new JButton("Logout");
