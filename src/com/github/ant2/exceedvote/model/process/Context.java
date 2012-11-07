@@ -40,7 +40,7 @@ public class Context {
 	public CriterionSelectionProcess createCriterionSelectionProcess() {
 		return new CriterionSelectionProcess(event);
 	}
-	
+
 	public VotingProcess createVotingProcess(Criterion criterion) {
 		return new VotingProcess(event, voter, criterion);
 	}

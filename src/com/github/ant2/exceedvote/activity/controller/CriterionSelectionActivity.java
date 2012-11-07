@@ -21,6 +21,9 @@ public class CriterionSelectionActivity extends
 	public class CriteriaListModel extends AbstractListModel implements
 			ListModel {
 
+		/** */
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public Object getElementAt(int row) {
 			return criteria.get(row);
