@@ -32,5 +32,9 @@ public class Context {
 	public ViewProjectProcess createViewProjectProcess() {
 		return new ViewProjectProcess(event);
 	}
+	
+	public CriterionSelectionProcess createCriterionSelectionProcess() {
+		return new CriterionSelectionProcess(event);
+	}
 
 }

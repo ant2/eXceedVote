@@ -78,4 +78,14 @@ public class HintView extends JPanel {
 
 	}
 
+	/**
+	 * Constructs a HintView with the specified text.
+	 * 
+	 * @param string
+	 *            the text to display
+	 */
+	public HintView(String string) {
+		this(">", string);
+	}
+
 }

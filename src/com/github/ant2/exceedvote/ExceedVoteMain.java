@@ -10,7 +10,9 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import org.apache.log4j.PropertyConfigurator;
 
+import com.github.ant2.exceedvote.activity.controller.CriterionSelectionActivity;
 import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
+import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.controller.MainController;
 import com.github.ant2.exceedvote.model.ExceedVoteEvent;
@@ -48,7 +50,8 @@ public class ExceedVoteMain {
 		MainView mainView = new MainView();
 		MainController mainController = new MainController(context,
 				mainView);
-		Activity activity = new WelcomeActivity(context, new WelcomeActivityView());
+		Activity activity1 = new WelcomeActivity(context, new WelcomeActivityView());
+		Activity activity = new CriterionSelectionActivity(activity1, context, new CriterionSelectionActivityView());
 		mainController.run(activity);
 
 	}

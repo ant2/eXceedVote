@@ -64,6 +64,13 @@ public class UIUtility {
 		panel.add(component, BorderLayout.CENTER);
 		return panel;
 	}
+	
+	public static JPanel createStepPanel(String hint,
+			Component component) {
+		JPanel panel = createStepPanel(">", hint);
+		panel.add(component, BorderLayout.CENTER);
+		return panel;
+	}
 
 	public static JPanel createPaddedStepPanel(String num, String hint,
 			JComponent component) {

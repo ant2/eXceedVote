@@ -3,6 +3,7 @@ package com.github.ant2.exceedvote.activity.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.ProjectSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.model.process.Context;
@@ -40,7 +41,10 @@ public class WelcomeActivity extends
 	}
 
 	private void goVote() {
-		runActivity(this, Fx.SLIDE_RIGHT);
+		CriterionSelectionActivityView view = new CriterionSelectionActivityView();
+		CriterionSelectionActivity activity = new CriterionSelectionActivity(
+				this, context, view);
+		runActivity(activity, Fx.SLIDE_RIGHT);
 	}
 
 }
