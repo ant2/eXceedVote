@@ -12,24 +12,28 @@ import com.github.ant2.ui.activity.ActivityView;
 
 public class CriterionSelectionActivityView extends ActivityView {
 
+	/** */
+	private static final long serialVersionUID = 1L;
 	private JButton backButton;
 	private JButton continueButton;
 
 	public CriterionSelectionActivityView() {
-		JList list = new JList(new String[]{"a", "b", "c", "d", "helllo world"});
+		JList list = new JList(new String[] { "a", "b", "c", "d",
+				"helllo world" });
 		list.setCellRenderer(new CriterionListCellRenderer());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		JPanel panel = UIUtility.createStepPanel("Please select a criterion", list);
+		JPanel panel = UIUtility.createStepPanel("Please select a criterion",
+				list);
 		Scene scene = new Scene("Vote / Change Vote", panel);
 		backButton = scene.addFooterButton("Back to Main Menu");
 		continueButton = scene.addFooterButton("Continue >>");
 		add(scene);
 	}
-	
+
 	public JButton getBackButton() {
 		return backButton;
 	}
-	
+
 	public JButton getContinueButton() {
 		return continueButton;
 	}

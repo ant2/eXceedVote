@@ -12,7 +12,7 @@ public class CriterionSelectionProcess {
 	public CriterionSelectionProcess(VoteEvent event) {
 		this.event = event;
 	}
-	
+
 	public List<Criterion> getAllCriteria() {
 		return event.getCriteria();
 	}

@@ -33,7 +33,7 @@ public class InfoBox extends JPanel {
 		textLabel.setOpaque(true);
 		UIUtility.addPadding(textLabel, 3);
 		textLabel.setFont(new Font("sans-serif", Font.PLAIN, 18));
-		
+
 		setLayout(new BorderLayout());
 		this.add(nameLabel, BorderLayout.NORTH);
 		this.add(textLabel, BorderLayout.CENTER);

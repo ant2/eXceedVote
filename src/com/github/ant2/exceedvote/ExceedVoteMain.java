@@ -1,12 +1,6 @@
 package com.github.ant2.exceedvote;
 
-import java.awt.Color;
 import java.util.Calendar;
-
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.plaf.metal.DefaultMetalTheme;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import org.apache.log4j.PropertyConfigurator;
 
@@ -42,16 +36,17 @@ public class ExceedVoteMain {
 		Voter voter = new Voter(new VoterProfile("マーリーさん", "5410000000"));
 		VoteEvent event = new ExceedVoteEvent();
 		Context context = new Context(event, voter);
-		
+
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.MINUTE, 3);
 		event.setFinishTime(calendar);
-		
+
 		MainView mainView = new MainView();
-		MainController mainController = new MainController(context,
-				mainView);
-		Activity activity1 = new WelcomeActivity(context, new WelcomeActivityView());
-		Activity activity = new CriterionSelectionActivity(activity1, context, new CriterionSelectionActivityView());
+		MainController mainController = new MainController(context, mainView);
+		Activity activity1 = new WelcomeActivity(context,
+				new WelcomeActivityView());
+		Activity activity = new CriterionSelectionActivity(activity1, context,
+				new CriterionSelectionActivityView());
 		mainController.run(activity);
 
 	}

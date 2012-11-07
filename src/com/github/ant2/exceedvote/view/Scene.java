@@ -18,14 +18,14 @@ public class Scene extends JPanel {
 	private JPanel footer;
 
 	public Scene(String title, JComponent component) {
-		
+
 		this(title);
 		add(component, BorderLayout.CENTER);
-		
+
 	}
 
 	public Scene(String title) {
-		
+
 		setLayout(new BorderLayout());
 
 		JLabel titleLabel = new JLabel(title);
@@ -34,9 +34,9 @@ public class Scene extends JPanel {
 		titleLabel.setAlignmentX(0.5f);
 
 		add(titleLabel, BorderLayout.NORTH);
-		
+
 	}
-	
+
 	public JButton addFooterButton(String text) {
 		if (footer == null) {
 			footer = new JPanel(new FlowLayout(FlowLayout.RIGHT));

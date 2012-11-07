@@ -64,9 +64,8 @@ public class UIUtility {
 		panel.add(component, BorderLayout.CENTER);
 		return panel;
 	}
-	
-	public static JPanel createStepPanel(String hint,
-			Component component) {
+
+	public static JPanel createStepPanel(String hint, Component component) {
 		JPanel panel = createStepPanel(">", hint);
 		panel.add(component, BorderLayout.CENTER);
 		return panel;
@@ -79,10 +78,11 @@ public class UIUtility {
 		pad.add(component, BorderLayout.CENTER);
 		return createStepPanel(num, hint, pad);
 	}
-	
+
 	public static void testWidget(Component component) {
 		setTheme();
-		JFrame frame = new JFrame(component.getClass().getName() + ": " + component.toString());
+		JFrame frame = new JFrame(component.getClass().getName() + ": "
+				+ component.toString());
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(component, BorderLayout.CENTER);
 		frame.add(panel);
@@ -91,7 +91,7 @@ public class UIUtility {
 	}
 
 	private static boolean themeSet = false;
-	
+
 	public static void setTheme() {
 		if (themeSet) return;
 		themeSet = true;

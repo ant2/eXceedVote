@@ -18,13 +18,14 @@ public class WelcomeActivityView extends ActivityView {
 		Menu menu = new Menu();
 		viewProjectInformationButton = menu.addItem("View Project Information");
 		voteButton = menu.addItem("Vote / Change Vote");
-		add(new Scene("Welcome to eXceedVote", new VerticallyCenteredPanel(menu)));
+		add(new Scene("Welcome to eXceedVote",
+				new VerticallyCenteredPanel(menu)));
 	}
-	
+
 	public JButton getViewProjectInformationButton() {
 		return viewProjectInformationButton;
 	}
-	
+
 	public JButton getVoteButton() {
 		return voteButton;
 	}

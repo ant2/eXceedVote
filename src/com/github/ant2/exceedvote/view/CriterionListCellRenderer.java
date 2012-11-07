@@ -9,9 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import com.github.ant2.exceedvote.ui.theme.ThemeColor;
-
-public class CriterionListCellRenderer extends JLabel implements ListCellRenderer {
+public class CriterionListCellRenderer extends JLabel implements
+		ListCellRenderer {
 
 	/** */
 	private static final long serialVersionUID = 1L;

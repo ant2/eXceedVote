@@ -5,7 +5,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-
 public class VerticallyCenteredPanel extends JPanel {
 
 	/** */

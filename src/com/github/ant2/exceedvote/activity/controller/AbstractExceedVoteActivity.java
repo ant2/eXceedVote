@@ -10,7 +10,8 @@ import com.github.ant2.ui.activity.Activity;
 import com.github.ant2.ui.activity.ActivityView;
 import com.github.ant2.ui.activity.Fx;
 
-public abstract class AbstractExceedVoteActivity<View extends ActivityView> extends AbstractActivity<View> {
+public abstract class AbstractExceedVoteActivity<View extends ActivityView>
+		extends AbstractActivity<View> {
 
 	protected final Activity previous;
 	protected final Action GO_BACK;
@@ -19,13 +20,16 @@ public abstract class AbstractExceedVoteActivity<View extends ActivityView> exte
 		super(view);
 		this.previous = previous;
 		this.GO_BACK = new AbstractAction() {
+			/** */
+			private static final long serialVersionUID = 1L;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				goBack();
 			}
 		};
 	}
-	
+
 	protected void goBack() {
 		runActivity(previous, Fx.SLIDE_LEFT);
 	}

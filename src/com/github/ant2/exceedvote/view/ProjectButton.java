@@ -14,12 +14,19 @@ import com.github.ant2.exceedvote.util.UIUtility;
 
 public class ProjectButton extends JButton {
 
+	/** */
+	private static final long serialVersionUID = 1L;
+
 	public static class IconView extends JComponent {
+		/** */
+		private static final long serialVersionUID = 1L;
+
 		public IconView() {
 			setPreferredSize(new Dimension(64, 64));
 			setMaximumSize(new Dimension(64, 64));
 			setMinimumSize(new Dimension(64, 64));
 		}
+
 		@Override
 		protected void paintComponent(Graphics g) {
 			g.setColor(new Color(0xaaaaaa));
@@ -27,7 +34,7 @@ public class ProjectButton extends JButton {
 			super.paintComponent(g);
 		}
 	}
-	
+
 	public ProjectButton(String string) {
 		super();
 		setLayout(new BorderLayout());

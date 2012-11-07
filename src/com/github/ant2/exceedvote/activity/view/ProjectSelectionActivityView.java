@@ -28,19 +28,18 @@ public class ProjectSelectionActivityView extends ActivityView {
 		grid.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		UIUtility.addPadding(grid, UIUtility.SMALL_PADDING);
 		UIUtility.addPadding(panel, UIUtility.SMALL_PADDING);
-		panel.add(grid,
-				UIUtility.createVerticalGridBagConstrints());
+		panel.add(grid, UIUtility.createVerticalGridBagConstrints());
 		Scene scene = new Scene(title, panel);
 		add(scene);
 		backButton = scene.addFooterButton("Go Back");
 	}
-	
+
 	public ProjectButton addButton(String name) {
 		ProjectButton button = new ProjectButton(name);
 		grid.add(button);
 		return button;
 	}
-	
+
 	public JButton getBackButton() {
 		return backButton;
 	}

@@ -3,7 +3,6 @@ package com.github.ant2.exceedvote.activity.controller;
 import com.github.ant2.exceedvote.activity.view.ProjectSelectionActivityView;
 import com.github.ant2.exceedvote.model.Project;
 import com.github.ant2.exceedvote.model.process.ViewProjectProcess;
-import com.github.ant2.ui.activity.AbstractActivity;
 import com.github.ant2.ui.activity.Activity;
 
 public class ProjectSelectionActivity extends
@@ -11,8 +10,8 @@ public class ProjectSelectionActivity extends
 
 	private ViewProjectProcess process;
 
-	public ProjectSelectionActivity(Activity previous, ViewProjectProcess process,
-			ProjectSelectionActivityView view) {
+	public ProjectSelectionActivity(Activity previous,
+			ViewProjectProcess process, ProjectSelectionActivityView view) {
 		super(previous, view);
 		this.process = process;
 		addProjectButtons();
