@@ -41,7 +41,7 @@ public class VotingActivity extends
 			process.increase(project);
 			updateAllCount();
 		}
-		
+
 		private void decrease() {
 			process.decrease(project);
 			updateAllCount();
@@ -57,9 +57,9 @@ public class VotingActivity extends
 	}
 
 	private VotingProcess process;
-	
+
 	private List<ProjectVoteViewController> voteViewControllers = new LinkedList<ProjectVoteViewController>();
-	
+
 	public VotingActivity(Activity previous, VotingProcess process,
 			VotingActivityView view) {
 		super(previous, view);
@@ -69,20 +69,24 @@ public class VotingActivity extends
 
 		for (Project project : process.getProjects()) {
 			ProjectVoteView voteView = view.addProjectVoteView();
-			voteViewControllers.add(new ProjectVoteViewController(project, voteView));
+			voteViewControllers.add(new ProjectVoteViewController(project,
+					voteView));
 		}
+
 		updateAllCount();
 	}
-	
+
 	private void updateAllCount() {
-		
-		String text = String.format("You have used %d out of %d ballots.", process.getUsedBallots(), process.getTotalBallots());
+
+		String text = String.format(
+				"<html>You have used <b>%d</b> out of <b>%d</b> ballots.",
+				process.getUsedBallots(), process.getTotalBallots());
 		view.setBallotLeftLabelText(text);
-		
+
 		for (ProjectVoteViewController controller : voteViewControllers) {
 			controller.updateCount();
 		}
-		
+
 	}
 
 }

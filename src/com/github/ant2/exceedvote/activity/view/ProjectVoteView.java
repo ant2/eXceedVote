@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote.activity.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
