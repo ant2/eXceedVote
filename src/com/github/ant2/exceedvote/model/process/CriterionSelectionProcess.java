@@ -12,7 +12,7 @@ public class CriterionSelectionProcess {
 
 	public CriterionSelectionProcess(Context context) {
 		this.context = context;
-		this.event = context.getEvent();
+		event = context.getEvent();
 	}
 
 	public List<Criterion> getAllCriteria() {

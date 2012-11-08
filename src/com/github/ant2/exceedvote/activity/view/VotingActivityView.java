@@ -15,7 +15,7 @@ public class VotingActivityView extends ActivityView {
 	private JButton cancelButton;
 	private JButton submitButton;
 	private Scene scene;
-	
+
 	public VotingActivityView() {
 		JPanel panel = new JPanel(new BorderLayout());
 		scene = new Scene("Voting Criteria", panel);
@@ -23,15 +23,15 @@ public class VotingActivityView extends ActivityView {
 		submitButton = scene.addFooterButton("Submit");
 		add(scene);
 	}
-	
+
 	public JButton getCancelButton() {
 		return cancelButton;
 	}
-	
+
 	public JButton getSubmitButton() {
 		return submitButton;
 	}
-	
+
 	public void setTitle(String title) {
 		scene.setTitle(title);
 	}

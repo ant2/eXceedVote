@@ -48,19 +48,19 @@ public class ExceedVoteMain {
 		MainView mainView = new MainView();
 		MainController mainController = new MainController(context, mainView);
 		Activity activity;
-		
+
 		activity = new WelcomeActivity(context, new WelcomeActivityView());
-		
+
 		CriterionSelectionProcess process2 = context
 				.createCriterionSelectionProcess();
-		activity = new CriterionSelectionActivity(activity,
-				process2, new CriterionSelectionActivityView());
-		
+		activity = new CriterionSelectionActivity(activity, process2,
+				new CriterionSelectionActivityView());
+
 		VotingProcess process = process2.createVotingProcess(process2
 				.getAllCriteria().get(0));
 		activity = new VotingActivity(activity, process,
 				new VotingActivityView());
-		
+
 		mainController.run(activity);
 
 	}

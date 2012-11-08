@@ -37,9 +37,9 @@ public class Scene extends JPanel {
 		add(titleLabel, BorderLayout.NORTH);
 
 	}
-	
+
 	public void setTitle(String title) {
-		this.titleLabel.setText(title);
+		titleLabel.setText(title);
 	}
 
 	public JButton addFooterButton(String text) {
