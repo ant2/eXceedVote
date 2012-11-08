@@ -2,13 +2,11 @@ package com.github.ant2.exceedvote.activity.view;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.exceedvote.view.Scene;
@@ -33,7 +31,7 @@ public class VotingActivityView extends ActivityView {
 
 		ballotLeftLabel = new JLabel("You have N ballots blah blah blah");
 		ballotLeftLabel.setFont(new Font("sans-serif", Font.PLAIN, 16));
-		//ballotLeftLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		// ballotLeftLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		UIUtility.addPadding(ballotLeftLabel, 8, 3, 12, 0);
 
 		votePanel.add(ballotLeftLabel, BorderLayout.NORTH);

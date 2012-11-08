@@ -1,7 +1,6 @@
 package com.github.ant2.exceedvote.activity.view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -15,7 +14,7 @@ public class ProjectVoteView extends JPanel {
 
 	/** */
 	private static final long serialVersionUID = 1L;
-	
+
 	private JLabel countLabel;
 	private JButton addButton;
 	private JButton subtractButton;
@@ -38,19 +37,19 @@ public class ProjectVoteView extends JPanel {
 				BorderFactory.createEtchedBorder(EtchedBorder.RAISED),
 				BorderFactory.createEmptyBorder(7, 7, 7, 7)));
 	}
-	
+
 	public void setCountLabelText(String text) {
 		countLabel.setText(text);
 	}
-	
+
 	public void setNameLabelText(String text) {
 		nameLabel.setText(text);
 	}
-	
+
 	public JButton getAddButton() {
 		return addButton;
 	}
-	
+
 	public JButton getSubtractButton() {
 		return subtractButton;
 	}
