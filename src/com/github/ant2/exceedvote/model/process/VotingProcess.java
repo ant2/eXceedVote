@@ -77,4 +77,12 @@ public class VotingProcess {
 		return criterion;
 	}
 
+	public int getUsedBallots() {
+		return count;
+	}
+
+	public int getTotalBallots() {
+		return voter.getAllowedBallots();
+	}
+
 }
