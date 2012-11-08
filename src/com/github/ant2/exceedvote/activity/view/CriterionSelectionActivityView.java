@@ -19,7 +19,7 @@ public class CriterionSelectionActivityView extends ActivityView {
 	private JList list;
 
 	public CriterionSelectionActivityView() {
-		list = new JList(new String[] { "a", "b", "c", "d", "helllo world" });
+		list = new JList();
 		list.setCellRenderer(new CriterionListCellRenderer());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JPanel panel = UIUtility.createStepPanel("Please select a criterion",

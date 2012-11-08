@@ -8,13 +8,19 @@ import com.github.ant2.exceedvote.model.VoteEvent;
 public class CriterionSelectionProcess {
 
 	private VoteEvent event;
+	private Context context;
 
-	public CriterionSelectionProcess(VoteEvent event) {
-		this.event = event;
+	public CriterionSelectionProcess(Context context) {
+		this.context = context;
+		this.event = context.getEvent();
 	}
 
 	public List<Criterion> getAllCriteria() {
 		return event.getCriteria();
+	}
+
+	public VotingProcess createVotingProcess(Criterion criterion) {
+		return new VotingProcess(event, context.getVoter(), criterion);
 	}
 
 }

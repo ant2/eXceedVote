@@ -72,4 +72,9 @@ public class VotingProcess {
 			}
 		}
 	}
+
+	public Criterion getCriterion() {
+		return criterion;
+	}
+
 }

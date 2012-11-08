@@ -13,6 +13,8 @@ public class VotingActivity extends
 			VotingActivityView view) {
 		super(previous, view);
 		this.process = process;
+		view.setTitle(process.getCriterion().getName());
+		view.getCancelButton().addActionListener(GO_BACK);
 	}
 
 }

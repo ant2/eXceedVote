@@ -18,7 +18,7 @@ public class CriterionSelectionProcessTest {
 		MockVoteEvent mockEvent = new MockVoteEvent();
 		VoteEvent event = mockEvent;
 
-		CriterionSelectionProcess process = new CriterionSelectionProcess(event);
+		CriterionSelectionProcess process = new CriterionSelectionProcess(new Context(event, null));
 		List<Criterion> criteria = process.getAllCriteria();
 
 		assertTrue(criteria.contains(mockEvent.c1));

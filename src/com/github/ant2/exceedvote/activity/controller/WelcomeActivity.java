@@ -43,7 +43,7 @@ public class WelcomeActivity extends
 	private void goVote() {
 		CriterionSelectionActivityView view = new CriterionSelectionActivityView();
 		CriterionSelectionActivity activity = new CriterionSelectionActivity(
-				this, context, view);
+				this, context.createCriterionSelectionProcess(), view);
 		runActivity(activity, Fx.SLIDE_RIGHT);
 	}
 

@@ -16,6 +16,7 @@ public class Scene extends JPanel {
 	/** */
 	private static final long serialVersionUID = 1L;
 	private JPanel footer;
+	private JLabel titleLabel;
 
 	public Scene(String title, JComponent component) {
 
@@ -28,13 +29,17 @@ public class Scene extends JPanel {
 
 		setLayout(new BorderLayout());
 
-		JLabel titleLabel = new JLabel(title);
+		titleLabel = new JLabel(title);
 		titleLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		UIUtility.addPadding(titleLabel, 20, 20, 10, 20);
 		titleLabel.setAlignmentX(0.5f);
 
 		add(titleLabel, BorderLayout.NORTH);
 
+	}
+	
+	public void setTitle(String title) {
+		this.titleLabel.setText(title);
 	}
 
 	public JButton addFooterButton(String text) {
