@@ -1,13 +1,7 @@
 package com.github.ant2.exceedvote.dao;
 
-import java.util.Calendar;
 import java.util.List;
 
-import org.junit.Test;
-
-import com.avaje.ebean.Ebean;
-import com.github.ant2.exceedvote.dao.memory.EbeanDaoFactory;
-import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
@@ -15,7 +9,8 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.util.CalendarUtil;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class DaoTest {
 
