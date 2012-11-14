@@ -1,13 +1,15 @@
 package com.github.ant2.exceedvote.dao;
 
 public interface DaoFactory {
-	
-	ProjectDao getProjectDao();
-	
-	CriterionDao getCriterionDao();
-	
-	BallotDao getBallotDao();
-	
+
+	EventDao getEventDao();
+
 	VoterDao getVoterDao();
-	
+
+	CriterionDao createCriterionDao();
+
+	ProjectDao createProjectDao();
+
+	BallotDao createBallotDao();
+
 }
