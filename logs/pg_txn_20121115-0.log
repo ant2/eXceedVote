@@ -1,0 +1,422 @@
+txn[1001], 00:16:29.578, select t0.name as c0, t0.start_time as c1, t0.finish_time as c2, t0.announcement_time as c3  from vote_event t0 
+txn[1001], 00:16:29.682, ERROR executing query:   bindLog[] error[ERROR: relation "vote_event" does not exist\n   Position: 99] 
+txn[1001], 00:16:29.768, Rollback 
+txn[1003], 00:19:32.734, select t0.name as c0, t0.start_time as c1, t0.finish_time as c2, t0.announcement_time as c3  from vote_event t0 
+txn[1003], 00:19:32.803, FindMany type[VoteEvent] origin[DnLrp0.Y2b2L.z0nuO] exeMicros[69246] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:19:32.809, select t0.name as c0, t0.start_time as c1, t0.finish_time as c2, t0.announcement_time as c3  from vote_event t0 
+txn[1004], 00:19:32.809, FindMany type[VoteEvent] origin[DnLrp0.Y2b2L.z1wdE] exeMicros[520] rows[0] name[] predicates[] bind[] 
+txn[1003], 00:20:39.928, select t0.name as c0, t0.start_time as c1, t0.finish_time as c2, t0.announcement_time as c3  from vote_event t0 
+txn[1003], 00:20:39.941, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[13417] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:20:39.950, insert into vote_event (name, start_time, finish_time, announcement_time) values (?,?,?,?) 
+txn[1004], 00:20:39.951, Binding Insert [vote_event]  set[name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352913639945,..., finishTime=java.util.GregorianCalendar[time=1352913939945,..., announcementTime=java.util.GregorianCalendar[time=1352914039945,..., ] 
+txn[1004], 00:20:40.106, Inserted [VoteEvent] [{}] 
+txn[1005], 00:20:40.107, select t0.name as c0, t0.start_time as c1, t0.finish_time as c2, t0.announcement_time as c3  from vote_event t0 
+txn[1005], 00:20:40.109, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[2239] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:20:40.110, insert into voter (student_id, name) values (?,?) 
+txn[1006], 00:20:40.110, Binding Insert [voter]  set[studentId=001352913640110, name=Voter #1352913640109, ] 
+txn[1006], 00:20:40.111, Inserted [Voter] [{}] 
+txn[1007], 00:20:40.111, insert into voter (student_id, name) values (?,?) 
+txn[1007], 00:20:40.111, Binding Insert [voter]  set[studentId=001352913640111, name=Voter #1352913640111, ] 
+txn[1007], 00:20:40.112, Inserted [Voter] [{}] 
+txn[1008], 00:20:40.112, insert into voter (student_id, name) values (?,?) 
+txn[1008], 00:20:40.112, Binding Insert [voter]  set[studentId=001352913640112, name=Voter #1352913640112, ] 
+txn[1008], 00:20:40.112, Inserted [Voter] [{}] 
+txn[1009], 00:20:40.117, select t0.student_id as c0, t0.name as c1  from voter t0  where event = ?  
+txn[1003], 00:22:26.171, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:22:26.237, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[66419] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:22:26.396, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:22:26.397, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352913746243,..., finishTime=java.util.GregorianCalendar[time=1352914046243,..., announcementTime=java.util.GregorianCalendar[time=1352914146243,..., ] 
+txn[1004], 00:22:26.421, Inserted [VoteEvent] [1] 
+txn[1005], 00:22:26.422, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:22:26.425, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[3249] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:22:26.427, insert into voter (id, student_id, name) values (?,?,?) 
+txn[1006], 00:22:26.427, Binding Insert [voter]  set[id=1, studentId=001352913746426, name=Voter #1352913746426, ] 
+txn[1006], 00:22:26.427, Inserted [Voter] [1] 
+txn[1007], 00:22:26.428, insert into voter (id, student_id, name) values (?,?,?) 
+txn[1007], 00:22:26.428, Binding Insert [voter]  set[id=2, studentId=001352913746428, name=Voter #1352913746428, ] 
+txn[1007], 00:22:26.428, Inserted [Voter] [2] 
+txn[1008], 00:22:26.429, insert into voter (id, student_id, name) values (?,?,?) 
+txn[1008], 00:22:26.429, Binding Insert [voter]  set[id=3, studentId=001352913746429, name=Voter #1352913746429, ] 
+txn[1008], 00:22:26.429, Inserted [Voter] [3] 
+txn[1009], 00:22:26.435, select t0.id as c0, t0.student_id as c1, t0.name as c2  from voter t0  where event = ?  
+txn[1003], 00:23:30.548, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:23:30.559, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[10929] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:23:30.652, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:23:30.653, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352913810564,..., finishTime=java.util.GregorianCalendar[time=1352914110564,..., announcementTime=java.util.GregorianCalendar[time=1352914210564,..., ] 
+txn[1004], 00:23:30.654, Inserted [VoteEvent] [1] 
+txn[1005], 00:23:30.655, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:23:30.658, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[3109] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:23:30.659, insert into voter (id, student_id, name) values (?,?,?) 
+txn[1006], 00:23:30.660, Binding Insert [voter]  set[id=1, studentId=001352913810659, name=Voter #1352913810659, ] 
+txn[1006], 00:23:30.660, Inserted [Voter] [1] 
+txn[1007], 00:23:30.661, insert into voter (id, student_id, name) values (?,?,?) 
+txn[1007], 00:23:30.661, Binding Insert [voter]  set[id=2, studentId=001352913810661, name=Voter #1352913810661, ] 
+txn[1007], 00:23:30.661, Inserted [Voter] [2] 
+txn[1008], 00:23:30.662, insert into voter (id, student_id, name) values (?,?,?) 
+txn[1008], 00:23:30.662, Binding Insert [voter]  set[id=3, studentId=001352913810662, name=Voter #1352913810662, ] 
+txn[1008], 00:23:30.662, Inserted [Voter] [3] 
+txn[1009], 00:23:30.668, select t0.id as c0, t0.student_id as c1, t0.name as c2  from voter t0  where event_id = ?  
+txn[1009], 00:23:30.699, ERROR executing query:   bindLog[1] error[ERROR: column "event_id" does not exist\n   Position: 78] 
+txn[1009], 00:23:30.703, Rollback 
+txn[1003], 00:25:44.957, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:25:44.968, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[11259] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:25:44.992, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:25:44.993, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352913944974,..., finishTime=java.util.GregorianCalendar[time=1352914244974,..., announcementTime=java.util.GregorianCalendar[time=1352914344974,..., ] 
+txn[1004], 00:25:44.995, Inserted [VoteEvent] [1] 
+txn[1005], 00:25:45.021, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:25:45.027, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[5318] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:25:45.028, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1006], 00:25:45.029, Binding Insert [voter]  set[id=1, studentId=001352913945027, name=Voter #1352913945027, vote_event_id=1, ] 
+txn[1006], 00:25:45.030, Inserted [Voter] [1] 
+txn[1007], 00:25:45.031, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1007], 00:25:45.031, Binding Insert [voter]  set[id=2, studentId=001352913945031, name=Voter #1352913945031, vote_event_id=1, ] 
+txn[1007], 00:25:45.032, Inserted [Voter] [2] 
+txn[1008], 00:25:45.033, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1008], 00:25:45.033, Binding Insert [voter]  set[id=3, studentId=001352913945033, name=Voter #1352913945033, vote_event_id=1, ] 
+txn[1008], 00:25:45.034, Inserted [Voter] [3] 
+txn[1009], 00:25:45.039, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where event = ?  
+txn[1003], 00:28:57.998, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:28:58.012, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[13535] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:28:58.024, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:28:58.026, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352914138016,..., finishTime=java.util.GregorianCalendar[time=1352914438016,..., announcementTime=java.util.GregorianCalendar[time=1352914538016,..., ] 
+txn[1004], 00:28:58.028, Inserted [VoteEvent] [1] 
+txn[1005], 00:28:58.028, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:28:58.034, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[5116] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:28:58.037, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1006], 00:28:58.037, Binding Insert [voter]  set[id=1, studentId=001352914138034, name=Voter #1352914138034, vote_event_id=1, ] 
+txn[1006], 00:28:58.039, Inserted [Voter] [1] 
+txn[1007], 00:28:58.066, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1007], 00:28:58.066, Binding Insert [voter]  set[id=2, studentId=001352914138066, name=Voter #1352914138066, vote_event_id=1, ] 
+txn[1007], 00:28:58.067, Inserted [Voter] [2] 
+txn[1008], 00:28:58.067, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1008], 00:28:58.067, Binding Insert [voter]  set[id=3, studentId=001352914138067, name=Voter #1352914138067, vote_event_id=1, ] 
+txn[1008], 00:28:58.068, Inserted [Voter] [3] 
+txn[1009], 00:28:58.075, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event = ?  
+txn[1003], 00:29:17.869, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:29:17.880, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[11023] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:29:17.890, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:29:17.891, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352914157883,..., finishTime=java.util.GregorianCalendar[time=1352914457883,..., announcementTime=java.util.GregorianCalendar[time=1352914557883,..., ] 
+txn[1004], 00:29:17.892, Inserted [VoteEvent] [1] 
+txn[1005], 00:29:17.893, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:29:17.899, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[5307] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:29:17.901, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1006], 00:29:17.901, Binding Insert [voter]  set[id=1, studentId=001352914157899, name=Voter #1352914157899, vote_event_id=1, ] 
+txn[1006], 00:29:17.903, Inserted [Voter] [1] 
+txn[1007], 00:29:17.904, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1007], 00:29:17.904, Binding Insert [voter]  set[id=2, studentId=001352914157904, name=Voter #1352914157904, vote_event_id=1, ] 
+txn[1007], 00:29:17.905, Inserted [Voter] [2] 
+txn[1008], 00:29:17.905, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1008], 00:29:17.905, Binding Insert [voter]  set[id=3, studentId=001352914157905, name=Voter #1352914157905, vote_event_id=1, ] 
+txn[1008], 00:29:17.906, Inserted [Voter] [3] 
+txn[1009], 00:29:17.912, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event_id = ?  
+txn[1009], 00:29:17.913, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GVVeS] exeMicros[1603] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1010], 00:29:17.915, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1010], 00:29:17.915, Binding Insert [criterion]  set[id=1, name=Best Software, vote_event_id=1, ] 
+txn[1010], 00:29:17.916, Inserted [Criterion] [1] 
+txn[1011], 00:29:17.917, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1011], 00:29:17.917, Binding Insert [criterion]  set[id=2, name=Best OOP, vote_event_id=1, ] 
+txn[1011], 00:29:17.917, Inserted [Criterion] [2] 
+txn[1012], 00:29:17.918, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1012], 00:29:17.918, Binding Insert [criterion]  set[id=3, name=User Interface Award, vote_event_id=1, ] 
+txn[1012], 00:29:17.919, Inserted [Criterion] [3] 
+txn[1013], 00:29:17.920, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where vote_event_id = ?  
+txn[1013], 00:29:17.921, FindMany type[Criterion] origin[CdP4mf.CNaLra.DCx-4s] exeMicros[964] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1014], 00:29:17.922, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1014], 00:29:17.922, Binding Insert [project]  set[id=1, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1014], 00:29:17.923, Inserted [Project] [1] 
+txn[1015], 00:29:17.924, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1015], 00:29:17.924, Binding Insert [project]  set[id=2, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1015], 00:29:17.925, Inserted [Project] [2] 
+txn[1016], 00:29:17.926, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where vote_event_id = ?  
+txn[1016], 00:29:17.927, FindMany type[Project] origin[CdP4mf.BJE5vi.StaZv] exeMicros[1205] rows[2] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1017], 00:29:17.928, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event_id = ?  
+txn[1017], 00:29:17.929, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GWeNI] exeMicros[1063] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1018], 00:29:17.929, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where vote_event_id = ?  
+txn[1018], 00:29:17.930, FindMany type[Criterion] origin[CdP4mf.CNaLra.GWlen] exeMicros[912] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1019], 00:29:17.931, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where vote_event_id = ?  
+txn[1019], 00:29:17.932, FindMany type[Project] origin[CdP4mf.BJE5vi.GWswG] exeMicros[868] rows[2] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1020], 00:29:17.933, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1020], 00:29:17.933, Binding Insert [ballot]  set[id=1, votedAt=java.util.GregorianCalendar[time=1352914157932,..., votes=2, voter_id=3, criterion_id=3, project_id=2, ] 
+txn[1020], 00:29:17.935, Inserted [Ballot] [1] 
+txn[1021], 00:29:17.936, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1021], 00:29:17.936, Binding Insert [ballot]  set[id=2, votedAt=java.util.GregorianCalendar[time=1352914157935,..., votes=2, voter_id=3, criterion_id=3, project_id=1, ] 
+txn[1021], 00:29:17.937, Inserted [Ballot] [2] 
+txn[1003], 00:30:14.651, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:30:14.663, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[12527] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:30:14.673, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:30:14.674, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352914214667,..., finishTime=java.util.GregorianCalendar[time=1352914514667,..., announcementTime=java.util.GregorianCalendar[time=1352914614667,..., ] 
+txn[1004], 00:30:14.677, Inserted [VoteEvent] [1] 
+txn[1005], 00:30:14.678, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:30:14.683, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[4950] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:30:14.684, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1006], 00:30:14.684, Binding Insert [voter]  set[id=1, studentId=001352914214683, name=Voter #1352914214683, vote_event_id=1, ] 
+txn[1006], 00:30:14.687, Inserted [Voter] [1] 
+txn[1007], 00:30:14.688, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1007], 00:30:14.688, Binding Insert [voter]  set[id=2, studentId=001352914214687, name=Voter #1352914214687, vote_event_id=1, ] 
+txn[1007], 00:30:14.688, Inserted [Voter] [2] 
+txn[1008], 00:30:14.689, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1008], 00:30:14.689, Binding Insert [voter]  set[id=3, studentId=001352914214689, name=Voter #1352914214689, vote_event_id=1, ] 
+txn[1008], 00:30:14.689, Inserted [Voter] [3] 
+txn[1009], 00:30:14.694, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event_id = ?  
+txn[1009], 00:30:14.696, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GVVeS] exeMicros[1447] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1010], 00:30:14.697, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1010], 00:30:14.697, Binding Insert [criterion]  set[id=1, name=Best Software, vote_event_id=1, ] 
+txn[1010], 00:30:14.698, Inserted [Criterion] [1] 
+txn[1011], 00:30:14.699, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1011], 00:30:14.699, Binding Insert [criterion]  set[id=2, name=Best OOP, vote_event_id=1, ] 
+txn[1011], 00:30:14.699, Inserted [Criterion] [2] 
+txn[1012], 00:30:14.700, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1012], 00:30:14.700, Binding Insert [criterion]  set[id=3, name=User Interface Award, vote_event_id=1, ] 
+txn[1012], 00:30:14.700, Inserted [Criterion] [3] 
+txn[1013], 00:30:14.701, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where vote_event_id = ?  
+txn[1013], 00:30:14.703, FindMany type[Criterion] origin[CdP4mf.CNaLra.DCx-4s] exeMicros[1231] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1014], 00:30:14.704, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1014], 00:30:14.704, Binding Insert [project]  set[id=1, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1014], 00:30:14.706, Inserted [Project] [1] 
+txn[1015], 00:30:14.706, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1015], 00:30:14.706, Binding Insert [project]  set[id=2, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1015], 00:30:14.707, Inserted [Project] [2] 
+txn[1016], 00:30:14.708, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where vote_event_id = ?  
+txn[1016], 00:30:14.709, FindMany type[Project] origin[CdP4mf.BJE5vi.StaZv] exeMicros[1382] rows[2] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1017], 00:30:14.710, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event_id = ?  
+txn[1017], 00:30:14.711, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GWeNI] exeMicros[897] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1018], 00:30:14.711, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where vote_event_id = ?  
+txn[1018], 00:30:14.712, FindMany type[Criterion] origin[CdP4mf.CNaLra.GWlen] exeMicros[777] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1019], 00:30:14.713, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where vote_event_id = ?  
+txn[1019], 00:30:14.714, FindMany type[Project] origin[CdP4mf.BJE5vi.GWswG] exeMicros[913] rows[2] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1020], 00:30:14.715, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1020], 00:30:14.715, Binding Insert [ballot]  set[id=1, votedAt=java.util.GregorianCalendar[time=1352914214714,..., votes=2, voter_id=3, criterion_id=3, project_id=2, ] 
+txn[1020], 00:30:14.717, Inserted [Ballot] [1] 
+txn[1021], 00:30:14.717, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1021], 00:30:14.718, Binding Insert [ballot]  set[id=2, votedAt=java.util.GregorianCalendar[time=1352914214717,..., votes=2, voter_id=3, criterion_id=3, project_id=1, ] 
+txn[1021], 00:30:14.718, Inserted [Ballot] [2] 
+txn[1003], 00:30:41.899, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:30:41.912, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[12922] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:30:41.923, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:30:41.924, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352914241917,..., finishTime=java.util.GregorianCalendar[time=1352914541917,..., announcementTime=java.util.GregorianCalendar[time=1352914641917,..., ] 
+txn[1004], 00:30:41.926, Inserted [VoteEvent] [1] 
+txn[1005], 00:30:41.927, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:30:41.932, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[5444] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:30:41.934, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1006], 00:30:41.934, Binding Insert [voter]  set[id=1, studentId=001352914241933, name=Voter #1352914241933, vote_event_id=1, ] 
+txn[1006], 00:30:41.936, Inserted [Voter] [1] 
+txn[1007], 00:30:41.938, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1007], 00:30:41.938, Binding Insert [voter]  set[id=2, studentId=001352914241937, name=Voter #1352914241937, vote_event_id=1, ] 
+txn[1007], 00:30:41.939, Inserted [Voter] [2] 
+txn[1008], 00:30:41.940, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1008], 00:30:41.940, Binding Insert [voter]  set[id=3, studentId=001352914241939, name=Voter #1352914241939, vote_event_id=1, ] 
+txn[1008], 00:30:41.941, Inserted [Voter] [3] 
+txn[1009], 00:30:41.948, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event_id = ?  
+txn[1009], 00:30:41.949, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GVVeS] exeMicros[1348] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1010], 00:30:41.950, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1010], 00:30:41.951, Binding Insert [criterion]  set[id=1, name=Best Software, vote_event_id=1, ] 
+txn[1010], 00:30:41.952, Inserted [Criterion] [1] 
+txn[1011], 00:30:41.952, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1011], 00:30:41.952, Binding Insert [criterion]  set[id=2, name=Best OOP, vote_event_id=1, ] 
+txn[1011], 00:30:41.953, Inserted [Criterion] [2] 
+txn[1012], 00:30:41.953, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1012], 00:30:41.953, Binding Insert [criterion]  set[id=3, name=User Interface Award, vote_event_id=1, ] 
+txn[1012], 00:30:41.954, Inserted [Criterion] [3] 
+txn[1013], 00:30:41.955, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where vote_event_id = ?  
+txn[1013], 00:30:41.956, FindMany type[Criterion] origin[CdP4mf.CNaLra.DCx-4s] exeMicros[1154] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1014], 00:30:41.957, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1014], 00:30:41.957, Binding Insert [project]  set[id=1, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1014], 00:30:41.958, Inserted [Project] [1] 
+txn[1015], 00:30:41.959, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1015], 00:30:41.959, Binding Insert [project]  set[id=2, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1015], 00:30:41.959, Inserted [Project] [2] 
+txn[1016], 00:30:41.960, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where vote_event_id = ?  
+txn[1016], 00:30:41.961, FindMany type[Project] origin[CdP4mf.BJE5vi.StaZv] exeMicros[958] rows[2] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1017], 00:30:41.962, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where vote_event_id = ?  
+txn[1017], 00:30:41.963, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GWeNI] exeMicros[1388] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1018], 00:30:41.964, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where vote_event_id = ?  
+txn[1018], 00:30:41.965, FindMany type[Criterion] origin[CdP4mf.CNaLra.GWlen] exeMicros[1042] rows[3] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1019], 00:30:41.966, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where vote_event_id = ?  
+txn[1019], 00:30:41.967, FindMany type[Project] origin[CdP4mf.BJE5vi.GWswG] exeMicros[1230] rows[2] name[] predicates[vote_event_id = ? ] bind[1] 
+txn[1020], 00:30:41.969, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1020], 00:30:41.969, Binding Insert [ballot]  set[id=1, votedAt=java.util.GregorianCalendar[time=1352914241967,..., votes=2, voter_id=3, criterion_id=3, project_id=2, ] 
+txn[1020], 00:30:41.972, Inserted [Ballot] [1] 
+txn[1021], 00:30:41.972, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1021], 00:30:41.973, Binding Insert [ballot]  set[id=2, votedAt=java.util.GregorianCalendar[time=1352914241972,..., votes=2, voter_id=3, criterion_id=3, project_id=1, ] 
+txn[1021], 00:30:41.974, Inserted [Ballot] [2] 
+txn[1022], 00:30:41.975, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1022], 00:30:41.977, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1677] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[3, 3] 
+txn[1023], 00:30:41.977, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1023], 00:30:41.977, Binding Insert [ballot]  set[id=3, votedAt=java.util.GregorianCalendar[time=1352914241977,..., votes=2, voter_id=3, criterion_id=2, project_id=2, ] 
+txn[1023], 00:30:41.978, Inserted [Ballot] [3] 
+txn[1024], 00:30:41.979, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1024], 00:30:41.979, Binding Insert [ballot]  set[id=4, votedAt=java.util.GregorianCalendar[time=1352914241979,..., votes=2, voter_id=3, criterion_id=2, project_id=1, ] 
+txn[1024], 00:30:41.980, Inserted [Ballot] [4] 
+txn[1025], 00:30:41.980, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1025], 00:30:41.982, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1837] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[3, 2] 
+txn[1026], 00:30:41.983, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1026], 00:30:41.983, Binding Insert [ballot]  set[id=5, votedAt=java.util.GregorianCalendar[time=1352914241983,..., votes=2, voter_id=3, criterion_id=1, project_id=2, ] 
+txn[1026], 00:30:41.985, Inserted [Ballot] [5] 
+txn[1027], 00:30:41.989, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1027], 00:30:41.989, Binding Insert [ballot]  set[id=6, votedAt=java.util.GregorianCalendar[time=1352914241985,..., votes=2, voter_id=3, criterion_id=1, project_id=1, ] 
+txn[1027], 00:30:41.990, Inserted [Ballot] [6] 
+txn[1028], 00:30:41.991, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1028], 00:30:41.993, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1709] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[3, 1] 
+txn[1029], 00:30:41.993, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1029], 00:30:41.994, Binding Insert [ballot]  set[id=7, votedAt=java.util.GregorianCalendar[time=1352914241993,..., votes=2, voter_id=2, criterion_id=3, project_id=2, ] 
+txn[1029], 00:30:41.994, Inserted [Ballot] [7] 
+txn[1030], 00:30:41.995, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1030], 00:30:41.995, Binding Insert [ballot]  set[id=8, votedAt=java.util.GregorianCalendar[time=1352914241995,..., votes=2, voter_id=2, criterion_id=3, project_id=1, ] 
+txn[1030], 00:30:41.995, Inserted [Ballot] [8] 
+txn[1031], 00:30:41.996, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1031], 00:30:41.997, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1138] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[2, 3] 
+txn[1032], 00:30:41.997, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1032], 00:30:41.998, Binding Insert [ballot]  set[id=9, votedAt=java.util.GregorianCalendar[time=1352914241997,..., votes=2, voter_id=2, criterion_id=2, project_id=2, ] 
+txn[1032], 00:30:41.998, Inserted [Ballot] [9] 
+txn[1033], 00:30:41.999, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1033], 00:30:41.999, Binding Insert [ballot]  set[id=10, votedAt=java.util.GregorianCalendar[time=1352914241998,..., votes=2, voter_id=2, criterion_id=2, project_id=1, ] 
+txn[1033], 00:30:42.000, Inserted [Ballot] [10] 
+txn[1034], 00:30:42.007, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1034], 00:30:42.008, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1233] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[2, 2] 
+txn[1035], 00:30:42.009, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1035], 00:30:42.009, Binding Insert [ballot]  set[id=11, votedAt=java.util.GregorianCalendar[time=1352914242008,..., votes=2, voter_id=2, criterion_id=1, project_id=2, ] 
+txn[1035], 00:30:42.012, Inserted [Ballot] [11] 
+txn[1036], 00:30:42.012, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1036], 00:30:42.013, Binding Insert [ballot]  set[id=12, votedAt=java.util.GregorianCalendar[time=1352914242012,..., votes=2, voter_id=2, criterion_id=1, project_id=1, ] 
+txn[1036], 00:30:42.013, Inserted [Ballot] [12] 
+txn[1037], 00:30:42.014, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1037], 00:30:42.015, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1304] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[2, 1] 
+txn[1038], 00:30:42.015, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1038], 00:30:42.015, Binding Insert [ballot]  set[id=13, votedAt=java.util.GregorianCalendar[time=1352914242015,..., votes=2, voter_id=1, criterion_id=3, project_id=2, ] 
+txn[1038], 00:30:42.016, Inserted [Ballot] [13] 
+txn[1039], 00:30:42.016, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1039], 00:30:42.017, Binding Insert [ballot]  set[id=14, votedAt=java.util.GregorianCalendar[time=1352914242016,..., votes=2, voter_id=1, criterion_id=3, project_id=1, ] 
+txn[1039], 00:30:42.017, Inserted [Ballot] [14] 
+txn[1040], 00:30:42.018, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1040], 00:30:42.019, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[732] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 3] 
+txn[1041], 00:30:42.019, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1041], 00:30:42.019, Binding Insert [ballot]  set[id=15, votedAt=java.util.GregorianCalendar[time=1352914242019,..., votes=2, voter_id=1, criterion_id=2, project_id=2, ] 
+txn[1041], 00:30:42.020, Inserted [Ballot] [15] 
+txn[1042], 00:30:42.021, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1042], 00:30:42.024, Binding Insert [ballot]  set[id=16, votedAt=java.util.GregorianCalendar[time=1352914242020,..., votes=2, voter_id=1, criterion_id=2, project_id=1, ] 
+txn[1042], 00:30:42.025, Inserted [Ballot] [16] 
+txn[1043], 00:30:42.026, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1043], 00:30:42.027, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1361] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 2] 
+txn[1044], 00:30:42.027, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1044], 00:30:42.028, Binding Insert [ballot]  set[id=17, votedAt=java.util.GregorianCalendar[time=1352914242027,..., votes=2, voter_id=1, criterion_id=1, project_id=2, ] 
+txn[1044], 00:30:42.028, Inserted [Ballot] [17] 
+txn[1045], 00:30:42.029, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1045], 00:30:42.029, Binding Insert [ballot]  set[id=18, votedAt=java.util.GregorianCalendar[time=1352914242029,..., votes=2, voter_id=1, criterion_id=1, project_id=1, ] 
+txn[1045], 00:30:42.031, Inserted [Ballot] [18] 
+txn[1046], 00:30:42.031, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1046], 00:30:42.032, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[635] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 1] 
+txn[1003], 00:31:54.321, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1003], 00:31:54.332, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z0nuO] exeMicros[10985] rows[0] name[] predicates[] bind[] 
+txn[1004], 00:31:54.345, insert into vote_event (id, name, start_time, finish_time, announcement_time) values (?,?,?,?,?) 
+txn[1004], 00:31:54.346, Binding Insert [vote_event]  set[id=1, name=Test eXceed Vote, startTime=java.util.GregorianCalendar[time=1352914314337,..., finishTime=java.util.GregorianCalendar[time=1352914614337,..., announcementTime=java.util.GregorianCalendar[time=1352914714337,..., ] 
+txn[1004], 00:31:54.348, Inserted [VoteEvent] [1] 
+txn[1005], 00:31:54.349, select t0.id as c0, t0.name as c1, t0.start_time as c2, t0.finish_time as c3, t0.announcement_time as c4  from vote_event t0 
+txn[1005], 00:31:54.353, FindMany type[VoteEvent] origin[DnLrpz.Y2b2L.z1wdE] exeMicros[4705] rows[1] name[] predicates[] bind[] 
+txn[1006], 00:31:54.355, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1006], 00:31:54.355, Binding Insert [voter]  set[id=1, studentId=001352914314354, name=Voter #1352914314354, vote_event_id=1, ] 
+txn[1006], 00:31:54.357, Inserted [Voter] [1] 
+txn[1007], 00:31:54.357, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1007], 00:31:54.357, Binding Insert [voter]  set[id=2, studentId=001352914314357, name=Voter #1352914314357, vote_event_id=1, ] 
+txn[1007], 00:31:54.359, Inserted [Voter] [2] 
+txn[1008], 00:31:54.359, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1008], 00:31:54.359, Binding Insert [voter]  set[id=3, studentId=001352914314359, name=Voter #1352914314359, vote_event_id=1, ] 
+txn[1008], 00:31:54.360, Inserted [Voter] [3] 
+txn[1009], 00:31:54.366, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where t0.vote_event_id = ?  
+txn[1009], 00:31:54.367, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GVVeS] exeMicros[1418] rows[3] name[] predicates[t0.vote_event_id = ? ] bind[1] 
+txn[1010], 00:31:54.368, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1010], 00:31:54.368, Binding Insert [criterion]  set[id=1, name=Best Software, vote_event_id=1, ] 
+txn[1010], 00:31:54.370, Inserted [Criterion] [1] 
+txn[1011], 00:31:54.371, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1011], 00:31:54.371, Binding Insert [criterion]  set[id=2, name=Best OOP, vote_event_id=1, ] 
+txn[1011], 00:31:54.371, Inserted [Criterion] [2] 
+txn[1012], 00:31:54.372, insert into criterion (id, name, vote_event_id) values (?,?,?) 
+txn[1012], 00:31:54.372, Binding Insert [criterion]  set[id=3, name=User Interface Award, vote_event_id=1, ] 
+txn[1012], 00:31:54.372, Inserted [Criterion] [3] 
+txn[1013], 00:31:54.373, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where t0.vote_event_id = ?  
+txn[1013], 00:31:54.374, FindMany type[Criterion] origin[CdP4mf.CNaLra.DCx-4s] exeMicros[931] rows[3] name[] predicates[t0.vote_event_id = ? ] bind[1] 
+txn[1014], 00:31:54.375, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1014], 00:31:54.375, Binding Insert [project]  set[id=1, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1014], 00:31:54.376, Inserted [Project] [1] 
+txn[1015], 00:31:54.387, insert into project (id, name, description, vote_event_id) values (?,?,?,?) 
+txn[1015], 00:31:54.388, Binding Insert [project]  set[id=2, name=Test eXceed Vote, description=null, vote_event_id=1, ] 
+txn[1015], 00:31:54.388, Inserted [Project] [2] 
+txn[1016], 00:31:54.390, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where t0.vote_event_id = ?  
+txn[1016], 00:31:54.391, FindMany type[Project] origin[CdP4mf.BJE5vi.StaZv] exeMicros[1073] rows[2] name[] predicates[t0.vote_event_id = ? ] bind[1] 
+txn[1017], 00:31:54.391, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0  where t0.vote_event_id = ?  
+txn[1017], 00:31:54.392, FindMany type[Voter] origin[CdP4mf.Cs7ACT.GWeNI] exeMicros[988] rows[3] name[] predicates[t0.vote_event_id = ? ] bind[1] 
+txn[1018], 00:31:54.396, select t0.id as c0, t0.name as c1, t0.vote_event_id as c2  from criterion t0  where t0.vote_event_id = ?  
+txn[1018], 00:31:54.397, FindMany type[Criterion] origin[CdP4mf.CNaLra.GWlen] exeMicros[849] rows[3] name[] predicates[t0.vote_event_id = ? ] bind[1] 
+txn[1019], 00:31:54.397, select t0.id as c0, t0.name as c1, t0.description as c2, t0.vote_event_id as c3  from project t0  where t0.vote_event_id = ?  
+txn[1019], 00:31:54.398, FindMany type[Project] origin[CdP4mf.BJE5vi.GWswG] exeMicros[595] rows[2] name[] predicates[t0.vote_event_id = ? ] bind[1] 
+txn[1020], 00:31:54.399, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1020], 00:31:54.399, Binding Insert [ballot]  set[id=1, votedAt=java.util.GregorianCalendar[time=1352914314398,..., votes=2, voter_id=3, criterion_id=3, project_id=2, ] 
+txn[1020], 00:31:54.401, Inserted [Ballot] [1] 
+txn[1021], 00:31:54.402, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1021], 00:31:54.402, Binding Insert [ballot]  set[id=2, votedAt=java.util.GregorianCalendar[time=1352914314402,..., votes=2, voter_id=3, criterion_id=3, project_id=1, ] 
+txn[1021], 00:31:54.403, Inserted [Ballot] [2] 
+txn[1022], 00:31:54.404, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1022], 00:31:54.406, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1350] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[3, 3] 
+txn[1023], 00:31:54.406, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1023], 00:31:54.406, Binding Insert [ballot]  set[id=3, votedAt=java.util.GregorianCalendar[time=1352914314406,..., votes=2, voter_id=3, criterion_id=2, project_id=2, ] 
+txn[1023], 00:31:54.407, Inserted [Ballot] [3] 
+txn[1024], 00:31:54.407, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1024], 00:31:54.407, Binding Insert [ballot]  set[id=4, votedAt=java.util.GregorianCalendar[time=1352914314407,..., votes=2, voter_id=3, criterion_id=2, project_id=1, ] 
+txn[1024], 00:31:54.408, Inserted [Ballot] [4] 
+txn[1025], 00:31:54.409, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1025], 00:31:54.410, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[986] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[3, 2] 
+txn[1026], 00:31:54.410, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1026], 00:31:54.410, Binding Insert [ballot]  set[id=5, votedAt=java.util.GregorianCalendar[time=1352914314410,..., votes=2, voter_id=3, criterion_id=1, project_id=2, ] 
+txn[1026], 00:31:54.411, Inserted [Ballot] [5] 
+txn[1027], 00:31:54.413, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1027], 00:31:54.413, Binding Insert [ballot]  set[id=6, votedAt=java.util.GregorianCalendar[time=1352914314412,..., votes=2, voter_id=3, criterion_id=1, project_id=1, ] 
+txn[1027], 00:31:54.414, Inserted [Ballot] [6] 
+txn[1028], 00:31:54.415, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1028], 00:31:54.416, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1659] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[3, 1] 
+txn[1029], 00:31:54.417, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1029], 00:31:54.417, Binding Insert [ballot]  set[id=7, votedAt=java.util.GregorianCalendar[time=1352914314417,..., votes=2, voter_id=2, criterion_id=3, project_id=2, ] 
+txn[1029], 00:31:54.418, Inserted [Ballot] [7] 
+txn[1030], 00:31:54.418, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1030], 00:31:54.419, Binding Insert [ballot]  set[id=8, votedAt=java.util.GregorianCalendar[time=1352914314418,..., votes=2, voter_id=2, criterion_id=3, project_id=1, ] 
+txn[1030], 00:31:54.419, Inserted [Ballot] [8] 
+txn[1031], 00:31:54.420, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1031], 00:31:54.422, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1908] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[2, 3] 
+txn[1032], 00:31:54.423, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1032], 00:31:54.423, Binding Insert [ballot]  set[id=9, votedAt=java.util.GregorianCalendar[time=1352914314423,..., votes=2, voter_id=2, criterion_id=2, project_id=2, ] 
+txn[1032], 00:31:54.424, Inserted [Ballot] [9] 
+txn[1033], 00:31:54.427, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1033], 00:31:54.427, Binding Insert [ballot]  set[id=10, votedAt=java.util.GregorianCalendar[time=1352914314424,..., votes=2, voter_id=2, criterion_id=2, project_id=1, ] 
+txn[1033], 00:31:54.428, Inserted [Ballot] [10] 
+txn[1034], 00:31:54.434, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1034], 00:31:54.435, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1349] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[2, 2] 
+txn[1035], 00:31:54.436, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1035], 00:31:54.436, Binding Insert [ballot]  set[id=11, votedAt=java.util.GregorianCalendar[time=1352914314435,..., votes=2, voter_id=2, criterion_id=1, project_id=2, ] 
+txn[1035], 00:31:54.439, Inserted [Ballot] [11] 
+txn[1036], 00:31:54.440, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1036], 00:31:54.440, Binding Insert [ballot]  set[id=12, votedAt=java.util.GregorianCalendar[time=1352914314440,..., votes=2, voter_id=2, criterion_id=1, project_id=1, ] 
+txn[1036], 00:31:54.441, Inserted [Ballot] [12] 
+txn[1037], 00:31:54.442, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1037], 00:31:54.444, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[1955] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[2, 1] 
+txn[1038], 00:31:54.445, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1038], 00:31:54.445, Binding Insert [ballot]  set[id=13, votedAt=java.util.GregorianCalendar[time=1352914314445,..., votes=2, voter_id=1, criterion_id=3, project_id=2, ] 
+txn[1038], 00:31:54.446, Inserted [Ballot] [13] 
+txn[1039], 00:31:54.459, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1039], 00:31:54.461, Binding Insert [ballot]  set[id=14, votedAt=java.util.GregorianCalendar[time=1352914314451,..., votes=2, voter_id=1, criterion_id=3, project_id=1, ] 
+txn[1039], 00:31:54.462, Inserted [Ballot] [14] 
+txn[1040], 00:31:54.463, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1040], 00:31:54.464, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[980] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 3] 
+txn[1041], 00:31:54.465, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1041], 00:31:54.465, Binding Insert [ballot]  set[id=15, votedAt=java.util.GregorianCalendar[time=1352914314464,..., votes=2, voter_id=1, criterion_id=2, project_id=2, ] 
+txn[1041], 00:31:54.466, Inserted [Ballot] [15] 
+txn[1042], 00:31:54.468, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1042], 00:31:54.471, Binding Insert [ballot]  set[id=16, votedAt=java.util.GregorianCalendar[time=1352914314466,..., votes=2, voter_id=1, criterion_id=2, project_id=1, ] 
+txn[1042], 00:31:54.472, Inserted [Ballot] [16] 
+txn[1043], 00:31:54.472, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1043], 00:31:54.475, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[2251] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 2] 
+txn[1044], 00:31:54.476, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1044], 00:31:54.476, Binding Insert [ballot]  set[id=17, votedAt=java.util.GregorianCalendar[time=1352914314476,..., votes=2, voter_id=1, criterion_id=1, project_id=2, ] 
+txn[1044], 00:31:54.477, Inserted [Ballot] [17] 
+txn[1045], 00:31:54.477, insert into ballot (id, voted_at, votes, voter_id, criterion_id, project_id) values (?,?,?,?,?,?) 
+txn[1045], 00:31:54.478, Binding Insert [ballot]  set[id=18, votedAt=java.util.GregorianCalendar[time=1352914314477,..., votes=2, voter_id=1, criterion_id=1, project_id=1, ] 
+txn[1045], 00:31:54.479, Inserted [Ballot] [18] 
+txn[1046], 00:31:54.480, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
+txn[1046], 00:31:54.481, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[993] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 1] 

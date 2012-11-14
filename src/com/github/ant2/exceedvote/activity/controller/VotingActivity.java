@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.github.ant2.exceedvote.activity.view.ProjectVoteView;
 import com.github.ant2.exceedvote.activity.view.VotingActivityView;
-import com.github.ant2.exceedvote.model.Project;
+import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.ui.activity.Activity;
 

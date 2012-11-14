@@ -4,9 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.model.Criterion;
-import com.github.ant2.exceedvote.model.VoteEvent;
-import com.github.ant2.exceedvote.model.mock.MockVoteEvent;
+import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
+import com.github.ant2.exceedvote.model.domain.Criterion;
 
 import static org.junit.Assert.assertTrue;
 
@@ -15,16 +14,16 @@ public class CriterionSelectionProcessTest {
 	@Test
 	public void test() {
 
-		MockVoteEvent mockEvent = new MockVoteEvent();
-		VoteEvent event = mockEvent;
-
+		StubDaoFactory sdf = new StubDaoFactory();
+		
 		CriterionSelectionProcess process = new CriterionSelectionProcess(
-				new Context(event, null));
+				new Context(sdf, sdf.EVENT, null));
+		
 		List<Criterion> criteria = process.getAllCriteria();
 
-		assertTrue(criteria.contains(mockEvent.c1));
-		assertTrue(criteria.contains(mockEvent.c2));
-		assertTrue(criteria.contains(mockEvent.c3));
+		assertTrue(criteria.contains(sdf.C1));
+		assertTrue(criteria.contains(sdf.C2));
+		assertTrue(criteria.contains(sdf.C3));
 
 	}
 

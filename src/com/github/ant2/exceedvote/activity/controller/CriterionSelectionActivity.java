@@ -9,7 +9,7 @@ import javax.swing.ListModel;
 
 import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.VotingActivityView;
-import com.github.ant2.exceedvote.model.Criterion;
+import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.ui.activity.Activity;
