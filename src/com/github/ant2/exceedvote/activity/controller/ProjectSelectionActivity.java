@@ -1,7 +1,7 @@
 package com.github.ant2.exceedvote.activity.controller;
 
 import com.github.ant2.exceedvote.activity.view.ProjectSelectionActivityView;
-import com.github.ant2.exceedvote.model.Project;
+import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.process.ViewProjectProcess;
 import com.github.ant2.ui.activity.Activity;
 

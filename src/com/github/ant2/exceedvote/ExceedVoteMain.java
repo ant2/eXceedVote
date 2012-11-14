@@ -11,10 +11,10 @@ import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.VotingActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.controller.MainController;
-import com.github.ant2.exceedvote.model.ExceedVoteEvent;
-import com.github.ant2.exceedvote.model.VoteEvent;
-import com.github.ant2.exceedvote.model.Voter;
-import com.github.ant2.exceedvote.model.VoterProfile;
+import com.github.ant2.exceedvote.model.domain.ExceedVoteEvent;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
+import com.github.ant2.exceedvote.model.domain.VoterProfile;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
@@ -55,7 +55,7 @@ public class ExceedVoteMain {
 				.createCriterionSelectionProcess();
 		activity = new CriterionSelectionActivity(activity, process2,
 				new CriterionSelectionActivityView());
-
+		
 		VotingProcess process = process2.createVotingProcess(process2
 				.getAllCriteria().get(0));
 		activity = new VotingActivity(activity, process,

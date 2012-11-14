@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.model.Criterion;
-import com.github.ant2.exceedvote.model.Project;
-import com.github.ant2.exceedvote.model.VoteEvent;
-import com.github.ant2.exceedvote.model.Voter;
-import com.github.ant2.exceedvote.model.mock.MockVoteEvent;
+import com.github.ant2.exceedvote.model.domain.Criterion;
+import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
+import com.github.ant2.exceedvote.model.domain.mock.MockVoteEvent;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

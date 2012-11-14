@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import com.github.ant2.exceedvote.model.VoteEvent;
-import com.github.ant2.exceedvote.model.Voter;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.ui.activity.ActivitiesController;

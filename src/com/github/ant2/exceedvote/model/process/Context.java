@@ -1,7 +1,7 @@
 package com.github.ant2.exceedvote.model.process;
 
-import com.github.ant2.exceedvote.model.VoteEvent;
-import com.github.ant2.exceedvote.model.Voter;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 
 public class Context {
 

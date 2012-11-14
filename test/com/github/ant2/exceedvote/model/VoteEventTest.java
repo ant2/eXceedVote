@@ -4,7 +4,9 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.model.Rules.ValidationResult;
+import com.github.ant2.exceedvote.model.domain.Ballot;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Rules.ValidationResult;
 
 import static org.mockito.Matchers.any;
 
@@ -25,11 +27,6 @@ public class VoteEventTest {
 
 	private VoteEvent event = new ExceedVoteEvent();
 	private Ballot ballot = mock(Ballot.class);
-	private Rules rules = mock(Rules.class);
-
-	{
-		event.setRules(rules);
-	}
 
 	@Test
 	public void testSubmit() {

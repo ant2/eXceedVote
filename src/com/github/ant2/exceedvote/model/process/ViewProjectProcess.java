@@ -2,8 +2,8 @@ package com.github.ant2.exceedvote.model.process;
 
 import java.util.List;
 
-import com.github.ant2.exceedvote.model.Project;
-import com.github.ant2.exceedvote.model.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
 /**
  * A view of the project's process.

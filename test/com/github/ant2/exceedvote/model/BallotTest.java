@@ -2,6 +2,11 @@ package com.github.ant2.exceedvote.model;
 
 import org.junit.Test;
 
+import com.github.ant2.exceedvote.model.domain.Ballot;
+import com.github.ant2.exceedvote.model.domain.Criterion;
+import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.Voter;
+
 import static org.mockito.Mockito.mock;
 
 import static org.junit.Assert.assertSame;
