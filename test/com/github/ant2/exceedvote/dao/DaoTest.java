@@ -19,9 +19,11 @@ public class DaoTest {
 
 	@Test
 	public void test() {
-		
 		DaoFactory factory = new MemoryDaoFactory();
-		
+		testDaoFactory(factory);
+	}
+
+	private void testDaoFactory(DaoFactory factory) {
 		EventDao eventDao = factory.getEventDao();
 		VoteEvent event = testEventDao(eventDao);
 		
@@ -51,7 +53,6 @@ public class DaoTest {
 				}
 			}
 		}
-		
 	}
 
 	private void populateBallotDao(VoteEvent event, Project project,
