@@ -26,8 +26,8 @@ public class VotingProcess {
 	private List<Project> projects;
 
 	public VotingProcess(Context context, Criterion criterion) {
-		this.event = context.getEvent();
-		this.voter = context.getVoter();
+		event = context.getEvent();
+		voter = context.getVoter();
 		this.criterion = criterion;
 		df = context.getDaoFactory();
 		a = new int[getProjects().size()];

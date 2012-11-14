@@ -24,20 +24,21 @@ public class MemoryDaoFactory implements DaoFactory {
 	protected BallotDao ballotDao;
 
 	private class MemoryDao<T> {
-		
+
 		protected List<T> list = new ArrayList<T>();
-		
+
 		public void save(T t) {
 			list.add(t);
 		}
-		
+
 		public List<T> findAll() {
 			return new ArrayList<T>(list);
 		}
-		
+
 	}
-	
-	private class VoteEventPartDao<T extends VoteEvent.Part> extends MemoryDao<T> {
+
+	private class VoteEventPartDao<T extends VoteEvent.Part> extends
+			MemoryDao<T> {
 		public List<T> findAllByEvent(VoteEvent event) {
 			List<T> list = new ArrayList<T>();
 			for (T t : findAll()) {
@@ -48,32 +49,39 @@ public class MemoryDaoFactory implements DaoFactory {
 			return list;
 		}
 	}
-	
-	private class MemoryEventDao extends MemoryDao<VoteEvent> implements EventDao {
+
+	private class MemoryEventDao extends MemoryDao<VoteEvent> implements
+			EventDao {
 	}
 
-	private class MemoryVoterDao extends VoteEventPartDao<Voter> implements VoterDao {
+	private class MemoryVoterDao extends VoteEventPartDao<Voter> implements
+			VoterDao {
 	}
-	
-	private class MemoryCriterionDao extends VoteEventPartDao<Criterion> implements CriterionDao {
+
+	private class MemoryCriterionDao extends VoteEventPartDao<Criterion>
+			implements CriterionDao {
 	}
-	
-	private class MemoryProjectDao extends VoteEventPartDao<Project> implements ProjectDao {
+
+	private class MemoryProjectDao extends VoteEventPartDao<Project> implements
+			ProjectDao {
 	}
-	
-	private class MemoryBallotDao extends MemoryDao<Ballot> implements BallotDao {
+
+	private class MemoryBallotDao extends MemoryDao<Ballot> implements
+			BallotDao {
 
 		@Override
-		public List<Ballot> findAllByVoterAndCriterion(Voter voter, Criterion criterion) {
+		public List<Ballot> findAllByVoterAndCriterion(Voter voter,
+				Criterion criterion) {
 			List<Ballot> list = new ArrayList<Ballot>();
 			for (Ballot ballot : findAll()) {
-				if (ballot.getVoter().equals(voter) && ballot.getCriterion().equals(criterion)) {
+				if (ballot.getVoter().equals(voter)
+						&& ballot.getCriterion().equals(criterion)) {
 					list.add(ballot);
 				}
 			}
 			return list;
 		}
-		
+
 	}
 
 	public MemoryDaoFactory() {
@@ -83,7 +91,7 @@ public class MemoryDaoFactory implements DaoFactory {
 		projectDao = new MemoryProjectDao();
 		ballotDao = new MemoryBallotDao();
 	}
-	
+
 	@Override
 	public EventDao getEventDao() {
 		return eventDao;

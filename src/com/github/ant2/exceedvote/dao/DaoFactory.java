@@ -12,5 +12,4 @@ public interface DaoFactory {
 
 	BallotDao getBallotDao();
 
-
 }

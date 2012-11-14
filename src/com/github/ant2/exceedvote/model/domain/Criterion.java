@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Criterion implements VoteEvent.Part {
-	
+
 	@Id @GeneratedValue private Integer id;
 
 	public Integer getId() {
@@ -22,12 +22,11 @@ public class Criterion implements VoteEvent.Part {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	/** criterion name */
 	private String name;
 
-	@ManyToOne
-	private VoteEvent voteEvent;
+	@ManyToOne private VoteEvent voteEvent;
 
 	/**
 	 * Constructs a criterion.
@@ -62,7 +61,7 @@ public class Criterion implements VoteEvent.Part {
 	public VoteEvent getVoteEvent() {
 		return voteEvent;
 	}
-	
+
 	public void setVoteEvent(VoteEvent voteEvent) {
 		this.voteEvent = voteEvent;
 	}

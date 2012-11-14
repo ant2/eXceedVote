@@ -9,7 +9,5 @@ public class CalendarUtil {
 		calendar.add(Calendar.SECOND, offset);
 		return calendar;
 	}
-	
-
 
 }

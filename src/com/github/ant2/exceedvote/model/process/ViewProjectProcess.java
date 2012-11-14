@@ -18,7 +18,7 @@ public class ViewProjectProcess {
 
 	/** A vote event */
 	private VoteEvent event;
-	
+
 	/** The DAO factory */
 	private DaoFactory df;
 
@@ -26,8 +26,8 @@ public class ViewProjectProcess {
 	 * Constructs the ViewProjectProcess. Initializes the projects.
 	 */
 	public ViewProjectProcess(Context context) {
-		this.event = context.getEvent();
-		this.df = context.getDaoFactory();
+		event = context.getEvent();
+		df = context.getDaoFactory();
 	}
 
 	/**

@@ -24,17 +24,14 @@ public class Ballot {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	private Calendar votedAt;
 
-	@ManyToOne
-	private Voter voter;
+	@ManyToOne private Voter voter;
 
-	@ManyToOne
-	private Criterion criterion;
+	@ManyToOne private Criterion criterion;
 
-	@ManyToOne
-	private Project project;
+	@ManyToOne private Project project;
 	private int votes;
 
 	public Ballot() {
@@ -57,6 +54,7 @@ public class Ballot {
 	public Voter getVoter() {
 		return voter;
 	}
+
 	public void setVoter(Voter voter) {
 		this.voter = voter;
 	}
@@ -64,6 +62,7 @@ public class Ballot {
 	public Criterion getCriterion() {
 		return criterion;
 	}
+
 	public void setCriterion(Criterion criterion) {
 		this.criterion = criterion;
 	}
@@ -71,6 +70,7 @@ public class Ballot {
 	public Project getProject() {
 		return project;
 	}
+
 	public void setProject(Project project) {
 		this.project = project;
 	}
@@ -78,6 +78,7 @@ public class Ballot {
 	public Calendar getVotedAt() {
 		return votedAt;
 	}
+
 	public void setVotedAt(Calendar votedAt) {
 		this.votedAt = votedAt;
 	}
@@ -91,10 +92,9 @@ public class Ballot {
 	public int getVotes() {
 		return votes;
 	}
+
 	public void setVotes(int votes) {
 		this.votes = votes;
 	}
-	
-	
-	
+
 }

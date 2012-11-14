@@ -45,7 +45,7 @@ public class ExceedVoteMain {
 				.createCriterionSelectionProcess();
 		activity = new CriterionSelectionActivity(activity, process2,
 				new CriterionSelectionActivityView());
-		
+
 		VotingProcess process = process2.createVotingProcess(process2
 				.getAllCriteria().get(0));
 		activity = new VotingActivity(activity, process,

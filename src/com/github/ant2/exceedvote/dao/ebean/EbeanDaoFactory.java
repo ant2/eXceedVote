@@ -1,6 +1,5 @@
 package com.github.ant2.exceedvote.dao.ebean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.avaje.ebean.Ebean;
@@ -25,69 +24,75 @@ public class EbeanDaoFactory implements DaoFactory {
 	protected BallotDao ballotDao;
 
 	private class EbeanDao<T> {
-		
+
 		protected Class<T> beanType;
-		
+
 		public EbeanDao(Class<T> beanType) {
 			this.beanType = beanType;
 		}
-		
+
 		public void save(T t) {
 			Ebean.save(t);
 		}
-		
+
 		public List<T> findAll() {
 			return Ebean.find(beanType).findList();
 		}
-		
+
 	}
-	
-	private class VoteEventPartDao<T extends VoteEvent.Part> extends EbeanDao<T> {
+
+	private class VoteEventPartDao<T extends VoteEvent.Part> extends
+			EbeanDao<T> {
 		public VoteEventPartDao(Class<T> beanType) {
 			super(beanType);
 		}
 
 		public List<T> findAllByEvent(VoteEvent event) {
-			return Ebean.find(beanType).where().eq("voteEvent", event).findList();
+			return Ebean.find(beanType).where().eq("voteEvent", event)
+					.findList();
 		}
 	}
-	
+
 	private class EbeanEventDao extends EbeanDao<VoteEvent> implements EventDao {
 		public EbeanEventDao() {
 			super(VoteEvent.class);
 		}
 	}
 
-	private class EbeanVoterDao extends VoteEventPartDao<Voter> implements VoterDao {
+	private class EbeanVoterDao extends VoteEventPartDao<Voter> implements
+			VoterDao {
 		public EbeanVoterDao() {
 			super(Voter.class);
 		}
 	}
-	
-	private class EbeanCriterionDao extends VoteEventPartDao<Criterion> implements CriterionDao {
+
+	private class EbeanCriterionDao extends VoteEventPartDao<Criterion>
+			implements CriterionDao {
 		public EbeanCriterionDao() {
 			super(Criterion.class);
 		}
 	}
-	
-	private class EbeanProjectDao extends VoteEventPartDao<Project> implements ProjectDao {
+
+	private class EbeanProjectDao extends VoteEventPartDao<Project> implements
+			ProjectDao {
 		public EbeanProjectDao() {
 			super(Project.class);
 		}
 	}
-	
+
 	private class EbeanBallotDao extends EbeanDao<Ballot> implements BallotDao {
 
 		public EbeanBallotDao() {
 			super(Ballot.class);
 		}
-		
+
 		@Override
-		public List<Ballot> findAllByVoterAndCriterion(Voter voter, Criterion criterion) {
-			return Ebean.find(Ballot.class).where()
-					.eq("voter", voter).eq("criterion", criterion).findList();
+		public List<Ballot> findAllByVoterAndCriterion(Voter voter,
+				Criterion criterion) {
+			return Ebean.find(Ballot.class).where().eq("voter", voter)
+					.eq("criterion", criterion).findList();
 		}
-		
+
 	}
 
 	public EbeanDaoFactory() {
@@ -97,7 +102,7 @@ public class EbeanDaoFactory implements DaoFactory {
 		projectDao = new EbeanProjectDao();
 		ballotDao = new EbeanBallotDao();
 	}
-	
+
 	@Override
 	public EventDao getEventDao() {
 		return eventDao;

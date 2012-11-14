@@ -22,14 +22,13 @@ public class Project implements VoteEvent.Part {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	/** project name */
 	private String name;
 	/** project description */
 	private String description;
-	
-	@ManyToOne
-	private VoteEvent voteEvent;
+
+	@ManyToOne private VoteEvent voteEvent;
 
 	/**
 	 * Constructs a project with name and description.
@@ -46,10 +45,9 @@ public class Project implements VoteEvent.Part {
 		this();
 		setName(name);
 	}
-	
+
 	public Project() {
 	}
-
 
 	/**
 	 * Returns project name.
@@ -96,7 +94,7 @@ public class Project implements VoteEvent.Part {
 	public VoteEvent getVoteEvent() {
 		return voteEvent;
 	}
-	
+
 	public void setVoteEvent(VoteEvent voteEvent) {
 		this.voteEvent = voteEvent;
 	}

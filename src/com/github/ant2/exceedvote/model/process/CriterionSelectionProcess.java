@@ -10,7 +10,7 @@ public class CriterionSelectionProcess {
 
 	private VoteEvent event;
 	private Context context;
-	
+
 	private DaoFactory df;
 
 	public CriterionSelectionProcess(Context context) {
@@ -22,7 +22,6 @@ public class CriterionSelectionProcess {
 	public List<Criterion> getAllCriteria() {
 		return df.getCriterionDao().findAllByEvent(event);
 	}
-	
 
 	public VotingProcess createVotingProcess(Criterion criterion) {
 		return new VotingProcess(context, criterion);
