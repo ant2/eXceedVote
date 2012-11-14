@@ -1,14 +1,28 @@
 package com.github.ant2.exceedvote.model.domain;
 
 import java.util.Calendar;
-import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class VoteEvent {
 
 	public interface Part {
 		VoteEvent getVoteEvent();
 	}
-	
+
+	@Id @GeneratedValue private Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	private String name;
 	private Calendar startTime;
 	private Calendar finishTime;
@@ -17,43 +31,60 @@ public class VoteEvent {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Calendar getStartTime() {
 		return startTime;
 	}
+
 	public void setStartTime(Calendar startTime) {
 		this.startTime = startTime;
 	}
+
 	public Calendar getFinishTime() {
 		return finishTime;
 	}
+
 	public void setFinishTime(Calendar finishTime) {
 		this.finishTime = finishTime;
 	}
+
 	public Calendar getAnnouncementTime() {
 		return announcementTime;
 	}
+
 	public void setAnnouncementTime(Calendar announcementTime) {
 		this.announcementTime = announcementTime;
 	}
+
 	public Voter createVoter() {
 		Voter voter = new Voter();
 		voter.setVoteEvent(this);
 		return voter;
 	}
+
+	public Voter createVoter(String name, String studentId) {
+		Voter voter = createVoter();
+		voter.setName(name);
+		voter.setStudentId(studentId);
+		return voter;
+	}
+
 	public Criterion createCriterion(String string) {
 		Criterion criterion = createCriterion();
 		criterion.setName(string);
 		return criterion;
 	}
+
 	private Criterion createCriterion() {
 		Criterion criterion = new Criterion();
 		criterion.setVoteEvent(this);
 		return criterion;
 	}
+
 	public Project createProject(String string) {
 		Project project = new Project(name);
 		project.setVoteEvent(this);

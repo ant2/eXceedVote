@@ -2,6 +2,7 @@ package com.github.ant2.exceedvote.model.process;
 
 import java.util.List;
 
+import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
@@ -17,12 +18,16 @@ public class ViewProjectProcess {
 
 	/** A vote event */
 	private VoteEvent event;
+	
+	/** The DAO factory */
+	private DaoFactory df;
 
 	/**
 	 * Constructs the ViewProjectProcess. Initializes the projects.
 	 */
-	public ViewProjectProcess(VoteEvent event) {
-		this.event = event;
+	public ViewProjectProcess(Context context) {
+		this.event = context.getEvent();
+		this.df = context.getDaoFactory();
 	}
 
 	/**
@@ -32,7 +37,7 @@ public class ViewProjectProcess {
 	 */
 	public List<Project> getAllAvailableProjects() {
 		if (projects == null) {
-			projects = event.getProjects();
+			projects = df.getProjectDao().findAllByEvent(event);
 		}
 		return projects;
 	}

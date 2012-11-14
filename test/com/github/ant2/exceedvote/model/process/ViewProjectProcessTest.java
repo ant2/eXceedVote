@@ -4,11 +4,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Project;
-import com.github.ant2.exceedvote.model.domain.VoteEvent;
-import com.github.ant2.exceedvote.model.domain.mock.MockVoteEvent;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class ViewProjectProcessTest {
@@ -16,19 +14,16 @@ public class ViewProjectProcessTest {
 	@Test
 	public void test() {
 
-		MockVoteEvent mockEvent = new MockVoteEvent();
-		VoteEvent event = mockEvent;
+		StubDaoFactory sdf = new StubDaoFactory();
 
-		ViewProjectProcess process = new ViewProjectProcess(event);
+		ViewProjectProcess process = new ViewProjectProcess(sdf.CONTEXT);
 
 		List<Project> projects = process.getAllAvailableProjects();
-		assertTrue(projects.contains(mockEvent.p1));
-		assertTrue(projects.contains(mockEvent.p2));
-		assertTrue(projects.contains(mockEvent.p3));
-		assertTrue(projects.contains(mockEvent.p4));
+		assertTrue(projects.contains(sdf.P1));
+		assertTrue(projects.contains(sdf.P2));
+		assertTrue(projects.contains(sdf.P3));
+		assertTrue(projects.contains(sdf.P4));
 
-		assertNotNull(process.getProjectInfo(mockEvent.p1));
-		assertNotNull(process.getProjectInfo(mockEvent.p2));
 
 	}
 

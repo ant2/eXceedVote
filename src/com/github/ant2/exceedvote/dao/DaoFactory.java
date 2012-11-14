@@ -6,10 +6,11 @@ public interface DaoFactory {
 
 	VoterDao getVoterDao();
 
-	CriterionDao createCriterionDao();
+	CriterionDao getCriterionDao();
 
-	ProjectDao createProjectDao();
+	ProjectDao getProjectDao();
 
-	BallotDao createBallotDao();
+	BallotDao getBallotDao();
+
 
 }

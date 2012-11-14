@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.avaje.ebean.Ebean;
+import com.github.ant2.exceedvote.dao.memory.EbeanDaoFactory;
 import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
@@ -17,13 +19,7 @@ import static org.junit.Assert.*;
 
 public class DaoTest {
 
-	@Test
-	public void test() {
-		DaoFactory factory = new MemoryDaoFactory();
-		testDaoFactory(factory);
-	}
-
-	private void testDaoFactory(DaoFactory factory) {
+	public void testDaoFactory(DaoFactory factory) {
 		EventDao eventDao = factory.getEventDao();
 		VoteEvent event = testEventDao(eventDao);
 		
@@ -33,13 +29,13 @@ public class DaoTest {
 		populateVoterDao(event, voterDao);
 		assertEquals(3, voterDao.findAllByEvent(event).size());
 		
-		CriterionDao criterionDao = factory.createCriterionDao();
+		CriterionDao criterionDao = factory.getCriterionDao();
 		testCriterionDao(event, criterionDao);
 		
-		ProjectDao projectDao = factory.createProjectDao();
+		ProjectDao projectDao = factory.getProjectDao();
 		testProjectDao(event, projectDao);
 		
-		BallotDao ballotDao = factory.createBallotDao();
+		BallotDao ballotDao = factory.getBallotDao();
 		{
 			List<Voter> voters = voterDao.findAllByEvent(event);
 			List<Criterion> criteria = criterionDao.findAllByEvent(event);

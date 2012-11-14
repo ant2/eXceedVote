@@ -1,13 +1,32 @@
 package com.github.ant2.exceedvote.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  * A criterion which voter can vote for.
  * 
  * @author Artima Mahahemarat
  */
+@Entity
 public class Criterion implements VoteEvent.Part {
+	
+	@Id @GeneratedValue private Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 	/** criterion name */
 	private String name;
+
+	@ManyToOne
 	private VoteEvent voteEvent;
 
 	/**

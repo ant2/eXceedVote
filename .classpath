@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/javax.persistence.jar"/>
+	<classpathentry kind="lib" path="lib/postgresql-9.2-1001.jdbc4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

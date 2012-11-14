@@ -17,6 +17,11 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 
 public class MemoryDaoFactory implements DaoFactory {
 
+	protected EventDao eventDao;
+	protected VoterDao voterDao;
+	protected CriterionDao criterionDao;
+	protected ProjectDao projectDao;
+	protected BallotDao ballotDao;
 
 	private class MemoryDao<T> {
 		
@@ -71,30 +76,37 @@ public class MemoryDaoFactory implements DaoFactory {
 		
 	}
 
+	public MemoryDaoFactory() {
+		eventDao = new MemoryEventDao();
+		voterDao = new MemoryVoterDao();
+		criterionDao = new MemoryCriterionDao();
+		projectDao = new MemoryProjectDao();
+		ballotDao = new MemoryBallotDao();
+	}
 	
 	@Override
 	public EventDao getEventDao() {
-		return new MemoryEventDao();
+		return eventDao;
 	}
 
 	@Override
 	public VoterDao getVoterDao() {
-		return new MemoryVoterDao();
+		return voterDao;
 	}
 
 	@Override
-	public CriterionDao createCriterionDao() {
-		return new MemoryCriterionDao();
+	public CriterionDao getCriterionDao() {
+		return criterionDao;
 	}
 
 	@Override
-	public ProjectDao createProjectDao() {
-		return new MemoryProjectDao();
+	public ProjectDao getProjectDao() {
+		return projectDao;
 	}
 
 	@Override
-	public BallotDao createBallotDao() {
-		return new MemoryBallotDao();
+	public BallotDao getBallotDao() {
+		return ballotDao;
 	}
 
 }

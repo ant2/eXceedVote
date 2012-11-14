@@ -1,5 +1,7 @@
 package com.github.ant2.exceedvote.model.process;
 
+import com.github.ant2.exceedvote.dao.DaoFactory;
+import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
@@ -7,11 +9,13 @@ public class Context {
 
 	private VoteEvent event;
 	private Voter voter;
+	private DaoFactory daoFactory;
 
 	public Context() {
 	}
 
-	public Context(VoteEvent event, Voter voter) {
+	public Context(DaoFactory daoFactory, VoteEvent event, Voter voter) {
+		this.daoFactory = daoFactory;
 		setEvent(event);
 		setVoter(voter);
 	}
@@ -31,9 +35,17 @@ public class Context {
 	public void setEvent(VoteEvent event) {
 		this.event = event;
 	}
+	
+	public DaoFactory getDaoFactory() {
+		return daoFactory;
+	}
+	
+	public void setDaoFactory(DaoFactory daoFactory) {
+		this.daoFactory = daoFactory;
+	}
 
 	public ViewProjectProcess createViewProjectProcess() {
-		return new ViewProjectProcess(event);
+		return new ViewProjectProcess(this);
 	}
 
 	public CriterionSelectionProcess createCriterionSelectionProcess() {

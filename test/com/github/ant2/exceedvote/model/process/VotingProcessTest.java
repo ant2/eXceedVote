@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
-import com.github.ant2.exceedvote.model.domain.mock.MockVoteEvent;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -22,20 +22,21 @@ public class VotingProcessTest {
 	@Test
 	public void test() {
 
-		MockVoteEvent mockEvent = new MockVoteEvent();
+		StubDaoFactory sdf = new StubDaoFactory();
+		
 		Voter voter = mock(Voter.class);
 		when(voter.getAllowedBallots()).thenReturn(3);
 
-		VoteEvent event = mockEvent;
-		Criterion criterion = mockEvent.c1;
+		VoteEvent event = sdf.EVENT;
+		Criterion criterion = sdf.C1;
 
-		VotingProcess process = new VotingProcess(event, voter, criterion);
+		VotingProcess process = new VotingProcess(sdf.CONTEXT, criterion);
 
 		List<Project> projects = process.getProjects();
-		assertTrue(projects.contains(mockEvent.p1));
-		assertTrue(projects.contains(mockEvent.p2));
-		assertTrue(projects.contains(mockEvent.p3));
-		assertTrue(projects.contains(mockEvent.p4));
+		assertTrue(projects.contains(sdf.P1));
+		assertTrue(projects.contains(sdf.P2));
+		assertTrue(projects.contains(sdf.P3));
+		assertTrue(projects.contains(sdf.P4));
 
 		assertFalse(process.canDecrease(projects.get(0)));
 		assertTrue(process.canIncrease());
