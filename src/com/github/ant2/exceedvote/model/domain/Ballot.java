@@ -13,17 +13,7 @@ import javax.persistence.ManyToOne;
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 @Entity
-public class Ballot {
-
-	@Id @GeneratedValue private Integer id;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+public class Ballot extends Model {
 
 	private Calendar votedAt;
 
@@ -95,6 +85,16 @@ public class Ballot {
 
 	public void setVotes(int votes) {
 		this.votes = votes;
+	}
+	
+	@Id @GeneratedValue protected Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

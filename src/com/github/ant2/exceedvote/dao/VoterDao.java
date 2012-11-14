@@ -11,4 +11,8 @@ public interface VoterDao {
 
 	void save(Voter voter);
 
+	Voter find(int id);
+
+	List<Voter> findAll();
+
 }

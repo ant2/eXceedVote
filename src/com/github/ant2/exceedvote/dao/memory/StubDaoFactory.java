@@ -26,9 +26,9 @@ public class StubDaoFactory extends MemoryDaoFactory {
 	public final Criterion C3 = EVENT.createCriterion("Criterion 3");
 
 	public final Project P1 = EVENT.createProject("Project 1");
-	public final Project P2 = EVENT.createProject("Project 1");
-	public final Project P3 = EVENT.createProject("Project 1");
-	public final Project P4 = EVENT.createProject("Project 1");
+	public final Project P2 = EVENT.createProject("Project 2");
+	public final Project P3 = EVENT.createProject("Project 3");
+	public final Project P4 = EVENT.createProject("Project 4");
 
 	public final Context CONTEXT = new Context(this, EVENT, V2);
 

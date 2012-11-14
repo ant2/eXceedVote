@@ -420,3 +420,10 @@ txn[1045], 00:31:54.478, Binding Insert [ballot]  set[id=18, votedAt=java.util.G
 txn[1045], 00:31:54.479, Inserted [Ballot] [18] 
 txn[1046], 00:31:54.480, select t0.id as c0, t0.voted_at as c1, t0.votes as c2, t0.voter_id as c3, t0.criterion_id as c4, t0.project_id as c5  from ballot t0  where t0.voter_id = ?  and t0.criterion_id = ?  
 txn[1046], 00:31:54.481, FindMany type[Ballot] origin[C67D2S.C2Rg1D.GXYZA] exeMicros[993] rows[2] name[] predicates[t0.voter_id = ?  and t0.criterion_id = ? ] bind[1, 1] 
+txn[1003], 01:53:37.325, insert into voter (id, student_id, name, vote_event_id) values (?,?,?,?) 
+txn[1003], 01:53:37.327, Binding Insert [voter]  set[id=1, studentId=123456, name=Harry Potter, vote_event_id=null, ] 
+txn[1003], 01:53:37.383, Inserted [Voter] [1] 
+txn[1004], 01:53:37.433, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0 where t0.id = ?   
+txn[1004], 01:53:37.438, FindBean type[Voter] origin[Dcfnyt.Cs7ACS.DCYJyc] exeMicros[5014] rows[1] bind[1] 
+txn[1005], 01:53:37.443, select t0.id as c0, t0.student_id as c1, t0.name as c2, t0.vote_event_id as c3  from voter t0 
+txn[1005], 01:53:37.444, FindMany type[Voter] origin[BAbWxY.Cs7ACT.YeRGp] exeMicros[768] rows[1] name[] predicates[] bind[] 

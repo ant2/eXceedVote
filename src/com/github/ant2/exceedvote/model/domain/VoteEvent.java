@@ -7,20 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class VoteEvent {
+public class VoteEvent extends Model {
 
 	public interface Part {
 		VoteEvent getVoteEvent();
-	}
-
-	@Id @GeneratedValue private Integer id;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	private String name;
@@ -85,10 +75,20 @@ public class VoteEvent {
 		return criterion;
 	}
 
-	public Project createProject(String string) {
+	public Project createProject(String name) {
 		Project project = new Project(name);
 		project.setVoteEvent(this);
 		return project;
+	}
+	
+	@Id @GeneratedValue protected Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

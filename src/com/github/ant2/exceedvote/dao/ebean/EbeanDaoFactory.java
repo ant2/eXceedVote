@@ -38,6 +38,10 @@ public class EbeanDaoFactory implements DaoFactory {
 		public List<T> findAll() {
 			return Ebean.find(beanType).findList();
 		}
+		
+		public T find(int id) {
+			return Ebean.find(beanType, id);
+		}
 
 	}
 

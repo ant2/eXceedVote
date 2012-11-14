@@ -11,17 +11,7 @@ import javax.persistence.ManyToOne;
  * @author Artima Mahahemarat
  */
 @Entity
-public class Project implements VoteEvent.Part {
-
-	@Id @GeneratedValue private Integer id;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+public class Project extends Model implements VoteEvent.Part {
 
 	/** project name */
 	private String name;
@@ -98,4 +88,15 @@ public class Project implements VoteEvent.Part {
 	public void setVoteEvent(VoteEvent voteEvent) {
 		this.voteEvent = voteEvent;
 	}
+
+	@Id @GeneratedValue protected Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 }
