@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
-import com.github.ant2.exceedvote.model.VoteEvent;
-import com.github.ant2.exceedvote.model.Voter;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.ui.activity.ActivitiesController;
@@ -31,7 +31,7 @@ public class MainController {
 
 	public void run(Activity activity) {
 		view.setVisible(true);
-		view.getNameInfoBox().setText(voter.getProfile().getName());
+		view.getNameInfoBox().setText(voter.getName());
 
 		Timer timer = new Timer(1000, new RemainingTimeUpdater());
 		timer.start();
@@ -51,8 +51,9 @@ public class MainController {
 	}
 
 	private void updateRemainingTime() {
-		view.getRemainingTimeInfoBox().setText(
-				formatTime(event.getRemainingTime()));
+		int remainingTime = (int) ((event.getFinishTime().getTimeInMillis() - System
+				.currentTimeMillis()) / 1000);
+		view.getRemainingTimeInfoBox().setText(formatTime(remainingTime));
 	}
 
 	private String formatTime(int timeLeft) {
