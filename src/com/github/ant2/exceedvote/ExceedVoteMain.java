@@ -10,9 +10,14 @@ import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.VotingActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.controller.MainController;
+import com.github.ant2.exceedvote.dao.DaoFactory;
+import com.github.ant2.exceedvote.dao.ebean.EbeanDaoFactory;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
+import com.github.ant2.exceedvote.stub.StubContext;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.exceedvote.view.MainView;
@@ -36,24 +41,18 @@ public class ExceedVoteMain {
 		
 		UIUtility.setTheme();
 
-		StubDaoFactory sdf = new StubDaoFactory();
-		Context context = new Context(sdf, sdf.EVENT, sdf.V2);
+		//Context context = new StubContext();
+		
+		DaoFactory factory = new EbeanDaoFactory();
+		VoteEvent event = factory.getEventDao().findAll().get(0);
+		Voter voter = factory.getVoterDao().findAll().get(0);
+		Context context = new Context(factory, event, voter);
 
 		MainView mainView = new MainView();
 		MainController mainController = new MainController(context, mainView);
 		Activity activity;
 
 		activity = new WelcomeActivity(context, new WelcomeActivityView());
-
-		CriterionSelectionProcess process2 = context
-				.createCriterionSelectionProcess();
-		activity = new CriterionSelectionActivity(activity, process2,
-				new CriterionSelectionActivityView());
-
-		VotingProcess process = process2.createVotingProcess(process2
-				.getAllCriteria().get(0));
-		activity = new VotingActivity(activity, process,
-				new VotingActivityView());
 
 		mainController.run(activity);
 
