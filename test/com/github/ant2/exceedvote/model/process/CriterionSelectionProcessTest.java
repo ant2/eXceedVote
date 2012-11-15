@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
+import com.github.ant2.exceedvote.stub.StubDaoFactory;
 
 import static org.junit.Assert.assertTrue;
 

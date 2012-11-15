@@ -1,14 +1,17 @@
 package com.github.ant2.exceedvote.model.process;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
+import com.github.ant2.exceedvote.stub.StubContext;
+import com.github.ant2.exceedvote.stub.StubDaoFactory;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -22,7 +25,8 @@ public class VotingProcessTest {
 	@Test
 	public void test() {
 
-		StubDaoFactory sdf = new StubDaoFactory();
+		StubContext context = new StubContext();
+		StubDaoFactory sdf = context.getDaoFactory();
 		
 		Voter voter = mock(Voter.class);
 		when(voter.getAllowedBallots()).thenReturn(3);
@@ -30,13 +34,30 @@ public class VotingProcessTest {
 		VoteEvent event = sdf.EVENT;
 		Criterion criterion = sdf.C1;
 
-		VotingProcess process = new VotingProcess(sdf.CONTEXT, criterion);
-
+		{
+			// submit few ballots first...
+			BallotSubmitter submitter = new BallotSubmitter(context, criterion);
+			Map<Project, Integer> command = new HashMap<Project, Integer>();
+			command.put(sdf.P4, 3);
+			submitter.submit(command);
+		}
+		
+		VotingProcess process = new VotingProcess(context, criterion);
+		
 		List<Project> projects = process.getProjects();
 		assertTrue(projects.contains(sdf.P1));
 		assertTrue(projects.contains(sdf.P2));
 		assertTrue(projects.contains(sdf.P3));
 		assertTrue(projects.contains(sdf.P4));
+
+		assertEquals(3, process.getCount(sdf.P4));
+		assertFalse(process.canIncrease());
+		process.decrease(sdf.P4);
+		process.decrease(sdf.P4);
+		process.decrease(sdf.P4);
+		process.decrease(sdf.P4);
+		assertEquals(0, process.getCount(sdf.P4));
+		assertTrue(process.canIncrease());
 
 		assertFalse(process.canDecrease(projects.get(0)));
 		assertTrue(process.canIncrease());

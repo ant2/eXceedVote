@@ -55,6 +55,10 @@ public class MemoryDaoFactory implements DaoFactory {
 			return map.get(id);
 		}
 		
+		public void remove(T t) {
+			map.remove(t.getId());
+		}
+		
 	}
 
 	private class VoteEventPartDao<T extends Model & VoteEvent.Part> extends

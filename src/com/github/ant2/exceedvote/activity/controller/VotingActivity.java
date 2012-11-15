@@ -10,6 +10,7 @@ import com.github.ant2.exceedvote.activity.view.VotingActivityView;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.ui.activity.Activity;
+import com.github.ant2.ui.activity.Fx;
 
 public class VotingActivity extends
 		AbstractExceedVoteActivity<VotingActivityView> {
@@ -66,6 +67,13 @@ public class VotingActivity extends
 		this.process = process;
 		view.setTitle(process.getCriterion().getName());
 		view.getCancelButton().addActionListener(GO_BACK);
+		view.getSubmitButton().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				doSubmit();
+			}
+		});
 
 		for (Project project : process.getProjects()) {
 			ProjectVoteView voteView = view.addProjectVoteView();
@@ -89,4 +97,12 @@ public class VotingActivity extends
 
 	}
 
+	private void doSubmit() {
+		
+		process.submit();
+		
+		runActivity(previous, Fx.STARFIELD);
+		
+	}
+	
 }

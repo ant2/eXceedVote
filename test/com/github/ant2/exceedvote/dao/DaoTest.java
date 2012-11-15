@@ -37,17 +37,43 @@ public class DaoTest {
 			List<Project> projects = projectDao.findAllByEvent(event);
 			for (Voter voter : voters) {
 				for (Criterion criterion : criteria) {
+					
+					// add ballots
 					for (Project project : projects) {
 						populateBallotDao(event, project, criterion, voter, ballotDao);
 					}
-					assertEquals(projects.size(), ballotDao.findAllByVoterAndCriterion(voter, criterion).size());
+					
+					// count the number of projects. there must be this number of ballots.
+					int expectedSize = projects.size();
+					
+					// check the number of ballots...
+					List<Ballot> all = ballotDao.findAllByVoterAndCriterion(voter, criterion);
+					assertEquals(expectedSize, all.size());
+					
+					// now remove all ballots
+					for (Ballot ballot : all) {
+						ballotDao.remove(ballot);
+						
+						// count of ballots must decrease
+						expectedSize -= 1;
+						assertEquals(expectedSize, ballotDao.findAllByVoterAndCriterion(voter, criterion).size());
+					}
+					
+					// finally, add all ballots back.
+					for (Project project : projects) {
+						populateBallotDao(event, project, criterion, voter, ballotDao);
+					}
+
+					expectedSize = projects.size();
+					assertEquals(expectedSize, ballotDao.findAllByVoterAndCriterion(voter, criterion).size());
+					
 				}
 			}
 		}
 	}
 
 	private void populateBallotDao(VoteEvent event, Project project,
-			Criterion criterion, Voter voter, BallotDao ballotDao) {
+		Criterion criterion, Voter voter, BallotDao ballotDao) {
 		Ballot ballot = new Ballot(project, criterion, voter, 2);
 		ballotDao.save(ballot);
 	}

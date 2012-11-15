@@ -28,13 +28,26 @@ public class VotingProcess {
 	private int[] a;
 	private DaoFactory df;
 	private List<Project> projects;
+	private Context context;
 
 	public VotingProcess(Context context, Criterion criterion) {
+		
+		this.context = context;
 		event = context.getEvent();
 		voter = context.getVoter();
 		this.criterion = criterion;
 		df = context.getDaoFactory();
 		a = new int[getProjects().size()];
+		
+		Map<Project, Integer> map = new BallotRetriever(context, criterion).count();
+		for (int i = 0; i < a.length; i ++) {
+			Project project = getProjects().get(i);
+			if (map.containsKey(project)) {
+				a[i] = map.get(project);
+				count += a[i];
+			}
+		}
+		
 	}
 
 	
@@ -109,7 +122,7 @@ public class VotingProcess {
 				map.put(project, a[i]);
 			}
 		}
-		new BallotSubmitter(voter, criterion).submit(map);
+		new BallotSubmitter(context, criterion).submit(map);
 	}
 
 	public Criterion getCriterion() {
