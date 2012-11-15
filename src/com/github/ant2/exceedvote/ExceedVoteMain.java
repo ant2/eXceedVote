@@ -1,6 +1,7 @@
 package com.github.ant2.exceedvote;
 
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.github.ant2.exceedvote.activity.controller.CriterionSelectionActivity;
 import com.github.ant2.exceedvote.activity.controller.VotingActivity;
@@ -24,13 +25,16 @@ import com.github.ant2.ui.activity.Activity;
  */
 public class ExceedVoteMain {
 
+	private static Logger logger = LogManager.getLogger(ExceedVoteMain.class);
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		logger.info("eXceed Vote Starting...");
+		
 		UIUtility.setTheme();
-		PropertyConfigurator.configure(ExceedVoteMain.class
-				.getResourceAsStream("log4j.properties"));
 
 		StubDaoFactory sdf = new StubDaoFactory();
 		Context context = new Context(sdf, sdf.EVENT, sdf.V2);

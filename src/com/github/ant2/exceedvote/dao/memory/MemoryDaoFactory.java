@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.github.ant2.exceedvote.dao.BallotDao;
 import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
@@ -21,6 +24,8 @@ import com.sun.tools.jdi.LinkedHashMap;
 
 public class MemoryDaoFactory implements DaoFactory {
 	
+	private static Logger logger = LogManager.getLogger(MemoryDaoFactory.class);
+	
 	protected EventDao eventDao;
 	protected VoterDao voterDao;
 	protected CriterionDao criterionDao;
@@ -35,9 +40,12 @@ public class MemoryDaoFactory implements DaoFactory {
 
 		public void save(T t) {
 			if (t.getId() == null) {
-				t.setId(nextId++);
+				int id = nextId++;
+				logger.debug("Assigning ID = {} to object {}", id, t);
+				t.setId(id);
 			}
 			map.put(t.getId(), t);
+			logger.debug("Saved object {} to memory... Database now contains {} nodes.", t, map.size());
 		}
 
 		public List<T> findAll() {
