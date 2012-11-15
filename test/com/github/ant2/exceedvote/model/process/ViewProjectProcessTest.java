@@ -4,8 +4,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.github.ant2.exceedvote.dao.memory.StubDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.stub.StubContext;
+import com.github.ant2.exceedvote.stub.StubDaoFactory;
 
 import static org.junit.Assert.assertTrue;
 
@@ -14,9 +15,10 @@ public class ViewProjectProcessTest {
 	@Test
 	public void test() {
 
-		StubDaoFactory sdf = new StubDaoFactory();
+		StubContext context = new StubContext();
+		StubDaoFactory sdf = context.getDaoFactory();
 
-		ViewProjectProcess process = new ViewProjectProcess(sdf.CONTEXT);
+		ViewProjectProcess process = new ViewProjectProcess(context);
 
 		List<Project> projects = process.getAllAvailableProjects();
 		assertTrue(projects.contains(sdf.P1));

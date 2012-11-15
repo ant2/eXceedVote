@@ -1,5 +1,6 @@
-package com.github.ant2.exceedvote.dao.memory;
+package com.github.ant2.exceedvote.stub;
 
+import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
@@ -29,8 +30,6 @@ public class StubDaoFactory extends MemoryDaoFactory {
 	public final Project P2 = EVENT.createProject("Project 2");
 	public final Project P3 = EVENT.createProject("Project 3");
 	public final Project P4 = EVENT.createProject("Project 4");
-
-	public final Context CONTEXT = new Context(this, EVENT, V2);
 
 	public StubDaoFactory() {
 		eventDao.save(EVENT);

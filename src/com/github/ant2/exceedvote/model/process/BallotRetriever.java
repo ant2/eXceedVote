@@ -3,6 +3,8 @@ package com.github.ant2.exceedvote.model.process;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import com.github.ant2.exceedvote.dao.BallotDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
@@ -29,6 +31,14 @@ public class BallotRetriever {
 				criterion);
 		for (Ballot ballot : ballots) {
 			map.put(ballot.getProject(), ballot);
+		}
+		return map;
+	}
+
+	public Map<Project, Integer> count() {
+		HashMap<Project,Integer> map = new HashMap<Project, Integer>();
+		for (Entry<Project, Ballot> entry : retrieve().entrySet()) {
+			map.put(entry.getKey(), entry.getValue().getVotes());
 		}
 		return map;
 	}
