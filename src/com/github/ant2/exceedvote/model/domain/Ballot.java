@@ -95,16 +95,16 @@ public class Ballot extends Model {
 	}
 
 	/**
-	 * Returns the voting day.
-	 * @return votedAt the voting day.
+	 * Returns date and time of the submitted vote.
+	 * @return votedAt date and time of voting.
 	 */
 	public Calendar getVotedAt() {
 		return votedAt;
 	}
 
 	/**
-	 * Sets the date of voting.
-	 * @param votedAt the voting day.
+	 * Sets the date and time of the submitted vote.
+	 * @param votedAt date and time of voting.
 	 */
 	public void setVotedAt(Calendar votedAt) {
 		this.votedAt = votedAt;
@@ -138,16 +138,16 @@ public class Ballot extends Model {
 	@Id @GeneratedValue protected Integer id;
 
 	/**
-	 * Returns the student ID.
-	 * @return id the student ID.
+	 * Returns the Ballot entity ID.
+	 * @return id the Ballot entity ID.
 	 */
 	public Integer getId() {
 		return id;
 	}
 	
 	/**
-	 * Sets an ID.
-	 * @param id the student ID that is set.
+	 * Sets a Ballot entity ID.
+	 * @param id the Ballot entity ID that is set.
 	 */
 	public void setId(Integer id) {
 		this.id = id;
