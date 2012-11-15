@@ -42,6 +42,10 @@ public class EbeanDaoFactory implements DaoFactory {
 		public T find(int id) {
 			return Ebean.find(beanType, id);
 		}
+		
+		public void remove(T t) {
+			Ebean.delete(t);
+		}
 
 	}
 

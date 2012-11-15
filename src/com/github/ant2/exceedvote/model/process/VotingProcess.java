@@ -24,8 +24,10 @@ public class VotingProcess {
 	private int[] a;
 	private DaoFactory df;
 	private List<Project> projects;
+	private Context context;
 
 	public VotingProcess(Context context, Criterion criterion) {
+		this.context = context;
 		event = context.getEvent();
 		voter = context.getVoter();
 		this.criterion = criterion;
@@ -83,7 +85,7 @@ public class VotingProcess {
 				map.put(project, a[i]);
 			}
 		}
-		new BallotSubmitter(voter, criterion).submit(map);
+		new BallotSubmitter(context, criterion).submit(map);
 	}
 
 	public Criterion getCriterion() {
