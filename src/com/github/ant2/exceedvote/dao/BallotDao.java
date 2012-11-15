@@ -6,12 +6,41 @@ import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
+/**
+ * The BallotDao class is responsible for retrieving and saving ballot objects
+ * to persistent unit.
+ * 
+ * @author Thai Pangsakulyanont (dtinth)
+ */
 public interface BallotDao {
 
+	/**
+	 * Retrieve all ballots that the voter already voted for all project in
+	 * specific criterion.
+	 * 
+	 * @param voter
+	 *            the owner of the ballots
+	 * @param criterion
+	 *            criterion that need to retrieve the ballots
+	 * @return list of all ballots of this voter that voted for all project in
+	 *         this criterion
+	 */
 	List<Ballot> findAllByVoterAndCriterion(Voter voter, Criterion criterion);
 
+	/**
+	 * Save the ballot to persistent unit.
+	 * 
+	 * @param ballot
+	 *            the ballot needs to be saved
+	 */
 	void save(Ballot ballot);
 
+	/**
+	 * Remove the ballot from persistent unit.
+	 * 
+	 * @param ballot
+	 *            the ballot needs to be removed
+	 */
 	void remove(Ballot ballot);
 
 }
