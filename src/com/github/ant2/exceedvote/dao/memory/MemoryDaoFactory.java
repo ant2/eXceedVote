@@ -20,7 +20,6 @@ import com.github.ant2.exceedvote.model.domain.Model;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
-import com.sun.tools.jdi.LinkedHashMap;
 
 public class MemoryDaoFactory implements DaoFactory {
 	
