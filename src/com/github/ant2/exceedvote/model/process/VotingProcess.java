@@ -44,7 +44,7 @@ public class VotingProcess {
 			Project project = getProjects().get(i);
 			if (map.containsKey(project)) {
 				a[i] = map.get(project);
-				count += a[i];
+				usedBallots += a[i];
 			}
 		}
 		
