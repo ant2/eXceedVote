@@ -20,7 +20,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 import com.sun.tools.jdi.LinkedHashMap;
 
 public class MemoryDaoFactory implements DaoFactory {
-
+	
 	protected EventDao eventDao;
 	protected VoterDao voterDao;
 	protected CriterionDao criterionDao;
