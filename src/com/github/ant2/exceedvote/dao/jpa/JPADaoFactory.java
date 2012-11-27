@@ -10,10 +10,12 @@ import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
 import com.github.ant2.exceedvote.dao.ProjectDao;
+import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
 import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
@@ -26,6 +28,7 @@ public class JPADaoFactory implements DaoFactory {
 	protected BallotDao ballotDao;
 	
 	protected EntityManager em = Persistence.createEntityManagerFactory("eXceedVote").createEntityManager();
+	private JPAUserDao userDao;
 
 	private class JPADao<T> {
 
@@ -83,6 +86,13 @@ public class JPADaoFactory implements DaoFactory {
 		public JPAVoterDao() {
 			super(Voter.class, "Voter");
 		}
+
+		@Override
+		public Voter findByUser(User u) {
+			return (Voter)em.createQuery("SELECT x FROM " + className + " x WHERE x.user = :user")
+					.setParameter("user", u)
+					.getSingleResult();
+		}
 	}
 
 	private class JPACriterionDao extends VoteEventPartDao<Criterion>
@@ -115,6 +125,22 @@ public class JPADaoFactory implements DaoFactory {
 		}
 
 	}
+	
+	private class JPAUserDao extends JPADao<User> implements UserDao {
+
+		public JPAUserDao() {
+			super(User.class, "User");
+		}
+
+		@Override
+		public User findByUserName(String username) {
+			return (User)em.createQuery("SELECT x FROM " + className + " x WHERE x.username = :username")
+					.setParameter("username", username)
+					.getSingleResult();
+		}
+
+
+	}
 
 	public JPADaoFactory() {
 		eventDao = new JPAEventDao();
@@ -122,6 +148,7 @@ public class JPADaoFactory implements DaoFactory {
 		criterionDao = new JPACriterionDao();
 		projectDao = new JPAProjectDao();
 		ballotDao = new JPABallotDao();
+		userDao = new JPAUserDao();
 	}
 
 	@Override
@@ -147,6 +174,11 @@ public class JPADaoFactory implements DaoFactory {
 	@Override
 	public BallotDao getBallotDao() {
 		return ballotDao;
+	}
+
+	@Override
+	public UserDao getUserDao() {
+		return userDao;
 	}
 
 }
