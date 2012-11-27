@@ -21,27 +21,28 @@ public class BallotSubmitter {
 	}
 
 	public void submit(Map<Project, Integer> map) {
-		
+
 		DaoFactory df = context.getDaoFactory();
 		ProjectDao projectDao = df.getProjectDao();
 		BallotDao ballotDao = df.getBallotDao();
-		
+
 		Voter voter = context.getVoter();
-		
+
 		// retrieve original ballot so we can figure out what to do with them...
-		Map<Project, Ballot> originalBallots = new BallotRetriever(context, criterion).retrieve();
-		
+		Map<Project, Ballot> originalBallots = new BallotRetriever(context,
+				criterion).retrieve();
+
 		// loop through each project and figure out the operations...
 		for (Project project : projectDao.findAllByEvent(context.getEvent())) {
-			
+
 			Ballot ballot = originalBallots.get(project);
 			Integer newVotesInteger = map.get(project);
-			
+
 			int newVotes = 0;
 			if (newVotesInteger != null) {
 				newVotes = newVotesInteger;
 			}
-			
+
 			if (ballot == null && newVotes == 0) {
 				// no vote -> no vote : do nothing
 			} else if (ballot == null && newVotes > 0) {
@@ -56,7 +57,7 @@ public class BallotSubmitter {
 				// some vote -> no vote : remove ballot
 				ballotDao.remove(ballot);
 			}
-			
+
 		}
 	}
 

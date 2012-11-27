@@ -55,13 +55,15 @@ public class Criterion extends Model implements VoteEvent.Part {
 	public void setVoteEvent(VoteEvent voteEvent) {
 		this.voteEvent = voteEvent;
 	}
-	
+
 	@Id @GeneratedValue protected Integer id;
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
-	
+
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}

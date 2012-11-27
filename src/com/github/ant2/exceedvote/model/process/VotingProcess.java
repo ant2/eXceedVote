@@ -19,7 +19,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
  * @author Artima Mahahemarat
  */
 public class VotingProcess {
-	
+
 	private Logger logger = LogManager.getLogger(VotingProcess.class);
 	private VoteEvent event;
 	private Voter voter;
@@ -31,26 +31,26 @@ public class VotingProcess {
 	private Context context;
 
 	public VotingProcess(Context context, Criterion criterion) {
-		
+
 		this.context = context;
 		event = context.getEvent();
 		voter = context.getVoter();
 		this.criterion = criterion;
 		df = context.getDaoFactory();
 		a = new int[getProjects().size()];
-		
-		Map<Project, Integer> map = new BallotRetriever(context, criterion).count();
-		for (int i = 0; i < a.length; i ++) {
+
+		Map<Project, Integer> map = new BallotRetriever(context, criterion)
+				.count();
+		for (int i = 0; i < a.length; i++) {
 			Project project = getProjects().get(i);
 			if (map.containsKey(project)) {
 				a[i] = map.get(project);
 				usedBallots += a[i];
 			}
 		}
-		
+
 	}
 
-	
 	public void setDaoFactory(DaoFactory df) {
 		logger.debug("Setting new DaoFactory.");
 		this.df = df;

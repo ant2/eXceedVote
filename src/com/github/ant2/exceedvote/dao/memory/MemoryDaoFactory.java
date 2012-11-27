@@ -24,9 +24,9 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
 public class MemoryDaoFactory implements DaoFactory {
-	
+
 	private static Logger logger = LogManager.getLogger(MemoryDaoFactory.class);
-	
+
 	protected EventDao eventDao;
 	protected VoterDao voterDao;
 	protected CriterionDao criterionDao;
@@ -34,8 +34,8 @@ public class MemoryDaoFactory implements DaoFactory {
 	protected BallotDao ballotDao;
 	protected UserDao userDao;;
 
-	private int nextId = 1;	
-	
+	private int nextId = 1;
+
 	private class MemoryDao<T extends Model> {
 
 		protected Map<Integer, T> map = new HashMap<Integer, T>();
@@ -47,7 +47,9 @@ public class MemoryDaoFactory implements DaoFactory {
 				t.setId(id);
 			}
 			map.put(t.getId(), t);
-			logger.debug("Saved object {} to memory... Database now contains {} nodes.", t, map.size());
+			logger.debug(
+					"Saved object {} to memory... Database now contains {} nodes.",
+					t, map.size());
 		}
 
 		public List<T> findAll() {
@@ -57,11 +59,11 @@ public class MemoryDaoFactory implements DaoFactory {
 		public T find(int id) {
 			return map.get(id);
 		}
-		
+
 		public void remove(T t) {
 			map.remove(t.getId());
 		}
-		
+
 	}
 
 	private class VoteEventPartDao<T extends Model & VoteEvent.Part> extends
@@ -116,8 +118,8 @@ public class MemoryDaoFactory implements DaoFactory {
 			return list;
 		}
 	}
-	
-	private class MemoryUserDao extends MemoryDao<User> implements UserDao {	
+
+	private class MemoryUserDao extends MemoryDao<User> implements UserDao {
 		@Override
 		public User findByUserName(String user) {
 			for (User u : findAll()) {
@@ -125,7 +127,7 @@ public class MemoryDaoFactory implements DaoFactory {
 			}
 			return null;
 		}
-		
+
 	}
 
 	public MemoryDaoFactory() {

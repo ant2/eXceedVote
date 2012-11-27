@@ -7,34 +7,34 @@ import javax.persistence.Table;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
-//TODO javadoc
+// TODO javadoc
 
 @Entity
-@Table(name="user_credentials")
+@Table(name = "user_credentials")
 public class User extends Model {
 	public enum Role {
 		VOTER, COMMISSION
 	}
-	
+
 	private String username;
 	private String password;
 
 	public User() {
 	}
-	
+
 	public User(String username, String pass) {
 		this.username = username;
-		this.password = pass;
+		password = pass;
 	}
 
 	public boolean verifyPassword(String pass) {
-		if (pass.equals(this.password)) return true;
+		if (pass.equals(password)) return true;
 		return false;
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -48,15 +48,17 @@ public class User extends Model {
 	}
 
 	public void setPass(String pass) {
-		this.password = pass;
+		password = pass;
 	}
 
 	@Id @GeneratedValue protected Integer id;
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
-	
+
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}

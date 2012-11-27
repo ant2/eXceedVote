@@ -18,8 +18,7 @@ public class Project extends Model implements VoteEvent.Part {
 	/** project description */
 	private String description;
 
-	@ManyToOne
-	private VoteEvent voteEvent;
+	@ManyToOne private VoteEvent voteEvent;
 
 	/**
 	 * Constructs a project with name and description.
@@ -92,10 +91,12 @@ public class Project extends Model implements VoteEvent.Part {
 
 	@Id @GeneratedValue protected Integer id;
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
-	
+
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -119,6 +120,5 @@ public class Project extends Model implements VoteEvent.Part {
 		} else if (!id.equals(other.id)) return false;
 		return true;
 	}
-	
-	
+
 }

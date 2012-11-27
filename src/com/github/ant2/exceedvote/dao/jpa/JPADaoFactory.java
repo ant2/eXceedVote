@@ -26,8 +26,9 @@ public class JPADaoFactory implements DaoFactory {
 	protected CriterionDao criterionDao;
 	protected ProjectDao projectDao;
 	protected BallotDao ballotDao;
-	
-	protected EntityManager em = Persistence.createEntityManagerFactory("eXceedVote").createEntityManager();
+
+	protected EntityManager em = Persistence.createEntityManagerFactory(
+			"eXceedVote").createEntityManager();
 	private JPAUserDao userDao;
 
 	private class JPADao<T> {
@@ -49,11 +50,12 @@ public class JPADaoFactory implements DaoFactory {
 		public T find(int id) {
 			return em.find(beanType, id);
 		}
-		
+
 		public List<T> findAll() {
-			return em.createQuery("SELECT x FROM " + className + " x").getResultList();
+			return em.createQuery("SELECT x FROM " + className + " x")
+					.getResultList();
 		}
-		
+
 		public void remove(T t) {
 			em.getTransaction().begin();
 			em.remove(t);
@@ -62,16 +64,17 @@ public class JPADaoFactory implements DaoFactory {
 
 	}
 
-	private class VoteEventPartDao<T extends VoteEvent.Part> extends
-			JPADao<T> {
+	private class VoteEventPartDao<T extends VoteEvent.Part> extends JPADao<T> {
 		public VoteEventPartDao(Class<T> beanType, String className) {
 			super(beanType, className);
 		}
 
 		public List<T> findAllByEvent(VoteEvent event) {
-			return em.createQuery("SELECT x FROM " + className + " x WHERE x.voteEvent = :event")
-					.setParameter("event", event)
-					.getResultList();
+			return em
+					.createQuery(
+							"SELECT x FROM " + className
+									+ " x WHERE x.voteEvent = :event")
+					.setParameter("event", event).getResultList();
 		}
 	}
 
@@ -89,14 +92,16 @@ public class JPADaoFactory implements DaoFactory {
 
 		@Override
 		public Voter findByUser(User u) {
-			return (Voter)em.createQuery("SELECT x FROM " + className + " x WHERE x.user = :user")
-					.setParameter("user", u)
-					.getSingleResult();
+			return (Voter) em
+					.createQuery(
+							"SELECT x FROM " + className
+									+ " x WHERE x.user = :user")
+					.setParameter("user", u).getSingleResult();
 		}
 	}
 
-	private class JPACriterionDao extends VoteEventPartDao<Criterion>
-			implements CriterionDao {
+	private class JPACriterionDao extends VoteEventPartDao<Criterion> implements
+			CriterionDao {
 		public JPACriterionDao() {
 			super(Criterion.class, "Criterion");
 		}
@@ -118,14 +123,17 @@ public class JPADaoFactory implements DaoFactory {
 		@Override
 		public List<Ballot> findAllByVoterAndCriterion(Voter voter,
 				Criterion criterion) {
-			return em.createQuery("SELECT x FROM " + className + " x WHERE x.voter = :voter AND x.criterion = :criterion")
+			return em
+					.createQuery(
+							"SELECT x FROM "
+									+ className
+									+ " x WHERE x.voter = :voter AND x.criterion = :criterion")
 					.setParameter("voter", voter)
-					.setParameter("criterion", criterion)
-					.getResultList();
+					.setParameter("criterion", criterion).getResultList();
 		}
 
 	}
-	
+
 	private class JPAUserDao extends JPADao<User> implements UserDao {
 
 		public JPAUserDao() {
@@ -134,11 +142,12 @@ public class JPADaoFactory implements DaoFactory {
 
 		@Override
 		public User findByUserName(String username) {
-			return (User)em.createQuery("SELECT x FROM " + className + " x WHERE x.username = :username")
-					.setParameter("username", username)
-					.getSingleResult();
+			return (User) em
+					.createQuery(
+							"SELECT x FROM " + className
+									+ " x WHERE x.username = :username")
+					.setParameter("username", username).getSingleResult();
 		}
-
 
 	}
 

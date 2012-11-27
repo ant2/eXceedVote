@@ -9,10 +9,10 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
-//TODO javadoc
+// TODO javadoc
 public class LoginProcess {
 	private DaoFactory sd;
 	private UserDao userDao;

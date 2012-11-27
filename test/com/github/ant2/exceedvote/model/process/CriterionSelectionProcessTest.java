@@ -15,10 +15,10 @@ public class CriterionSelectionProcessTest {
 	public void test() {
 
 		StubDaoFactory sdf = new StubDaoFactory();
-		
+
 		CriterionSelectionProcess process = new CriterionSelectionProcess(
 				new Context(sdf, sdf.EVENT, null));
-		
+
 		List<Criterion> criteria = process.getAllCriteria();
 
 		assertTrue(criteria.contains(sdf.C1));

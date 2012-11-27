@@ -7,9 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import org.eclipse.persistence.annotations.CascadeOnDelete;
-
-
 /**
  * The Voter that represents a person that can vote.
  * 
@@ -20,8 +17,8 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	private String studentId;
 	private String name;
-	
-	@OneToOne(cascade=CascadeType.ALL) private User user;
+
+	@OneToOne(cascade = CascadeType.ALL) private User user;
 
 	@ManyToOne private VoteEvent voteEvent;
 
@@ -31,6 +28,7 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Returns the voter's student ID.
+	 * 
 	 * @return studentID the voter's student ID.
 	 */
 	public String getStudentId() {
@@ -39,7 +37,9 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Sets the voter's student ID.
-	 * @param studentId the voter's student ID that is going to be set.
+	 * 
+	 * @param studentId
+	 *            the voter's student ID that is going to be set.
 	 */
 	public void setStudentId(String studentId) {
 		this.studentId = studentId;
@@ -47,6 +47,7 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Returns the voter's name
+	 * 
 	 * @return name the voter's name.
 	 */
 	public String getName() {
@@ -55,7 +56,9 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Set the name to this Voter.
-	 * @param name the name that is going to be set.
+	 * 
+	 * @param name
+	 *            the name that is going to be set.
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -63,6 +66,7 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Returns the VoteEvent for this voter.
+	 * 
 	 * @return voteEvent the VoteEvent for this voter.
 	 */
 	@Override
@@ -72,7 +76,9 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Sets the VoteEvent for this voter.
-	 * @param voteEvent the VoteEvent that is going to be set.
+	 * 
+	 * @param voteEvent
+	 *            the VoteEvent that is going to be set.
 	 */
 	public void setVoteEvent(VoteEvent voteEvent) {
 		this.voteEvent = voteEvent;
@@ -80,6 +86,7 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Returns the number of allowed ballots.
+	 * 
 	 * @return 3 the number of allowed ballots.
 	 */
 	public int getAllowedBallots() {
@@ -90,16 +97,21 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	/**
 	 * Returns the voter entity ID.
+	 * 
 	 * @return id the voter entity ID.
 	 */
+	@Override
 	public Integer getId() {
 		return id;
 	}
-	
+
 	/**
 	 * Sets the entity ID for this voter.
-	 * @param id the voter entity ID that is going to be set.
+	 * 
+	 * @param id
+	 *            the voter entity ID that is going to be set.
 	 */
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -118,6 +130,6 @@ public class Voter extends Model implements VoteEvent.Part {
 	}
 
 	public User getUser() {
-		return this.user;
+		return user;
 	}
 }

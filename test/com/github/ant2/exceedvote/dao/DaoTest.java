@@ -18,19 +18,19 @@ public class DaoTest {
 	public void testDaoFactory(DaoFactory factory) {
 		EventDao eventDao = factory.getEventDao();
 		VoteEvent event = testEventDao(eventDao);
-		
+
 		VoterDao voterDao = factory.getVoterDao();
 		populateVoterDao(event, voterDao);
 		populateVoterDao(event, voterDao);
 		populateVoterDao(event, voterDao);
 		assertEquals(3, voterDao.findAllByEvent(event).size());
-		
+
 		CriterionDao criterionDao = factory.getCriterionDao();
 		testCriterionDao(event, criterionDao);
-		
+
 		ProjectDao projectDao = factory.getProjectDao();
 		testProjectDao(event, projectDao);
-		
+
 		BallotDao ballotDao = factory.getBallotDao();
 		{
 			List<Voter> voters = voterDao.findAllByEvent(event);
@@ -38,59 +38,67 @@ public class DaoTest {
 			List<Project> projects = projectDao.findAllByEvent(event);
 			for (Voter voter : voters) {
 				for (Criterion criterion : criteria) {
-					
+
 					// add ballots
 					for (Project project : projects) {
-						populateBallotDao(event, project, criterion, voter, ballotDao);
+						populateBallotDao(event, project, criterion, voter,
+								ballotDao);
 					}
-					
-					// count the number of projects. there must be this number of ballots.
+
+					// count the number of projects. there must be this number
+					// of ballots.
 					int expectedSize = projects.size();
-					
+
 					// check the number of ballots...
-					List<Ballot> all = ballotDao.findAllByVoterAndCriterion(voter, criterion);
+					List<Ballot> all = ballotDao.findAllByVoterAndCriterion(
+							voter, criterion);
 					assertEquals(expectedSize, all.size());
-					
+
 					// now remove all ballots
 					for (Ballot ballot : all) {
 						ballotDao.remove(ballot);
-						
+
 						// count of ballots must decrease
 						expectedSize -= 1;
-						assertEquals(expectedSize, ballotDao.findAllByVoterAndCriterion(voter, criterion).size());
+						assertEquals(expectedSize, ballotDao
+								.findAllByVoterAndCriterion(voter, criterion)
+								.size());
 					}
-					
+
 					// finally, add all ballots back.
 					for (Project project : projects) {
-						populateBallotDao(event, project, criterion, voter, ballotDao);
+						populateBallotDao(event, project, criterion, voter,
+								ballotDao);
 					}
 
 					expectedSize = projects.size();
-					assertEquals(expectedSize, ballotDao.findAllByVoterAndCriterion(voter, criterion).size());
-					
+					assertEquals(expectedSize, ballotDao
+							.findAllByVoterAndCriterion(voter, criterion)
+							.size());
+
 				}
 			}
 		}
-		
+
 		UserDao userDao = factory.getUserDao();
-		
+
 		Voter v = new Voter();
 		v.setName("Ki");
 		v.setStudentId("1234");
 		User u = new User("UsernameTestKi", "KiPassword");
 		v.setUser(u);
 		v.setVoteEvent(event);
-		
+
 		voterDao.save(v);
 		userDao.save(u);
-		
+
 		assertEquals(v, voterDao.findByUser(u));
 		assertEquals(u, userDao.findByUserName("UsernameTestKi"));
-		
+
 	}
 
 	private void populateBallotDao(VoteEvent event, Project project,
-		Criterion criterion, Voter voter, BallotDao ballotDao) {
+			Criterion criterion, Voter voter, BallotDao ballotDao) {
 		Ballot ballot = new Ballot(project, criterion, voter, 2);
 		ballotDao.save(ballot);
 	}
@@ -119,22 +127,22 @@ public class DaoTest {
 	}
 
 	private VoteEvent testEventDao(EventDao eventDao) {
-		
+
 		List<VoteEvent> events = eventDao.findAll();
-		
+
 		VoteEvent event = new VoteEvent();
 		event.setName("Test eXceed Vote");
 		event.setStartTime(CalendarUtil.createCalendar(0));
 		event.setFinishTime(CalendarUtil.createCalendar(300));
 		event.setAnnouncementTime(CalendarUtil.createCalendar(400));
-		
+
 		eventDao.save(event);
-		
+
 		events = eventDao.findAll();
 		assertFalse(events.isEmpty());
-		
+
 		return event;
-		
+
 	}
 
 }

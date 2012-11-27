@@ -17,8 +17,7 @@ import javax.persistence.TemporalType;
 @Entity
 public class Ballot extends Model {
 
-	@Temporal(value=TemporalType.TIMESTAMP)
-	private Calendar votedAt;
+	@Temporal(value = TemporalType.TIMESTAMP) private Calendar votedAt;
 
 	@ManyToOne private Voter voter;
 
@@ -36,10 +35,15 @@ public class Ballot extends Model {
 
 	/**
 	 * Constructs a ballot.
-	 * @param project a project of this Ballot.
-	 * @param criterion a criterion of this Ballot.
-	 * @param voter an owner of this Ballot.
-	 * @param votes the number of votes.
+	 * 
+	 * @param project
+	 *            a project of this Ballot.
+	 * @param criterion
+	 *            a criterion of this Ballot.
+	 * @param voter
+	 *            an owner of this Ballot.
+	 * @param votes
+	 *            the number of votes.
 	 */
 	public Ballot(Project project, Criterion criterion, Voter voter, int votes) {
 		this();
@@ -51,6 +55,7 @@ public class Ballot extends Model {
 
 	/**
 	 * Returns the Voter that owns this Ballot.
+	 * 
 	 * @return voter the owner of this Ballot
 	 */
 	public Voter getVoter() {
@@ -59,7 +64,9 @@ public class Ballot extends Model {
 
 	/**
 	 * Sets a voter to Ballot.
-	 * @param voter the owner of this Ballot.
+	 * 
+	 * @param voter
+	 *            the owner of this Ballot.
 	 */
 	public void setVoter(Voter voter) {
 		this.voter = voter;
@@ -67,6 +74,7 @@ public class Ballot extends Model {
 
 	/**
 	 * Returns the criterion of this Ballot.
+	 * 
 	 * @return criterion the criterion of this Ballot.
 	 */
 	public Criterion getCriterion() {
@@ -75,7 +83,9 @@ public class Ballot extends Model {
 
 	/**
 	 * Sets a criterion to Ballot.
-	 * @param criterion the criterion of this Ballot.
+	 * 
+	 * @param criterion
+	 *            the criterion of this Ballot.
 	 */
 	public void setCriterion(Criterion criterion) {
 		this.criterion = criterion;
@@ -83,6 +93,7 @@ public class Ballot extends Model {
 
 	/**
 	 * Returns a project that Ballot voted for.
+	 * 
 	 * @return project the project that has been voted.
 	 */
 	public Project getProject() {
@@ -91,7 +102,9 @@ public class Ballot extends Model {
 
 	/**
 	 * Sets a project to Ballot.
-	 * @param project the project of this Ballot.
+	 * 
+	 * @param project
+	 *            the project of this Ballot.
 	 */
 	public void setProject(Project project) {
 		this.project = project;
@@ -99,6 +112,7 @@ public class Ballot extends Model {
 
 	/**
 	 * Returns date and time of the submitted vote.
+	 * 
 	 * @return votedAt date and time of voting.
 	 */
 	public Calendar getVotedAt() {
@@ -107,7 +121,9 @@ public class Ballot extends Model {
 
 	/**
 	 * Sets the date and time of the submitted vote.
-	 * @param votedAt date and time of voting.
+	 * 
+	 * @param votedAt
+	 *            date and time of voting.
 	 */
 	public void setVotedAt(Calendar votedAt) {
 		this.votedAt = votedAt;
@@ -124,6 +140,7 @@ public class Ballot extends Model {
 
 	/**
 	 * Returns the number of votes.
+	 * 
 	 * @return votes the number of votes.
 	 */
 	public int getVotes() {
@@ -132,26 +149,33 @@ public class Ballot extends Model {
 
 	/**
 	 * Sets a number of votes.
-	 * @param votes the number of votes.
+	 * 
+	 * @param votes
+	 *            the number of votes.
 	 */
 	public void setVotes(int votes) {
 		this.votes = votes;
 	}
-	
+
 	@Id @GeneratedValue protected Integer id;
 
 	/**
 	 * Returns the Ballot entity ID.
+	 * 
 	 * @return id the Ballot entity ID.
 	 */
+	@Override
 	public Integer getId() {
 		return id;
 	}
-	
+
 	/**
 	 * Sets a Ballot entity ID.
-	 * @param id the Ballot entity ID that is set.
+	 * 
+	 * @param id
+	 *            the Ballot entity ID that is set.
 	 */
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}

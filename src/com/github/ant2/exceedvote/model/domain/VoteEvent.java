@@ -17,14 +17,11 @@ public class VoteEvent extends Model {
 
 	private String name;
 
-	@Temporal(value=TemporalType.TIMESTAMP)
-	private Calendar startTime;
+	@Temporal(value = TemporalType.TIMESTAMP) private Calendar startTime;
 
-	@Temporal(value=TemporalType.TIMESTAMP)
-	private Calendar finishTime;
+	@Temporal(value = TemporalType.TIMESTAMP) private Calendar finishTime;
 
-	@Temporal(value=TemporalType.TIMESTAMP)
-	private Calendar announcementTime;
+	@Temporal(value = TemporalType.TIMESTAMP) private Calendar announcementTime;
 
 	public String getName() {
 		return name;
@@ -88,13 +85,15 @@ public class VoteEvent extends Model {
 		project.setVoteEvent(this);
 		return project;
 	}
-	
+
 	@Id @GeneratedValue protected Integer id;
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
-	
+
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}

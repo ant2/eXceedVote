@@ -27,7 +27,7 @@ public class VotingProcessTest {
 
 		StubContext context = new StubContext();
 		StubDaoFactory sdf = context.getDaoFactory();
-		
+
 		Voter voter = mock(Voter.class);
 		when(voter.getAllowedBallots()).thenReturn(3);
 
@@ -41,9 +41,9 @@ public class VotingProcessTest {
 			command.put(sdf.P4, 3);
 			submitter.submit(command);
 		}
-		
+
 		VotingProcess process = new VotingProcess(context, criterion);
-		
+
 		List<Project> projects = process.getProjects();
 		assertTrue(projects.contains(sdf.P1));
 		assertTrue(projects.contains(sdf.P2));

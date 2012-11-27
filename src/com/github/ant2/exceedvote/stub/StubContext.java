@@ -5,7 +5,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.Context;
 
 public class StubContext extends Context {
-	
+
 	private StubDaoFactory sdf;
 
 	public final Voter SELF;
@@ -18,12 +18,12 @@ public class StubContext extends Context {
 		SELF = sdf.V1;
 		OTHER = sdf.V2;
 	}
-	
+
 	@Override
 	public StubDaoFactory getDaoFactory() {
 		return sdf;
 	}
-	
+
 	@Override
 	public void setDaoFactory(DaoFactory daoFactory) {
 		throw new UnsupportedOperationException();

@@ -68,7 +68,7 @@ public class VotingActivity extends
 		view.setTitle(process.getCriterion().getName());
 		view.getCancelButton().addActionListener(GO_BACK);
 		view.getSubmitButton().addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				doSubmit();
@@ -98,11 +98,11 @@ public class VotingActivity extends
 	}
 
 	private void doSubmit() {
-		
+
 		process.submit();
-		
+
 		runActivity(previous, Fx.STARFIELD);
-		
+
 	}
-	
+
 }

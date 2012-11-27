@@ -26,7 +26,6 @@ public class ViewProjectProcessTest {
 		assertTrue(projects.contains(sdf.P3));
 		assertTrue(projects.contains(sdf.P4));
 
-
 	}
 
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.impl.Log4jContextFactory;
 
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
@@ -12,8 +11,9 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
 public class CriterionSelectionProcess {
 
-	private Logger logger = LogManager.getLogger(CriterionSelectionProcess.class);
-	
+	private Logger logger = LogManager
+			.getLogger(CriterionSelectionProcess.class);
+
 	private VoteEvent event;
 	private Context context;
 

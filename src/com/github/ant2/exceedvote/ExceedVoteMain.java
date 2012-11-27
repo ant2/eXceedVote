@@ -26,14 +26,14 @@ import com.github.ant2.ui.activity.Activity;
 public class ExceedVoteMain {
 
 	private static Logger logger = LogManager.getLogger(ExceedVoteMain.class);
-	
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
+
 		logger.info("eXceed Vote Starting...");
-		
+
 		UIUtility.setTheme();
 
 		StubDaoFactory sdf = new StubDaoFactory();
