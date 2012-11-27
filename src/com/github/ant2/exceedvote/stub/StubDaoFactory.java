@@ -1,12 +1,10 @@
 package com.github.ant2.exceedvote.stub;
 
-import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
-import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.util.CalendarUtil;
 
 public class StubDaoFactory extends MemoryDaoFactory {

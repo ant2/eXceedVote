@@ -8,6 +8,7 @@ import javax.persistence.Id;
  *
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
+//TODO javadoc
 public class User extends Model {
 	public enum Role {
 		VOTER, COMMISSION
