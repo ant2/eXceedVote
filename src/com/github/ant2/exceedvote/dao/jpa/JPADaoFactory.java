@@ -11,7 +11,11 @@ import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
 import com.github.ant2.exceedvote.dao.ProjectDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
+import com.github.ant2.exceedvote.model.domain.Ballot;
+import com.github.ant2.exceedvote.model.domain.Criterion;
+import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 
 public class JPADaoFactory implements DaoFactory {
 
@@ -23,12 +27,12 @@ public class JPADaoFactory implements DaoFactory {
 	
 	protected EntityManager em = Persistence.createEntityManagerFactory("eXceedVote").createEntityManager();
 
-	private class EbeanDao<T> {
+	private class JPADao<T> {
 
 		protected Class<T> beanType;
 		protected String className;
 
-		public EbeanDao(Class<T> beanType, String className) {
+		public JPADao(Class<T> beanType, String className) {
 			this.beanType = beanType;
 			this.className = className;
 		}
@@ -56,66 +60,68 @@ public class JPADaoFactory implements DaoFactory {
 	}
 
 	private class VoteEventPartDao<T extends VoteEvent.Part> extends
-			EbeanDao<T> {
+			JPADao<T> {
 		public VoteEventPartDao(Class<T> beanType, String className) {
 			super(beanType, className);
 		}
 
 		public List<T> findAllByEvent(VoteEvent event) {
-			return em.createQuery("SELECT x FROM " + className + " x WHERE x.event = :event")
+			return em.createQuery("SELECT x FROM " + className + " x WHERE x.voteEvent = :event")
 					.setParameter("event", event)
 					.getResultList();
 		}
 	}
 
-	private class EbeanEventDao extends EbeanDao<VoteEvent> implements EventDao {
-		public EbeanEventDao() {
-			super(VoteEvent.class);
+	private class JPAEventDao extends JPADao<VoteEvent> implements EventDao {
+		public JPAEventDao() {
+			super(VoteEvent.class, "VoteEvent");
 		}
 	}
 
-	private class EbeanVoterDao extends VoteEventPartDao<Voter> implements
+	private class JPAVoterDao extends VoteEventPartDao<Voter> implements
 			VoterDao {
-		public EbeanVoterDao() {
-			super(Voter.class);
+		public JPAVoterDao() {
+			super(Voter.class, "Voter");
 		}
 	}
 
-	private class EbeanCriterionDao extends VoteEventPartDao<Criterion>
+	private class JPACriterionDao extends VoteEventPartDao<Criterion>
 			implements CriterionDao {
-		public EbeanCriterionDao() {
-			super(Criterion.class);
+		public JPACriterionDao() {
+			super(Criterion.class, "Criterion");
 		}
 	}
 
-	private class EbeanProjectDao extends VoteEventPartDao<Project> implements
+	private class JPAProjectDao extends VoteEventPartDao<Project> implements
 			ProjectDao {
-		public EbeanProjectDao() {
-			super(Project.class);
+		public JPAProjectDao() {
+			super(Project.class, "Project");
 		}
 	}
 
-	private class EbeanBallotDao extends EbeanDao<Ballot> implements BallotDao {
+	private class JPABallotDao extends JPADao<Ballot> implements BallotDao {
 
-		public EbeanBallotDao() {
-			super(Ballot.class);
+		public JPABallotDao() {
+			super(Ballot.class, "Ballot");
 		}
 
 		@Override
 		public List<Ballot> findAllByVoterAndCriterion(Voter voter,
 				Criterion criterion) {
-			return Ebean.find(Ballot.class).where().eq("voter", voter)
-					.eq("criterion", criterion).findList();
+			return em.createQuery("SELECT x FROM " + className + " x WHERE x.voter = :voter AND x.criterion = :criterion")
+					.setParameter("voter", voter)
+					.setParameter("criterion", criterion)
+					.getResultList();
 		}
 
 	}
 
-	public EbeanDaoFactory() {
-		eventDao = new EbeanEventDao();
-		voterDao = new EbeanVoterDao();
-		criterionDao = new EbeanCriterionDao();
-		projectDao = new EbeanProjectDao();
-		ballotDao = new EbeanBallotDao();
+	public JPADaoFactory() {
+		eventDao = new JPAEventDao();
+		voterDao = new JPAVoterDao();
+		criterionDao = new JPACriterionDao();
+		projectDao = new JPAProjectDao();
+		ballotDao = new JPABallotDao();
 	}
 
 	@Override
