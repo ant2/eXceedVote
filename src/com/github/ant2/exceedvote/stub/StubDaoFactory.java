@@ -1,5 +1,6 @@
 package com.github.ant2.exceedvote.stub;
 
+import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
@@ -43,5 +44,4 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		projectDao.save(P3);
 		projectDao.save(P4);
 	}
-
 }

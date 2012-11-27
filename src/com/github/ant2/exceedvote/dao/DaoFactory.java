@@ -42,4 +42,11 @@ public interface DaoFactory {
 	 */
 	BallotDao getBallotDao();
 
+	/**
+	 * Return the UserDao object
+	 * 
+	 * @return BallotDao object
+	 */
+	UserDao getUserDao();
+
 }

@@ -2,7 +2,11 @@ package com.github.ant2.exceedvote.model.process;
 
 import org.junit.Test;
 
+import com.github.ant2.exceedvote.dao.DaoFactory;
+import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
+import com.github.ant2.exceedvote.model.LoginResult;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.stub.StubContext;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
@@ -14,9 +18,10 @@ public class LoginProcessTest {
 	@Test
 	public void test() {
 		
-		StubDaoFactory sdf = context.getDaoFactory();
-		UserDao dao = sdf.getUserDao();
-		VoterDao voterDao = sdf.getVoterDao();
+		StubDaoFactory sdf = new StubDaoFactory();
+		DaoFactory df = sdf;
+		UserDao dao = df.getUserDao();
+		VoterDao voterDao = df.getVoterDao();
 		
 		User user = new User("maariisan", "kikikikiki");
 		Voter voter = sdf.V2;
