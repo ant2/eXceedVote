@@ -1,7 +1,9 @@
 package com.github.ant2.exceedvote.model.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 
@@ -9,21 +11,27 @@ import javax.persistence.Id;
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 //TODO javadoc
+
+@Entity
+@Table(name="user_credentials")
 public class User extends Model {
 	public enum Role {
 		VOTER, COMMISSION
 	}
 	
 	private String username;
-	private String pass;
+	private String password;
 
+	public User() {
+	}
+	
 	public User(String username, String pass) {
 		this.username = username;
-		this.pass = pass;
+		this.password = pass;
 	}
 
 	public boolean verifyPassword(String pass) {
-		if (pass.equals(this.pass)) return true;
+		if (pass.equals(this.password)) return true;
 		return false;
 	}
 	
@@ -36,11 +44,11 @@ public class User extends Model {
 	}
 
 	public String getPass() {
-		return pass;
+		return password;
 	}
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.password = pass;
 	}
 
 	@Id @GeneratedValue protected Integer id;

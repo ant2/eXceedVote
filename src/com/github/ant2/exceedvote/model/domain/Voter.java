@@ -1,9 +1,13 @@
 package com.github.ant2.exceedvote.model.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 
 /**
@@ -16,7 +20,8 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	private String studentId;
 	private String name;
-	private User user;
+	
+	@OneToOne(cascade=CascadeType.ALL) private User user;
 
 	@ManyToOne private VoteEvent voteEvent;
 

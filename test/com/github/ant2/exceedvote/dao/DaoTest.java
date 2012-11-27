@@ -5,6 +5,7 @@ import java.util.List;
 import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.util.CalendarUtil;
@@ -70,6 +71,22 @@ public class DaoTest {
 				}
 			}
 		}
+		
+		UserDao userDao = factory.getUserDao();
+		
+		Voter v = new Voter();
+		v.setName("Ki");
+		v.setStudentId("1234");
+		User u = new User("UsernameTestKi", "KiPassword");
+		v.setUser(u);
+		v.setVoteEvent(event);
+		
+		voterDao.save(v);
+		userDao.save(u);
+		
+		assertEquals(v, voterDao.findByUser(u));
+		assertEquals(u, userDao.findByUserName("UsernameTestKi"));
+		
 	}
 
 	private void populateBallotDao(VoteEvent event, Project project,

@@ -6,7 +6,8 @@
 		<class>com.github.ant2.exceedvote.model.domain.Project</class>
 		<class>com.github.ant2.exceedvote.model.domain.VoteEvent</class>
 		<class>com.github.ant2.exceedvote.model.domain.Voter</class>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<class>com.github.ant2.exceedvote.model.domain.User</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/exceedvote"></property>
 			<property name="javax.persistence.jdbc.user" value="exceed"></property>
