@@ -14,7 +14,7 @@ public class ConsoleDaoTest {
 	}
 
 	public static void main(String[] args) {
-		ConsoleDaoTest test = new ConsoleDaoTest(new EbeanDaoFactory());
+		ConsoleDaoTest test = new ConsoleDaoTest(new JPADaoFactory());
 		test.testVoterDao();
 	}
 
