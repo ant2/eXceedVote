@@ -23,5 +23,6 @@
 			<attribute name="javadoc_location" value="jar:platform:/resource/eXceedVote/lib/log4j-core-2.0-beta3-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="forms-1.3.0.jar" sourcepath="forms-1.3.0-src.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
