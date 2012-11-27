@@ -5,7 +5,6 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
-import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.util.CalendarUtil;
 
 public class StubDaoFactory extends MemoryDaoFactory {
@@ -43,5 +42,4 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		projectDao.save(P3);
 		projectDao.save(P4);
 	}
-
 }

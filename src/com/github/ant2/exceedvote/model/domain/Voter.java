@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+
 /**
  * The Voter that represents a person that can vote.
  * 
@@ -15,6 +16,7 @@ public class Voter extends Model implements VoteEvent.Part {
 
 	private String studentId;
 	private String name;
+	private User user;
 
 	@ManyToOne private VoteEvent voteEvent;
 
@@ -105,5 +107,12 @@ public class Voter extends Model implements VoteEvent.Part {
 		return "Voter [studentId=" + studentId + ", name=" + name + ", id="
 				+ id + "]";
 	}
-	
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
 }
