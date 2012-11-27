@@ -13,11 +13,13 @@ import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
 import com.github.ant2.exceedvote.dao.ProjectDao;
+import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
 import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Model;
 import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
@@ -30,8 +32,9 @@ public class MemoryDaoFactory implements DaoFactory {
 	protected CriterionDao criterionDao;
 	protected ProjectDao projectDao;
 	protected BallotDao ballotDao;
+	protected UserDao userDao;;
 
-	private int nextId = 1;
+	private int nextId = 1;	
 	
 	private class MemoryDao<T extends Model> {
 
@@ -80,6 +83,13 @@ public class MemoryDaoFactory implements DaoFactory {
 
 	private class MemoryVoterDao extends VoteEventPartDao<Voter> implements
 			VoterDao {
+		@Override
+		public Voter findByUser(User u) {
+			for (Voter v : findAll()) {
+				if (v.getUser() == u) return v;
+			}
+			return null;
+		}
 	}
 
 	private class MemoryCriterionDao extends VoteEventPartDao<Criterion>
@@ -105,7 +115,17 @@ public class MemoryDaoFactory implements DaoFactory {
 			}
 			return list;
 		}
-
+	}
+	
+	private class MemoryUserDao extends MemoryDao<User> implements UserDao {	
+		@Override
+		public User findByUserName(String user) {
+			for (User u : findAll()) {
+				if (u.getUsername().equals(user)) return u;
+			}
+			return null;
+		}
+		
 	}
 
 	public MemoryDaoFactory() {
@@ -114,6 +134,7 @@ public class MemoryDaoFactory implements DaoFactory {
 		criterionDao = new MemoryCriterionDao();
 		projectDao = new MemoryProjectDao();
 		ballotDao = new MemoryBallotDao();
+		userDao = new MemoryUserDao();
 	}
 
 	@Override
@@ -139,6 +160,11 @@ public class MemoryDaoFactory implements DaoFactory {
 	@Override
 	public BallotDao getBallotDao() {
 		return ballotDao;
+	}
+
+	@Override
+	public UserDao getUserDao() {
+		return userDao;
 	}
 
 }
