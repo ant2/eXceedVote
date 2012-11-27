@@ -5,6 +5,8 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class VoteEvent extends Model {
@@ -14,8 +16,14 @@ public class VoteEvent extends Model {
 	}
 
 	private String name;
+
+	@Temporal(value=TemporalType.TIMESTAMP)
 	private Calendar startTime;
+
+	@Temporal(value=TemporalType.TIMESTAMP)
 	private Calendar finishTime;
+
+	@Temporal(value=TemporalType.TIMESTAMP)
 	private Calendar announcementTime;
 
 	public String getName() {
