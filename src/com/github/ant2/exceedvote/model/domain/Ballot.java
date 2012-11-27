@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * The Ballot vote for the specific project on a specific criterion.
@@ -15,6 +17,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Ballot extends Model {
 
+	@Temporal(value=TemporalType.TIMESTAMP)
 	private Calendar votedAt;
 
 	@ManyToOne private Voter voter;

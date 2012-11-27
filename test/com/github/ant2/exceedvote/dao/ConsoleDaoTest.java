@@ -2,7 +2,7 @@ package com.github.ant2.exceedvote.dao;
 
 import java.util.List;
 
-import com.github.ant2.exceedvote.dao.ebean.EbeanDaoFactory;
+import com.github.ant2.exceedvote.dao.jpa.JPADaoFactory;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
 public class ConsoleDaoTest {
@@ -14,7 +14,7 @@ public class ConsoleDaoTest {
 	}
 
 	public static void main(String[] args) {
-		ConsoleDaoTest test = new ConsoleDaoTest(new EbeanDaoFactory());
+		ConsoleDaoTest test = new ConsoleDaoTest(new JPADaoFactory());
 		test.testVoterDao();
 	}
 

@@ -18,7 +18,8 @@ public class Project extends Model implements VoteEvent.Part {
 	/** project description */
 	private String description;
 
-	@ManyToOne private VoteEvent voteEvent;
+	@ManyToOne
+	private VoteEvent voteEvent;
 
 	/**
 	 * Constructs a project with name and description.
