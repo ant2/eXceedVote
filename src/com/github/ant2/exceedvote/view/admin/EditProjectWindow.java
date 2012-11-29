@@ -24,6 +24,7 @@ import javax.swing.JButton;
 public class EditProjectWindow extends JFrame {
 
 	private JPanel contentPane;
+	private JLabel lblProjectName;
 	private JTextField txtProjectName;
 	private JPanel panel;
 	private JButton btnDelete;
@@ -54,7 +55,7 @@ public class EditProjectWindow extends JFrame {
 		setForeground(Color.WHITE);
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 400, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -66,8 +67,6 @@ public class EditProjectWindow extends JFrame {
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -94,9 +93,9 @@ public class EditProjectWindow extends JFrame {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
-		JLabel lblProjectName = new JLabel("Project Name : ");
-		lblProjectName.setBackground(Color.WHITE);
+		lblProjectName = new JLabel("Project Name : ");
 		lblProjectName.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblProjectName.setBackground(Color.WHITE);
 		contentPane.add(lblProjectName, "6, 8, right, default");
 		
 		txtProjectName = new JTextField();
@@ -110,11 +109,9 @@ public class EditProjectWindow extends JFrame {
 		contentPane.add(panel, "6, 14, 3, 1, fill, fill");
 		
 		btnDelete = new JButton("Delete");
-		btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(btnDelete);
 		
 		btnSave = new JButton("Save");
-		btnSave.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(btnSave);
 	}
 
