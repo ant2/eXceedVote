@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.github.ant2.exceedvote.dao.BallotDao;
+import com.github.ant2.exceedvote.dao.CommissionerDao;
 import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
@@ -16,6 +17,7 @@ import com.github.ant2.exceedvote.dao.ProjectDao;
 import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
 import com.github.ant2.exceedvote.model.domain.Ballot;
+import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Model;
 import com.github.ant2.exceedvote.model.domain.Project;
@@ -32,7 +34,8 @@ public class MemoryDaoFactory implements DaoFactory {
 	protected CriterionDao criterionDao;
 	protected ProjectDao projectDao;
 	protected BallotDao ballotDao;
-	protected UserDao userDao;;
+	protected UserDao userDao;
+	private CommissionerDao commissionDao;
 
 	private int nextId = 1;
 
@@ -129,6 +132,16 @@ public class MemoryDaoFactory implements DaoFactory {
 		}
 
 	}
+	
+	private class MemoryCommissionerDao extends MemoryDao<Commissioner> implements CommissionerDao {
+		@Override
+		public Commissioner findByUser(User user) {
+			for (Commissioner c : findAll()) {
+				if (c.getUser() == user) return c;
+			}
+			return null;
+		}
+	}
 
 	public MemoryDaoFactory() {
 		eventDao = new MemoryEventDao();
@@ -137,6 +150,7 @@ public class MemoryDaoFactory implements DaoFactory {
 		projectDao = new MemoryProjectDao();
 		ballotDao = new MemoryBallotDao();
 		userDao = new MemoryUserDao();
+		commissionDao = new MemoryCommissionerDao();
 	}
 
 	@Override
@@ -167,6 +181,11 @@ public class MemoryDaoFactory implements DaoFactory {
 	@Override
 	public UserDao getUserDao() {
 		return userDao;
+	}
+
+	@Override
+	public CommissionerDao getCommissionerDao() {
+		return commissionDao;
 	}
 
 }

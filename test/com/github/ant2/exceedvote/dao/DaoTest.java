@@ -105,7 +105,7 @@ public class DaoTest {
 		commissionerDao.save(c);
 		userDao.save(u2);
 
-		assertEquals(c, commissionerDao.findByUser(u));
+		assertEquals(c, commissionerDao.findByUser(u2));
 		
 	}
 

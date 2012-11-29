@@ -3,8 +3,6 @@ package com.github.ant2.exceedvote.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import apple.laf.JRSUIConstants.Widget;
-
 import com.github.ant2.exceedvote.activity.controller.CriterionSelectionActivity;
 import com.github.ant2.exceedvote.activity.controller.VotingActivity;
 import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;

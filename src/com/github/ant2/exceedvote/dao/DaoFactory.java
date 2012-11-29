@@ -49,4 +49,6 @@ public interface DaoFactory {
 	 */
 	UserDao getUserDao();
 
+	CommissionerDao getCommissionerDao();
+
 }

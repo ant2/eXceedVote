@@ -24,12 +24,12 @@ public class LoginProcessTest {
 
 		LoginProcess process = new LoginProcess(sdf);
 
-		LoginResult result = process.login("maariisan", "kikikikiki");
+		LoginResult result = process.login("test2", "zzzz");
 		assertEquals(LoginResult.Status.SUCCESS, result.getStatus());
 		assertEquals(User.Role.VOTER, result.getRole());
 		assertEquals(sdf.V2, result.getVoter());
 
-		result = process.login("maariisan", "kikikikikiz");
+		result = process.login("test", "pass5");
 		assertEquals(LoginResult.Status.FAILURE, result.getStatus());
 		assertEquals(null, result.getRole());
 		assertEquals(null, result.getVoter());

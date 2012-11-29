@@ -7,6 +7,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
 import com.github.ant2.exceedvote.dao.BallotDao;
+import com.github.ant2.exceedvote.dao.CommissionerDao;
 import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
@@ -14,6 +15,7 @@ import com.github.ant2.exceedvote.dao.ProjectDao;
 import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
 import com.github.ant2.exceedvote.model.domain.Ballot;
+import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.User;
@@ -27,10 +29,13 @@ public class JPADaoFactory implements DaoFactory {
 	protected CriterionDao criterionDao;
 	protected ProjectDao projectDao;
 	protected BallotDao ballotDao;
+	private CommissionerDao commissionerDao;
+	private JPAUserDao userDao;
 
 	protected EntityManager em = Persistence.createEntityManagerFactory(
 			"eXceedVote").createEntityManager();
-	private JPAUserDao userDao;
+	
+	
 
 	private class JPADao<T> {
 
@@ -158,6 +163,26 @@ public class JPADaoFactory implements DaoFactory {
 			}
 		}
 	}
+	
+	private class JPACommissionerDao extends JPADao<Commissioner> implements CommissionerDao {
+		public JPACommissionerDao() {
+			super(Commissioner.class, "Commissioner");
+		}
+
+		@Override
+		public Commissioner findByUser(User u) {
+			try {
+				return (Commissioner) em
+						.createQuery(
+								"SELECT x FROM " + className
+										+ " x WHERE x.user = :user")
+						.setParameter("user", u).getSingleResult();
+			} catch (NoResultException up) {
+				return null;
+			}
+		}
+		
+	}
 
 	public JPADaoFactory() {
 		eventDao = new JPAEventDao();
@@ -166,7 +191,9 @@ public class JPADaoFactory implements DaoFactory {
 		projectDao = new JPAProjectDao();
 		ballotDao = new JPABallotDao();
 		userDao = new JPAUserDao();
+		commissionerDao = new JPACommissionerDao();
 	}
+	
 
 	@Override
 	public EventDao getEventDao() {
@@ -196,6 +223,11 @@ public class JPADaoFactory implements DaoFactory {
 	@Override
 	public UserDao getUserDao() {
 		return userDao;
+	}
+
+	@Override
+	public CommissionerDao getCommissionerDao() {
+		return commissionerDao;
 	}
 
 }
