@@ -106,7 +106,7 @@ public class DaoTest {
 		userDao.save(u2);
 
 		assertEquals(c, commissionerDao.findByUser(u2));
-		
+
 	}
 
 	private void populateBallotDao(VoteEvent event, Project project,

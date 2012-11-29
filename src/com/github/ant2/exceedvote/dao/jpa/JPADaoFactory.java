@@ -34,8 +34,6 @@ public class JPADaoFactory implements DaoFactory {
 
 	protected EntityManager em = Persistence.createEntityManagerFactory(
 			"eXceedVote").createEntityManager();
-	
-	
 
 	private class JPADao<T> {
 
@@ -163,8 +161,9 @@ public class JPADaoFactory implements DaoFactory {
 			}
 		}
 	}
-	
-	private class JPACommissionerDao extends JPADao<Commissioner> implements CommissionerDao {
+
+	private class JPACommissionerDao extends JPADao<Commissioner> implements
+			CommissionerDao {
 		public JPACommissionerDao() {
 			super(Commissioner.class, "Commissioner");
 		}
@@ -181,7 +180,7 @@ public class JPADaoFactory implements DaoFactory {
 				return null;
 			}
 		}
-		
+
 	}
 
 	public JPADaoFactory() {
@@ -193,7 +192,6 @@ public class JPADaoFactory implements DaoFactory {
 		userDao = new JPAUserDao();
 		commissionerDao = new JPACommissionerDao();
 	}
-	
 
 	@Override
 	public EventDao getEventDao() {

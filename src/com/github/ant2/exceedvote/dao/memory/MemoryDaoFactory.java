@@ -132,8 +132,9 @@ public class MemoryDaoFactory implements DaoFactory {
 		}
 
 	}
-	
-	private class MemoryCommissionerDao extends MemoryDao<Commissioner> implements CommissionerDao {
+
+	private class MemoryCommissionerDao extends MemoryDao<Commissioner>
+			implements CommissionerDao {
 		@Override
 		public Commissioner findByUser(User user) {
 			for (Commissioner c : findAll()) {

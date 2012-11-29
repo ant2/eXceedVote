@@ -33,11 +33,11 @@ public class StubDaoFactory extends MemoryDaoFactory {
 
 	public final User U1 = new User("test", "pass");
 	public final User U2 = new User("test2", "zzzz");
-	
+
 	public StubDaoFactory() {
 		V1.setUser(U1);
 		V2.setUser(U2);
-		
+
 		eventDao.save(EVENT);
 		voterDao.save(V1);
 		voterDao.save(V2);

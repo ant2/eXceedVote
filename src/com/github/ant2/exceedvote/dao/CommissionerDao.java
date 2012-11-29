@@ -5,7 +5,7 @@ import com.github.ant2.exceedvote.model.domain.User;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public interface CommissionerDao {
