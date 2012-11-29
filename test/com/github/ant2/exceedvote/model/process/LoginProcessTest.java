@@ -22,12 +22,6 @@ public class LoginProcessTest {
 		UserDao dao = df.getUserDao();
 		VoterDao voterDao = df.getVoterDao();
 
-		User user = new User("maariisan", "kikikikiki");
-		Voter voter = sdf.V2;
-		voter.setUser(user);
-		voterDao.save(voter);
-		dao.save(user);
-
 		LoginProcess process = new LoginProcess(sdf);
 
 		LoginResult result = process.login("maariisan", "kikikikiki");

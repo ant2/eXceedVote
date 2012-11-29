@@ -38,4 +38,10 @@ public class LoginResult {
 	public Voter getVoter() {
 		return voter;
 	}
+	
+	@Override
+	public String toString() {
+		return status.toString();
+	}
+	
 }

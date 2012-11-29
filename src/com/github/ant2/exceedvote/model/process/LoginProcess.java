@@ -26,6 +26,7 @@ public class LoginProcess {
 
 	public LoginResult login(String user, String pass) {
 		User u = userDao.findByUserName(user);
+		if (u == null) return new LoginResult(LoginResult.Status.FAILURE);
 		if (u.verifyPassword(pass)) {
 			Voter v = voterDao.findByUser(u);
 			LoginResult result = new LoginResult(LoginResult.Status.SUCCESS);
@@ -35,6 +36,12 @@ public class LoginProcess {
 			}
 		}
 		return new LoginResult(LoginResult.Status.FAILURE);
+	}
+
+	public Context getContext(LoginResult result) {
+		Voter voter = result.getVoter();
+		if (voter == null) return null;
+		return new Context(sd, voter.getVoteEvent(), voter);
 	}
 
 }

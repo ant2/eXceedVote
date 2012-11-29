@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -31,6 +32,8 @@ public class LoginWindow extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtUsername;
 	private JPasswordField pwdPassword;
+	private JButton btnLogin;
+	private JButton btnReset;
 
 	/**
 	 * Launch the application.
@@ -110,11 +113,27 @@ public class LoginWindow extends JFrame {
 		panel_1.setBackground(Color.WHITE);
 		panel.add(panel_1, "6, 16, 3, 1, fill, fill");
 
-		JButton btnLogin = new JButton("Login");
+		btnLogin = new JButton("Login");
 		panel_1.add(btnLogin);
 
-		JButton btnReset = new JButton("Reset");
+		btnReset = new JButton("Reset");
 		panel_1.add(btnReset);
 	}
 
+	public JTextField getUsernameField() {
+		return txtUsername;
+	}
+	public JPasswordField getPasswordField() {
+		return pwdPassword;
+	}
+	public JButton getLoginButton() {
+		return btnLogin;
+	}
+	public JButton getResetButton() {
+		return btnReset;
+	}
+
+	public void showLoginError() {
+		JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login failure.", JOptionPane.ERROR_MESSAGE);
+	}
 }

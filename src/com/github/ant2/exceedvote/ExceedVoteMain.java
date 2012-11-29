@@ -9,12 +9,16 @@ import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
 import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.VotingActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
+import com.github.ant2.exceedvote.controller.LoginController;
 import com.github.ant2.exceedvote.controller.MainController;
+import com.github.ant2.exceedvote.dao.jpa.JPADaoFactory;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
+import com.github.ant2.exceedvote.model.process.LoginProcess;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
 import com.github.ant2.exceedvote.util.UIUtility;
+import com.github.ant2.exceedvote.view.LoginWindow;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.ui.activity.Activity;
 
@@ -36,26 +40,11 @@ public class ExceedVoteMain {
 
 		UIUtility.setTheme();
 
-		StubDaoFactory sdf = new StubDaoFactory();
-		Context context = new Context(sdf, sdf.EVENT, sdf.V2);
-
-		MainView mainView = new MainView();
-		MainController mainController = new MainController(context, mainView);
-		Activity activity;
-
-		activity = new WelcomeActivity(context, new WelcomeActivityView());
-
-		CriterionSelectionProcess process2 = context
-				.createCriterionSelectionProcess();
-		activity = new CriterionSelectionActivity(activity, process2,
-				new CriterionSelectionActivityView());
-
-		VotingProcess process = process2.createVotingProcess(process2
-				.getAllCriteria().get(0));
-		activity = new VotingActivity(activity, process,
-				new VotingActivityView());
-
-		mainController.run(activity);
+		LoginProcess loginProcess = new LoginProcess(new JPADaoFactory());
+		LoginWindow window = new LoginWindow();
+		
+		LoginController controller = new LoginController(loginProcess, window);
+		controller.run();
 
 	}
 

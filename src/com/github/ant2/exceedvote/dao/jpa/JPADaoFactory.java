@@ -3,6 +3,7 @@ package com.github.ant2.exceedvote.dao.jpa;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
 import com.github.ant2.exceedvote.dao.BallotDao;
@@ -92,11 +93,15 @@ public class JPADaoFactory implements DaoFactory {
 
 		@Override
 		public Voter findByUser(User u) {
-			return (Voter) em
-					.createQuery(
-							"SELECT x FROM " + className
-									+ " x WHERE x.user = :user")
-					.setParameter("user", u).getSingleResult();
+			try {
+				return (Voter) em
+						.createQuery(
+								"SELECT x FROM " + className
+										+ " x WHERE x.user = :user")
+						.setParameter("user", u).getSingleResult();
+			} catch (NoResultException up) {
+				return null;
+			}
 		}
 	}
 
@@ -142,13 +147,16 @@ public class JPADaoFactory implements DaoFactory {
 
 		@Override
 		public User findByUserName(String username) {
-			return (User) em
-					.createQuery(
-							"SELECT x FROM " + className
-									+ " x WHERE x.username = :username")
-					.setParameter("username", username).getSingleResult();
+			try {
+				return (User) em
+						.createQuery(
+								"SELECT x FROM " + className
+										+ " x WHERE x.username = :username")
+						.setParameter("username", username).getSingleResult();
+			} catch (NoResultException up) {
+				return null;
+			}
 		}
-
 	}
 
 	public JPADaoFactory() {

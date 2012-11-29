@@ -101,7 +101,7 @@ public class VotingActivity extends
 
 		process.submit();
 
-		runActivity(previous, Fx.STARFIELD);
+		runActivity(previous, Fx.SLIDE_LEFT);
 
 	}
 

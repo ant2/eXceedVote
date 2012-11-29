@@ -3,6 +3,7 @@ package com.github.ant2.exceedvote.stub;
 import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.util.CalendarUtil;
@@ -30,7 +31,13 @@ public class StubDaoFactory extends MemoryDaoFactory {
 	public final Project P3 = EVENT.createProject("Project 3");
 	public final Project P4 = EVENT.createProject("Project 4");
 
+	public final User U1 = new User("test", "pass");
+	public final User U2 = new User("test2", "zzzz");
+	
 	public StubDaoFactory() {
+		V1.setUser(U1);
+		V2.setUser(U2);
+		
 		eventDao.save(EVENT);
 		voterDao.save(V1);
 		voterDao.save(V2);
@@ -41,5 +48,7 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		projectDao.save(P2);
 		projectDao.save(P3);
 		projectDao.save(P4);
+		userDao.save(U1);
+		userDao.save(U2);
 	}
 }
