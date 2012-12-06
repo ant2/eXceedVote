@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.model.LoginResult;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.model.process.LoginProcess;
 import com.github.ant2.exceedvote.view.LoginWindow;
@@ -53,16 +54,20 @@ public class LoginController {
 	}
 
 	private void startMain(LoginResult result) {
+		if (result.getRole() == User.Role.VOTER) {
+			Context context = process.getContext(result);
 
-		Context context = process.getContext(result);
+			MainView mainView = new MainView();
+			MainController mainController = new MainController(context, mainView);
+			Activity activity;
 
-		MainView mainView = new MainView();
-		MainController mainController = new MainController(context, mainView);
-		Activity activity;
-
-		activity = new WelcomeActivity(context, new WelcomeActivityView());
-		mainController.run(activity);
-
+			activity = new WelcomeActivity(context, new WelcomeActivityView());
+			mainController.run(activity);
+		}
+		
+		else {
+			
+		}
 	}
 
 	private void resetField() {

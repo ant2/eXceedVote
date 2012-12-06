@@ -1,5 +1,6 @@
 package com.github.ant2.exceedvote.model;
 
+import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
@@ -12,6 +13,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 public class LoginResult {
 	private Status status;
 	private Voter voter;
+	private Commissioner commissioner;
 	private User.Role role;
 
 	public enum Status {
@@ -26,6 +28,11 @@ public class LoginResult {
 		role = User.Role.VOTER;
 		this.voter = voter;
 	}
+	
+	public void setCommissioner(Commissioner commissioner) {
+		role = User.Role.COMMISSION;
+		this.commissioner = commissioner;
+	}
 
 	public Status getStatus() {
 		return status;
@@ -37,6 +44,10 @@ public class LoginResult {
 
 	public Voter getVoter() {
 		return voter;
+	}
+	
+	public Commissioner getCommissioner() {
+		return commissioner;
 	}
 
 	@Override

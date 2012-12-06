@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.github.ant2.exceedvote.controller.LoginController;
 import com.github.ant2.exceedvote.dao.jpa.JPADaoFactory;
 import com.github.ant2.exceedvote.model.process.LoginProcess;
+import com.github.ant2.exceedvote.stub.StubDaoFactory;
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.exceedvote.view.LoginWindow;
 
@@ -27,7 +28,7 @@ public class ExceedVoteMain {
 
 		UIUtility.setTheme();
 
-		LoginProcess loginProcess = new LoginProcess(new JPADaoFactory());
+		LoginProcess loginProcess = new LoginProcess(new StubDaoFactory());
 		LoginWindow window = new LoginWindow();
 
 		LoginController controller = new LoginController(loginProcess, window);

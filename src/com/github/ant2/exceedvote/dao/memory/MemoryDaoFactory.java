@@ -35,7 +35,7 @@ public class MemoryDaoFactory implements DaoFactory {
 	protected ProjectDao projectDao;
 	protected BallotDao ballotDao;
 	protected UserDao userDao;
-	private CommissionerDao commissionDao;
+	protected CommissionerDao commissionDao;
 
 	private int nextId = 1;
 
