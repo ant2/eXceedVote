@@ -32,7 +32,7 @@ public class LoginProcessTest {
 		assertEquals(LoginResult.Status.FAILURE, result.getStatus());
 		assertEquals(null, result.getRole());
 		assertEquals(null, result.getVoter());
-		
+
 		result = process.login("com1", "pass");
 		assertEquals(LoginResult.Status.SUCCESS, result.getStatus());
 		assertEquals(User.Role.COMMISSION, result.getRole());

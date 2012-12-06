@@ -58,15 +58,16 @@ public class LoginController {
 			Context context = process.getContext(result);
 
 			MainView mainView = new MainView();
-			MainController mainController = new MainController(context, mainView);
+			MainController mainController = new MainController(context,
+					mainView);
 			Activity activity;
 
 			activity = new WelcomeActivity(context, new WelcomeActivityView());
 			mainController.run(activity);
 		}
-		
+
 		else {
-			//TODO call a commissioner GUI here!
+			// TODO call a commissioner GUI here!
 		}
 	}
 

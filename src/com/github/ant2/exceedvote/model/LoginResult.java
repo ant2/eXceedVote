@@ -28,7 +28,7 @@ public class LoginResult {
 		role = User.Role.VOTER;
 		this.voter = voter;
 	}
-	
+
 	public void setCommissioner(Commissioner commissioner) {
 		role = User.Role.COMMISSION;
 		this.commissioner = commissioner;
@@ -45,7 +45,7 @@ public class LoginResult {
 	public Voter getVoter() {
 		return voter;
 	}
-	
+
 	public Commissioner getCommissioner() {
 		return commissioner;
 	}

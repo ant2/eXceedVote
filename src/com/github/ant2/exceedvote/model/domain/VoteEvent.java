@@ -68,11 +68,11 @@ public class VoteEvent extends Model {
 		return voter;
 	}
 
-	//TODO test code
+	// TODO test code
 	public Commissioner createCommissioner(String name) {
 		return new Commissioner(name);
 	}
-	
+
 	public Criterion createCriterion(String string) {
 		Criterion criterion = createCriterion();
 		criterion.setName(string);

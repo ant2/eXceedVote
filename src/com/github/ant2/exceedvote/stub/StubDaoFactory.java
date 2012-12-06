@@ -1,6 +1,5 @@
 package com.github.ant2.exceedvote.stub;
 
-import com.github.ant2.exceedvote.dao.CommissionerDao;
 import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.Criterion;

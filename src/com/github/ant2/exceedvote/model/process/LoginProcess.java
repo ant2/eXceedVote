@@ -38,8 +38,7 @@ public class LoginProcess {
 			if (v != null) {
 				result.setVoter(v);
 				return result;
-			}
-			else if (c != null) {
+			} else if (c != null) {
 				result.setCommissioner(c);
 				return result;
 			}

@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.github.ant2.exceedvote.controller.LoginController;
-import com.github.ant2.exceedvote.dao.jpa.JPADaoFactory;
 import com.github.ant2.exceedvote.model.process.LoginProcess;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
 import com.github.ant2.exceedvote.util.UIUtility;
