@@ -90,6 +90,11 @@ public class VoteEvent extends Model {
 		project.setVoteEvent(this);
 		return project;
 	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 
 	@Id @GeneratedValue protected Integer id;
 

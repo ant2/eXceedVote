@@ -14,7 +14,6 @@ import com.github.ant2.exceedvote.model.domain.Voter;
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
-// TODO javadoc
 public class LoginProcess {
 	private DaoFactory sd;
 	private UserDao userDao;
@@ -52,4 +51,7 @@ public class LoginProcess {
 		return new Context(sd, voter.getVoteEvent(), voter);
 	}
 
+	public DaoFactory getDaoFactory() {
+		return sd;
+	}
 }

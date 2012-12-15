@@ -9,7 +9,6 @@ import com.github.ant2.exceedvote.model.domain.Voter;
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
-// TODO javadoc
 public class LoginResult {
 	private Status status;
 	private Voter voter;
