@@ -29,10 +29,11 @@ public class SelectEventController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				view.dispose();
-				process.createEventManagerWindow(events.get(view.getSelectedEvent()));
+				process.createEventManagerWindow(events.get(view
+						.getSelectedEvent()));
 			}
 		});
-		
+
 		view.getNewEventButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -46,8 +47,9 @@ public class SelectEventController {
 		view.setVisible(true);
 		view.pack();
 	}
-	
-	public class EventListModel extends AbstractListModel<String> implements ListModel<String> {
+
+	public class EventListModel extends AbstractListModel<String> implements
+			ListModel<String> {
 		/** */
 		private static final long serialVersionUID = 1L;
 

@@ -32,15 +32,19 @@ public class EventManagerController {
 	}
 
 	private void addListener() {
-		//TODO still can't find the better way that duplicated code
+		// TODO still can't find the better way that duplicated code
 	}
 
 	public void run() {
 		view.setVisible(true);
 		view.pack();
 	}
-	
-	private class ProjectListModel extends AbstractListModel<String> implements ListModel<String> {
+
+	private class ProjectListModel extends AbstractListModel<String> implements
+			ListModel<String> {
+		/** */
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public String getElementAt(int index) {
 			return projects.get(index).toString();
@@ -50,10 +54,14 @@ public class EventManagerController {
 		public int getSize() {
 			return projects.size();
 		}
-		
+
 	}
-	
-	private class CriterionListModel extends AbstractListModel<String> implements ListModel<String> {
+
+	private class CriterionListModel extends AbstractListModel<String>
+			implements ListModel<String> {
+		/** */
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public String getElementAt(int index) {
 			return criteria.get(index).toString();
@@ -63,6 +71,6 @@ public class EventManagerController {
 		public int getSize() {
 			return criteria.size();
 		}
-		
+
 	}
 }

@@ -26,12 +26,16 @@ public class EventManagerProcess {
 	}
 
 	public List<Project> getAllProject() {
-		if (projects == null) projects = projectDao.findAllByEvent(event);
+		if (projects == null) {
+			projects = projectDao.findAllByEvent(event);
+		}
 		return projects;
 	}
-	
+
 	public List<Criterion> getAllCriterion() {
-		if (criteria == null) criteria = criterionDao.findAllByEvent(event);
+		if (criteria == null) {
+			criteria = criterionDao.findAllByEvent(event);
+		}
 		return criteria;
 	}
 }

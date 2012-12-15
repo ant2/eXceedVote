@@ -47,38 +47,38 @@ public class SelectEventWindow extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
-		
+
 		list.setValueIsAdjusting(true);
 		list.setPreferredSize(new Dimension(400, 300));
-		
+
 		list.setSelectedIndex(0);
 		list.setBackground(Color.WHITE);
 		list.setCellRenderer(new CriterionListCellRenderer());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		JPanel eventListPanal = UIUtility.createStepPanel("Please select an event", list);
+
+		JPanel eventListPanal = UIUtility.createStepPanel(
+				"Please select an event", list);
 		contentPane.add(eventListPanal, BorderLayout.CENTER);
-		
+
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
 
 		okButton = new JButton("OK");
 		panel.add(okButton);
-		
+
 		newEventButton = new JButton("New Event");
 		panel.add(newEventButton);
-		
-		
+
 	}
-	
+
 	public JList<String> getEventList() {
 		return list;
 	}
-	
+
 	public JButton getNewEventButton() {
 		return newEventButton;
 	}
-	
+
 	public JButton getOkButton() {
 		return okButton;
 	}

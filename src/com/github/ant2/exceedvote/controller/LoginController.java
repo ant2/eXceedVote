@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.controller.admin.SelectEventController;
-import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.LoginResult;
 import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.process.Context;
@@ -70,10 +69,12 @@ public class LoginController {
 			mainController.run(activity);
 		}
 
-		else {	
+		else {
 			SelectEventWindow view = new SelectEventWindow();
-			SelectEventProcess process = new SelectEventProcess(this.process.getDaoFactory());
-			SelectEventController controller = new SelectEventController(process, view);
+			SelectEventProcess process = new SelectEventProcess(
+					this.process.getDaoFactory());
+			SelectEventController controller = new SelectEventController(
+					process, view);
 			controller.run();
 		}
 	}

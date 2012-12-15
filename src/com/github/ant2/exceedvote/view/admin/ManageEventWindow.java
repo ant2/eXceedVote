@@ -1,8 +1,5 @@
 package com.github.ant2.exceedvote.view.admin;
 
-
-import java.awt.EventQueue;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,6 +14,8 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class ManageEventWindow extends JFrame {
 
+	/** */
+	private static final long serialVersionUID = 1L;
 	private JList projectList;
 	private JList criteriaList;
 	private JButton addProjectButton;
@@ -37,64 +36,62 @@ public class ManageEventWindow extends JFrame {
 	}
 
 	private void initComponent() {
-		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
-				FormFactory.PREF_COLSPEC,
-				ColumnSpec.decode("max(100dlu;pref)"),
-				ColumnSpec.decode("max(20dlu;pref)"),
-				ColumnSpec.decode("max(100dlu;pref)"),
-				FormFactory.PREF_COLSPEC,},
-			new RowSpec[] {
-				FormFactory.PREF_ROWSPEC,
-				FormFactory.PREF_ROWSPEC,
-				RowSpec.decode("max(30dlu;pref)"),
-				RowSpec.decode("max(40dlu;pref)"),
-				FormFactory.PREF_ROWSPEC,}));
-		
+		getContentPane().setLayout(
+				new FormLayout(new ColumnSpec[] { FormFactory.PREF_COLSPEC,
+						ColumnSpec.decode("max(100dlu;pref)"),
+						ColumnSpec.decode("max(20dlu;pref)"),
+						ColumnSpec.decode("max(100dlu;pref)"),
+						FormFactory.PREF_COLSPEC, }, new RowSpec[] {
+						FormFactory.PREF_ROWSPEC, FormFactory.PREF_ROWSPEC,
+						RowSpec.decode("max(30dlu;pref)"),
+						RowSpec.decode("max(40dlu;pref)"),
+						FormFactory.PREF_ROWSPEC, }));
+
 		JLabel lblProjects = new JLabel("Projects");
 		getContentPane().add(lblProjects, "2, 2");
-		
+
 		JLabel lblCriteria = new JLabel("Criteria");
 		getContentPane().add(lblCriteria, "4, 2");
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		getContentPane().add(scrollPane, "2, 3, fill, fill");
-		
+
 		projectList = new JList();
 		scrollPane.setViewportView(projectList);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		getContentPane().add(scrollPane_1, "4, 3, fill, fill");
-		
+
 		criteriaList = new JList();
 		scrollPane_1.setViewportView(criteriaList);
-		
+
 		JPanel projectButtonPanal = new JPanel();
 		getContentPane().add(projectButtonPanal, "2, 4, fill, top");
-		
+
 		addProjectButton = new JButton("Add");
 		projectButtonPanal.add(addProjectButton);
-		
+
 		editProjectButton = new JButton("Edit");
 		projectButtonPanal.add(editProjectButton);
-		
+
 		JPanel criteriaButtonPanal = new JPanel();
 		getContentPane().add(criteriaButtonPanal, "4, 4, fill, top");
-		
+
 		addCriteriaButton = new JButton("Add");
 		criteriaButtonPanal.add(addCriteriaButton);
-		
+
 		editCriteriaButton = new JButton("Edit");
 		criteriaButtonPanal.add(editCriteriaButton);
-		
+
 		JPanel manageButtonPanal = new JPanel();
 		getContentPane().add(manageButtonPanal, "2, 5, 2, 1, center, center");
-		
+
 		manageVoterButton = new JButton("Manage Voter");
 		manageButtonPanal.add(manageVoterButton);
-		
+
 		viewResultButton = new JButton("View Result");
 		manageButtonPanal.add(viewResultButton);
-		
+
 		logoutButton = new JButton("Log Out");
 		getContentPane().add(logoutButton, "4, 5, right, center");
 	}

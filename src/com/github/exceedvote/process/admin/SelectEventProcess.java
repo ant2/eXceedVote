@@ -14,19 +14,22 @@ public class SelectEventProcess {
 	private List<VoteEvent> events;
 
 	public SelectEventProcess(DaoFactory daoFactory) {
-		this.df = daoFactory;
+		df = daoFactory;
 		eventDao = df.getEventDao();
 	}
-	
+
 	public List<VoteEvent> getAllEvent() {
-		if (events == null) events = eventDao.findAll();
+		if (events == null) {
+			events = eventDao.findAll();
+		}
 		return events;
 	}
 
 	public void createEventManagerWindow(VoteEvent event) {
 		EventManagerProcess process = new EventManagerProcess(df, event);
 		ManageEventWindow window = new ManageEventWindow();
-		EventManagerController controller = new EventManagerController(process, window);
+		EventManagerController controller = new EventManagerController(process,
+				window);
 		controller.run();
 	}
 }
