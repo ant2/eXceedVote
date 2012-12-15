@@ -8,6 +8,11 @@ import com.github.ant2.exceedvote.dao.EventDao;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 
+/**
+ * 
+ *
+ * @author Thiwat Rongsirigul (Leo Aiolia)
+ */
 public class SelectEventProcess {
 	private DaoFactory df;
 	private EventDao eventDao;

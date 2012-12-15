@@ -9,6 +9,11 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
+/**
+ * 
+ *
+ * @author Thiwat Rongsirigul (Leo Aiolia)
+ */
 public class EventManagerProcess {
 	private DaoFactory df;
 	private ProjectDao projectDao;

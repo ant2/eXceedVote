@@ -10,6 +10,11 @@ import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.exceedvote.process.admin.EventManagerProcess;
 
+/**
+ * 
+ *
+ * @author Thiwat Rongsirigul (Leo Aiolia)
+ */
 public class EventManagerController {
 	private EventManagerProcess process;
 	private ManageEventWindow view;

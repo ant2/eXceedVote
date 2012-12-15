@@ -11,6 +11,11 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
 import com.github.exceedvote.process.admin.SelectEventProcess;
 
+/**
+ * 
+ *
+ * @author Thiwat Rongsirigul (Leo Aiolia)
+ */
 public class SelectEventController {
 	private SelectEventProcess process;
 	private SelectEventWindow view;
