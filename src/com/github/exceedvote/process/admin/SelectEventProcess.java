@@ -6,7 +6,7 @@ import com.github.ant2.exceedvote.controller.admin.EventManagerController;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
-import com.github.ant2.exceedvote.view.admin.EventManagerView;
+import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 
 public class SelectEventProcess {
 	private DaoFactory df;
@@ -23,10 +23,10 @@ public class SelectEventProcess {
 		return events;
 	}
 
-	public void createEventManagerWindow() {
-		EventManagerProcess process = new EventManagerProcess(df);
-		EventManagerView view = new EventManagerView();
-		EventManagerController controller = new EventManagerController(process, view);
+	public void createEventManagerWindow(VoteEvent event) {
+		EventManagerProcess process = new EventManagerProcess(df, event);
+		ManageEventWindow window = new ManageEventWindow();
+		EventManagerController controller = new EventManagerController(process, window);
 		controller.run();
 	}
 }

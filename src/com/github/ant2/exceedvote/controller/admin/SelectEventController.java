@@ -28,7 +28,8 @@ public class SelectEventController {
 		view.getOkButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				process.createEventManagerWindow();
+				view.dispose();
+				process.createEventManagerWindow(events.get(view.getSelectedEvent()));
 			}
 		});
 		

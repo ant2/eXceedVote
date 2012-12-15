@@ -3,45 +3,40 @@ package com.github.ant2.exceedvote.view.admin;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JPanel;
 import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import com.jgoodies.forms.layout.Sizes;
-import javax.swing.Box;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class ManageEventWindow extends JFrame {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ManageEventWindow frame = new ManageEventWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JList projectList;
+	private JList criteriaList;
+	private JButton addProjectButton;
+	private JButton editProjectButton;
+	private JButton addCriteriaButton;
+	private JButton editCriteriaButton;
+	private JButton manageVoterButton;
+	private JButton viewResultButton;
+	private JButton logoutButton;
 
 	/**
 	 * Create the frame.
 	 */
 	public ManageEventWindow() {
-		setTitle("Event Manage");
+		setTitle("Event Manager");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		initComponent();
+	}
+
+	private void initComponent() {
 		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.PREF_COLSPEC,
 				ColumnSpec.decode("max(100dlu;pref)"),
@@ -64,71 +59,79 @@ public class ManageEventWindow extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		getContentPane().add(scrollPane, "2, 3, fill, fill");
 		
-		JList list = new JList();
-		scrollPane.setViewportView(list);
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+		projectList = new JList();
+		scrollPane.setViewportView(projectList);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		getContentPane().add(scrollPane_1, "4, 3, fill, fill");
 		
-		JList list_1 = new JList();
-		scrollPane_1.setViewportView(list_1);
-		list_1.setModel(new AbstractListModel() {
-			String[] values = new String[] {"test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test", "test"};
-			public int getSize() {
-				return values.length;
-			}
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+		criteriaList = new JList();
+		scrollPane_1.setViewportView(criteriaList);
 		
-		JPanel panel_1 = new JPanel();
-		getContentPane().add(panel_1, "2, 4, fill, top");
+		JPanel projectButtonPanal = new JPanel();
+		getContentPane().add(projectButtonPanal, "2, 4, fill, top");
 		
-		JButton btnNewButton_2 = new JButton("Add");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panel_1.add(btnNewButton_2);
+		addProjectButton = new JButton("Add");
+		projectButtonPanal.add(addProjectButton);
 		
-		JButton btnNewButton_3 = new JButton("Edit");
-		panel_1.add(btnNewButton_3);
+		editProjectButton = new JButton("Edit");
+		projectButtonPanal.add(editProjectButton);
 		
-		JPanel panel_2 = new JPanel();
-		getContentPane().add(panel_2, "4, 4, fill, top");
+		JPanel criteriaButtonPanal = new JPanel();
+		getContentPane().add(criteriaButtonPanal, "4, 4, fill, top");
 		
-		JButton btnAdd = new JButton("Add");
-		panel_2.add(btnAdd);
+		addCriteriaButton = new JButton("Add");
+		criteriaButtonPanal.add(addCriteriaButton);
 		
-		JButton btnEdit = new JButton("Edit");
-		panel_2.add(btnEdit);
+		editCriteriaButton = new JButton("Edit");
+		criteriaButtonPanal.add(editCriteriaButton);
 		
-		JPanel panel = new JPanel();
-		getContentPane().add(panel, "2, 5, 2, 1, center, center");
+		JPanel manageButtonPanal = new JPanel();
+		getContentPane().add(manageButtonPanal, "2, 5, 2, 1, center, center");
 		
-		JButton btnNewButton = new JButton("Manage Voter");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		panel.add(btnNewButton);
+		manageVoterButton = new JButton("Manage Voter");
+		manageButtonPanal.add(manageVoterButton);
 		
-		JButton btnNewButton_1 = new JButton("View Result");
-		panel.add(btnNewButton_1);
+		viewResultButton = new JButton("View Result");
+		manageButtonPanal.add(viewResultButton);
 		
-		JButton btnLogOut = new JButton("Log Out");
-		getContentPane().add(btnLogOut, "4, 5, right, center");
-		
+		logoutButton = new JButton("Log Out");
+		getContentPane().add(logoutButton, "4, 5, right, center");
 	}
 
+	public JList getProjectList() {
+		return projectList;
+	}
+
+	public JList getCriteriaList() {
+		return criteriaList;
+	}
+
+	public JButton getAddProjectButton() {
+		return addProjectButton;
+	}
+
+	public JButton getEditProjectButton() {
+		return editProjectButton;
+	}
+
+	public JButton getAddCriteriaButton() {
+		return addCriteriaButton;
+	}
+
+	public JButton getEditCriteriaButton() {
+		return editCriteriaButton;
+	}
+
+	public JButton getManageVoterButton() {
+		return manageVoterButton;
+	}
+
+	public JButton getViewResultButton() {
+		return viewResultButton;
+	}
+
+	public JButton getLogoutButton() {
+		return logoutButton;
+	}
 }

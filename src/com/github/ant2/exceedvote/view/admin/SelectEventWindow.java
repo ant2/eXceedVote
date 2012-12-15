@@ -9,9 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.ListSelectionModel;
-import javax.swing.border.EmptyBorder;
 
-import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.exceedvote.view.CriterionListCellRenderer;
 
@@ -23,6 +21,8 @@ import com.github.ant2.exceedvote.view.CriterionListCellRenderer;
 
 public class SelectEventWindow extends JFrame {
 
+	/** */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JList<String> list;
 	private JButton newEventButton;
@@ -81,5 +81,9 @@ public class SelectEventWindow extends JFrame {
 	
 	public JButton getOkButton() {
 		return okButton;
+	}
+
+	public int getSelectedEvent() {
+		return list.getSelectedIndex();
 	}
 }
