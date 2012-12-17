@@ -8,7 +8,7 @@ import com.github.ant2.exceedvote.view.admin.EditProjectWindow;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class EditProjectController {
@@ -17,7 +17,7 @@ public class EditProjectController {
 
 	public EditProjectController(EditProjectProcess subprocess,
 			EditProjectWindow window) {
-		this.process = subprocess;
+		process = subprocess;
 		this.window = window;
 		addListener();
 	}
@@ -35,23 +35,23 @@ public class EditProjectController {
 				delete();
 			}
 		});
-		
+
 		window.getProjectNameTextField().setText(process.getName());
 	}
-	
+
 	private void save() {
 		process.setName(window.getProjectNameTextField().getText());
 		if (process.save()) {
 			window.dispose();
 		}
 	}
-	
+
 	private void delete() {
 		if (process.delete()) {
 			window.dispose();
 		}
 	}
-	
+
 	public void run() {
 		window.setVisible(true);
 		window.pack();

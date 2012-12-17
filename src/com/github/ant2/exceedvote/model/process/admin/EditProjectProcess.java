@@ -7,7 +7,7 @@ import com.github.ant2.exceedvote.util.ChangeObservable;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class EditProjectProcess extends ChangeObservable {
@@ -18,7 +18,7 @@ public class EditProjectProcess extends ChangeObservable {
 
 	public EditProjectProcess(DaoFactory df, Project criterion) {
 		this.df = df;
-		this.project = criterion;
+		project = criterion;
 		dao = df.getProjectDao();
 	}
 

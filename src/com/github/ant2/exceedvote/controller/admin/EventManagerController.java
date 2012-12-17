@@ -88,7 +88,8 @@ public class EventManagerController implements ChangeObserver {
 		view.getEditProjectButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				editProject(projects.get(view.getProjectList().getSelectedIndex()));
+				editProject(projects.get(view.getProjectList()
+						.getSelectedIndex()));
 			}
 		});
 	}
@@ -108,11 +109,12 @@ public class EventManagerController implements ChangeObserver {
 				subprocess, window);
 		controller.run();
 	}
-	
+
 	private void editProject(Project project) {
 		EditProjectProcess subprocess = process.editProject(project);
 		EditProjectWindow window = new EditProjectWindow();
-		EditProjectController controller = new EditProjectController(subprocess, window);
+		EditProjectController controller = new EditProjectController(
+				subprocess, window);
 		controller.run();
 	}
 

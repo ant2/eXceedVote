@@ -14,6 +14,8 @@ public class ViewResultWindow extends JFrame {
 	private JEditorPane editorPane;
 
 	public ViewResultWindow() {
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setTitle("View Voting Result");
 		initComponents();
 	}
 
