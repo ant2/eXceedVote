@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.process;
+package com.github.ant2.exceedvote.model.process;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -6,7 +6,6 @@ import java.util.Observer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.github.ant2.exceedvote.model.process.ChangeObserver;
 
 public class ChangeObservable {
 	

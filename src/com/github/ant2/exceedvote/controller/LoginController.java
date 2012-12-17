@@ -13,7 +13,7 @@ import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.User.Role;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.model.process.LoginProcess;
-import com.github.ant2.exceedvote.process.admin.SelectEventProcess;
+import com.github.ant2.exceedvote.model.process.admin.SelectEventProcess;
 import com.github.ant2.exceedvote.view.LoginWindow;
 import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
