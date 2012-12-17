@@ -8,13 +8,16 @@ import com.github.ant2.exceedvote.dao.ProjectDao;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.process.ChangeObserver;
+import com.github.ant2.exceedvote.model.process.EditCriterionProcess;
+import com.github.exceedvote.process.ChangeObservable;
 
 /**
  * 
  *
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
-public class EventManagerProcess {
+public class EventManagerProcess extends ChangeObservable implements ChangeObserver {
 	private DaoFactory df;
 	private ProjectDao projectDao;
 	private CriterionDao criterionDao;
@@ -43,4 +46,25 @@ public class EventManagerProcess {
 		}
 		return criteria;
 	}
+
+	public VoteEvent getEvent() {
+		return event;
+	}
+
+	public EditCriterionProcess editCriterion(Criterion criterion) {
+		EditCriterionProcess process = new EditCriterionProcess(df, criterion);
+		process.addObserver(this);
+		return process;
+	}
+
+	@Override
+	public void changed() {
+		// clear cached data
+		projects = null;
+		criteria = null;
+		
+		// notify others
+		notifyObservers();
+	}
+	
 }

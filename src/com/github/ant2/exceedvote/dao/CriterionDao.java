@@ -17,7 +17,7 @@ public interface CriterionDao {
 	 * Save a criterion to the persistent unit.
 	 * 
 	 * @param criterion
-	 *            criterion needs to be save
+	 *            criterion that needs to be saved
 	 */
 	void save(Criterion criterion);
 
@@ -29,5 +29,13 @@ public interface CriterionDao {
 	 * @return list of all criterion available for this event
 	 */
 	List<Criterion> findAllByEvent(VoteEvent event);
+
+	/**
+	 * Delete a criterion from the persistence unit.
+	 * 
+	 * @param criterion
+	 *            the criterion to delete
+	 */
+	void remove(Criterion criterion);
 
 }
