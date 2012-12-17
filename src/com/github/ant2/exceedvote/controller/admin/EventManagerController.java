@@ -10,9 +10,9 @@ import javax.swing.ListModel;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
-import com.github.ant2.exceedvote.model.process.ChangeObserver;
 import com.github.ant2.exceedvote.model.process.EditCriterionProcess;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
+import com.github.ant2.exceedvote.util.ChangeObserver;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 
