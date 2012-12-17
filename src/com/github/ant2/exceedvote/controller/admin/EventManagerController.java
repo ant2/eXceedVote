@@ -12,9 +12,11 @@ import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.process.EditCriterionProcess;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
+import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.util.ChangeObserver;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
+import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
 /**
  * 
@@ -67,6 +69,21 @@ public class EventManagerController implements ChangeObserver {
 				editCriterion(criteria.get(view.getCriterionList().getSelectedIndex()));
 			}
 		});
+		view.getViewResultButton().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				viewResult();
+			}
+		});
+	}
+	
+	private void viewResult() {
+		ViewResultProcess viewResultProcess = process.viewResult();
+		ViewResultWindow vrw = new ViewResultWindow();
+		ViewResultController vrc = new ViewResultController(viewResultProcess, vrw);
+		vrc.run();
 	}
 	
 	private void editCriterion(Criterion criterion) {

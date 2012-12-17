@@ -66,5 +66,9 @@ public class EventManagerProcess extends ChangeObservable implements ChangeObser
 		// notify others
 		notifyObservers();
 	}
+
+	public ViewResultProcess viewResult() {
+		return new ViewResultProcess(df, event);
+	}
 	
 }

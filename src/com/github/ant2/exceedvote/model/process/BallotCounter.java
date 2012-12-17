@@ -1,5 +1,6 @@
 package com.github.ant2.exceedvote.model.process;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,10 +49,16 @@ public class BallotCounter {
 				}
 			});
 		}
+		final Calendar then = Calendar.getInstance();
 		return new BallotCounterResult() {
 			@Override
 			public BallotCount forCriterion(Criterion c) {
 				return byCriterion.get(c);
+			}
+
+			@Override
+			public Calendar getCalendar() {
+				return then;
 			}
 		};
 	}
