@@ -3,6 +3,7 @@ package com.github.ant2.exceedvote.dao;
 import java.util.List;
 
 import com.github.ant2.exceedvote.model.domain.Ballot;
+import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.User;
@@ -94,6 +95,17 @@ public class DaoTest {
 
 		assertEquals(v, voterDao.findByUser(u));
 		assertEquals(u, userDao.findByUserName("UsernameTestKi"));
+
+		CommissionerDao commissionerDao = factory.getCommissionerDao();
+
+		User u2 = new User("aaa", "zzz");
+		Commissioner c = new Commissioner();
+		c.setName("Commissioner");
+		c.setUser(u2);
+		commissionerDao.save(c);
+		userDao.save(u2);
+
+		assertEquals(c, commissionerDao.findByUser(u2));
 
 	}
 

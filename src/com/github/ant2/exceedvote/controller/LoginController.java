@@ -3,22 +3,18 @@ package com.github.ant2.exceedvote.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import apple.laf.JRSUIConstants.Widget;
-
-import com.github.ant2.exceedvote.activity.controller.CriterionSelectionActivity;
-import com.github.ant2.exceedvote.activity.controller.VotingActivity;
 import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
-import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
-import com.github.ant2.exceedvote.activity.view.VotingActivityView;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
+import com.github.ant2.exceedvote.controller.admin.SelectEventController;
 import com.github.ant2.exceedvote.model.LoginResult;
+import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.process.Context;
-import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
 import com.github.ant2.exceedvote.model.process.LoginProcess;
-import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.exceedvote.view.LoginWindow;
 import com.github.ant2.exceedvote.view.MainView;
+import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
 import com.github.ant2.ui.activity.Activity;
+import com.github.exceedvote.process.admin.SelectEventProcess;
 
 public class LoginController {
 
@@ -61,16 +57,26 @@ public class LoginController {
 	}
 
 	private void startMain(LoginResult result) {
+		if (result.getRole() == User.Role.VOTER) {
+			Context context = process.getContext(result);
 
-		Context context = process.getContext(result);
+			MainView mainView = new MainView();
+			MainController mainController = new MainController(context,
+					mainView);
+			Activity activity;
 
-		MainView mainView = new MainView();
-		MainController mainController = new MainController(context, mainView);
-		Activity activity;
+			activity = new WelcomeActivity(context, new WelcomeActivityView());
+			mainController.run(activity);
+		}
 
-		activity = new WelcomeActivity(context, new WelcomeActivityView());
-		mainController.run(activity);
-		
+		else {
+			SelectEventWindow view = new SelectEventWindow();
+			SelectEventProcess process = new SelectEventProcess(
+					this.process.getDaoFactory());
+			SelectEventController controller = new SelectEventController(
+					process, view);
+			controller.run();
+		}
 	}
 
 	private void resetField() {
