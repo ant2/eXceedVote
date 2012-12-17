@@ -29,4 +29,6 @@ public interface ProjectDao {
 	 */
 	List<Project> findAllByEvent(VoteEvent event);
 
+	void remove(Project project);
+
 }

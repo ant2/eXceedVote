@@ -28,27 +28,10 @@ public class EditProjectWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel lblProjectName;
-	private JTextField txtProjectName;
+	private JTextField projectNameTextField;
 	private JPanel panel;
-	private JButton btnDelete;
-	private JButton btnSave;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					EditProjectWindow frame = new EditProjectWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JButton deleteButton;
+	private JButton saveButton;
 
 	/**
 	 * Create the frame.
@@ -56,9 +39,13 @@ public class EditProjectWindow extends JFrame {
 	public EditProjectWindow() {
 		setTitle("Edit Project");
 		setResizable(false);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		initComponent();
+	}
+
+	private void initComponent() {
 		setForeground(Color.WHITE);
 		setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
@@ -89,21 +76,34 @@ public class EditProjectWindow extends JFrame {
 		lblProjectName.setBackground(Color.WHITE);
 		contentPane.add(lblProjectName, "6, 8, right, default");
 
-		txtProjectName = new JTextField();
-		txtProjectName.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		txtProjectName.setText("project name");
-		contentPane.add(txtProjectName, "8, 8, fill, default");
-		txtProjectName.setColumns(10);
+		projectNameTextField = new JTextField();
+		projectNameTextField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		projectNameTextField.setText("project name");
+		contentPane.add(projectNameTextField, "8, 8, fill, default");
+		projectNameTextField.setColumns(10);
 
 		panel = new JPanel();
 		panel.setBackground(Color.WHITE);
 		contentPane.add(panel, "6, 14, 3, 1, fill, fill");
 
-		btnDelete = new JButton("Delete");
-		panel.add(btnDelete);
+		deleteButton = new JButton("Delete");
+		panel.add(deleteButton);
 
-		btnSave = new JButton("Save");
-		panel.add(btnSave);
+		saveButton = new JButton("Save");
+		panel.add(saveButton);
 	}
 
+	public JTextField getProjectNameTextField() {
+		return projectNameTextField;
+	}
+
+	public JButton getDeleteButton() {
+		return deleteButton;
+	}
+
+	public JButton getSaveButton() {
+		return saveButton;
+	}
+
+	
 }

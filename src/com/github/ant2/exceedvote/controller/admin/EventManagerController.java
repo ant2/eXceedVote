@@ -11,10 +11,12 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.process.admin.EditCriterionProcess;
+import com.github.ant2.exceedvote.model.process.admin.EditProjectProcess;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
 import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.util.ChangeObserver;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
+import com.github.ant2.exceedvote.view.admin.EditProjectWindow;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
@@ -74,8 +76,19 @@ public class EventManagerController implements ChangeObserver {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
 				viewResult();
+			}
+		});
+		view.getAddProjectButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				editProject(event.createProject(""));
+			}
+		});
+		view.getEditProjectButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				editProject(projects.get(view.getProjectList().getSelectedIndex()));
 			}
 		});
 	}
@@ -93,6 +106,13 @@ public class EventManagerController implements ChangeObserver {
 		EditCriteriaWindow window = new EditCriteriaWindow();
 		EditCriterionController controller = new EditCriterionController(
 				subprocess, window);
+		controller.run();
+	}
+	
+	private void editProject(Project project) {
+		EditProjectProcess subprocess = process.editProject(project);
+		EditProjectWindow window = new EditProjectWindow();
+		EditProjectController controller = new EditProjectController(subprocess, window);
 		controller.run();
 	}
 

@@ -33,31 +33,18 @@ public class EditCriteriaWindow extends JFrame {
 	private JButton btnSave;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					EditCriteriaWindow frame = new EditCriteriaWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public EditCriteriaWindow() {
 		setTitle("Edit Criteria");
-		setForeground(Color.WHITE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
+		initComponent();
+	}
+
+	private void initComponent() {
 		setBackground(Color.WHITE);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setForeground(Color.WHITE);
 		setBounds(100, 100, 400, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);

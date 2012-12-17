@@ -56,6 +56,12 @@ public class EventManagerProcess extends ChangeObservable implements
 		process.addObserver(this);
 		return process;
 	}
+	
+	public EditProjectProcess editProject(Project project) {
+		EditProjectProcess process = new EditProjectProcess(df, project);
+		process.addObserver(this);
+		return process;
+	}
 
 	@Override
 	public void changed() {
@@ -70,5 +76,7 @@ public class EventManagerProcess extends ChangeObservable implements
 	public ViewResultProcess viewResult() {
 		return new ViewResultProcess(df, event);
 	}
+
+	
 
 }
