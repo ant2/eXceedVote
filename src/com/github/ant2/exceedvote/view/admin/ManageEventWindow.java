@@ -100,7 +100,7 @@ public class ManageEventWindow extends JFrame {
 		return projectList;
 	}
 
-	public JList getCriteriaList() {
+	public JList getCriterionList() {
 		return criteriaList;
 	}
 
@@ -112,11 +112,11 @@ public class ManageEventWindow extends JFrame {
 		return editProjectButton;
 	}
 
-	public JButton getAddCriteriaButton() {
+	public JButton getAddCriterionButton() {
 		return addCriteriaButton;
 	}
 
-	public JButton getEditCriteriaButton() {
+	public JButton getEditCriterionButton() {
 		return editCriteriaButton;
 	}
 

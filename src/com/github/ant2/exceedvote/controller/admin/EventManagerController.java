@@ -44,27 +44,27 @@ public class EventManagerController implements ChangeObserver {
 	}
 	
 	private void reload() {
-		projects = process.getAllProject();
-		criteria = process.getAllCriterion();
+		projects = process.getAllProjects();
+		criteria = process.getAllCriteria();
 		setListModel();
 	}
 
 	private void setListModel() {
 		view.getProjectList().setModel(new ProjectListModel());
-		view.getCriteriaList().setModel(new CriterionListModel());
+		view.getCriterionList().setModel(new CriterionListModel());
 	}
 
 	private void addListener() {
-		view.getAddCriteriaButton().addActionListener(new ActionListener() {
+		view.getAddCriterionButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				editCriterion(event.createCriterion(""));
 			}
 		});
-		view.getEditCriteriaButton().addActionListener(new ActionListener() {
+		view.getEditCriterionButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				editCriterion(criteria.get(view.getCriteriaList().getSelectedIndex()));
+				editCriterion(criteria.get(view.getCriterionList().getSelectedIndex()));
 			}
 		});
 	}

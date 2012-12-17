@@ -33,14 +33,14 @@ public class EventManagerProcess extends ChangeObservable implements ChangeObser
 		System.out.println("managing event: " + event.toString());
 	}
 
-	public List<Project> getAllProject() {
+	public List<Project> getAllProjects() {
 		if (projects == null) {
 			projects = projectDao.findAllByEvent(event);
 		}
 		return projects;
 	}
 
-	public List<Criterion> getAllCriterion() {
+	public List<Criterion> getAllCriteria() {
 		if (criteria == null) {
 			criteria = criterionDao.findAllByEvent(event);
 		}
