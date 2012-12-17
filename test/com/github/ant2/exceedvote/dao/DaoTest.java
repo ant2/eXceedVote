@@ -37,6 +37,9 @@ public class DaoTest {
 			List<Voter> voters = voterDao.findAllByEvent(event);
 			List<Criterion> criteria = criterionDao.findAllByEvent(event);
 			List<Project> projects = projectDao.findAllByEvent(event);
+			
+			int totalSize = 0;
+			
 			for (Voter voter : voters) {
 				for (Criterion criterion : criteria) {
 
@@ -76,9 +79,13 @@ public class DaoTest {
 					assertEquals(expectedSize, ballotDao
 							.findAllByVoterAndCriterion(voter, criterion)
 							.size());
+					
+					totalSize += expectedSize;
 
 				}
 			}
+			
+			assertEquals(totalSize, ballotDao.findAllByEvent(event).size());
 		}
 
 		UserDao userDao = factory.getUserDao();

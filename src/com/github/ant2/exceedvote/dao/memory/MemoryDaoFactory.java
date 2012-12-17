@@ -120,6 +120,17 @@ public class MemoryDaoFactory implements DaoFactory {
 			}
 			return list;
 		}
+		
+		@Override
+		public List<Ballot> findAllByEvent(VoteEvent event) {
+			List<Ballot> list = new ArrayList<Ballot>();
+			for (Ballot ballot : findAll()) {
+				if (ballot.getCriterion().getVoteEvent() == event) {
+					list.add(ballot);
+				}
+			}
+			return list;
+		}
 	}
 
 	private class MemoryUserDao extends MemoryDao<User> implements UserDao {

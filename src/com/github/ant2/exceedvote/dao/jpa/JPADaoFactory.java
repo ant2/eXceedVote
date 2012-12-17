@@ -140,6 +140,16 @@ public class JPADaoFactory implements DaoFactory {
 					.setParameter("criterion", criterion).getResultList();
 		}
 
+		@Override
+		public List<Ballot> findAllByEvent(VoteEvent event) {
+			return em
+					.createQuery(
+							"SELECT x FROM "
+									+ className
+									+ " x WHERE x.criterion.event = :event")
+					.setParameter("event", event).getResultList();
+		}
+
 	}
 
 	private class JPAUserDao extends JPADao<User> implements UserDao {

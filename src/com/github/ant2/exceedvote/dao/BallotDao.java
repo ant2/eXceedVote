@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
+import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
 /**
@@ -42,5 +43,13 @@ public interface BallotDao {
 	 *            the ballot needs to be removed
 	 */
 	void remove(Ballot ballot);
+
+	/**
+	 * Finds all ballots inside an event
+	 * 
+	 * @param event
+	 *            the event to search
+	 */
+	List<Ballot> findAllByEvent(VoteEvent event);
 
 }
