@@ -53,8 +53,8 @@ public class SelectEventController {
 		view.pack();
 	}
 
-	public class EventListModel extends AbstractListModel<String> implements
-			ListModel<String> {
+	public class EventListModel extends AbstractListModel implements
+			ListModel {
 		/** */
 		private static final long serialVersionUID = 1L;
 

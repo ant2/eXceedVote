@@ -24,7 +24,7 @@ public class SelectEventWindow extends JFrame {
 	/** */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JList<String> list;
+	private JList list;
 	private JButton newEventButton;
 	private JButton okButton;
 
@@ -35,7 +35,7 @@ public class SelectEventWindow extends JFrame {
 		setTitle("Select Event");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		list = new JList<String>();
+		list = new JList();
 		initComponent();
 	}
 
@@ -71,7 +71,7 @@ public class SelectEventWindow extends JFrame {
 
 	}
 
-	public JList<String> getEventList() {
+	public JList getEventList() {
 		return list;
 	}
 

@@ -45,8 +45,8 @@ public class EventManagerController {
 		view.pack();
 	}
 
-	private class ProjectListModel extends AbstractListModel<String> implements
-			ListModel<String> {
+	private class ProjectListModel extends AbstractListModel implements
+			ListModel {
 		/** */
 		private static final long serialVersionUID = 1L;
 
@@ -62,8 +62,8 @@ public class EventManagerController {
 
 	}
 
-	private class CriterionListModel extends AbstractListModel<String>
-			implements ListModel<String> {
+	private class CriterionListModel extends AbstractListModel
+			implements ListModel {
 		/** */
 		private static final long serialVersionUID = 1L;
 
