@@ -1,12 +1,12 @@
 package com.github.ant2.exceedvote.model.process;
 
-import java.util.Map;
-
 import org.junit.Test;
 
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Ballot;
-import com.github.ant2.exceedvote.model.domain.Project;
+import com.github.ant2.exceedvote.model.process.admin.BallotCount;
+import com.github.ant2.exceedvote.model.process.admin.BallotCounter;
+import com.github.ant2.exceedvote.model.process.admin.BallotCounterResult;
 import com.github.ant2.exceedvote.stub.StubContext;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
 
@@ -16,7 +16,7 @@ public class BallotCounterTest {
 
 	@Test
 	public void testBallotCounter() {
-		
+
 		StubContext context = new StubContext();
 		StubDaoFactory sdf = context.getDaoFactory();
 
@@ -24,7 +24,7 @@ public class BallotCounterTest {
 		Ballot b1 = new Ballot(sdf.P1, sdf.C1, context.SELF, 3);
 		Ballot b5 = new Ballot(sdf.P3, sdf.C1, context.OTHER, 2);
 		Ballot b6 = new Ballot(sdf.P3, sdf.C1, context.SELF, 3);
-		
+
 		Ballot b2 = new Ballot(sdf.P2, sdf.C2, context.SELF, 2);
 		Ballot b3 = new Ballot(sdf.P4, sdf.C2, context.SELF, 1);
 		Ballot b4 = new Ballot(sdf.P1, sdf.C2, context.OTHER, 3);
@@ -36,7 +36,7 @@ public class BallotCounterTest {
 		}
 
 		// retrieve them back
-		DaoFactory df = (DaoFactory)sdf;
+		DaoFactory df = sdf;
 		BallotCounter counter = new BallotCounter(df, sdf.EVENT);
 		BallotCounterResult result = counter.count();
 		BallotCount count = result.forCriterion(sdf.C1);
@@ -49,7 +49,7 @@ public class BallotCounterTest {
 		assertEquals(2, count.get(sdf.P2));
 		assertEquals(0, count.get(sdf.P3));
 		assertEquals(1, count.get(sdf.P4));
-		
+
 	}
-	
+
 }

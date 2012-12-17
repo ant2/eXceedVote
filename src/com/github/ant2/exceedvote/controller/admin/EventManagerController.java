@@ -10,7 +10,7 @@ import javax.swing.ListModel;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
-import com.github.ant2.exceedvote.model.process.EditCriterionProcess;
+import com.github.ant2.exceedvote.model.process.admin.EditCriterionProcess;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
 import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.util.ChangeObserver;
@@ -20,7 +20,7 @@ import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class EventManagerController implements ChangeObserver {
@@ -39,12 +39,12 @@ public class EventManagerController implements ChangeObserver {
 		addListener();
 		reload();
 	}
-	
+
 	@Override
 	public void changed() {
 		reload();
 	}
-	
+
 	private void reload() {
 		projects = process.getAllProjects();
 		criteria = process.getAllCriteria();
@@ -66,11 +66,12 @@ public class EventManagerController implements ChangeObserver {
 		view.getEditCriterionButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				editCriterion(criteria.get(view.getCriterionList().getSelectedIndex()));
+				editCriterion(criteria.get(view.getCriterionList()
+						.getSelectedIndex()));
 			}
 		});
 		view.getViewResultButton().addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -78,18 +79,20 @@ public class EventManagerController implements ChangeObserver {
 			}
 		});
 	}
-	
+
 	private void viewResult() {
 		ViewResultProcess viewResultProcess = process.viewResult();
 		ViewResultWindow vrw = new ViewResultWindow();
-		ViewResultController vrc = new ViewResultController(viewResultProcess, vrw);
+		ViewResultController vrc = new ViewResultController(viewResultProcess,
+				vrw);
 		vrc.run();
 	}
-	
+
 	private void editCriterion(Criterion criterion) {
 		EditCriterionProcess subprocess = process.editCriterion(criterion);
 		EditCriteriaWindow window = new EditCriteriaWindow();
-		EditCriterionController controller = new EditCriterionController(subprocess, window);
+		EditCriterionController controller = new EditCriterionController(
+				subprocess, window);
 		controller.run();
 	}
 
@@ -115,8 +118,8 @@ public class EventManagerController implements ChangeObserver {
 
 	}
 
-	private class CriterionListModel extends AbstractListModel
-			implements ListModel {
+	private class CriterionListModel extends AbstractListModel implements
+			ListModel {
 		/** */
 		private static final long serialVersionUID = 1L;
 

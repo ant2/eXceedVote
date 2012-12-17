@@ -2,15 +2,13 @@ package com.github.ant2.exceedvote.model.process.admin;
 
 import java.util.List;
 
-import com.github.ant2.exceedvote.controller.admin.EventManagerController;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.EventDao;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
-import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class SelectEventProcess {

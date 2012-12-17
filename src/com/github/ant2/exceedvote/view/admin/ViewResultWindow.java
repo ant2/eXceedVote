@@ -9,6 +9,8 @@ import javax.swing.text.html.HTMLEditorKit;
 
 public class ViewResultWindow extends JFrame {
 
+	/** */
+	private static final long serialVersionUID = 1L;
 	private JEditorPane editorPane;
 
 	public ViewResultWindow() {
@@ -26,9 +28,9 @@ public class ViewResultWindow extends JFrame {
 		add(scrollPane);
 		pack();
 	}
-	
+
 	public void setText(String t) {
 		editorPane.setText(t);
 	}
-	
+
 }

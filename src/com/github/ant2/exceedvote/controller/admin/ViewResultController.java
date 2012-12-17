@@ -2,8 +2,8 @@ package com.github.ant2.exceedvote.controller.admin;
 
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
-import com.github.ant2.exceedvote.model.process.BallotCount;
-import com.github.ant2.exceedvote.model.process.BallotCounterResult;
+import com.github.ant2.exceedvote.model.process.admin.BallotCount;
+import com.github.ant2.exceedvote.model.process.admin.BallotCounterResult;
 import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 

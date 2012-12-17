@@ -144,8 +144,7 @@ public class JPADaoFactory implements DaoFactory {
 		public List<Ballot> findAllByEvent(VoteEvent event) {
 			return em
 					.createQuery(
-							"SELECT x FROM "
-									+ className
+							"SELECT x FROM " + className
 									+ " x WHERE x.criterion.event = :event")
 					.setParameter("event", event).getResultList();
 		}

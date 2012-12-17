@@ -120,7 +120,7 @@ public class MemoryDaoFactory implements DaoFactory {
 			}
 			return list;
 		}
-		
+
 		@Override
 		public List<Ballot> findAllByEvent(VoteEvent event) {
 			List<Ballot> list = new ArrayList<Ballot>();

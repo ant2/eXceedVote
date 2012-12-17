@@ -108,9 +108,11 @@ public class EditCriteriaWindow extends JFrame {
 	public JButton getDeleteButton() {
 		return btnDelete;
 	}
+
 	public JButton getSaveButton() {
 		return btnSave;
 	}
+
 	public JTextField getNameField() {
 		return txtCriteriaName;
 	}

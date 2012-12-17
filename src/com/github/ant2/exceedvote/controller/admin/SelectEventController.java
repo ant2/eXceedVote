@@ -15,7 +15,7 @@ import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
 
 /**
  * 
- *
+ * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
 public class SelectEventController {
@@ -36,11 +36,11 @@ public class SelectEventController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				view.dispose();
-				EventManagerProcess subprocess = process.manageEvent(events.get(view
-						.getSelectedEvent()));
+				EventManagerProcess subprocess = process.manageEvent(events
+						.get(view.getSelectedEvent()));
 				ManageEventWindow window = new ManageEventWindow();
-				EventManagerController controller = new EventManagerController(subprocess,
-						window);
+				EventManagerController controller = new EventManagerController(
+						subprocess, window);
 				controller.run();
 			}
 		});
@@ -59,8 +59,7 @@ public class SelectEventController {
 		view.pack();
 	}
 
-	public class EventListModel extends AbstractListModel implements
-			ListModel {
+	public class EventListModel extends AbstractListModel implements ListModel {
 		/** */
 		private static final long serialVersionUID = 1L;
 

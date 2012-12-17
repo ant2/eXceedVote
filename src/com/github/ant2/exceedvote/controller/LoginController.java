@@ -2,15 +2,11 @@ package com.github.ant2.exceedvote.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Map;
-import java.util.concurrent.Callable;
 
 import com.github.ant2.exceedvote.activity.controller.WelcomeActivity;
 import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.controller.admin.SelectEventController;
 import com.github.ant2.exceedvote.model.LoginResult;
-import com.github.ant2.exceedvote.model.domain.User;
-import com.github.ant2.exceedvote.model.domain.User.Role;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.exceedvote.model.process.LoginProcess;
 import com.github.ant2.exceedvote.model.process.admin.SelectEventProcess;
