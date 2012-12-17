@@ -123,17 +123,21 @@ public class LoginWindow extends JFrame {
 	public JTextField getUsernameField() {
 		return txtUsername;
 	}
+
 	public JPasswordField getPasswordField() {
 		return pwdPassword;
 	}
+
 	public JButton getLoginButton() {
 		return btnLogin;
 	}
+
 	public JButton getResetButton() {
 		return btnReset;
 	}
 
 	public void showLoginError() {
-		JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login failure.", JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Invalid username or password.",
+				"Login failure.", JOptionPane.ERROR_MESSAGE);
 	}
 }

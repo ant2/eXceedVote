@@ -19,6 +19,10 @@ public class Commissioner extends Model {
 	public Commissioner() {
 	}
 
+	public Commissioner(String name) {
+		this.name = name;
+	}
+
 	/**
 	 * Returns the commissioner's name
 	 * 
