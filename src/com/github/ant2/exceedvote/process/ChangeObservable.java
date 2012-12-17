@@ -1,4 +1,4 @@
-package com.github.exceedvote.process;
+package com.github.ant2.exceedvote.process;
 
 import java.util.Observable;
 import java.util.Observer;

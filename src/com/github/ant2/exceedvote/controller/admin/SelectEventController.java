@@ -8,10 +8,10 @@ import javax.swing.AbstractListModel;
 import javax.swing.ListModel;
 
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.process.admin.EventManagerProcess;
+import com.github.ant2.exceedvote.process.admin.SelectEventProcess;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
-import com.github.exceedvote.process.admin.EventManagerProcess;
-import com.github.exceedvote.process.admin.SelectEventProcess;
 
 /**
  * 

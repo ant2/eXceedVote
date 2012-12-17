@@ -1,4 +1,4 @@
-package com.github.exceedvote.process.admin;
+package com.github.ant2.exceedvote.process.admin;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.process.ChangeObserver;
 import com.github.ant2.exceedvote.model.process.EditCriterionProcess;
-import com.github.exceedvote.process.ChangeObservable;
+import com.github.ant2.exceedvote.process.ChangeObservable;
 
 /**
  * 

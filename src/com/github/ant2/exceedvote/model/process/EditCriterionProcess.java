@@ -3,7 +3,7 @@ package com.github.ant2.exceedvote.model.process;
 import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
-import com.github.exceedvote.process.ChangeObservable;
+import com.github.ant2.exceedvote.process.ChangeObservable;
 
 public class EditCriterionProcess extends ChangeObservable {
 

@@ -1,4 +1,4 @@
-package com.github.exceedvote.process.admin;
+package com.github.ant2.exceedvote.process.admin;
 
 import java.util.List;
 
