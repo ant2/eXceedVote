@@ -8,7 +8,9 @@ import javax.swing.AbstractListModel;
 import javax.swing.ListModel;
 
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
+import com.github.exceedvote.process.admin.EventManagerProcess;
 import com.github.exceedvote.process.admin.SelectEventProcess;
 
 /**
@@ -34,8 +36,12 @@ public class SelectEventController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				view.dispose();
-				process.createEventManagerWindow(events.get(view
+				EventManagerProcess subprocess = process.manageEvent(events.get(view
 						.getSelectedEvent()));
+				ManageEventWindow window = new ManageEventWindow();
+				EventManagerController controller = new EventManagerController(subprocess,
+						window);
+				controller.run();
 			}
 		});
 

@@ -30,11 +30,7 @@ public class SelectEventProcess {
 		return events;
 	}
 
-	public void createEventManagerWindow(VoteEvent event) {
-		EventManagerProcess process = new EventManagerProcess(df, event);
-		ManageEventWindow window = new ManageEventWindow();
-		EventManagerController controller = new EventManagerController(process,
-				window);
-		controller.run();
+	public EventManagerProcess manageEvent(VoteEvent event) {
+		return new EventManagerProcess(df, event);
 	}
 }
