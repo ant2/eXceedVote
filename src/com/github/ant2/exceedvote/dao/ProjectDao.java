@@ -21,7 +21,7 @@ public interface ProjectDao {
 	void save(Project project);
 
 	/**
-	 * Return all project available in the specific event
+	 * Return all project available in the specific event.
 	 * 
 	 * @param event
 	 *            the event that projects are belonging
@@ -29,6 +29,12 @@ public interface ProjectDao {
 	 */
 	List<Project> findAllByEvent(VoteEvent event);
 
+	/**
+	 * Remove the project from persistent unit.
+	 * 
+	 * @param project
+	 *            the project needs to be removed
+	 */
 	void remove(Project project);
 
 }

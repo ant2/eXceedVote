@@ -47,6 +47,13 @@ public interface VoterDao {
 	 */
 	List<Voter> findAll();
 
+	/**
+	 * Return a voter by user.
+	 * 
+	 * @param u
+	 *            a user to search
+	 * @return voter
+	 */
 	Voter findByUser(User u);
 
 }
