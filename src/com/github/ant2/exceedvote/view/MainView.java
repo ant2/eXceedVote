@@ -20,7 +20,7 @@ public class MainView extends JFrame {
 	private ActivityPanel mainPanel;
 	private InfoBox nameInfoBox;
 	private InfoBox remainingTimeInfoBox;
-	private JButton logout;
+	private JButton logoutButton;
 
 	public MainView() {
 		super("eXceed Vote");
@@ -44,8 +44,8 @@ public class MainView extends JFrame {
 		UIUtility.addPadding(remainingTimeInfoBox, 0, 12, 0, 0);
 		topPanel.add(Box.createHorizontalGlue());
 
-		logout = new JButton("Logout");
-		topPanel.add(logout);
+		logoutButton = new JButton("Logout");
+		topPanel.add(logoutButton);
 
 		mainPanel = new ActivityPanel();
 		add(topPanel, BorderLayout.NORTH);
@@ -64,4 +64,7 @@ public class MainView extends JFrame {
 		return mainPanel;
 	}
 
+	public JButton getLogoutButton() {
+		return logoutButton;
+	}
 }

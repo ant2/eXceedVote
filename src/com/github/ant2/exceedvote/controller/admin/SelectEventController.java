@@ -22,6 +22,7 @@ public class SelectEventController {
 	private SelectEventProcess process;
 	private SelectEventWindow view;
 	private List<VoteEvent> events;
+	private Runnable logoutAction;
 
 	public SelectEventController(SelectEventProcess process,
 			SelectEventWindow view) {
@@ -41,6 +42,7 @@ public class SelectEventController {
 				ManageEventWindow window = new ManageEventWindow();
 				EventManagerController controller = new EventManagerController(
 						subprocess, window);
+				controller.setOnLogoutAction(logoutAction);
 				controller.run();
 			}
 		});
@@ -72,5 +74,9 @@ public class SelectEventController {
 		public int getSize() {
 			return events.size();
 		}
+	}
+
+	public void setOnLogoutAction(Runnable logoutAction) {
+		this.logoutAction = logoutAction;
 	}
 }

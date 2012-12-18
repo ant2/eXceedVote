@@ -19,17 +19,18 @@ public class LoginController {
 
 	private LoginProcess process;
 	private LoginWindow window;
+	private Runnable logoutAction = new Runnable() {
+		@Override
+		public void run() {
+			displayLoginWindow();
+		}
+	};
 
 	public LoginController(LoginProcess process, LoginWindow window) {
 		this.process = process;
 		this.window = window;
-	}
-
-	public void run() {
-		window.setVisible(true);
-		resetField();
+		
 		window.getLoginButton().addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				doLogin();
@@ -44,6 +45,10 @@ public class LoginController {
 		});
 	}
 
+	public void run() {
+		displayLoginWindow();
+	}
+
 	private void doLogin() {
 		LoginResult result = process.login(window.getUsernameField().getText(),
 				new String(window.getPasswordField().getPassword()));
@@ -51,8 +56,14 @@ public class LoginController {
 			window.showLoginError();
 			return;
 		}
-		window.dispose();
+//		window.dispose();
+		window.setVisible(false);
 		startMain(result);
+	}
+	
+	private void displayLoginWindow() {
+		window.setVisible(true);
+		resetField();
 	}
 
 	private void startMain(LoginResult result) {
@@ -65,6 +76,8 @@ public class LoginController {
 			MainController mainController = new MainController(context,
 					mainView);
 			Activity activity;
+			
+			mainController.setOnLogoutAction(logoutAction);
 
 			activity = new WelcomeActivity(context, new WelcomeActivityView());
 			mainController.run(activity);
@@ -76,6 +89,7 @@ public class LoginController {
 					this.process.getDaoFactory());
 			SelectEventController controller = new SelectEventController(
 					process, view);
+			controller.setOnLogoutAction(logoutAction);
 			controller.run();
 			break;
 		}

@@ -20,6 +20,7 @@ public class MainController {
 	private ActivitiesController panelController;
 	private Voter voter;
 	private VoteEvent event;
+	private Runnable logoutAction;
 
 	public MainController(Context context, MainView mainView) {
 		this.context = context;
@@ -27,6 +28,21 @@ public class MainController {
 		event = this.context.getEvent();
 		view = mainView;
 		panelController = new ActivitiesController(mainView.getMainPanel());
+		addListener();
+	}
+
+	private void addListener() {
+		view.getLogoutButton().addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				logout();
+			}
+		});
+	}
+	
+	private void logout() {
+		view.dispose();
+		if (logoutAction != null) logoutAction.run();
 	}
 
 	public void run(Activity activity) {
@@ -59,6 +75,10 @@ public class MainController {
 	private String formatTime(int timeLeft) {
 		return String.format("%d:%02d:%02d", timeLeft / 3600,
 				timeLeft % 3600 / 60, timeLeft % 60);
+	}
+
+	public void setOnLogoutAction(Runnable logoutAction) {
+		this.logoutAction = logoutAction;
 	}
 
 }
