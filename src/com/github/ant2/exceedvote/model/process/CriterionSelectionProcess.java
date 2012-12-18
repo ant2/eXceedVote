@@ -9,6 +9,11 @@ import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
+/**
+ * A criterion selection process
+ * 
+ * @author Thai Pangsakulyanont
+ */
 public class CriterionSelectionProcess {
 
 	private Logger logger = LogManager
@@ -21,12 +26,21 @@ public class CriterionSelectionProcess {
 
 	private List<Criterion> criteria;
 
+	/**
+	 * @param context
+	 *            the context
+	 */
 	public CriterionSelectionProcess(Context context) {
 		this.context = context;
 		event = context.getEvent();
 		df = context.getDaoFactory();
 	}
 
+	/**
+	 * Gets all the criteria
+	 * 
+	 * @return the list of criteria
+	 */
 	public List<Criterion> getAllCriteria() {
 		if (criteria == null) {
 			logger.debug("Getting all criteria.");
@@ -37,6 +51,13 @@ public class CriterionSelectionProcess {
 		return criteria;
 	}
 
+	/**
+	 * Creates the VotingProcess
+	 * 
+	 * @param criterion
+	 *            the criterion that is chosen
+	 * @return the VotingProcess
+	 */
 	public VotingProcess createVotingProcess(Criterion criterion) {
 		return new VotingProcess(context, criterion);
 	}
