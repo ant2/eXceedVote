@@ -1,5 +1,11 @@
 package com.github.ant2.exceedvote.stub;
 
+import com.github.ant2.exceedvote.dao.CommissionerDao;
+import com.github.ant2.exceedvote.dao.CriterionDao;
+import com.github.ant2.exceedvote.dao.EventDao;
+import com.github.ant2.exceedvote.dao.ProjectDao;
+import com.github.ant2.exceedvote.dao.UserDao;
+import com.github.ant2.exceedvote.dao.VoterDao;
 import com.github.ant2.exceedvote.dao.memory.MemoryDaoFactory;
 import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.Criterion;
@@ -41,6 +47,13 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		V1.setUser(U1);
 		V2.setUser(U2);
 		COM1.setUser(U3);
+		
+		EventDao eventDao = getEventDao();
+		VoterDao voterDao = getVoterDao();
+		CriterionDao criterionDao = getCriterionDao();
+		ProjectDao projectDao = getProjectDao();
+		UserDao userDao = getUserDao();
+		CommissionerDao commissionerDao = getCommissionerDao();
 
 		eventDao.save(EVENT);
 		voterDao.save(V1);
@@ -55,6 +68,6 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		userDao.save(U1);
 		userDao.save(U2);
 		userDao.save(U3);
-		commissionDao.save(COM1);
+		commissionerDao.save(COM1);
 	}
 }
