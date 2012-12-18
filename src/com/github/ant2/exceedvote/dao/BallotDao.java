@@ -45,11 +45,11 @@ public interface BallotDao {
 	void remove(Ballot ballot);
 
 	/**
-	 * Finds all ballots inside an event
+	 * Finds all ballots inside an event.
 	 * 
 	 * @param event
 	 *            the event to search
-	 * @return the list of ballots
+	 * @return all ballots inside event
 	 */
 	List<Ballot> findAllByEvent(VoteEvent event);
 

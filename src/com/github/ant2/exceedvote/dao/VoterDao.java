@@ -51,7 +51,7 @@ public interface VoterDao {
 	 * Finds the voter by user
 	 * 
 	 * @param u
-	 *            the user that is chosen
+	 *            the user to search
 	 * @return the voter
 	 */
 	Voter findByUser(User u);

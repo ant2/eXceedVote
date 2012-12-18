@@ -12,10 +12,10 @@ import com.github.ant2.exceedvote.model.domain.User;
 public interface CommissionerDao {
 
 	/**
-	 * Saves the commissioner into persistent unit
+	 * Save a commissioner to persistent unit.
 	 * 
 	 * @param c
-	 *            the commissioner
+	 *            the commissioner needs to be saved
 	 */
 	void save(Commissioner c);
 

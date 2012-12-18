@@ -5,7 +5,6 @@ import org.junit.Test;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.UserDao;
 import com.github.ant2.exceedvote.dao.VoterDao;
-import com.github.ant2.exceedvote.model.LoginResult;
 import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
 

@@ -58,6 +58,7 @@ public class VoteEvent extends Model {
 	public Voter createVoter() {
 		Voter voter = new Voter();
 		voter.setVoteEvent(this);
+		voter.setUser(new User());
 		return voter;
 	}
 

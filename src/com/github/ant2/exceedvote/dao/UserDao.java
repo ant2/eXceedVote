@@ -11,19 +11,19 @@ import com.github.ant2.exceedvote.model.domain.User;
 public interface UserDao {
 
 	/**
-	 * Saves the user into persistent unit
+	 * Remove the user from persistent unit.
 	 * 
 	 * @param user
-	 *            the user that is going to be saved
+	 *            the user needs to be removed
 	 */
 	public void save(User user);
 
 	/**
-	 * Finds the user by username
+	 * Return a user by the name
 	 * 
 	 * @param user
-	 *            the user that is chosen
-	 * @return the user
+	 *            a name to search
+	 * @return user of this name
 	 */
 	public User findByUserName(String user);
 }
