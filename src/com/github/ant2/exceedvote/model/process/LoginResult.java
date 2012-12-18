@@ -1,4 +1,4 @@
-package com.github.ant2.exceedvote.model;
+package com.github.ant2.exceedvote.model.process;
 
 import com.github.ant2.exceedvote.model.domain.Commissioner;
 import com.github.ant2.exceedvote.model.domain.User;
