@@ -10,9 +10,11 @@ import javax.swing.ListModel;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.admin.EditCriterionProcess;
 import com.github.ant2.exceedvote.model.process.admin.EditProjectProcess;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
+import com.github.ant2.exceedvote.model.process.admin.ManageVoterProcess;
 import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.util.ChangeObserver;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
@@ -30,6 +32,7 @@ public class EventManagerController implements ChangeObserver {
 	private ManageEventWindow view;
 	private List<Project> projects;
 	private List<Criterion> criteria;
+	private List<Voter> voters;
 	private VoteEvent event;
 	private Runnable logoutAction;
 
@@ -51,6 +54,7 @@ public class EventManagerController implements ChangeObserver {
 	private void reload() {
 		projects = process.getAllProjects();
 		criteria = process.getAllCriteria();
+		voters = process.getAllVoter();
 		setListModel();
 	}
 
@@ -97,6 +101,13 @@ public class EventManagerController implements ChangeObserver {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				logout();
+			}
+		});
+		view.getManageVoterButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				ManageVoterProcess subprocess = process.manageVoters();
+				subprocess.editVoter(new Voter());
 			}
 		});
 	}
