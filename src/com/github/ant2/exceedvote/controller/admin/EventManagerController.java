@@ -31,6 +31,7 @@ public class EventManagerController implements ChangeObserver {
 	private List<Project> projects;
 	private List<Criterion> criteria;
 	private VoteEvent event;
+	private Runnable logoutAction;
 
 	public EventManagerController(EventManagerProcess process,
 			ManageEventWindow view) {
@@ -92,6 +93,12 @@ public class EventManagerController implements ChangeObserver {
 						.getSelectedIndex()));
 			}
 		});
+		view.getLogoutButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				logout();
+			}
+		});
 	}
 
 	private void viewResult() {
@@ -116,6 +123,11 @@ public class EventManagerController implements ChangeObserver {
 		EditProjectController controller = new EditProjectController(
 				subprocess, window);
 		controller.run();
+	}
+	
+	private void logout() {
+		view.dispose();
+		logoutAction.run();
 	}
 
 	public void run() {
@@ -155,6 +167,10 @@ public class EventManagerController implements ChangeObserver {
 			return criteria.size();
 		}
 
+	}
+
+	public void setOnLogoutAction(Runnable logoutAction) {
+		this.logoutAction = logoutAction;
 	}
 
 }
