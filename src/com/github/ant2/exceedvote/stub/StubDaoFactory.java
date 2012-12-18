@@ -15,8 +15,16 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.util.CalendarUtil;
 
+/**
+ * A StubDaoFactory is a MemoryDaoFactory with some pre-filled data.
+ * 
+ * @author dtinth
+ */
 public class StubDaoFactory extends MemoryDaoFactory {
 
+	/**
+	 * The created event.
+	 */
 	public final VoteEvent EVENT = new VoteEvent();
 
 	{
@@ -26,28 +34,53 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		EVENT.setAnnouncementTime(CalendarUtil.createCalendar(400));
 	}
 
+	/** Stub voter #1 */
 	public final Voter V1 = EVENT.createVoter("Voter 1", "001");
+
+	/** Stub voter #2 */
 	public final Voter V2 = EVENT.createVoter("Voter 2", "002");
+
+	/** Stub commissioner */
 	public final Commissioner COM1 = EVENT.createCommissioner("Commissioner 1");
 
+	/** Stub criterion #1 */
 	public final Criterion C1 = EVENT.createCriterion("Criterion 1");
+
+	/** Stub criterion #2 */
 	public final Criterion C2 = EVENT.createCriterion("Criterion 2");
+
+	/** Stub criterion #3 */
 	public final Criterion C3 = EVENT.createCriterion("Criterion 3");
 
+	/** Stub project #1 */
 	public final Project P1 = EVENT.createProject("Project 1");
+
+	/** Stub project #2 */
 	public final Project P2 = EVENT.createProject("Project 2");
+
+	/** Stub project #3 */
 	public final Project P3 = EVENT.createProject("Project 3");
+
+	/** Stub project #4 */
 	public final Project P4 = EVENT.createProject("Project 4");
 
+	/** Stub user #1 for voter #1 */
 	public final User U1 = new User("voter1", "pass");
+	
+	/** Stub user #2 for voter #2 */
 	public final User U2 = new User("voter2", "pass");
+	
+	/** Stub user #3 for commissioner */
 	public final User U3 = new User("com1", "pass");
 
+	/**
+	 * Constructs a new StubDaoFactory.
+	 */
 	public StubDaoFactory() {
 		V1.setUser(U1);
 		V2.setUser(U2);
 		COM1.setUser(U3);
-		
+
 		EventDao eventDao = getEventDao();
 		VoterDao voterDao = getVoterDao();
 		CriterionDao criterionDao = getCriterionDao();
@@ -70,4 +103,5 @@ public class StubDaoFactory extends MemoryDaoFactory {
 		userDao.save(U3);
 		commissionerDao.save(COM1);
 	}
+	
 }
