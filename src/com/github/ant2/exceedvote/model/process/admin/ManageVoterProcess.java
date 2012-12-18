@@ -31,4 +31,8 @@ public class ManageVoterProcess {
 		return new EditVoterProcess(voter, voterDao);
 	}
 
+	public ManageVoterProcess manageVoters() {
+		return new ManageVoterProcess(df, event);
+	}
+
 }
