@@ -8,6 +8,11 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
+/**
+ * The process for view current voting result
+ * 
+ * @author dtinth
+ */
 public class ViewResultProcess {
 
 	private DaoFactory df;
@@ -16,6 +21,14 @@ public class ViewResultProcess {
 	private List<Criterion> criteria;
 	private List<Project> projects;
 
+	/**
+	 * Constructs the new ViewResultProcess.
+	 * 
+	 * @param df
+	 *            the DAO factory to get all other DAO
+	 * @param event
+	 *            showing the result from this event
+	 */
 	public ViewResultProcess(DaoFactory df, VoteEvent event) {
 		this.df = df;
 		this.event = event;
