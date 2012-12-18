@@ -13,7 +13,7 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 public interface ProjectDao {
 
 	/**
-	 * Save the project to the persistent unit.
+	 * Saves the project to the persistent unit.
 	 * 
 	 * @param project
 	 *            the project need to be saved
@@ -21,7 +21,7 @@ public interface ProjectDao {
 	void save(Project project);
 
 	/**
-	 * Return all project available in the specific event
+	 * Returns all project available in the specific event
 	 * 
 	 * @param event
 	 *            the event that projects are belonging
@@ -29,6 +29,12 @@ public interface ProjectDao {
 	 */
 	List<Project> findAllByEvent(VoteEvent event);
 
+	/**
+	 * Removes the project
+	 * 
+	 * @param project
+	 *            the project that is going to be removed
+	 */
 	void remove(Project project);
 
 }
