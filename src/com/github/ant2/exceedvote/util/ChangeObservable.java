@@ -6,6 +6,11 @@ import java.util.Observer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Like Observable but simpler.
+ * 
+ * @author dtinth
+ */
 public class ChangeObservable {
 
 	private static Logger logger = LogManager.getLogger(ChangeObservable.class);
@@ -18,6 +23,12 @@ public class ChangeObservable {
 		}
 	}
 
+	/**
+	 * Adds a new ChangeObserver to this ChangeObserver
+	 * 
+	 * @param o
+	 *            the observer to add
+	 */
 	public void addObserver(final ChangeObserver o) {
 		observable.addObserver(new Observer() {
 			@Override
@@ -28,6 +39,9 @@ public class ChangeObservable {
 		});
 	}
 
+	/**
+	 * Notifies the observers that something is changed.
+	 */
 	protected void notifyObservers() {
 		logger.debug(this + " has been changed.");
 		observable.fire();
