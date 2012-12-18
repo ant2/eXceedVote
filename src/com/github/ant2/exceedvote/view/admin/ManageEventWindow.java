@@ -12,9 +12,14 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+/**
+ * Manage event UI.
+ *
+ * @author Artima Mahahemarat
+ */
 public class ManageEventWindow extends JFrame {
 
-	/** */
+	
 	private static final long serialVersionUID = 1L;
 	private JList projectList;
 	private JList criteriaList;
@@ -96,38 +101,83 @@ public class ManageEventWindow extends JFrame {
 		getContentPane().add(logoutButton, "4, 5, right, center");
 	}
 
+	/**
+	 * Return project list.
+	 * 
+	 * @return projectList
+	 */
 	public JList getProjectList() {
 		return projectList;
 	}
 
+	/**
+	 * Return criteria list.
+	 * 
+	 * @return criteriaList
+	 */
 	public JList getCriterionList() {
 		return criteriaList;
-	}
+	} 
 
+	/**
+	 * Return add project button. 
+	 * 
+	 * @return addProjectButton
+	 */
 	public JButton getAddProjectButton() {
 		return addProjectButton;
 	}
 
+	/**
+	 * Return edit project button.
+	 * 
+	 * @return editProjectButton
+	 */
 	public JButton getEditProjectButton() {
 		return editProjectButton;
 	}
 
+	/**
+	 * Return add criteria button.
+	 * 
+	 * @return addCriteriaButton
+	 */
 	public JButton getAddCriterionButton() {
 		return addCriteriaButton;
 	}
 
+	/**
+	 * Return edit criteria button.
+	 * 
+	 * @return editCriteriaButton
+	 */
 	public JButton getEditCriterionButton() {
 		return editCriteriaButton;
 	}
 
+	/**
+	 * Return manage voter button.
+	 * 
+	 * @return manageVoterButton
+	 */
 	public JButton getManageVoterButton() {
 		return manageVoterButton;
 	}
 
+	/**
+	 * Return view result button.
+	 * 
+	 * @return viewResultButton
+	 */
 	public JButton getViewResultButton() {
 		return viewResultButton;
 	}
 
+	/**
+	 * Return logout button.
+	 * 
+	 * @return logoutButton
+	 */
 	public JButton getLogoutButton() {
 		return logoutButton;
 	}

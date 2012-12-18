@@ -24,7 +24,6 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class EditCriteriaWindow extends JFrame {
 
-	/** */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtCriteriaName;
@@ -92,14 +91,29 @@ public class EditCriteriaWindow extends JFrame {
 		panel.add(btnSave);
 	}
 
+	/**
+	 * Return delete button.
+	 * 
+	 * @return btnDelete
+	 */
 	public JButton getDeleteButton() {
 		return btnDelete;
 	}
 
+	/**
+	 * Return save button.
+	 * 
+	 * @return btnSave
+	 */
 	public JButton getSaveButton() {
 		return btnSave;
 	}
 
+	/**
+	 * Return name field.
+	 * 
+	 * @return txtCriteriaName
+	 */
 	public JTextField getNameField() {
 		return txtCriteriaName;
 	}

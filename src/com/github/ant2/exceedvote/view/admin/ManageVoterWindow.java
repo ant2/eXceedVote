@@ -1,6 +1,5 @@
 package com.github.ant2.exceedvote.view.admin;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import com.jgoodies.forms.layout.FormLayout;
@@ -12,26 +11,15 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
+/**
+ * Manage voter UI.
+ *
+ * @author Artima Mahahemarat
+ */
 public class ManageVoterWindow {
 
 	private JFrame frmManageVoter;
 	private JTable table;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ManageVoterWindow window = new ManageVoterWindow();
-					window.frmManageVoter.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

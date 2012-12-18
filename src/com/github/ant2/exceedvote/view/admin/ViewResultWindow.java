@@ -7,12 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.text.html.HTMLEditorKit;
 
+/**
+ * View result UI.
+ *
+ * @author 
+ */
 public class ViewResultWindow extends JFrame {
 
-	/** */
 	private static final long serialVersionUID = 1L;
 	private JEditorPane editorPane;
 
+	
 	public ViewResultWindow() {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle("View Voting Result");

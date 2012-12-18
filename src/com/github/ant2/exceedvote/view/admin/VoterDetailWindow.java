@@ -1,7 +1,5 @@
 package com.github.ant2.exceedvote.view.admin;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -12,28 +10,17 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+/**
+ * Voter datial UI.
+ *
+ * @author Artima Mahahemarat
+ */
 public class VoterDetailWindow {
 
 	private JFrame frmVoterDetail;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VoterDetailWindow window = new VoterDetailWindow();
-					window.frmVoterDetail.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

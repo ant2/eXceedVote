@@ -1,7 +1,5 @@
 package com.github.ant2.exceedvote.view.admin;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -12,27 +10,16 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * Event detail UI.
+ *
+ * @author Artima Mahahemarat
+ */
 public class EventDetailWindow {
 
 	private JFrame frmEventDetail;
 	private JTextField textField;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EventDetailWindow window = new EventDetailWindow();
-					window.frmEventDetail.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the application.
 	 */
