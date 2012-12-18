@@ -7,7 +7,7 @@ import com.github.ant2.exceedvote.model.process.admin.EditProjectProcess;
 import com.github.ant2.exceedvote.view.admin.EditProjectWindow;
 
 /**
- * 
+ * A controller for EditProjectProcess
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
@@ -15,6 +15,10 @@ public class EditProjectController {
 	private EditProjectProcess process;
 	private EditProjectWindow window;
 
+	/**
+	 * @param subprocess subprocess to control
+	 * @param window window to control
+	 */
 	public EditProjectController(EditProjectProcess subprocess,
 			EditProjectWindow window) {
 		process = subprocess;
@@ -52,6 +56,9 @@ public class EditProjectController {
 		}
 	}
 
+	/**
+	 * Runs the controller: display the window.
+	 */
 	public void run() {
 		window.setVisible(true);
 		window.pack();
