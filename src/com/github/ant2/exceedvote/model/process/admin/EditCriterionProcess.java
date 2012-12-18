@@ -15,7 +15,7 @@ public class EditCriterionProcess extends ChangeObservable {
 	public EditCriterionProcess(DaoFactory df, Criterion criterion) {
 		this.df = df;
 		this.criterion = criterion;
-		dao = df.getCriterionDao();
+		dao = this.df.getCriterionDao();
 	}
 
 	public void setName(String name) {
