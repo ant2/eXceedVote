@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Ballot;
-import com.github.ant2.exceedvote.model.process.admin.BallotCount;
-import com.github.ant2.exceedvote.model.process.admin.BallotCounter;
-import com.github.ant2.exceedvote.model.process.admin.BallotCounterResult;
+import com.github.ant2.exceedvote.model.process.admin.VoteCount;
+import com.github.ant2.exceedvote.model.process.admin.VoteCounter;
+import com.github.ant2.exceedvote.model.process.admin.VoteCounterResult;
 import com.github.ant2.exceedvote.stub.StubContext;
 import com.github.ant2.exceedvote.stub.StubDaoFactory;
 
@@ -37,9 +37,9 @@ public class BallotCounterTest {
 
 		// retrieve them back
 		DaoFactory df = sdf;
-		BallotCounter counter = new BallotCounter(df, sdf.EVENT);
-		BallotCounterResult result = counter.count();
-		BallotCount count = result.forCriterion(sdf.C1);
+		VoteCounter counter = new VoteCounter(df, sdf.EVENT);
+		VoteCounterResult result = counter.count();
+		VoteCount count = result.forCriterion(sdf.C1);
 		assertEquals(3, count.get(sdf.P1));
 		assertEquals(0, count.get(sdf.P2));
 		assertEquals(5, count.get(sdf.P3));
