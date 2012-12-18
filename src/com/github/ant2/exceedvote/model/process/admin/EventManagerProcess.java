@@ -8,9 +8,11 @@ import org.apache.logging.log4j.Logger;
 import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.ProjectDao;
+import com.github.ant2.exceedvote.dao.VoterDao;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.util.ChangeObservable;
 import com.github.ant2.exceedvote.util.ChangeObserver;
 
@@ -26,8 +28,10 @@ public class EventManagerProcess extends ChangeObservable implements
 	private DaoFactory df;
 	private ProjectDao projectDao;
 	private CriterionDao criterionDao;
+	private VoterDao voterDao;
 	private List<Project> projects;
 	private List<Criterion> criteria;
+	private List<Voter> voters;
 	private VoteEvent event;
 
 	public EventManagerProcess(DaoFactory df, VoteEvent event) {
@@ -35,6 +39,7 @@ public class EventManagerProcess extends ChangeObservable implements
 		this.event = event;
 		projectDao = df.getProjectDao();
 		criterionDao = df.getCriterionDao();
+		voterDao = df.getVoterDao();
 		logger.debug("Manageing Event: " + event.toString());
 	}
 
@@ -80,6 +85,15 @@ public class EventManagerProcess extends ChangeObservable implements
 
 	public ViewResultProcess viewResult() {
 		return new ViewResultProcess(df, event);
+	}
+
+	public List<Voter> getAllVoter() {
+		if (voters == null) voters = voterDao.findAllByEvent(event);
+		return voters;
+	}
+
+	public ManageVoterProcess manageVoters() {
+		return new ManageVoterProcess(df, event);
 	}
 
 }
