@@ -23,7 +23,7 @@ import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
 /**
- * 
+ * A controller for Event
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
@@ -32,10 +32,15 @@ public class EventManagerController implements ChangeObserver {
 	private ManageEventWindow view;
 	private List<Project> projects;
 	private List<Criterion> criteria;
-	private List<Voter> voters;
 	private VoteEvent event;
 	private Runnable logoutAction;
 
+	/**
+	 * @param process
+	 *            process to control
+	 * @param view
+	 *            view to control
+	 */
 	public EventManagerController(EventManagerProcess process,
 			ManageEventWindow view) {
 		this.process = process;
@@ -54,7 +59,7 @@ public class EventManagerController implements ChangeObserver {
 	private void reload() {
 		projects = process.getAllProjects();
 		criteria = process.getAllCriteria();
-		voters = process.getAllVoter();
+		process.getAllVoter();
 		setListModel();
 	}
 
@@ -135,12 +140,15 @@ public class EventManagerController implements ChangeObserver {
 				subprocess, window);
 		controller.run();
 	}
-	
+
 	private void logout() {
 		view.dispose();
 		logoutAction.run();
 	}
 
+	/**
+	 * Runs the controller: display the window.
+	 */
 	public void run() {
 		view.setVisible(true);
 		view.pack();
@@ -180,6 +188,10 @@ public class EventManagerController implements ChangeObserver {
 
 	}
 
+	/**
+	 * Sets the action to be performed on logout
+	 * @param logoutAction the logout action
+	 */
 	public void setOnLogoutAction(Runnable logoutAction) {
 		this.logoutAction = logoutAction;
 	}

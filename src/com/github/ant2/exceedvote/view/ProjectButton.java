@@ -12,12 +12,17 @@ import javax.swing.SwingConstants;
 
 import com.github.ant2.exceedvote.util.UIUtility;
 
+/**
+ * A project button for view project info.
+ * 
+ * @author dtinth
+ */
 public class ProjectButton extends JButton {
 
 	/** */
 	private static final long serialVersionUID = 1L;
 
-	public static class IconView extends JComponent {
+	private static class IconView extends JComponent {
 		/** */
 		private static final long serialVersionUID = 1L;
 
@@ -35,6 +40,12 @@ public class ProjectButton extends JButton {
 		}
 	}
 
+	/**
+	 * Constructs a new ProjectButton
+	 * 
+	 * @param string
+	 *            the text to display
+	 */
 	public ProjectButton(String string) {
 		super();
 		setLayout(new BorderLayout());
@@ -46,6 +57,12 @@ public class ProjectButton extends JButton {
 		add(new IconView(), BorderLayout.WEST);
 	}
 
+	/**
+	 * Tests this project button appearance.
+	 * 
+	 * @param args
+	 *            unused
+	 */
 	public static void main(String[] args) {
 		UIUtility.setTheme();
 		UIUtility.testWidget(new ProjectButton("Project Name"));

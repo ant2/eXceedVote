@@ -12,6 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+/**
+ * A list cell render for criterion list. It displays as a big text with some
+ * circle in front indicating the selection.
+ * 
+ * @author dtinth
+ */
 public class CriterionListCellRenderer extends JLabel implements
 		ListCellRenderer {
 
@@ -19,6 +25,9 @@ public class CriterionListCellRenderer extends JLabel implements
 	private static final long serialVersionUID = 1L;
 	private boolean selected;
 
+	/**
+	 * Constructs a new CriterionListCellRenderer
+	 */
 	public CriterionListCellRenderer() {
 		setFont(new Font("Arial", Font.PLAIN, 20));
 		setOpaque(true);

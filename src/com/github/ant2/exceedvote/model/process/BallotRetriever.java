@@ -11,16 +11,35 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
+/**
+ * BallotRetriever retrieves the ballot count from the database, makes it easier
+ * to use by a client.
+ * 
+ * @author dtinth
+ */
 public class BallotRetriever {
 
 	private Context context;
 	private Criterion criterion;
 
+	/**
+	 * Constructs a new BallotRetriever
+	 * 
+	 * @param context
+	 *            the context
+	 * @param criterion
+	 *            the criterion
+	 */
 	public BallotRetriever(Context context, Criterion criterion) {
 		this.context = context;
 		this.criterion = criterion;
 	}
 
+	/**
+	 * Retrieves the map of ballot from project -> ballot.
+	 * 
+	 * @return the map
+	 */
 	public Map<Project, Ballot> retrieve() {
 		Voter voter = context.getVoter();
 		HashMap<Project, Ballot> map = new HashMap<Project, Ballot>();
@@ -33,6 +52,12 @@ public class BallotRetriever {
 		return map;
 	}
 
+	/**
+	 * Retrieves, calculates, and returns the map of count from project ->
+	 * ballot.
+	 * 
+	 * @return the map
+	 */
 	public Map<Project, Integer> count() {
 		HashMap<Project, Integer> map = new HashMap<Project, Integer>();
 		for (Entry<Project, Ballot> entry : retrieve().entrySet()) {
