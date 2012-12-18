@@ -4,13 +4,24 @@ import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.Context;
 
+/**
+ * A Context backed by a StubDaoFactory.
+ *
+ * @author dtinth
+ */
 public class StubContext extends Context {
 
 	private StubDaoFactory sdf;
 
+	/** myself */
 	public final Voter SELF;
+	
+	/** the other one */
 	public final Voter OTHER;
 
+	/**
+	 * Constructs a new StubContext.
+	 */
 	public StubContext() {
 		sdf = new StubDaoFactory();
 		setVoter(sdf.V1);
