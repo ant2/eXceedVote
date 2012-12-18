@@ -2,8 +2,8 @@ package com.github.ant2.exceedvote.controller.admin;
 
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
-import com.github.ant2.exceedvote.model.process.admin.BallotCount;
-import com.github.ant2.exceedvote.model.process.admin.BallotCounterResult;
+import com.github.ant2.exceedvote.model.process.admin.VoteCount;
+import com.github.ant2.exceedvote.model.process.admin.VoteCounterResult;
 import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
@@ -39,10 +39,10 @@ public class ViewResultController {
 						+ String.format("%tT", process.getCalendar()))
 				.append("<hr/>");
 
-		BallotCounterResult result = process.getResult();
+		VoteCounterResult result = process.getResult();
 
 		for (Criterion c : process.getCriteria()) {
-			BallotCount count = result.forCriterion(c);
+			VoteCount count = result.forCriterion(c);
 			html.append("<h2>" + c + "</h2>");
 			html.append("<table>");
 			html.append("<tr>").append("<th>Project Name</th>")

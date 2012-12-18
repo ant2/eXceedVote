@@ -14,20 +14,38 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
-public class BallotCounter {
+/**
+ * A VoteCounter counts all the votes in the system for an event.
+ * 
+ * @author dtinth
+ */
+public class VoteCounter {
 
-	private static Logger logger = LogManager.getLogger(BallotCounter.class);
-	
+	private static Logger logger = LogManager.getLogger(VoteCounter.class);
+
 	private DaoFactory df;
 	private VoteEvent event;
 
-	public BallotCounter(DaoFactory df, VoteEvent event) {
+	/**
+	 * Creates a VoteCounter
+	 * 
+	 * @param df
+	 *            the dao factory
+	 * @param event
+	 *            the event
+	 */
+	public VoteCounter(DaoFactory df, VoteEvent event) {
 		this.df = df;
 		this.event = event;
 	}
 
-	public BallotCounterResult count() {
-		final Map<Criterion, BallotCount> byCriterion = new HashMap<Criterion, BallotCount>();
+	/**
+	 * Counts all the votes.
+	 * 
+	 * @return the result
+	 */
+	public VoteCounterResult count() {
+		final Map<Criterion, VoteCount> byCriterion = new HashMap<Criterion, VoteCount>();
 		List<Ballot> ballots = df.getBallotDao().findAllByEvent(event);
 		List<Project> projects = df.getProjectDao().findAllByEvent(event);
 		logger.info("Counting ballots for event: " + event);
@@ -43,7 +61,7 @@ public class BallotCounter {
 					}
 				}
 			}
-			byCriterion.put(c, new BallotCount() {
+			byCriterion.put(c, new VoteCount() {
 				@Override
 				public int get(Project project) {
 					int count = byProject.containsKey(project) ? byProject
@@ -53,9 +71,9 @@ public class BallotCounter {
 			});
 		}
 		final Calendar then = Calendar.getInstance();
-		return new BallotCounterResult() {
+		return new VoteCounterResult() {
 			@Override
-			public BallotCount forCriterion(Criterion c) {
+			public VoteCount forCriterion(Criterion c) {
 				return byCriterion.get(c);
 			}
 
