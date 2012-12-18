@@ -10,16 +10,35 @@ import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
+/**
+ * A Ballot Submitter that submits the ballots for a certain criterion.
+ * 
+ * @author dtinth
+ */
 public class BallotSubmitter {
 
 	private Criterion criterion;
 	private Context context;
 
+	/**
+	 * Constructs a new BallotSubmitter
+	 * 
+	 * @param context
+	 *            the context
+	 * @param criterion
+	 *            the criterion
+	 */
 	public BallotSubmitter(Context context, Criterion criterion) {
 		this.context = context;
 		this.criterion = criterion;
 	}
 
+	/**
+	 * Submits the votes.
+	 * 
+	 * @param map
+	 *            map from project to integer
+	 */
 	public void submit(Map<Project, Integer> map) {
 
 		DaoFactory df = context.getDaoFactory();

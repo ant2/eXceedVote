@@ -11,6 +11,12 @@ import javax.swing.JPanel;
 
 import com.github.ant2.exceedvote.util.UIUtility;
 
+/**
+ * A scene is a component with a title at the top and anything at the middle.
+ * It may also have a footer button.
+ * 
+ * @author dtinth
+ */
 public class Scene extends JPanel {
 
 	/** */
@@ -18,6 +24,14 @@ public class Scene extends JPanel {
 	private JPanel footer;
 	private JLabel titleLabel;
 
+	/**
+	 * Constructs a new scene.
+	 * 
+	 * @param title
+	 *            title of this scene
+	 * @param component
+	 *            component to display in this scene
+	 */
 	public Scene(String title, JComponent component) {
 
 		this(title);
@@ -25,6 +39,12 @@ public class Scene extends JPanel {
 
 	}
 
+	/**
+	 * Constructs a new scene.
+	 * 
+	 * @param title
+	 *            title of this scene
+	 */
 	public Scene(String title) {
 
 		setLayout(new BorderLayout());
@@ -38,10 +58,23 @@ public class Scene extends JPanel {
 
 	}
 
+	/**
+	 * Sets the title
+	 * 
+	 * @param title
+	 *            the new title
+	 */
 	public void setTitle(String title) {
 		titleLabel.setText(title);
 	}
 
+	/**
+	 * Adds a button at the bottom of this scene
+	 * 
+	 * @param text
+	 *            the text of the button
+	 * @return the new button
+	 */
 	public JButton addFooterButton(String text) {
 		if (footer == null) {
 			footer = new JPanel(new FlowLayout(FlowLayout.RIGHT));

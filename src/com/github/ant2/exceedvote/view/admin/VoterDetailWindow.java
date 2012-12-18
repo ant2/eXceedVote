@@ -18,9 +18,10 @@ import javax.swing.JButton;
 public class VoterDetailWindow {
 
 	private JFrame frmVoterDetail;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField nameTextField;
+	private JTextField usernameTextField;
+	private JTextField passwordTextField;
+	private JButton saveButton;
 
 	/**
 	 * Create the application.
@@ -59,9 +60,9 @@ public class VoterDetailWindow {
 		JLabel lblName = new JLabel("Name");
 		panel.add(lblName);
 		
-		textField = new JTextField();
-		panel.add(textField);
-		textField.setColumns(10);
+		nameTextField = new JTextField();
+		panel.add(nameTextField);
+		nameTextField.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		frmVoterDetail.getContentPane().add(panel_1, "2, 4, fill, fill");
@@ -69,9 +70,9 @@ public class VoterDetailWindow {
 		JLabel lblUsername = new JLabel("Username");
 		panel_1.add(lblUsername);
 		
-		textField_1 = new JTextField();
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
+		usernameTextField = new JTextField();
+		panel_1.add(usernameTextField);
+		usernameTextField.setColumns(10);
 		
 		JPanel panel_2 = new JPanel();
 		frmVoterDetail.getContentPane().add(panel_2, "2, 6, fill, fill");
@@ -79,12 +80,27 @@ public class VoterDetailWindow {
 		JLabel lblPassword = new JLabel("Password");
 		panel_2.add(lblPassword);
 		
-		textField_2 = new JTextField();
-		panel_2.add(textField_2);
-		textField_2.setColumns(10);
+		passwordTextField = new JTextField();
+		panel_2.add(passwordTextField);
+		passwordTextField.setColumns(10);
 		
-		JButton btnSave = new JButton("Save");
-		frmVoterDetail.getContentPane().add(btnSave, "2, 8, right, default");
+		saveButton = new JButton("Save");
+		frmVoterDetail.getContentPane().add(saveButton, "2, 8, right, default");
 	}
 
+	public JTextField getNameTextField() {
+		return nameTextField;
+	}
+
+	public JTextField getUsernameTextField() {
+		return usernameTextField;
+	}
+
+	public JTextField getPasswordTextField() {
+		return passwordTextField;
+	}
+
+	public JButton getSaveButton() {
+		return saveButton;
+	}
 }

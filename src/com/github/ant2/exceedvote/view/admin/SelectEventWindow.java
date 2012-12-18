@@ -71,18 +71,38 @@ public class SelectEventWindow extends JFrame {
 
 	}
 
+	/**
+	 * Returns the event list of the event.
+	 * 
+	 * @return the list of the event
+	 */
 	public JList getEventList() {
 		return list;
 	}
 
+	/**
+	 * Returns the new event button.
+	 * 
+	 * @return the new event button
+	 */
 	public JButton getNewEventButton() {
 		return newEventButton;
 	}
 
+	/**
+	 * Returns the OK button.
+	 * 
+	 * @return the OK button
+	 */
 	public JButton getOkButton() {
 		return okButton;
 	}
 
+	/**
+	 * Returns the index of the selected event.
+	 * 
+	 * @return index of the selected event
+	 */
 	public int getSelectedEvent() {
 		return list.getSelectedIndex();
 	}

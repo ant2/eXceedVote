@@ -10,9 +10,11 @@ import javax.swing.ListModel;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.Project;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
+import com.github.ant2.exceedvote.model.domain.Voter;
 import com.github.ant2.exceedvote.model.process.admin.EditCriterionProcess;
 import com.github.ant2.exceedvote.model.process.admin.EditProjectProcess;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
+import com.github.ant2.exceedvote.model.process.admin.ManageVoterProcess;
 import com.github.ant2.exceedvote.model.process.admin.ViewResultProcess;
 import com.github.ant2.exceedvote.util.ChangeObserver;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
@@ -21,7 +23,7 @@ import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
 /**
- * 
+ * A controller for Event
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
@@ -33,6 +35,12 @@ public class EventManagerController implements ChangeObserver {
 	private VoteEvent event;
 	private Runnable logoutAction;
 
+	/**
+	 * @param process
+	 *            process to control
+	 * @param view
+	 *            view to control
+	 */
 	public EventManagerController(EventManagerProcess process,
 			ManageEventWindow view) {
 		this.process = process;
@@ -51,6 +59,7 @@ public class EventManagerController implements ChangeObserver {
 	private void reload() {
 		projects = process.getAllProjects();
 		criteria = process.getAllCriteria();
+		process.getAllVoter();
 		setListModel();
 	}
 
@@ -99,6 +108,13 @@ public class EventManagerController implements ChangeObserver {
 				logout();
 			}
 		});
+		view.getManageVoterButton().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				ManageVoterProcess subprocess = process.manageVoters();
+				subprocess.editVoter(new Voter());
+			}
+		});
 	}
 
 	private void viewResult() {
@@ -124,12 +140,15 @@ public class EventManagerController implements ChangeObserver {
 				subprocess, window);
 		controller.run();
 	}
-	
+
 	private void logout() {
 		view.dispose();
 		logoutAction.run();
 	}
 
+	/**
+	 * Runs the controller: display the window.
+	 */
 	public void run() {
 		view.setVisible(true);
 		view.pack();
@@ -169,6 +188,10 @@ public class EventManagerController implements ChangeObserver {
 
 	}
 
+	/**
+	 * Sets the action to be performed on logout
+	 * @param logoutAction the logout action
+	 */
 	public void setOnLogoutAction(Runnable logoutAction) {
 		this.logoutAction = logoutAction;
 	}

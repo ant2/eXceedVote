@@ -17,7 +17,7 @@ import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
 import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
 
 /**
- * 
+ * A controller for SelectEventProcess
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */
@@ -26,10 +26,16 @@ public class SelectEventController {
 	private SelectEventWindow view;
 	private List<VoteEvent> events;
 	private Runnable logoutAction;
-	
+
 	private static Logger logger = LogManager
 			.getLogger(SelectEventController.class);
 
+	/**
+	 * @param process
+	 *            process to control
+	 * @param view
+	 *            view to control
+	 */
 	public SelectEventController(SelectEventProcess process,
 			SelectEventWindow view) {
 		this.process = process;
@@ -61,13 +67,16 @@ public class SelectEventController {
 		});
 	}
 
+	/**
+	 * Runs the controller: display the window.
+	 */
 	public void run() {
 		view.getEventList().setModel(new EventListModel());
 		view.setVisible(true);
 		view.pack();
 	}
 
-	public class EventListModel extends AbstractListModel implements ListModel {
+	private class EventListModel extends AbstractListModel implements ListModel {
 		/** */
 		private static final long serialVersionUID = 1L;
 
@@ -82,6 +91,10 @@ public class SelectEventController {
 		}
 	}
 
+	/**
+	 * Sets the action to be performed on logout
+	 * @param logoutAction the logout action
+	 */
 	public void setOnLogoutAction(Runnable logoutAction) {
 		this.logoutAction = logoutAction;
 	}
