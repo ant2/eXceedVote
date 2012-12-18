@@ -22,17 +22,22 @@ import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
+/**
+ * A DAO Factory for JPA database.
+ * 
+ * @author dtinth
+ */
 public class JPADaoFactory implements DaoFactory {
 
-	protected EventDao eventDao;
-	protected VoterDao voterDao;
-	protected CriterionDao criterionDao;
-	protected ProjectDao projectDao;
-	protected BallotDao ballotDao;
+	private EventDao eventDao;
+	private VoterDao voterDao;
+	private CriterionDao criterionDao;
+	private ProjectDao projectDao;
+	private BallotDao ballotDao;
 	private CommissionerDao commissionerDao;
 	private JPAUserDao userDao;
 
-	protected EntityManager em = Persistence.createEntityManagerFactory(
+	private EntityManager em = Persistence.createEntityManagerFactory(
 			"eXceedVote").createEntityManager();
 
 	private class JPADao<T> {
@@ -196,6 +201,9 @@ public class JPADaoFactory implements DaoFactory {
 
 	}
 
+	/**
+	 * Constructs a new JPA Dao Factory.
+	 */
 	public JPADaoFactory() {
 		eventDao = new JPAEventDao();
 		voterDao = new JPAVoterDao();

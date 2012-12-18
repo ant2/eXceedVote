@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
+/**
+ * The starfield effect transition. Looks really awesome! O_O
+ * 
+ * @author dtinth
+ */
 public class StarfieldTransition implements Transition {
 
 	private static final int NUM_STARS = 200;
@@ -29,6 +34,9 @@ public class StarfieldTransition implements Transition {
 		}
 	}
 
+	/**
+	 * Constructs a new StarfieldTransition.
+	 */
 	public StarfieldTransition() {
 		stars = new Star[NUM_STARS];
 		for (int i = 0; i < NUM_STARS; i++) {

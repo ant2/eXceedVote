@@ -14,10 +14,15 @@ import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.ui.activity.Activity;
 
+/**
+ * An activity for selecting a Criterion.
+ * 
+ * @author dtinth
+ */
 public class CriterionSelectionActivity extends
 		AbstractExceedVoteActivity<CriterionSelectionActivityView> {
 
-	public class CriteriaListModel extends AbstractListModel implements
+	private class CriteriaListModel extends AbstractListModel implements
 			ListModel {
 
 		/** */
@@ -38,6 +43,16 @@ public class CriterionSelectionActivity extends
 	private CriterionSelectionProcess process;
 	private List<Criterion> criteria;
 
+	/**
+	 * Constructs a new CriterionSelectionActivity
+	 * 
+	 * @param previous
+	 *            the previous activity
+	 * @param process
+	 *            the process that this activity is using
+	 * @param view
+	 *            the view to control
+	 */
 	public CriterionSelectionActivity(Activity previous,
 			CriterionSelectionProcess process,
 			CriterionSelectionActivityView view) {

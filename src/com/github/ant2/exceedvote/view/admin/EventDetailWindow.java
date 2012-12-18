@@ -1,3 +1,4 @@
+
 package com.github.ant2.exceedvote.view.admin;
 
 import java.awt.EventQueue;

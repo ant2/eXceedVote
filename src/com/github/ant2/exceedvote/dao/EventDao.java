@@ -21,7 +21,7 @@ public interface EventDao {
 	 * Save new event to the persistent unit.
 	 * 
 	 * @param newEvent
-	 *            new event need to be save
+	 *            new event need to be saved
 	 */
 	void save(VoteEvent newEvent);
 

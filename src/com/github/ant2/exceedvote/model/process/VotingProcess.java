@@ -14,7 +14,7 @@ import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
 /**
- * 
+ * A voting process
  * 
  * @author Artima Mahahemarat
  */
@@ -30,6 +30,12 @@ public class VotingProcess {
 	private List<Project> projects;
 	private Context context;
 
+	/**
+	 * @param context
+	 *            the context
+	 * @param criterion
+	 *            the criterion to vote.
+	 */
 	public VotingProcess(Context context, Criterion criterion) {
 
 		this.context = context;
@@ -51,11 +57,22 @@ public class VotingProcess {
 
 	}
 
+	/**
+	 * Sets the DAOFactory
+	 * 
+	 * @param df
+	 *            DaoFactory that is going to be set
+	 */
 	public void setDaoFactory(DaoFactory df) {
 		logger.debug("Setting new DaoFactory.");
 		this.df = df;
 	}
 
+	/**
+	 * Gets all the projects in event
+	 * 
+	 * @return List of a project
+	 */
 	public List<Project> getProjects() {
 		if (projects == null) {
 			logger.debug("Getting all projects.");
@@ -66,11 +83,23 @@ public class VotingProcess {
 		return projects;
 	}
 
+	/**
+	 * Checks that ballots can increase or not
+	 * 
+	 * @return true if used ballots are less than allowed, false otherwise
+	 */
 	public boolean canIncrease() {
 		logger.debug("Determine if used ballots are less than allowed.");
 		return usedBallots < voter.getAllowedBallots();
 	}
 
+	/**
+	 * Checks that ballots can decrease or not
+	 * 
+	 * @param project
+	 *            the project that is chosen
+	 * @return true if the project has been voted, false otherwise
+	 */
 	public boolean canDecrease(Project project) {
 		logger.debug("Getting index of project.");
 		int i = getProjects().indexOf(project);
@@ -78,6 +107,12 @@ public class VotingProcess {
 		return a[i] > 0;
 	}
 
+	/**
+	 * Increases the ballot
+	 * 
+	 * @param project
+	 *            the project that is chosen
+	 */
 	public void increase(Project project) {
 		if (!canIncrease()) {
 			logger.debug("Project cannot be increased!");
@@ -91,6 +126,13 @@ public class VotingProcess {
 		usedBallots++;
 	}
 
+	/**
+	 * Counts the ballots in the project
+	 * 
+	 * @param project
+	 *            the project that is chosen
+	 * @return the number of ballots
+	 */
 	public int getCount(Project project) {
 		logger.debug("Getting index of project.");
 		int i = getProjects().indexOf(project);
@@ -98,6 +140,12 @@ public class VotingProcess {
 		return a[i];
 	}
 
+	/**
+	 * Decrease the ballot
+	 * 
+	 * @param project
+	 *            the project that is chosen
+	 */
 	public void decrease(Project project) {
 		if (!canDecrease(project)) {
 			logger.debug("Project cannot be decreased!");
@@ -111,6 +159,9 @@ public class VotingProcess {
 		usedBallots--;
 	}
 
+	/**
+	 * Submits the ballots to the system
+	 */
 	public void submit() {
 		Map<Project, Integer> map = new HashMap<Project, Integer>();
 		for (int i = 0; i < a.length; i++) {
@@ -125,16 +176,31 @@ public class VotingProcess {
 		new BallotSubmitter(context, criterion).submit(map);
 	}
 
+	/**
+	 * Gets the criterion
+	 * 
+	 * @return the criterion
+	 */
 	public Criterion getCriterion() {
 		logger.debug("Retrieving criterion.");
 		return criterion;
 	}
 
+	/**
+	 * Gets the number of used ballots
+	 * 
+	 * @return the number of used ballots
+	 */
 	public int getUsedBallots() {
 		logger.debug("Retrieving used ballots.");
 		return usedBallots;
 	}
 
+	/**
+	 * Gets the number of allowed ballots
+	 * 
+	 * @return the number of allowed ballots
+	 */
 	public int getTotalBallots() {
 		logger.debug("Retrieving allowed ballots.");
 		return voter.getAllowedBallots();

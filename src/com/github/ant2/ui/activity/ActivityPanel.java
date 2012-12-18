@@ -130,6 +130,8 @@ public class ActivityPanel extends JComponent {
 	 *            the component to display
 	 * @param transition
 	 *            the transition effect to use
+	 * @param duration
+	 *            how long the transition will be, in milliseconds
 	 */
 	public void display(Component component, Transition transition,
 			long duration) {

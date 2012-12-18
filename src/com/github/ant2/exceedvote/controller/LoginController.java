@@ -15,6 +15,11 @@ import com.github.ant2.exceedvote.view.MainView;
 import com.github.ant2.exceedvote.view.admin.SelectEventWindow;
 import com.github.ant2.ui.activity.Activity;
 
+/**
+ * A controller that controls the login process.
+ * 
+ * @author Iaolia456
+ */
 public class LoginController {
 
 	private LoginProcess process;
@@ -26,10 +31,18 @@ public class LoginController {
 		}
 	};
 
+	/**
+	 * Constructs a new LoginController
+	 * 
+	 * @param process
+	 *            the process to control
+	 * @param window
+	 *            the window to control
+	 */
 	public LoginController(LoginProcess process, LoginWindow window) {
 		this.process = process;
 		this.window = window;
-		
+
 		window.getLoginButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -45,6 +58,9 @@ public class LoginController {
 		});
 	}
 
+	/**
+	 * Runs the controller.
+	 */
 	public void run() {
 		displayLoginWindow();
 	}
@@ -56,11 +72,11 @@ public class LoginController {
 			window.showLoginError();
 			return;
 		}
-//		window.dispose();
+		// window.dispose();
 		window.setVisible(false);
 		startMain(result);
 	}
-	
+
 	private void displayLoginWindow() {
 		window.setVisible(true);
 		resetField();
@@ -76,7 +92,7 @@ public class LoginController {
 			MainController mainController = new MainController(context,
 					mainView);
 			Activity activity;
-			
+
 			mainController.setOnLogoutAction(logoutAction);
 
 			activity = new WelcomeActivity(context, new WelcomeActivityView());

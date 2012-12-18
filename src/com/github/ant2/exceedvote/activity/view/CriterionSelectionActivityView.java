@@ -10,6 +10,11 @@ import com.github.ant2.exceedvote.view.CriterionListCellRenderer;
 import com.github.ant2.exceedvote.view.Scene;
 import com.github.ant2.ui.activity.ActivityView;
 
+/**
+ * An activity view for Criterion Selection Activity.
+ *
+ * @author dttvb
+ */
 public class CriterionSelectionActivityView extends ActivityView {
 
 	/** */
@@ -18,6 +23,9 @@ public class CriterionSelectionActivityView extends ActivityView {
 	private JButton continueButton;
 	private JList list;
 
+	/**
+	 * Constructs a new CriterionSelectionActivityView.
+	 */
 	public CriterionSelectionActivityView() {
 		list = new JList();
 		list.setCellRenderer(new CriterionListCellRenderer());
@@ -30,14 +38,26 @@ public class CriterionSelectionActivityView extends ActivityView {
 		add(scene);
 	}
 
+	/**
+	 * Returns the Back button.
+	 * @return the back button
+	 */
 	public JButton getBackButton() {
 		return backButton;
 	}
 
+	/**
+	 * Returns the Continue button.
+	 * @return the continue button
+	 */
 	public JButton getContinueButton() {
 		return continueButton;
 	}
 
+	/**
+	 * Returns the Criterion List view.
+	 * @return the criterion list view
+	 */
 	public JList getList() {
 		return list;
 	}
