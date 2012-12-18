@@ -2,6 +2,9 @@ package com.github.ant2.exceedvote.model.process.admin;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.github.ant2.exceedvote.dao.CriterionDao;
 import com.github.ant2.exceedvote.dao.DaoFactory;
 import com.github.ant2.exceedvote.dao.ProjectDao;
@@ -18,6 +21,8 @@ import com.github.ant2.exceedvote.util.ChangeObserver;
  */
 public class EventManagerProcess extends ChangeObservable implements
 		ChangeObserver {
+	private static Logger logger = LogManager.getLogger(EventManagerProcess.class);
+	
 	private DaoFactory df;
 	private ProjectDao projectDao;
 	private CriterionDao criterionDao;
@@ -30,7 +35,7 @@ public class EventManagerProcess extends ChangeObservable implements
 		this.event = event;
 		projectDao = df.getProjectDao();
 		criterionDao = df.getCriterionDao();
-		System.out.println("managing event: " + event.toString());
+		logger.debug("Manageing Event: " + event.toString());
 	}
 
 	public List<Project> getAllProjects() {
