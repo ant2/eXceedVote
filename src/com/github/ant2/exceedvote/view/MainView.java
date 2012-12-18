@@ -12,6 +12,11 @@ import com.github.ant2.exceedvote.ui.theme.ThemeColor;
 import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.ui.activity.ActivityPanel;
 
+/**
+ * The main view for Voter.
+ * 
+ * @author dtinth
+ */
 public class MainView extends JFrame {
 
 	/** */
@@ -22,6 +27,9 @@ public class MainView extends JFrame {
 	private InfoBox remainingTimeInfoBox;
 	private JButton logoutButton;
 
+	/**
+	 * Constructs a new Main View.
+	 */
 	public MainView() {
 		super("eXceed Vote");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -52,18 +60,38 @@ public class MainView extends JFrame {
 		add(mainPanel, BorderLayout.CENTER);
 	}
 
+	/**
+	 * Gets the remaining time info box.
+	 * 
+	 * @return the remaining time info box
+	 */
 	public InfoBox getRemainingTimeInfoBox() {
 		return remainingTimeInfoBox;
 	}
 
+	/**
+	 * Gets the name info box.
+	 * 
+	 * @return the name info box
+	 */
 	public InfoBox getNameInfoBox() {
 		return nameInfoBox;
 	}
 
+	/**
+	 * Gets the main panel.
+	 * 
+	 * @return the main activity panel
+	 */
 	public ActivityPanel getMainPanel() {
 		return mainPanel;
 	}
 
+	/**
+	 * Gets the logout button
+	 * 
+	 * @return the logout button
+	 */
 	public JButton getLogoutButton() {
 		return logoutButton;
 	}

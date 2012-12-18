@@ -10,12 +10,25 @@ import javax.swing.JPanel;
 import com.github.ant2.exceedvote.ui.theme.ThemeColor;
 import com.github.ant2.exceedvote.util.UIUtility;
 
+/**
+ * An info box displays some data at the top.
+ * 
+ * @author dtinth
+ */
 public class InfoBox extends JPanel {
 	/** */
 	private static final long serialVersionUID = 1L;
 	private JLabel nameLabel;
 	private JLabel textLabel;
 
+	/**
+	 * Constructs a new info box.
+	 * 
+	 * @param name
+	 *            the name of this info box
+	 * @param text
+	 *            the initial text to display
+	 */
 	public InfoBox(String name, String text) {
 		nameLabel = new JLabel();
 		textLabel = new JLabel();
@@ -40,6 +53,12 @@ public class InfoBox extends JPanel {
 		setMaximumSize(new Dimension(192, 50));
 	}
 
+	/**
+	 * Sets the text in this InfoBox.
+	 * 
+	 * @param text
+	 *            the text to set
+	 */
 	public void setText(String text) {
 		textLabel.setText(text);
 	}
