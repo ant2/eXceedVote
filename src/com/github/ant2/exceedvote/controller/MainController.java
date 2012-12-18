@@ -13,6 +13,11 @@ import com.github.ant2.ui.activity.ActivitiesController;
 import com.github.ant2.ui.activity.Activity;
 import com.github.ant2.ui.activity.Fx;
 
+/**
+ * The main controller for a Voter.
+ * 
+ * @author dtinth
+ */
 public class MainController {
 
 	private Context context;
@@ -22,6 +27,14 @@ public class MainController {
 	private VoteEvent event;
 	private Runnable logoutAction;
 
+	/**
+	 * Constructs a new MainController
+	 * 
+	 * @param context
+	 *            the context
+	 * @param mainView
+	 *            the main view to control
+	 */
 	public MainController(Context context, MainView mainView) {
 		this.context = context;
 		voter = this.context.getVoter();
@@ -32,19 +45,25 @@ public class MainController {
 	}
 
 	private void addListener() {
-		view.getLogoutButton().addActionListener(new ActionListener() {	
+		view.getLogoutButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				logout();
 			}
 		});
 	}
-	
+
 	private void logout() {
 		view.dispose();
 		if (logoutAction != null) logoutAction.run();
 	}
 
+	/**
+	 * Runs an activity.
+	 * 
+	 * @param activity
+	 *            the activity to run
+	 */
 	public void run(Activity activity) {
 		view.setVisible(true);
 		view.getNameInfoBox().setText(voter.getName());
@@ -77,6 +96,12 @@ public class MainController {
 				timeLeft % 3600 / 60, timeLeft % 60);
 	}
 
+	/**
+	 * Sets the action to run on logging out.
+	 * 
+	 * @param logoutAction
+	 *            the action to run
+	 */
 	public void setOnLogoutAction(Runnable logoutAction) {
 		this.logoutAction = logoutAction;
 	}

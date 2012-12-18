@@ -15,7 +15,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 public interface VoterDao {
 
 	/**
-	 * Retrieve all the voter that belonging to specific event.
+	 * Retrieves all the voter that belonging to specific event.
 	 * 
 	 * @param event
 	 *            the event need to find
@@ -24,7 +24,7 @@ public interface VoterDao {
 	List<Voter> findAllByEvent(VoteEvent event);
 
 	/**
-	 * Save the voter to the persistent unit.
+	 * Saves the voter to the persistent unit.
 	 * 
 	 * @param voter
 	 *            the voter needs to be saved
@@ -32,7 +32,7 @@ public interface VoterDao {
 	void save(Voter voter);
 
 	/**
-	 * Find voter in the persistent unit by specific id.
+	 * Finds voter in the persistent unit by specific id.
 	 * 
 	 * @param id
 	 *            id of voter
@@ -48,11 +48,11 @@ public interface VoterDao {
 	List<Voter> findAll();
 
 	/**
-	 * Return a voter by user.
+	 * Finds the voter by user
 	 * 
 	 * @param u
-	 *            a user to search
-	 * @return voter
+	 *            the user to search
+	 * @return the voter
 	 */
 	Voter findByUser(User u);
 

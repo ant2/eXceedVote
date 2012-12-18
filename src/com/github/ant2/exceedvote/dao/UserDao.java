@@ -3,7 +3,8 @@ package com.github.ant2.exceedvote.dao;
 import com.github.ant2.exceedvote.model.domain.User;
 
 /**
- * 
+ * The UserDao class is responsible for saving a user and find a user by a
+ * username
  * 
  * @author Thiwat Rongsirigul (Leo Aiolia)
  */

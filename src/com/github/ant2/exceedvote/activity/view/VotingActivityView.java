@@ -12,6 +12,11 @@ import com.github.ant2.exceedvote.util.UIUtility;
 import com.github.ant2.exceedvote.view.Scene;
 import com.github.ant2.ui.activity.ActivityView;
 
+/**
+ * The view for VotingActivity.
+ * 
+ * @author dtinth
+ */
 public class VotingActivityView extends ActivityView {
 
 	/** */
@@ -22,6 +27,9 @@ public class VotingActivityView extends ActivityView {
 	private JPanel grid;
 	private JLabel ballotLeftLabel;
 
+	/**
+	 * Constructs a new VotingActivityView.
+	 */
 	public VotingActivityView() {
 		JPanel panel = new JPanel(new BorderLayout());
 		grid = new JPanel(new GridLayout(0, 3, 7, 7));
@@ -47,24 +55,51 @@ public class VotingActivityView extends ActivityView {
 		add(scene);
 	}
 
+	/**
+	 * Creates and add a new ProjectVoteView to the view, and returns
+	 * 
+	 * @return the newly created and added ProjectVoteView
+	 */
 	public ProjectVoteView addProjectVoteView() {
 		ProjectVoteView view = new ProjectVoteView();
 		grid.add(view);
 		return view;
 	}
 
+	/**
+	 * Returns the cancel button.
+	 * 
+	 * @return the cancel button
+	 */
 	public JButton getCancelButton() {
 		return cancelButton;
 	}
 
+	/**
+	 * Returns the submit button.
+	 * 
+	 * @return the submit button
+	 */
 	public JButton getSubmitButton() {
 		return submitButton;
 	}
 
+	/**
+	 * Sets the text on the title of the view.
+	 * 
+	 * @param title
+	 *            the text to set
+	 */
 	public void setTitle(String title) {
 		scene.setTitle(title);
 	}
 
+	/**
+	 * Sets the text on the "how many ballots left" label.
+	 * 
+	 * @param text
+	 *            the text to set
+	 */
 	public void setBallotLeftLabelText(String text) {
 		ballotLeftLabel.setText(text);
 	}

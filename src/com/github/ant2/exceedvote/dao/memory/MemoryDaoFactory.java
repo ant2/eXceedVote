@@ -25,17 +25,23 @@ import com.github.ant2.exceedvote.model.domain.User;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.domain.Voter;
 
+/**
+ * A DAO that keeps everything inside memory. It is implemented using a Hash
+ * Map, so everything disappears after closing app. Used for testing.
+ * 
+ * @author dttvb
+ */
 public class MemoryDaoFactory implements DaoFactory {
 
 	private static Logger logger = LogManager.getLogger(MemoryDaoFactory.class);
-	
-	protected EventDao eventDao;
-	protected VoterDao voterDao;
-	protected CriterionDao criterionDao;
-	protected ProjectDao projectDao;
-	protected BallotDao ballotDao;
-	protected UserDao userDao;
-	protected CommissionerDao commissionDao;
+
+	private EventDao eventDao;
+	private VoterDao voterDao;
+	private CriterionDao criterionDao;
+	private ProjectDao projectDao;
+	private BallotDao ballotDao;
+	private UserDao userDao;
+	private CommissionerDao commissionDao;
 
 	private int nextId = 1;
 
@@ -155,6 +161,9 @@ public class MemoryDaoFactory implements DaoFactory {
 		}
 	}
 
+	/**
+	 * Constructs a new MemoryDaoFactory.
+	 */
 	public MemoryDaoFactory() {
 		eventDao = new MemoryEventDao();
 		voterDao = new MemoryVoterDao();

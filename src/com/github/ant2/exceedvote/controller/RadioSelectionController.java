@@ -46,6 +46,12 @@ public class RadioSelectionController<T> {
 		return list.get(selectedIndex);
 	}
 
+	/**
+	 * Selects the item specified by item.
+	 * 
+	 * @param item
+	 *            the item to select
+	 */
 	public void setSelection(T item) {
 		view.setSelectedIndex(list.indexOf(item));
 	}

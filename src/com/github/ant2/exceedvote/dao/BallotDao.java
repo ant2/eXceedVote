@@ -16,7 +16,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 public interface BallotDao {
 
 	/**
-	 * Retrieve all ballots that the voter already voted for all project in
+	 * Retrieves all ballots that the voter already voted for all project in
 	 * specific criterion.
 	 * 
 	 * @param voter
@@ -29,7 +29,7 @@ public interface BallotDao {
 	List<Ballot> findAllByVoterAndCriterion(Voter voter, Criterion criterion);
 
 	/**
-	 * Save the ballot to persistent unit.
+	 * Saves the ballot to persistent unit.
 	 * 
 	 * @param ballot
 	 *            the ballot needs to be saved
@@ -37,7 +37,7 @@ public interface BallotDao {
 	void save(Ballot ballot);
 
 	/**
-	 * Remove the ballot from persistent unit.
+	 * Removes the ballot from persistent unit.
 	 * 
 	 * @param ballot
 	 *            the ballot needs to be removed
@@ -49,8 +49,7 @@ public interface BallotDao {
 	 * 
 	 * @param event
 	 *            the event to search
-	 * @return list of ballots 
-	 * 			  all ballots inside event
+	 * @return list of ballots, by event
 	 */
 	List<Ballot> findAllByEvent(VoteEvent event);
 

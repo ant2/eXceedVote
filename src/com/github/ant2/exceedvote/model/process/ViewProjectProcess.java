@@ -24,6 +24,9 @@ public class ViewProjectProcess {
 
 	/**
 	 * Constructs the ViewProjectProcess. Initializes the projects.
+	 * 
+	 * @param context
+	 *            the context
 	 */
 	public ViewProjectProcess(Context context) {
 		event = context.getEvent();

@@ -1,7 +1,8 @@
 package com.github.ant2.ui.activity;
 
 /**
- * A base, abstract implementation of Activity.
+ * A base, abstract implementation of Activity. An Activity is like a
+ * "Controller" that mediates between the model and the ActivityView.
  * 
  * @param <View>
  *            type of ActivityView that this Activity controls.
@@ -10,7 +11,14 @@ package com.github.ant2.ui.activity;
 public abstract class AbstractActivity<View extends ActivityView> implements
 		Activity {
 
+	/**
+	 * The view that this Activity is controlling.
+	 */
 	protected View view;
+	
+	/**
+	 * The ActivityDelegate.
+	 */
 	protected ActivityDelegate delegate;
 
 	@Override
