@@ -6,11 +6,24 @@ import java.awt.event.ActionListener;
 import com.github.ant2.exceedvote.model.process.admin.EditCriterionProcess;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
 
+/**
+ * A controller for EditCriterionProcess.
+ * 
+ * @author Iaolia456
+ */
 public class EditCriterionController {
 
 	private EditCriterionProcess process;
 	private EditCriteriaWindow window;
 
+	/**
+	 * Constructs a new EditCriterionProcess.
+	 * 
+	 * @param process
+	 *            process to control
+	 * @param window
+	 *            window to control
+	 */
 	public EditCriterionController(EditCriterionProcess process,
 			EditCriteriaWindow window) {
 		this.process = process;
@@ -46,6 +59,9 @@ public class EditCriterionController {
 		}
 	}
 
+	/**
+	 * Runs the controller: display the window.
+	 */
 	public void run() {
 		window.setVisible(true);
 	}

@@ -49,6 +49,7 @@ public interface BallotDao {
 	 * 
 	 * @param event
 	 *            the event to search
+	 * @return list of ballots, by event
 	 */
 	List<Ballot> findAllByEvent(VoteEvent event);
 

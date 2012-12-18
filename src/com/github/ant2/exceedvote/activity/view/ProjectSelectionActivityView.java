@@ -13,6 +13,11 @@ import com.github.ant2.exceedvote.view.Scene;
 import com.github.ant2.ui.activity.ActivityView;
 import com.github.ant2.ui.view.HintView;
 
+/**
+ * The view for Project Selection Activity
+ * 
+ * @author dtinth
+ */
 public class ProjectSelectionActivityView extends ActivityView {
 
 	/** */
@@ -20,6 +25,12 @@ public class ProjectSelectionActivityView extends ActivityView {
 	private JPanel grid;
 	private JButton backButton;
 
+	/**
+	 * Constructs a new ProjectSelectionActivityView
+	 * 
+	 * @param title
+	 *            the title of the dialog
+	 */
 	public ProjectSelectionActivityView(String title) {
 		JPanel panel = new JPanel(new GridBagLayout());
 		panel.add(new HintView(">", "Please select a project..."),
@@ -34,12 +45,24 @@ public class ProjectSelectionActivityView extends ActivityView {
 		backButton = scene.addFooterButton("Go Back");
 	}
 
+	/**
+	 * Adds a project button to this view.
+	 * 
+	 * @param name
+	 *            the text to display on the button
+	 * @return the button
+	 */
 	public ProjectButton addButton(String name) {
 		ProjectButton button = new ProjectButton(name);
 		grid.add(button);
 		return button;
 	}
 
+	/**
+	 * Returns the back button.
+	 * 
+	 * @return the back button
+	 */
 	public JButton getBackButton() {
 		return backButton;
 	}

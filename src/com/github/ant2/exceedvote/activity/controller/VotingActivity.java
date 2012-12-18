@@ -12,10 +12,15 @@ import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.ui.activity.Activity;
 import com.github.ant2.ui.activity.Fx;
 
+/**
+ * The Activity for voting by voter.
+ * 
+ * @author dtinth
+ */
 public class VotingActivity extends
 		AbstractExceedVoteActivity<VotingActivityView> {
 
-	public class ProjectVoteViewController {
+	private class ProjectVoteViewController {
 
 		private ProjectVoteView view;
 		private Project project;
@@ -61,6 +66,16 @@ public class VotingActivity extends
 
 	private List<ProjectVoteViewController> voteViewControllers = new LinkedList<ProjectVoteViewController>();
 
+	/**
+	 * Constructs a new VotingActivity
+	 * 
+	 * @param previous
+	 *            the previous activity
+	 * @param process
+	 *            the process to control
+	 * @param view
+	 *            the view to control
+	 */
 	public VotingActivity(Activity previous, VotingProcess process,
 			VotingActivityView view) {
 		super(previous, view);

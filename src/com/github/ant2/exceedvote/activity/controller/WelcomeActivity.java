@@ -9,11 +9,24 @@ import com.github.ant2.exceedvote.activity.view.WelcomeActivityView;
 import com.github.ant2.exceedvote.model.process.Context;
 import com.github.ant2.ui.activity.Fx;
 
+/**
+ * The welcome activity that is displayed when the voter logs in to eXceed Vote.
+ * 
+ * @author dtinth
+ */
 public class WelcomeActivity extends
 		AbstractExceedVoteActivity<WelcomeActivityView> {
 
 	private Context context;
 
+	/**
+	 * Constructs a new WelcomeActivity.
+	 * 
+	 * @param context
+	 *            the context
+	 * @param view
+	 *            the view to control
+	 */
 	public WelcomeActivity(Context context, WelcomeActivityView view) {
 		super(null, view);
 		this.context = context;

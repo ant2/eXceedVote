@@ -11,6 +11,12 @@ import java.awt.Graphics2D;
  */
 public interface Painter {
 
+	/**
+	 * Paints itself into the graphics.
+	 * 
+	 * @param g
+	 *            the graphics to paint into.
+	 */
 	void paint(Graphics2D g);
 
 }

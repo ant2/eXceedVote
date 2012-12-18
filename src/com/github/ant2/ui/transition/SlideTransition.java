@@ -17,11 +17,21 @@ public class SlideTransition implements Transition {
 	 * @author dtinth
 	 */
 	public static enum Direction {
-		RIGHT(-1, 0, 1, 0), LEFT(1, 0, -1, 0);
-		public final double x1;
-		public final double y1;
-		public final double x2;
-		public final double y2;
+
+		/**
+		 * Slide from right.
+		 */
+		RIGHT(-1, 0, 1, 0),
+
+		/**
+		 * Slide from left.
+		 */
+		LEFT(1, 0, -1, 0);
+
+		private final double x1;
+		private final double y1;
+		private final double x2;
+		private final double y2;
 
 		private Direction(double x1, double y1, double x2, double y2) {
 			this.x1 = x1;
