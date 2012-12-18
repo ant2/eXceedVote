@@ -2,7 +2,6 @@ package com.github.ant2.exceedvote.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -34,23 +33,6 @@ public class LoginWindow extends JFrame {
 	private JPasswordField pwdPassword;
 	private JButton btnLogin;
 	private JButton btnReset;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					LoginWindow frame = new LoginWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame and add components.
@@ -120,22 +102,45 @@ public class LoginWindow extends JFrame {
 		panel_1.add(btnReset);
 	}
 
+	/**
+	 * Returns the username text field.
+	 * 
+	 * @return username text field
+	 */
 	public JTextField getUsernameField() {
 		return txtUsername;
 	}
 
+	/**
+	 * Returns the password text field.
+	 * 
+	 * @return password text field
+	 */
 	public JPasswordField getPasswordField() {
 		return pwdPassword;
 	}
 
+	/**
+	 * Returns the login button.
+	 * 
+	 * @return login button
+	 */
 	public JButton getLoginButton() {
 		return btnLogin;
 	}
 
+	/**
+	 * Returns the reset button.
+	 * 
+	 * @return reset button
+	 */
 	public JButton getResetButton() {
 		return btnReset;
 	}
 
+	/**
+	 * Show the error message dialog on the screen.
+	 */
 	public void showLoginError() {
 		JOptionPane.showMessageDialog(this, "Invalid username or password.",
 				"Login failure.", JOptionPane.ERROR_MESSAGE);

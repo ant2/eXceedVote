@@ -93,14 +93,29 @@ public class EditProjectWindow extends JFrame {
 		panel.add(saveButton);
 	}
 
+	/**
+	 * Returns the project name text field.
+	 * 
+	 * @return project name text field
+	 */
 	public JTextField getProjectNameTextField() {
 		return projectNameTextField;
 	}
 
+	/**
+	 * Returns the delete button.
+	 * 
+	 * @return delete button
+	 */
 	public JButton getDeleteButton() {
 		return deleteButton;
 	}
 
+	/**
+	 * Returns the save button.
+	 * 
+	 * @return save button
+	 */
 	public JButton getSaveButton() {
 		return saveButton;
 	}

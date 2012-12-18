@@ -92,14 +92,29 @@ public class EditCriteriaWindow extends JFrame {
 		panel.add(btnSave);
 	}
 
+	/**
+	 * Returns the delete button.
+	 * 
+	 * @return the delete button
+	 */
 	public JButton getDeleteButton() {
 		return btnDelete;
 	}
 
+	/**
+	 * Returns the save button.
+	 * 
+	 * @return save button
+	 */
 	public JButton getSaveButton() {
 		return btnSave;
 	}
 
+	/**
+	 * Returns the name text field.
+	 * 
+	 * @return name text field
+	 */
 	public JTextField getNameField() {
 		return txtCriteriaName;
 	}
