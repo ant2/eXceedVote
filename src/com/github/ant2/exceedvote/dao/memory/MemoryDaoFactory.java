@@ -28,7 +28,7 @@ import com.github.ant2.exceedvote.model.domain.Voter;
 public class MemoryDaoFactory implements DaoFactory {
 
 	private static Logger logger = LogManager.getLogger(MemoryDaoFactory.class);
-
+	
 	protected EventDao eventDao;
 	protected VoterDao voterDao;
 	protected CriterionDao criterionDao;

@@ -7,6 +7,9 @@ import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ListModel;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 import com.github.ant2.exceedvote.model.process.admin.EventManagerProcess;
 import com.github.ant2.exceedvote.model.process.admin.SelectEventProcess;
@@ -23,6 +26,9 @@ public class SelectEventController {
 	private SelectEventWindow view;
 	private List<VoteEvent> events;
 	private Runnable logoutAction;
+	
+	private static Logger logger = LogManager
+			.getLogger(SelectEventController.class);
 
 	public SelectEventController(SelectEventProcess process,
 			SelectEventWindow view) {
@@ -50,7 +56,7 @@ public class SelectEventController {
 		view.getNewEventButton().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("new event button pressed");
+				logger.error("Not implemented");
 			}
 		});
 	}
