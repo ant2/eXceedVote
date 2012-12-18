@@ -55,6 +55,7 @@ public class JPADaoFactory implements DaoFactory {
 			return em.find(beanType, id);
 		}
 
+		@SuppressWarnings("unchecked")
 		public List<T> findAll() {
 			return em.createQuery("SELECT x FROM " + className + " x")
 					.getResultList();
@@ -73,6 +74,7 @@ public class JPADaoFactory implements DaoFactory {
 			super(beanType, className);
 		}
 
+		@SuppressWarnings("unchecked")
 		public List<T> findAllByEvent(VoteEvent event) {
 			return em
 					.createQuery(
@@ -129,6 +131,7 @@ public class JPADaoFactory implements DaoFactory {
 		}
 
 		@Override
+		@SuppressWarnings("unchecked")
 		public List<Ballot> findAllByVoterAndCriterion(Voter voter,
 				Criterion criterion) {
 			return em
@@ -141,6 +144,7 @@ public class JPADaoFactory implements DaoFactory {
 		}
 
 		@Override
+		@SuppressWarnings("unchecked")
 		public List<Ballot> findAllByEvent(VoteEvent event) {
 			return em
 					.createQuery(

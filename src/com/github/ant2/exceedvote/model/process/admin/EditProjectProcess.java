@@ -19,7 +19,7 @@ public class EditProjectProcess extends ChangeObservable {
 	public EditProjectProcess(DaoFactory df, Project criterion) {
 		this.df = df;
 		project = criterion;
-		dao = df.getProjectDao();
+		dao = this.df.getProjectDao();
 	}
 
 	public void setName(String name) {

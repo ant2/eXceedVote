@@ -24,8 +24,8 @@ public class MainController {
 
 	public MainController(Context context, MainView mainView) {
 		this.context = context;
-		voter = context.getVoter();
-		event = context.getEvent();
+		voter = this.context.getVoter();
+		event = this.context.getEvent();
 		view = mainView;
 		panelController = new ActivitiesController(mainView.getMainPanel());
 		addListener();
