@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import com.github.ant2.exceedvote.util.UIUtility;
 
 /**
- * A scene is a component with a title at the top and anything at the middle.
- * It may also have a footer button.
+ * A scene is a component with a title at the top and anything at the middle. It
+ * may also have a footer button.
  * 
  * @author dtinth
  */

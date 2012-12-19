@@ -20,6 +20,7 @@ import com.github.ant2.exceedvote.util.ChangeObserver;
 import com.github.ant2.exceedvote.view.admin.EditCriteriaWindow;
 import com.github.ant2.exceedvote.view.admin.EditProjectWindow;
 import com.github.ant2.exceedvote.view.admin.ManageEventWindow;
+import com.github.ant2.exceedvote.view.admin.ManageVoterWindow;
 import com.github.ant2.exceedvote.view.admin.ViewResultWindow;
 
 /**
@@ -112,7 +113,9 @@ public class EventManagerController implements ChangeObserver {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				ManageVoterProcess subprocess = process.manageVoters();
-				subprocess.editVoter(new Voter());
+				ManageVoterWindow window = new ManageVoterWindow();
+				ManageVoterController controller = new ManageVoterController(subprocess, window);
+				controller.run();
 			}
 		});
 	}

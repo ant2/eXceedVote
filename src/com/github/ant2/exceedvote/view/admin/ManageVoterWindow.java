@@ -20,6 +20,10 @@ public class ManageVoterWindow {
 
 	private JFrame frmManageVoter;
 	private JTable table;
+	private JButton btnClose;
+	private JButton btnDelete;
+	private JButton btnEdit;
+	private JButton btnAdd;
 
 	/**
 	 * Create the application.
@@ -64,17 +68,45 @@ public class ManageVoterWindow {
 			}
 		));
 		
-		JButton btnAdd = new JButton("Add");
+		btnAdd = new JButton("Add");
 		frmManageVoter.getContentPane().add(btnAdd, "4, 2");
 		
-		JButton btnEdit = new JButton("Edit");
+		btnEdit = new JButton("Edit");
 		frmManageVoter.getContentPane().add(btnEdit, "4, 3");
 		
-		JButton btnDelete = new JButton("Delete");
+		btnDelete = new JButton("Delete");
 		frmManageVoter.getContentPane().add(btnDelete, "4, 4");
 		
-		JButton btnClose = new JButton("Close");
+		btnClose = new JButton("Close");
 		frmManageVoter.getContentPane().add(btnClose, "4, 6, 2, 1, right, default");
+	}
+	
+	public void setVisible(boolean visible) {
+		frmManageVoter.setVisible(visible);
+	}
+
+	public JButton getCloseButton() {
+		return btnClose;
+	}
+	
+	public JButton getAddButton() {
+		return btnAdd;
+	}
+	
+	public JButton getEditButton() {
+		return btnEdit;
+	}
+	
+	public JButton getDeleteButton() {
+		return btnDelete;
+	}
+
+	public void dispose() {
+		frmManageVoter.dispose();
+	}
+	
+	public JTable getTable() {
+		return table;
 	}
 
 }

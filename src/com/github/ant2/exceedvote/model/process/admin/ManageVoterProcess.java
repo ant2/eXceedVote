@@ -59,4 +59,14 @@ public class ManageVoterProcess {
 	public ManageVoterProcess manageVoters() {
 		return new ManageVoterProcess(df, event);
 	}
+
+	/**
+	 * Removes a Voter.
+	 * 
+	 * @param voter
+	 *            the Voter to remove
+	 */
+	public void removeVoter(Voter voter) {
+		voterDao.remove(voter);
+	}
 }

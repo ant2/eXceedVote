@@ -56,4 +56,6 @@ public interface VoterDao {
 	 */
 	Voter findByUser(User u);
 
+	void remove(Voter voter);
+
 }

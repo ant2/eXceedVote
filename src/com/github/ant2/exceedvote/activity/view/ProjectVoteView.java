@@ -12,7 +12,7 @@ import com.github.ant2.exceedvote.util.UIUtility;
 
 /**
  * A view that represents a single voting component, with [+] and [-] button.
- *
+ * 
  * @author dtinth
  */
 public class ProjectVoteView extends JPanel {
@@ -48,7 +48,9 @@ public class ProjectVoteView extends JPanel {
 
 	/**
 	 * Sets the text on the count label.
-	 * @param text the text to set
+	 * 
+	 * @param text
+	 *            the text to set
 	 */
 	public void setCountLabelText(String text) {
 		countLabel.setText(text);
@@ -56,7 +58,9 @@ public class ProjectVoteView extends JPanel {
 
 	/**
 	 * Sets the text on the name label.
-	 * @param text the text to set
+	 * 
+	 * @param text
+	 *            the text to set
 	 */
 	public void setNameLabelText(String text) {
 		nameLabel.setText(text);
@@ -64,6 +68,7 @@ public class ProjectVoteView extends JPanel {
 
 	/**
 	 * Returns the add button.
+	 * 
 	 * @return the add button
 	 */
 	public JButton getAddButton() {
@@ -72,6 +77,7 @@ public class ProjectVoteView extends JPanel {
 
 	/**
 	 * Returns the subtract button.
+	 * 
 	 * @return the subtract button
 	 */
 	public JButton getSubtractButton() {

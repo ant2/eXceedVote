@@ -4,7 +4,7 @@ import java.awt.Color;
 
 /**
  * Theme color class.
- *
+ * 
  * @author dtinth
  */
 public class ThemeColor {
