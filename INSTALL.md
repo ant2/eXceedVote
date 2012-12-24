@@ -18,5 +18,6 @@ The required libraries are already included in `dist` folder. The main applicati
 
 <table>
     <tr><td>eclipselink.jar     <td>EclipseLink JPA Implementation
-    <tr><td>forms-1.3.0.jar     <td>FormLayout
+    <tr><td>forms-1.3.0.jar     <td>[JGoodies FormLayout](http://www.jgoodies.com/freeware/libraries/forms/)
+    <tr><td>guava-13.0.1.jar
 </table>
