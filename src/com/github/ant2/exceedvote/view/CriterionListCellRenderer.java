@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
+import com.github.ant2.exceedvote.model.process.CriterionInfo;
+
 /**
  * A list cell render for criterion list. It displays as a big text with some
  * circle in front indicating the selection.
@@ -37,18 +39,20 @@ public class CriterionListCellRenderer extends JLabel implements
 	@Override
 	public Component getListCellRendererComponent(JList list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus) {
-		setText("<html><b>" + value + "</b>");
+		CriterionInfo info = (CriterionInfo) value;
+		setText("<html><b>" + info.getCriterion().getName() + "</b>"
+				+ (info.isVoted() ? " <font color=\"#999999\">[✔voted]</font>" : ""));
 		setEnabled(list.isEnabled());
-		setSelected(isSelected);
+		setSelected(isSelected, info.isVoted());
 
 		return this;
 	}
 
-	private void setSelected(boolean selected) {
+	private void setSelected(boolean selected, boolean isVoted) {
 		this.selected = selected;
 		if (!selected) {
 			setBackground(new Color(0xffffff));
-			setForeground(new Color(0x000000));
+			setForeground(isVoted ? new Color(0x555555) : new Color(0x000000));
 		} else {
 			setBackground(new Color(0x000000));
 			setForeground(new Color(0xffffff));

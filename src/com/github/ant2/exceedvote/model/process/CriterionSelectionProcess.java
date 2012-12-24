@@ -1,11 +1,13 @@
 package com.github.ant2.exceedvote.model.process;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.github.ant2.exceedvote.dao.DaoFactory;
+import com.github.ant2.exceedvote.model.domain.Ballot;
 import com.github.ant2.exceedvote.model.domain.Criterion;
 import com.github.ant2.exceedvote.model.domain.VoteEvent;
 
@@ -24,7 +26,7 @@ public class CriterionSelectionProcess {
 
 	private DaoFactory df;
 
-	private List<Criterion> criteria;
+	private List<CriterionInfo> criteria;
 
 	/**
 	 * @param context
@@ -41,10 +43,27 @@ public class CriterionSelectionProcess {
 	 * 
 	 * @return the list of criteria
 	 */
-	public List<Criterion> getAllCriteria() {
+	public List<CriterionInfo> getAllCriteria() {
 		if (criteria == null) {
 			logger.debug("Getting all criteria.");
-			criteria = df.getCriterionDao().findAllByEvent(event);
+			List<CriterionInfo> info = new ArrayList<CriterionInfo>();
+			for (final Criterion c : df.getCriterionDao().findAllByEvent(event)) {
+				List<Ballot> ballots = df.getBallotDao().findAllByVoterAndCriterion(context.getVoter(), c);
+				final boolean isVoted = ballots.size() > 0;
+				info.add(new CriterionInfo() {
+					
+					@Override
+					public boolean isVoted() {
+						return isVoted;
+					}
+					
+					@Override
+					public Criterion getCriterion() {
+						return c;
+					}
+				});
+			}
+			criteria = info;
 		} else {
 			logger.debug("Already got all criteria.");
 		}

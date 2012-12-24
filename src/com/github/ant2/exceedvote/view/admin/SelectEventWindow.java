@@ -53,7 +53,6 @@ public class SelectEventWindow extends JFrame {
 
 		list.setSelectedIndex(0);
 		list.setBackground(Color.WHITE);
-		list.setCellRenderer(new CriterionListCellRenderer());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		JPanel eventListPanal = UIUtility.createStepPanel(

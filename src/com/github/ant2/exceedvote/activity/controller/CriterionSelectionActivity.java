@@ -2,6 +2,7 @@ package com.github.ant2.exceedvote.activity.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.AbstractListModel;
@@ -10,6 +11,7 @@ import javax.swing.ListModel;
 import com.github.ant2.exceedvote.activity.view.CriterionSelectionActivityView;
 import com.github.ant2.exceedvote.activity.view.VotingActivityView;
 import com.github.ant2.exceedvote.model.domain.Criterion;
+import com.github.ant2.exceedvote.model.process.CriterionInfo;
 import com.github.ant2.exceedvote.model.process.CriterionSelectionProcess;
 import com.github.ant2.exceedvote.model.process.VotingProcess;
 import com.github.ant2.ui.activity.Activity;
@@ -41,7 +43,7 @@ public class CriterionSelectionActivity extends
 	}
 
 	private CriterionSelectionProcess process;
-	private List<Criterion> criteria;
+	private List<CriterionInfo> criteria = new ArrayList<CriterionInfo>();
 
 	/**
 	 * Constructs a new CriterionSelectionActivity
@@ -73,7 +75,8 @@ public class CriterionSelectionActivity extends
 	private void goContinue() {
 		int selectedIndex = view.getList().getSelectedIndex();
 		if (selectedIndex < 0) return;
-		Criterion criterion = criteria.get(selectedIndex);
+		CriterionInfo criterionInfo = criteria.get(selectedIndex);
+		Criterion criterion = criterionInfo.getCriterion();
 		VotingProcess process = this.process.createVotingProcess(criterion);
 		VotingActivityView view = new VotingActivityView();
 		VotingActivity activity = new VotingActivity(this, process, view);

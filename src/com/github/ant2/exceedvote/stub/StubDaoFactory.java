@@ -28,14 +28,14 @@ public class StubDaoFactory extends MemoryDaoFactory {
 	public final VoteEvent EVENT = new VoteEvent();
 
 	{
-		EVENT.setName("Test Event");
+		EVENT.setName("eXceed Camp 2013");
 		EVENT.setStartTime(CalendarUtil.createCalendar(0));
 		EVENT.setFinishTime(CalendarUtil.createCalendar(300));
 		EVENT.setAnnouncementTime(CalendarUtil.createCalendar(400));
 	}
 
 	/** Stub voter #1 */
-	public final Voter V1 = EVENT.createVoter("Voter 1", "001");
+	public final Voter V1 = EVENT.createVoter("Demo Voter", "001");
 
 	/** Stub voter #2 */
 	public final Voter V2 = EVENT.createVoter("Voter 2", "002");
@@ -44,28 +44,28 @@ public class StubDaoFactory extends MemoryDaoFactory {
 	public final Commissioner COM1 = EVENT.createCommissioner("Commissioner 1");
 
 	/** Stub criterion #1 */
-	public final Criterion C1 = EVENT.createCriterion("Criterion 1");
+	public final Criterion C1 = EVENT.createCriterion("Usability Award");
 
 	/** Stub criterion #2 */
-	public final Criterion C2 = EVENT.createCriterion("Criterion 2");
+	public final Criterion C2 = EVENT.createCriterion("Usefulness Award");
 
 	/** Stub criterion #3 */
-	public final Criterion C3 = EVENT.createCriterion("Criterion 3");
+	public final Criterion C3 = EVENT.createCriterion("Creativity Award");
 
 	/** Stub project #1 */
-	public final Project P1 = EVENT.createProject("Project 1");
+	public final Project P1 = EVENT.createProject("eXceed Olympics");
 
 	/** Stub project #2 */
-	public final Project P2 = EVENT.createProject("Project 2");
+	public final Project P2 = EVENT.createProject("Panda Conspiracy");
 
 	/** Stub project #3 */
-	public final Project P3 = EVENT.createProject("Project 3");
+	public final Project P3 = EVENT.createProject("Integer Overfloweth");
 
 	/** Stub project #4 */
-	public final Project P4 = EVENT.createProject("Project 4");
+	public final Project P4 = EVENT.createProject("Auto Drama Creator");
 
 	/** Stub user #1 for voter #1 */
-	public final User U1 = new User("voter1", "pass");
+	public final User U1 = new User("demouser", "pass");
 	
 	/** Stub user #2 for voter #2 */
 	public final User U2 = new User("voter2", "pass");
