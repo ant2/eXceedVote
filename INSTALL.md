@@ -7,10 +7,25 @@ How to Install and Run eXceedVote
 Example
 -------
 
-For example, you installed JAR files into the directory named `exceed`, to run eXceedVote, you can type:
+For example, on Windows, you installed JAR files into the directory named `d:/exceed`, to run eXceedVote, you can type:
 
-    java -cp "exceed/*" com.github.ant2.exceedvote.ExceedVoteMain
+    java -cp "d:/exceed/*;" com.github.ant2.exceedvote.ExceedVoteMain
 
+On Mac and Linux:
+
+    java -cp "/home/user/exceed/*" com.github.ant2.exceedvote.ExceedVoteMain
+
+Demo Username and Password
+--------------------------
+Since this releases uses an internal database that will not be persisted across runs,
+here are the username and passwords (they are hardcoded):
+
+<table>
+    <tr><th>Username        <th>Password        <th>Role
+    <tr><td>demouser        <td>pass            <td>Voter
+    <tr><td>voter2          <td>pass            <td>Voter
+    <tr><td>com1            <td>pass            <td>Commissioner
+</table>
 
 Required Libraries
 ------------------
